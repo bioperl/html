@@ -1,0 +1,101 @@
+<title>vsns-bcd-perl-guts: Bioperl-guts: pSW (Protein smith-waterman) checked in</title>
+<h1>Bioperl-guts: pSW (Protein smith-waterman) checked in</h1>
+Ewan Birney (<i>birney@sanger.ac.uk</i>)<br>
+<i>Wed, 23 Sep 1998 13:55:49 +0100 (BST)</i>
+<p>
+<hr>
+<!-- body="start" -->
+The module Bio::Tools::pSW has been checked into the cvs<br>
+system. <br>
+<p>
+To use it you need to install the C 'engine' which is in<br>
+Bio::Compile::SW. At the moment the root level Makefile<br>
+does not install this (it doesn't work at all for me so... ;)).<br>
+This is problem is biggest outstanding problem for this <br>
+module. <br>
+<p>
+You can install yourself by cd'ing into Bio/Compile/SW, perl Makefile.PL,<br>
+make,make install.<br>
+<p>
+The engine goes into bp_sw:: namespace in perl.<br>
+<p>
+At the moment all pSW can do is produce a 'pretty' alignment into<br>
+a file. Here is an example script <br>
+<p>
+#!/usr/local/bin/perl<br>
+<p>
+use Bio::Seq;<br>
+use Bio::Tools::pSW;<br>
+<p>
+<p>
+$seq1 = Bio::Seq-&gt;new ( '-file' =&gt; 'road.pep');<br>
+$seq2 = Bio::Seq-&gt;new ( '-file' =&gt; 'roac.pep');<br>
+<p>
+$factory = new Bio::Tools::pSW(); # default values<br>
+<p>
+$factory-&gt;align_and_show($seq1,$seq2,STDOUT);<br>
+<p>
+<p>
+<p>
+Soon(ish) it will build Bio::SimpleAlign objects and Bio::UnivAlign<br>
+Objects. <br>
+<p>
+<p>
+The output of the above script is:<br>
+<p><pre>
+ProteinSW Matrix calculation: [ 126000] Cells 99%<br>
+roa1_drome  22    DSITEPEHMRKLFIGGLDYRTTDENLKAHFEKWGNIVDVVVMKDPRTKR <br>
+                  D+  EPE++RK+F+GGL   TTD+ ++  + ++G I D++VM+DP TKR <br>
+Q22037      14    DASLEPENLRKIFVGGLTSNTTDDLMREFYSQFGEITDIIVMRDPTTKR <br>
+<p>
+<p>
+roa1_drome  71    SRGFGFITYSHSSMIDEAQKSRPHKIDGRVVEPKRAVPRQDIDSPNAGA <br>
+                  SRGFGF+T+S  + +D A K RPH IDG+ V+PKRAVPR D +   +   <br>
+Q22037      63    SRGFGFVTFSGKTEVDAAMKQRPHIIDGKTVDPKRAVPRDDKNRSESNV <br>
+<p>
+<p>
+roa1_drome  120   TVKKLFVGALKDDHDEQSIRDYFQHFGNIVDINIVIDKETGKKRGFAFV <br>
+                  + K+L+V  +++DH E  + +YF  +G +    I++DK T K RGF FV <br>
+Q22037      112   STKRLYVSGVREDHTEDMLTEYFTKYGTVTKSEIILDKATQKPRGFGFV <br>
+<p>
+<p>
+roa1_drome  169   EFDDYDPVDKVVLQKQHQLNGKMVDVKKALPKQNDQQGGGGGRGGPGGR <br>
+                   FDD+D VD+ VLQK H +NG   DV+K L K  D+            R <br>
+Q22037      161   TFDDHDSVDQCVLQKSHMVNGHRCDVRKGLSK--DEMSKAQMNRDRETR <br>
+<p>
+<p>
+roa1_drome  218   AGGNRGNMGGGNYGNQNGGGNWNNGGNNWGNNR-GGNDNWGNNSFGGGG <br>
+                   G +R    GG  G   GGG W       G    GG    G   +GG   <br>
+Q22037      208   GGRSRDGQRGGYNGGGGGGGGWGGPAQRGGPGAYGGPGGGGQGGYGGDY <br>
+<p>
+<p>
+roa1_drome  266   GGGGGY--GGGNNSWGNNNPWDNGNGGGNFGGGGNNWNNGGNDFGGYQQ <br>
+                  GGG G   GGG   WG       G G G  GGGG     G       QQ <br>
+Q22037      257   GGGWGQQGGGGQGGWGGPQQQQGGGGWGQQGGGGQGGWGGPQQ---QQQ <br>
+<p>
+<p>
+roa1_drome  313   NYGGGPQRGGGNFNNNRMQPYQGGGGFKAGGGNQGNYGGNNQGF      <br>
+                     GGPQ+GGG          QGG G ++G     +  G N+ +      <br>
+Q22037      303   GGWGGPQQGGGGGGWGGQGQQQGGWGGQSGAQQWAHAQGGNRNY      <br>
+</pre>
+<p>
+<p>
+<p>
+Ewan Birney<br>
+&lt;birney@sanger.ac.uk&gt;<br>
+<a href="http://www.sanger.ac.uk/Users/birney/">http://www.sanger.ac.uk/Users/birney/</a><br>
+<p>
+=========== Bioperl Project Mailing List Message Footer =======<br>
+Project URL: <a href="http://bio.perl.org">http://bio.perl.org</a><br>
+For info about how to (un)subscribe, where messages are archived, etc:<br>
+<a href="http://www.techfak.uni-bielefeld.de/bcd/Perl/Bio/vsns-bcd-perl-guts.html">http://www.techfak.uni-bielefeld.de/bcd/Perl/Bio/vsns-bcd-perl-guts.html</a><br>
+====================================================================<br>
+<!-- body="end" -->
+<hr>
+<p>
+<ul>
+<!-- next="start" -->
+<li> <b>Next message:</b> <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/9809/0072.html">Ewan Birney: "Bioperl-guts: Tentative movements towards a 'releaseable' system"</a>
+<li> <b>Previous message:</b> <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/9809/0070.html">Steve A. Chervitz: "Bioperl-guts: Re: bug/misunderstanding in Blast.pm"</a>
+<!-- nextthread="start" -->
+</ul>
