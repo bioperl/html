@@ -3,7 +3,9 @@
 <HEAD>
 <META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
 
-<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+<META name="keywords" content="perl, biology, bioinformatics, bioperl,
+computational biology, perl modules, object-oriented programming, 3D
+structure, macromolecule, requirements">
 
 <TITLE>bio.perl.org - Structure Requirements</TITLE>
 
@@ -17,7 +19,7 @@
 </h2>
 
 <h2>
-Preliminary requirements list for a Structure object
+Preliminary Requirements for a Structure Object
 </h2>
 
 <a href="http://bio.perl.org">Bioperl</a> |
@@ -27,7 +29,9 @@ Preliminary requirements list for a Structure object
 
 <hr>
 
-This is an initial listing. It is not necessarily complete. Think of
+This is an initial listing of requirements for a software component or
+set of components to represent biological macromolecular 3D
+structural information.  It is not necessarily complete. Think of
 this is a rough set of use-cases for biomolecular structure
 information, which should be considered when designing a structure
 object.
@@ -90,7 +94,9 @@ only (no hydrogens, no waters).
 <p>
 <li>Molecular coverage: at a minimum, support protein and nucleic acid crystallograpic and NMR
   structures and their heterogens. Multi-chain and multi-model (NMR) structures
- should also be supported.
+ should also be supported. The focus here is on <b>macro</b>molecular
+  structure, but small molecule structures should be supported to the
+  extent that they interact with biological macromolecules.
 <p>
 <li>Theoretical structural models: Obtain quality factors and other
 relevant modeling statistics. This will depend on the modeling
@@ -127,7 +133,7 @@ the structure and region of the structure on which the model is based.
   For example, given an atom, determine what residue and what molecule
   (chain) it is in.
 <p>
-<li>Display/select atoms or residues based on physical-chemical
+<li>Obtain atoms or residues based on physical-chemical
 properties: acidic, basic, polar, non-polar amino acids, spcific types
 of residues or atoms (e.g., oxygen, glycine),  hydrogen
 bonds, disulfide bonds, etc.
@@ -173,7 +179,7 @@ specified atom or residue.
 <li>Spatial calculations: solvent accessible surface, volume, cavities,
 etc. 
 <p>
-<li>Display/calculate the axes of secondary structural elements.
+<li>Determine the axes of secondary structural elements.
 <p>
 <li>Given sequence alignment, compute optimal structure superposition
 (produce a rotation/translation matrix and/or RMSD).
@@ -209,7 +215,7 @@ representation).
 <li> Specify and generate subsections of the structure given a
   subsequence (range of integer positions as well as a sequence object).
 <p>
-<li>Display/select an arbitrary set of residues on a structure.
+<li>Obtain an arbitrary set of residues on a structure.
 
 </ol>
 
