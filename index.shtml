@@ -1,0 +1,392 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Main page</TITLE>
+
+<!--
+<LINK REL=STYLESHEET TYPE="text/css" 
+ HREF="http://bioperl.org/bioperl-doc.css"
+ TITLE="Bioperl Documentation Style">
+-->
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>
+<a href="http://bio.perl.org/">bio.perl.org</a>
+</h2>
+</center>
+
+</font><TABLE BORDER=0><TR>
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+
+    <!--#include virtual="/_sidebar.html" -->
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
+</TD>
+
+
+</font><TD ALIGN=LEFT VALIGN=TOP><font face="Arial, Helvetica, sans-serif" color="#000080">
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+</font><TABLE BORDER=0 CELLPADDING=3><font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<B>
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<a href="/About/">About the bioperl project</a></font></B>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<b>The Bioperl Project</b> is an international association of developers of public
+domain <a href="http://www.perl.com/">Perl</a> tools for computational
+molecular biology. 
+<p>
+<b>bio.perl.org</b> provides an online resource for modules,
+scripts, and web links for developers of Perl-based software 
+for life science research. We can also provide web, FTP and CVS
+space for individuals and organizations wishing to distribute or
+otherwise make available standalone scripts & code.
+
+            <p><a href="/cgi-bin/fom"><b>Frequently Asked Questions (FAQ)</b></a>. 
+            <p>
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<a href="About/"><b>More...</b></a></font>
+<p>
+</TD>
+</TR>
+
+
+<TR>
+          <TD ALIGN=LEFT BGCOLOR="#dadada" height="21"> <B> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
+            <a href="/News/">News</a></font></B> </TD>
+</TR>
+
+<TR>
+          <TD>
+            <p><font size=-1>[Jan - Feb 2000]</font></p>
+            <p><ul>
+	    <li>SteveC <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-announce/0001/0001.html">steps down</a> as BioPerl chief coordinator. Ewan Birney will be taking over.
+	    <li>Ewan talks about the <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/0001/0019.html">current state</a> of BioPerl.
+	    <li><a href="http://biojava.org">biojava.org</a> is starting to take off, real code is available via anonymous CVS at <a href="http://cvs.biojava.org">cvs.biojava.org</a> and the <a href="http://biojava.org/pipermail/biojava-l/">mailing list</a> is generating good discussions.
+	    <li>BioPerl code via anonymous CVS available at <a href="http://cvs.bioperl.org">cvs.bioperl.org</a>
+            </ul>
+            <p>
+<font face="Arial, Helvetica, sans-serif" >
+<a href="News/"><b>More...</b></a>
+</font>
+<p>
+</TD>
+</TR>
+
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<B><a href="/Participants/">Participants</a></B></font>
+</TD>
+</TR>
+
+
+<TR>
+<TD ALIGN=LEFT VALIGN=TOP>
+Meet the people using perl for real world applications and learn about their research interests and
+current projects.
+<p>
+<font face="Arial, Helvetica, sans-serif" >
+<a href="Participants/"><b>More...</b></a>
+</font>
+<p>
+</TD>
+</TR>
+
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080"><B>Getting Started</B></font>
+<BR>
+</TD>
+</TR>
+
+<TR>
+<TD>
+Just learning about <a href="http://www.perl.com">perl</a> and/or
+computational biology? <p>
+<ul>
+<li>Read Lincoln Stein's article, <b>
+<a href="GetStarted/tpj_ls_bio.html">"How Perl Saved the Human Genome 
+Project"</a></b>
+<li>Join a 
+<a href="http://bio.perl.org/MailList.html">Bioperl mailing list</a>
+<li>Read the <a href="http://www.tpj.com">The Perl Journal</a>
+<li>Visit <a href="http://www.perl.com">perl.com</a> or 
+<a href="http://www.perl.org">The Perl Institute</a>
+<li>Find a local <a href="http://www.pm.org">users group</a>
+<li>The <a href="http://www.bitsjournal.com">BITS Online Journal</a> tackles bioinformatics from
+    an information technology (IT) perspective.
+<li>The International Society for Computational Biology (<a href="http://iscb.org">iscb.org</a>)
+</ul>
+
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080"><B>
+<a href="/MailList.html">Mailing Lists</a></B></font>
+<BR>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+There are several mailing lists aimed at developers
+and interested parties.
+<p>
+<font face="Arial, Helvetica, sans-serif" >
+<a href="MailList.html"><b>More...</b></a>
+</font>
+ 
+          </TD></TR></font>
+
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<B><a href="/UserInfo/">Developers only</a></B></font>
+<BR>
+</TD>
+</TR>
+
+<tr>
+<td>
+Documentation and information for people with accounts on <b>bio.perl.org<b>
+            <p> <font face="Arial, Helvetica, sans-serif" > <a href="UserInfo/"><b>More...</b></a> 
+              </font>
+            <p>&nbsp; 
+            </b></b></td>
+</tr>
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<B><a href="/Thanks.html">Contributors & sponsors</a></B></font>
+<BR>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+<P>People and organizations we need to thank
+<p>
+<font face="Arial, Helvetica, sans-serif" >
+<a href="Thanks.html"><b>More...</b></a>
+</font>
+</TD>
+</TR>
+
+<!spacer >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+
+<! 2nd column >
+<TD VALIGN=TOP><TABLE BORDER=0 CELLPADDING=3>
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<B>
+<a href="Projects/">Projects</a>
+</B></font>
+</TD>
+</TR>
+
+<TR>
+<TD>
+ <P>We are now working from a central version-controlled code repository and have a <a href="http://bio.perl.org/bioperl-bugs/">web-based bug-tracking system</a> on this machine. There are a number of ongoing bioperl projects.
+<ul>
+<li><a href="/Projects/Sequence/reimpl.html">Seq.pm module rewrite proposal</a>
+<li><a href="/Projects/overview.html">Bioperl design philosophy and project(s) overview</a>
+<li><a href="/Projects/">Current Project List</a>
+<li><a href="/Core/status.html">Current Coding/Development Status</a>
+<li><a href="Projects/modules.html">Registered module list</a>
+<li>The development source tree is <a href="ftp://bio.perl.org/pub/SRC/">mirrored on our FTP Server</a> (updated twice daily). This tree is our in-progress code so feel free to browse but use at your own risk.  
+</ul>
+<p>
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<a href="/Projects/"><b>More...</b></a></font>
+<p>
+</TD>
+</TR>
+
+<TR>
+          <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (0.05.1)</a></B></font> 
+          </TD>
+</TR>
+
+<tr>
+          <td> Each official release passes our internal tests. We are committed 
+            to promptly fixing any bugs in the 0.05.1 release and making patched 
+            releases available. Bioperl releases are also mirrored by the Comprehensive 
+            Perl Archive Network (CPAN). CPAN links and info can be found at <a href="http://www.perl.com"> 
+            www.perl.com</a>. 
+            <p>
+
+<p>
+<font face="Arial, Helvetica, sans-serif" >
+<a href="Core/Latest/"><b>More...</b></a>
+</font>
+</td>
+</tr>
+
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080"><B><a href="/ScriptCentral">Script Central</a></B></font>
+
+</TD>
+</TR>
+
+<TR>
+<TD>
+We are looking to archive, mirror or provide pointers to any and all biology-related
+perl code that is freely available for download. If you have developed a utility
+or module that you think may be useful to others, please consider placing it in
+the public domain on your site or ours. Help advance our field! 
+<p>
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<a href="/ScriptCentral/"><b>More...</b></a></font>
+<p>
+</TD>
+</TR>
+
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<B>
+<a href="Related.html">Related sites & projects</a>
+</B></font>
+<BR>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+A number of web sites feature Perl-based tools for
+bioinformatics. Some of these are in the process of being subsumed by
+bio.perl.org. If you know of additional sites that should be listed
+here, send mail to  
+<a href="mailto:dag@sonsorol.org">dag@sonsorol.org</a>.
+<p>
+<a href="Related.html"><b>More...</b></a>
+</TD>
+</TR>
+
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080"><B>
+Getting Together</B></font>
+<BR>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+<b><a href="/bioperl-99/">The first official Bioperl workshop</a></b> was
+held in Heidelberg Germany on August 5th 1999 conjunction with
+ISMB'99. Check out some <a href="/bioperl-99/pictures.html">pictures</a>.
+<p>
+Bioperl people have been traditionally spotted at the following meetings:
+<ul>
+<li><a href="http://ismb00.sdsc.edu/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
+<li><a href="http://cbcg.lbl.gov/OiB99/">Objects in Bioinformatics (OiB)</a>. Previous
+OiB meetings: <a href="http://www.ebi.ac.uk/oib98">OiB98</a>, <a href="http://industry.ebi.ac.uk/~alan/Meeting/OiB.html">OiB97</a>
+</ul>
+<p>
+</TD>
+</TR>
+
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<B>Volunteers needed</B></font>
+<BR>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+Bioperl is run by <a href="Participants/">volunteers</a> from all over the world, with
+many types of backgrounds. Any contributions of Perl code, html,
+documentation writing or code testing are very welcome. We are
+specifically looking for people to do the following jobs (they
+should not take more than 1-2 hours a week). 
+<ul>
+<li><a href="/cgi-bin/fom">FAQ</a> maintainers
+<li>Cookbook documentation writers
+<li><a href="Related.html">Related sites</a> manager
+</ul>
+Currently these responsibilities are being shared by the core
+group and we feel that they can be easy, small projects for 
+people looking to contribute to bioperl.
+</TD>
+</TR>
+
+
+
+<! bottom spacer, col 2 >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+
+
+</font></TABLE>
+
+</TD>
+</TR>
+</TABLE>
+
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date: 2000-03-31 00:11:26 $</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id: index.shtml,v 1.1 2000-03-31 00:11:26 dag Exp $ -->
+<! ### STOP CVS REVISION >
+
+</BODY>
+</HTML>
+
+
+
