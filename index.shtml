@@ -55,9 +55,9 @@
 
 <TR>
 <TD>
-<b>The Bioperl Project</b> is an international association of developers of open source <a href="http://www.perl.com/">Perl</a> tools for bioinformatics, genomics and life science research. 
+Officially organized in 1995 and existing informally for several years prior, <b>The Bioperl Project</b> is an international association of <a href="/Core/Latest/AUTHORS">developers</a> of open source <a href="http://www.perl.com/">Perl</a> tools for bioinformatics, genomics and life science research. 
 <p>
-We work closely with our friends and colleagues at <a href="http://biojava.org">biojava.org</a>, <a href="http://biopython.org">biopython.org</a>, <a href="http://bioxml.org">bioxml.org</a> and <a href="http://biocorba.org">biocorba.org</a>. . 
+Facilitated by the <a href="http://open-bio.org">Open Bioinformatics Foundation</a> we work closely with our friends and colleagues across many projects including <a href="http://biojava.org">biojava.org</a>, <a href="http://biopython.org">biopython.org</a>, <a href="http://biodas.org">DAS</a>, <a href="http://bioruby.org">bioruby.org</a>, <a href="http://biocorba.org">biocorba.org</a>, <a href="http://ensembl.org">ENSEMBL</a> and <a href="http://www.emboss.org">EMBOSS</a>. 
 <p>
 The Bioperl server provides an online resource for modules,
 scripts, and web links for developers of Perl-based software 
@@ -69,7 +69,7 @@ otherwise make freely available standalone scripts & code.
 <ul>
 <li><a href="/Core/bptutorial.html">BioPerl 1.0 Tutorial</a>
 <li><a href="http://www.pasteur.fr/recherche/unites/sis/formation/bioperl/">Pasteur Institute Bioperl Course</a>
-<li><a href="http://doc.bioperl.org/bioperl-1.0/">BioPerl 1.0 Documentation</a>
+<li><a href="http://doc.bioperl.org/releases/bioperl-1.0/">BioPerl 1.0 Documentation</a>
 <li>Anonymous CVS (<a href="http://cvs.bioperl.org">cvs.bioperl.org</a>)
 <li>All source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
 </ul>
@@ -320,11 +320,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2002-03-18 17:14:19 $</p>
+<p><p align=right>Last Modified: $Date: 2002-03-18 17:41:54 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.46 2002-03-18 17:14:19 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.47 2002-03-18 17:41:54 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
