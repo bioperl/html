@@ -91,7 +91,7 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[May / June 2001]</font></p>
 	  <p>
 	  <ul>
-	  <li>We need people to help <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005796.html">test the 0.7.1 release code</a> on as many operating systems as possible.
+	  <li>We need people to help <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005796.html">test the 0.7.1 release code</a> on as many operating systems as possible. Pending bugs holding up the 0.7.1 release are tracked in <a href="http://www.bioperl.org/wiki/html/BioPerl/071BugList.html">this Wiki page</a>.
 	  <p>
 	  <li>bioperl.org server has switched to <a href="http://www.openssh.org">OpenSSH</a>. This message <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005795.html">explains</a> why users may see key related error messages.
 	  <p>
@@ -317,11 +317,11 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-06-11 18:48:55 $</p>
+<p><p align=right>Last Modified: $Date: 2001-06-11 18:51:05 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.28 2001-06-11 18:48:55 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.29 2001-06-11 18:51:05 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
