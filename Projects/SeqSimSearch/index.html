@@ -128,7 +128,7 @@ of each high scoring segment pair for this hit.
    </ul>
 </ul>
 </ul>
-Currently the Blast module inherits from <a href="http://bio.perl.org/Core/POD/Tools/SeqAnal.html">Bio::Tools::SeqAnal.pm</a>, which
+Currently the Blast module inherits from <a href="/Core/POD/Bio/Tools/SeqAnal.html">Bio::Tools::SeqAnal.pm</a>, which
 is a base class for generic sequence analysis. This encapsulates mainly
 the meta-data part of sequence similarity searches, and probably should
 be renamed/replaced by generic sequence similarity searching class.
@@ -144,7 +144,7 @@ we envisage are
 <li>Bio::Tools::SeqSimSearch::Factory - This would be the generic
 place for running and parsing similarity search analysis. It would
 produce objects that implement the Bio::Tools::SeqSimSearch::HitList
-interface.  Currently the <a href="http://bio.perl.org/Core/POD/Tools/Blast.html">Bio::Tools::Blast.pm</a> module has this functionality for
+interface.  Currently the <a href="/Core/POD/Bio/Tools/Blast.html">Bio::Tools::Blast.pm</a> module has this functionality for
 Blast.
 <p>
 <li>Bio::Tools::SeqSimSearch::HitList - This would be the generic
@@ -152,14 +152,14 @@ class of a single sequence similarity search, including meta data and
 list of objects that implemented the Bio::Tools::SeqSimSearch::Hit
 interface. The meta data should be able to
 coordinate with a larger scale workflow framework when (if) it is
-written.  Currently the <a href="http://bio.perl.org/Core/POD/Tools/Blast.html">Bio::Tools::Blast.pm</a> module provides this
+written.  Currently the <a href="/Core/POD/Bio/Tools/Blast.html">Bio::Tools::Blast.pm</a> module provides this
 class.
 <p>
 <li>Bio::Tools::SeqSimSearch::Hit - This would be the generic
 class of a single hit of the query to a sequence in the database.
 These objects would provide different scores that could occur for this
 hit and potentially a list of alignments (which can be none). Currently
-the <a href="http://bio.perl.org/Core/POD/Tools/Blast/Sbjct.html">Bio::Tools::Blast::Sbjct.pm</a> module provides this class.
+the <a href="/Core/POD/Bio/Tools/Blast/Sbjct.html">Bio::Tools::Blast::Sbjct.pm</a> module provides this class.
 <p>
 </ul>
 
