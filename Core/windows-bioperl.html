@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+                               
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Installing Bioperl 0.7 on Windows NT 4.0 running ActivePerl 5.6</title>
+    
+</head>
+ <body bgcolor="#ffffff">
+<big><b> Installing Bioperl 0.7 on Windows NT 4.0 running ActivePerl 5.6</b></big>
+      &nbsp; <br>
+<br>
+     Last modified:<tt>$Id$</tt><br>
+<br>
+<big>Author</big><br>
+     Jurgen Pletinckx<br>
+<br>
+<big> Disclaimer&nbsp; </big><br>
+     I could play the part of a bio-informatician and of a perl programmer
+ on  TV. However,I'm not intimately familiar with either WinNT or Bioperl.
+ Also,  I haven't actually used bioperl on this machine (or much at all)
+at  the time  of this writing. &nbsp; Caveat emptor.&nbsp; <br>
+<br>
+<big> Tools</big>&nbsp; <br>
+     Most perl modules are distributed tarred and gzipped, so you will need 
+ a  program that can handle compressed files. WinZip (<a href="www.winzip.com">
+     www.winzip.com</a>) works nicely for me. You will also need a make utility. 
+  Nmake seems to be the tool of choice, and is freely available (<a href="http://download.microsoft.com/download/vc15/Patch/1.52/W95/EN- US/Nmake15.exe">
+     http://download.microsoft.com/download/vc15/Patch/1.52/W95/EN-  US/Nmake15.exe</a>
+     ). Executing this self-extracting program generates the files  <b>readme.txt</b>
+     , <b>nmake.err</b> and <b>nmake.exe</b>. You can copy <b>nmake.exe </b>
+   and  <b>nmake.err</b> to a directory on your path, such as <tt>C:\WINNT\system32\</tt>
+     , or you can copy these two files into the directories from which you
+ wil  install bioperl and its dependencies. To verify which directories constitute 
+  your path, you can open a command prompt (a "DOS-box") from the start menu, 
+  and use the command 'path'. Don't close that window yet, we will need it.&nbsp; 
+  <br>
+<big><br>
+</big><big>Installing ActivePerl&nbsp;</big><br>
+     A more or less up-to-date version of Perl for Windows is going to be 
+necessary.    The current release is perl 5.6 (build 623). Perl 5.005 should 
+be fine;  5.004 will lack part of the functionality. If somehow your NT has 
+Perl 5.003  or earlier installed, all bets are off. A Perl installation is 
+freely available   from ActiveState (<a href="http://www.activestate.com/Products/ActivePerl/Download.html">
+     http://www.activestate.com/Products/ActivePerl/Download.html</a>. I
+used   <a href="http://www.activestate.com/download/ActivePerl/Windows/5.6/ActivePerl-5.6.0.623- MSWin32-x86-multi-thread.msi,">
+     http://www.activestate.com/download/ActivePerl/Windows/5.6/ActivePerl-5.6.0.623- 
+   MSWin32-x86-multi-thread.msi,</a> but this link is likely to change in 
+the  near  future). You will need Windows Installer 1.1 to use this binary 
+file.  (<a href="http://www.activestate.com/download/contrib/Microsoft/NT/InstMsi.exe">
+     http://www.activestate.com/download/contrib/Microsoft/NT/InstMsi.exe</a>
+    )  If this tool is installed, doubleclicking on the .msi file you downloaded
+   will start the installation process. I chose a full installation (including
+   examples, docs and scripting), and elected to have my path modified and
+ a  .pl file association created. For some reason, the setup program never
+ asked  for a path, but installed to <tt>E:\Perl</tt>; your mileage may vary.
+ Note that the only entry in you Start Menu is a shortcut to the (lovely)
+documentation.&nbsp;  <br>
+<big><br>
+</big><big>Dependencies for Bioperl&nbsp; </big><br>
+     A full list is provided in <a href="http://bioperl.org/Core/external.shtml">
+    http://bioperl.org/Core/external.shtml</a>, as well as in <a href="http://bioperl.org/Core/POD/bptutorial.html">
+    http://bioperl.org/Core/POD/bptutorial.html</a>.&nbsp; <br>
+<b><small><br>
+</small>External packages&nbsp;</b><br>
+    I&nbsp; haven't tried to install the external packages (AceDB, Blast, 
+Clustalw,   Tcoffee), or the XS based modules from <b>bioperl-ext</b>.&nbsp; 
+<br>
+<b><br>
+    Perl modules</b>&nbsp; <br>
+    The remaining dependencies are perl modules. The dependencies page mentioned 
+  <b>Bundle::Bioperl</b>, but I found it quick and easy to install the modules 
+ one  by one. Some of these (<b>LWP</b> and its dependencies, and <b>XML::Parser</b>
+   ) are included  in the ActivePerl installation. This also implies you
+shouldn't  worry about  'x<b>pat</b>'. Most of the remaining prerequisites
+can be installed  using PPM, the  Perl Package Manager. (When you installed
+ActivePerl, you  also installed the full documentation for perl and the ActiveState
+additions.  The paragraphs  on PPM are worthwhile. Basically, PPM is CPAN.pm
+for Windows.)  <br>
+<br>
+   The following  supposes your NT is connected to the Net.&nbsp; Start PPM 
+ by typing '<tt>ppm</tt>'  at the command prompt (but doubleclicking <tt>
+ Perl\bin\ppm.pl</tt>   works as well).  This gets you the '<tt>PPM&gt;</tt>
+  ' prompt. You can now issue the following&nbsp; commands: <br>
+<br>
+<tt>install File-Temp <br>
+   install IO-String <br>
+   install IO-stringy<br>
+    install XML-Writer&nbsp;</tt><br>
+<br>
+    You will be asked to confirm each install command.&nbsp; <br>
+<br>
+  Two final modules don't have an ActiveState port at the time of this writing.&nbsp;
+ However, as both are pure perl modules, it is easy to install the CPAN versions.
+ &nbsp; <br>
+<br>
+<b>libxml</b><br>
+   Download <a href="http://www.cpan.org/modules/by-module/XML/libxml-perl-0.07.tar.gz">
+  http://www.cpan.org/modules/by-module/XML/libxml-perl-0.07.tar.gz</a>.&nbsp;
+ (You might verify whether there is a more recent version using <a href="http://search.cpan.org">
+  http://search.cpan.org</a>).&nbsp; Extract this archive to a temporary
+directory.  At a command prompt, change&nbsp; directories to the location
+where you expanded  the archive, and issue the&nbsp; following commands:
+<br>
+<br>
+<tt>perl Makefile.pl<br>
+   nmake <br>
+  nmake test </tt><br>
+<br>
+  (This will generate a warning 'uninitialised variable', but&nbsp; will
+result&nbsp;  in 'All tests successful'.) &nbsp;&nbsp; <br>
+<br>
+<b> XML::Node</b>&nbsp;<br>
+   Download <a href="http://www.cpan.org/modules/by-module/XML/CHANG-LIU/XML-Node-  0.10.tar.gz">
+  http://www.cpan.org/modules/by-module/XML/CHANG-LIU/XML-Node-&nbsp; 0.10.tar.gz</a>
+  .&nbsp; (You might verify whether there is a more recent version&nbsp;
+using  <a href="http://search.cpan.org">http://search.cpan.org</a>).&nbsp;
+Extract  this archive to a temporary directory. (The distribution contains&nbsp;
+a  file <b>XML::Node.sgml</b>, which you will not be able to extract. You
+can  safely&nbsp; ignore that, as long as the other files are extracted.&nbsp;
+ At a command prompt,&nbsp; change directories to the location where you
+expanded  the archive, and issue&nbsp; the following commands: <br>
+<br>
+<tt>perl Makefile.pl</tt> &nbsp; (will complain about the missing .sgml file;
+ ignore) <br>
+<tt>nmake nmake test </tt>&nbsp; (should&nbsp; give some output, interspersed 
+ with 'ok1', 'ok2' and 'ok3')&nbsp; <br>
+<tt>nmake install&nbsp; </tt><br>
+<br>
+<big> Bioperl-0.7&nbsp; </big><br>
+  You can find the latest release at <a href="http://bioperl.org/Core/Latest/index.shtml">
+  http://bioperl.org/Core/Latest/index.shtml</a>.&nbsp;  Download either
+the  tar.gz file or the .zip file, and expand to a temporary&nbsp;  directory.
+ At a command prompt, change directories to the location where&nbsp;  you
+expanded the archive, and issue the following commands: <br>
+<tt><br>
+</tt><tt>perl Makefile.pl</tt> &nbsp; <br>
+<blockquote> This warns that Bio::DB::Ace is going to be useless without additional
+external &nbsp; modules. It also generates the mysterious message <tt>'Generated
+sub tests. go&nbsp; make show_tests to see available subtests</tt>' to stderr.
+Nmake show_tests does&nbsp; little for me, though.&nbsp; <br>
+  </blockquote>
+  <tt>Nmake</tt><br>
+  <blockquote>This will simply set up the directory &nbsp; structure for testing
+and installing. </blockquote>
+    <tt><br>
+  Nmake test </tt><br>
+    <blockquote>This will generate &nbsp; lots of output, mostly just of the
+form '<tt>t\AAChange..........ok</tt>'.<br>
+ Highlights &nbsp; include:<br>
+      <ul>
+        <li>skipped tests for Blast</li>
+        <li>problems in <b>File::Temp </b>when testing Bpsilite</li>
+        <li>skipped tests for Clustalw, with an URL</li>
+        <li>(possibly) skipped tests for DB, if the test script finds your 
+connection to the Net is down or too slow. </li>
+        <li>unidentified values and failed tests for GDB</li>
+        <li>an exception and failed tests&nbsp; for Index</li>
+        <li>skipped tests for SearchDist, StandAloneBlast and Tcoffee. &nbsp; 
+(skipped tests are due to external programs not being installed.) </li>
+      </ul>
+  And&nbsp; the final summary on my machine is: <br>
+      <tt><br>
+ Failed 2/60 test scripts, 96.67% okay.&nbsp; 16/953 subtests failed, 98.32% 
+okay. 24 subtests skipped.&nbsp; </tt><br>
+      <br>
+ Unfortunately,&nbsp; nmake does not exit graciously at all: <br>
+      <tt><br>
+ NMAKE : fatal error U1077: 'C:\WINNT\system32\cmd.exe' &nbsp; : return code 
+'0xff' </tt></blockquote>
+      <tt><br>
+ Nmake install</tt><br>
+      <blockquote><br>
+  This will copy the modules to your <tt>perl\site\lib\ </tt>hierarchy, so 
+they are available for inclusion in your scripts. </blockquote>
+        </body>
+        </html>
