@@ -188,7 +188,7 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 <TR>
 <TD ALIGN=LEFT BGCOLOR="#dadada">
 <font face="Arial, Helvetica, sans-serif" color="#000080">
-<B><a href="/Thanks.html">Contributors & sponsors</a></B></font>
+<B><a href="/Thanks.shtml">Contributors & sponsors</a></B></font>
 <BR>
 </TD>
 </TR>
@@ -353,11 +353,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-04-01 22:59:53 $</p>
+<p><p align=right>Last Modified: $Date: 2000-04-02 15:27:58 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.3 2000-04-01 22:59:53 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.4 2000-04-02 15:27:58 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
