@@ -83,6 +83,8 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[August / September 2000]</font></p>
 	  <p>
 	  <ul>
+	  <li><a href="/bosc-2000/pictures.html">Pictures from BOSC'2000 are online</a>. We are working on getting the presentations and proceedings online as well. Send comments, corrections and additional pictures to <a href="mailto:dag@sonsorol.org:">dag@sonsorol.org</a>.
+	  <p>
 	  <li>The Bioperl website is in the process of becoming Wiki-enabled. We hope the collaborative editing and authoring features will keep the website more topical, accurate and up-to-date. To see a Wiki site in action check out the <a href="http://www.ensembl.org/Docs/wiki/html/EnsemblDocs/HomePage.html">EnsemblDocs Wiki</a>. 
 	  <p>
 	  <li>Peter van Heusden is <a href="http://bioperl.org/pipermail/bioperl-l/2000-August/001241.html"> coordinating the release</a> of Bioperl 0.6.2 which is a bug fix
@@ -364,11 +366,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-08-26 18:48:21 $</p>
+<p><p align=right>Last Modified: $Date: 2000-08-27 21:28:35 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.12 2000-08-26 18:48:21 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.13 2000-08-27 21:28:35 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
