@@ -21,8 +21,10 @@
 <TR>
 <TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
 <!########################## SIDEBAR CONTENTS>
-<font face="Arial, Helvetica, sans-serif" size=-1>
+<font face="Arial, Helvetica, sans-serif">
 <a href="/">Home</a>
+<p>
+<a href="/Projects/">Projects</a>
 <p>
 <a href="ftp://bio.perl.org/pub/">FTP Site</a>
 <p>
@@ -35,6 +37,8 @@
 <a href="/bioperl-bugs/">Bug Tracking</a>
 <p>
 <a href="/Participants/">Participants</a>
+<p>
+<a href="/Related.html">Related</a>
 <p>
 <a href="/Thanks.html">Sponsors</a>
 <p>
@@ -69,74 +73,42 @@
 <br>
 <b><center>Where we are. What we have. Where we are going.</center></b>
 
-<p>The bioperl sequence object has been integrated into a general framework developed by Steve Chervitz. The current framework has since expanded and is organized as follows:
+<p>The bioperl sequence object has been integrated into a general
+framework developed by Steve Chervitz. The current framework has since
+expanded and is comprised of <a href="http://bio.perl.org/Projects/modules.html">a set of integrated modules</a>. 
 
-<table border=0>
-<tr>
-<td>
-<pre>
-
-<b>Bio::</b>
- <a href="POD/bioperl.html">bioperl.pod</a>
- <a href="POD/Parse.html">Parse.pm</a>
- <a href="POD/Seq.html">Seq.pm</a>
- <a href="POD/SimpleAlign.html">SimpleAlign.pm</a>
-<b>Bio::Root/</b>
- <a href="POD/Root/Err.html">Err.pm</a>
- <a href="POD/Root/Global.html">Global.pm</a>
- <a href="POD/Root/IOManager.html">IOManager.pm</a>
- <a href="POD/Root/Object.html">Object.pm</a>
- <a href="POD/Root/Utilities.html">Utilities.pm</a>
- <a href="POD/Root/Vector.html">Vector.pm</a>
- <a href="POD/Root/Xref.html">Xref.pm</a>
-<b>Bio::Tools/</b>
- <a href="POD/Tools/Blast.html">Blast.pm</a>
- <a href="POD/Tools/Fasta.html">Fasta.pm</a>
- <a href="POD/Tools/SeqAnal.html">SeqAnal.pm</a>
- <a href="POD/Tools/WWW.html">WWW.pm</a>
- <a href="POD/Tools/pSW.html">pSW.pm</a>
- <a href="POD/Tools/AlignFactory.html">AlignFactory.pm</a>
- <a href="POD/Tools/RestrictionEnzyme.html">RestrictionEnzyme.pm</a>
-<b>Bio::Tools::Blast/</b>
- <a href="POD/Tools/Blast/HSP.html">HSP.pm</a>
- <a href="POD/Tools/Blast/HTML.html">HTML.pm</a>
- <a href="POD/Tools/Blast/Sbjct.html">Sbjct.pm</a>
-<b>Bio::Tools::Blast::Run/</b>
- <a href="POD/Tools/Blast/Run/LocalBlast.html">LocalBlast.pm</a>   
- <a href="POD/Tools/Blast/Run/Webblast.html">Webblast.pm</a>
- postclient.pl
-<b>Bio::Compile/</b>
- <a href="POD/Compile/compile.html">compile.pod</a>   
-<b>Bio::Compile::SW/</b>
-  (<em>C code for various XS extensions</em>)
-</pre>
+<b>Current Efforts</b><br> General housekeeping efforts related to
+moving our code to a common source repository are now largely
+complete. This includes getting bioperl deveopers up to speed
+regarding version control via CVS, building test suites, documention
+repositories and perl module Makefiles. The goal is to be able to
+build "official" bioperl module distributions off of one common source
+tree.
 <p>
-</td>
-<td align=middle valign=middle>
-<b><em>
-Click on module name <br>to view the pod2html<br> translated documentation
-</b></em>
-</td>
-</tr>
-</table>
-
-<b>Current Efforts</b><br>
-General housekeeping efforts related to moving our code to a common source repository are now largely complete. This includes getting bioperl deveopers up to speed regarding version control via CVS, building test suites, documention repositories and perl module Makefiles. The goal is to be able to build "official" bioperl module distributions off of one common source tree.
+We expect to release a preliminary central distribution very shortly
+as we now have all our code building off a central makefile.
 <p>
-We expect to release a preliminary central distribution very shortly as we now have all our code building off
-a central makefile.
-<p>
-<b>Code status & Committments</b><br>
-<b>PreSeq.pm</b> has been replaced by <b>Seq.pm</b> and will become our general flexible and lightweight sequence object. <b>Parse.pm</b> is no longer being used by core bioperl code. <br>
+<b>Code status & Committments</b><br> 
+<b>PreSeq.pm</b> has been
+replaced by <b>Seq.pm</b> and will become our general flexible and
+lightweight sequence object. <b>Parse.pm</b> is no longer being used
+by core bioperl code. <br>
 <p>
 <b>To-do list</b><br>
 <ul>
-<li><b>Bio::SeqFeature</b> and <b>Bio::Entry</b> - The Bio::Entry is the 'heavy weight' sequence object which is more like a representation of a Genbank or EMBL flat file complete with feature table. Ian Korf is working on these objects.
-<li><b>Bio::Structure</b> - A number of people have been talking about a Structure object (probably an object heirarchy). 
-<li><b>Bio::SearchDist</b> - A perl wrapper for Sean Eddy's Extreme Value and Gaussian fitting code (already provided in the bp_sw XS extension). Ewan Birney is working on this.
-<li><b>Bio::Tools::dAlign</b> - DNA alignments like pSW provided in a perl wrapper. Ewan Birney is working on this.  
+<li><b>Bio::SeqFeature</b> and <b>Bio::Entry</b> - The Bio::Entry is
+the 'heavy weight' sequence object which is more like a representation
+of a Genbank or EMBL flat file complete with feature table. Ian Korf
+is working on these objects.  <li><b>Bio::Structure</b> - A number of
+people have been talking about a Structure object (probably an object
+heirarchy).  <li><b>Bio::SearchDist</b> - A perl wrapper for Sean
+Eddy's Extreme Value and Gaussian fitting code (already provided in
+the bp_sw XS extension). Ewan Birney is working on this.
+<li><b>Bio::Tools::dAlign</b> - DNA alignments like pSW provided in a
+perl wrapper. Ewan Birney is working on this.
 </ul>
-Steve Chervits, the bioperl coordinator is maintaining and improving the <b>Bio::Tools::Blast</b> and <b>Bio::Root</b> code.
+Steve Chervits, the bioperl coordinator is maintaining and improving
+the <b>Bio::Tools::Blast</b> and <b>Bio::Root</b> code.
 <p>
 
 <p>
@@ -168,6 +140,10 @@ Steve Chervits, the bioperl coordinator is maintaining and improving the <b>Bio:
 <! ### START CVS DATESTAMP >
 <p><p align=right>Last Modified: $Date$</p>
 <! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
 
 </BODY>
 </HTML>
