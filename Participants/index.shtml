@@ -383,7 +383,7 @@ general programming
 <! ##### BEGIN PERSON #### >
 <tr>
 <td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Name</b></td>
-<td><a name="chrisd">Chris Dagdigian</a>, <a href="mailto"cdagdigian@genetics.com">cdagdigian@genetics.com</a>
+<td><a name="chrisd">Chris Dagdigian</a>, <a href="mailto:cdagdigian@genetics.com">cdagdigian@genetics.com</a>
 </td>
 </tr>
 
@@ -708,20 +708,18 @@ similarity and data visualization among others
 
 <tr>
 <td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Uses perl for</b></td>
-<td>duct taping legacy projects, solutions to lab informatics needs,
-database needs
+<td>dealing with legacy projects, laboratory informatics and database needs
 </td>
 </tr>
 
 <tr>
 <td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Research/work interests</b></td>
-<td>automation of lab processes, systems design, improving sequence
-analysis,bioinformatics data management 
+<td>automation of lab processes, systems design, bioinformatics data management 
 </td>
 
 <tr>
 <td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Bioperl Activity</b></td>
-<td> Bio::CorbaClient, Bio::CorbaServer
+<td> Bio::CorbaClient, Bio::CorbaServe, Bio::DB::UpdateableSeqI
 </td>
 </tr>
 
@@ -796,11 +794,11 @@ biologists
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-04 20:09:53 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-07-03 17:52:44 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.3 2000-05-04 20:09:53 jason Exp $ -->
+    <!-- $Id: index.shtml,v 1.4 2000-07-03 17:52:44 jason Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
