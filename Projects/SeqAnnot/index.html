@@ -76,194 +76,29 @@
 <td>
 <font face="Arial, Helvetica, sans-serif">
 
-Annotations provide most of the value of biological sequences, whereas
-sequences alone are mostly unintelligable. Most analysis will therefore
-lead to the production of annotations on sequences. It is the
-integration of these annotations which a user would usually want
-to access.  Most of these annotations (in particular for DNA sequence)
-refer to regions of the sequence and not the entire sequence. However
-some annotations do refer to all of the sequence.
+There are two main objects involved in annotations. Sequence
+Features (defined as an interface in Bio::SeqFeatureI) and
+Annotations (Bio::Annotation, not defined as an interface yet).
+Sequence features have a location on the sequence, whereas
+Annotations are textual annotations usually associated with
+a particular sequence and not a region.
 <p>
- 
-Annotations are used in the following ways:
+These objects were primarily designed to allow reading and writing
+of EMBL and GenBank sequence entries, without tying them religiously
+to these formats.
 <p>
-<ul>
-<li>Adding new annotations to a sequence,
-<li>Extracting annotations with or without constraints,
-<li>Comparing annotations, in particular on the basis of their location on the sequence.
-</ul>
-
-We are well aware that we don't have a clear view of the scope of this
-project or its requirements. If there are people who can think of
-other use cases or issues that we have left out, please let us know by
-posting to the <a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">main bioperl
-discussion list</a>. This discussion is being coordinated by
-<a href="mailto:birney@sanger.ac.uk">Ewan Birney</a>, who is very happy
-to gather more views on the subject. 
-
+Bio::SeqFeatureI inheriets from Bio::RangeI which defines that
+Ranges have to have a start, an end and a strand, and also provides
+a number of useful helper functions, such as $range->overlaps($otherange)
+which tests for overlap.
 <p>
-Ian Korf implemented a very comprehensive set of Objects for Annotations
-in Bio::GSC::* and recently started a 'SeqFeature' object for bioperl. This
-object influenced this design.
+Bio::SeqFeatureI also defines information to be feature table and 
+GFF compatible. This ensures this object is well mapped to these
+flat file formats.
 <p>
-
-The rest of this page will detail our thinking so far. We have
-suggested a partial solution, but we are not committed to it, as we
-don't feel we have a complete design yet.
-
-<hr>
-We believe that there are three main objects that need to be coordinated
-<ul>
-<li> Sequence object (Bio::Seq should be fine)
-<li> Annotation object 
-<li> Region on a sequence object
-</ul>
-
-The Annotation object should be generic enough to be reused in other areas where
-biological annotation is relevant: for example
-
-<ul>
-<li>Structure
-<li>Genetic Map/Genome interval
-</ul>
-
-In addition we believe that the same pattern which combines Sequence,
-Annotation and Region should also be used in the other contexts, such as
-Structure, Annotation and Region-of-structure. This might be done
-explicitly or it could share a common pattern of interaction rather
-than some formal inheritance or interface definition.
+Annotation objects provide references, comments and database link
+objects, corresponding the similar lines in EMBL/GenBank flat files.
 <p>
-<hr>
-<b>Annotation object</b>
-<p>
-The Annotation object should be able to encapsulate the following
-behaviour:
-<ul>
- <li> A placeholder for a unique id of this annotation (even if it
-is not used),
- <li> It has to have a semantically queriable tag/label (for example, exon
-or active_site). This should be accessible programmatically, ie, not by parsing/guessing
-free text,
- <li> Some sort of free text description that applies to the entire
-annotation and is what a human author can use to pass information onto
-other people. This is not merely a restating of the tag, but for example 
-'This gene is part of the egl-1 pathway' which cannot be sensibly
-represented programatically,
- <li> List of crossrefrence to other resources which are relevant to this
-annotation. For example, a literature reference, or a reference to a
-domain database. These links should <b>not</b> be the entire object, but
-be enough information to retrieve the object from somewhere else,
- <li> An annotation may have logical annotations in sub regions: ie, 
-gene object can have promoter and exon objects.
- <li> A free-for-all hash for any other information that people might
-want to provide with this annotation. Open to abuse, but necessary for
-practical extensibility.
-</ul>
-
-The crossreference functionality seems best handled by a crossreference
-object that holds the minimal amount of information to create the 
-appropiate object. This should coordinate with the DB objects. The
-Xref object in Bio::Root is too general purpose for this problem.
-<p>
-It is unclear whether the semantic label should be the class of
-the object or not: in other words, whether a gene object should inherit 
-from annotation.
-<p>
-At the moment, we tend to believe that this <b>should</b> happen.
-Inheritance seems like the natural way of allowing all annotations
-to have common behaviour that clients can work on, but allowing
-more specific annotations more specific methods. The <b>isa</b>
-functionality is Perl is very easy to use, making it as easy to
-question the class of the object as find a label in the object.
-<p>
-<b>A proposal for the annotation object</b>
-<p>
-The annotation object should be defined as a generic class that is
-then inherited by SequenceAnnotation, StructureAnnotation etc. The
-methods on Annotation should be something like:
-<ul>
-<li> get_sub_annotations - list of sub annotations (@subs = $gene->get_sub_annotations)
-<li> num_sub_annotations - number of sub annotations
-<li> add_sub_annotations - adds a sub annotation
-<li> remove_sub_annotation - removes it
-<li> id - unique identifier for this annotation (optional)
-<li> desc - free text description of the annotation
-<li> xrefs - list of cross references objects (see description of cross objects in DB discussion). 
-<li> region - gets the (generic) region of this annotation (optional - applies to the whole sequence)
-</ul>
-<p>
-We expect SequenceAnnotation to be a specialised form of Annotation, with the following additional
-methods
-<ul>
-<li> get_sub_sequence - returns the subsequence as defined by the region of the annotation (for no regions,
-returns the whole sequence)
-</ul>
-We then expect other features to be specialised forms of SequenceAnnotation, such as Gene, Exon,
-Repeat, Promoter... etc.
- 
-
-
-<hr>
-<b>The sequence region object</b>
-<p>
-We believe that the sequence region object should inherit from a 
-common base class that encapsulates concepts about regions that
-maybe 1,2 or 3D. In particular the following operations should
-be supported
-<ul>
-<li>$a->overlaps($b) - true if a and b have an intersecting region
-<li>$c = $a->intersect($b) - makes a new region which represents the intersection
-<li>$a->contains($b) - true if $b is completely contained by $a
-<li>$a->identical($b) - true if $b->contains($a) = $a->contains($b) = true;
-<li>there maybe more to discover...
-</ul>
-
-The sequence region object should minimally be able to handle the actual interval
-on the sequence and the strandness of it. The following methods seem sensible
-<ul>
-<li>offset - the starting point of the region from the sequence termini (negative means
-from right hand end, as in substr).
-<li>length - length of the region (negative in the right-to-left manner)
-<li>strand_type - '+','-','na' which is not applicable
-<li>We should overload the overlaps/intersect/contains/identical methods so that 
-can have a strand sensitive/insensitive parameter. The default to be strand
-insensitive
-</ul>
-<hr>
-<b>Integration of Sequences, Annotations and Regions</b>
-
-There are a number of different ways to combine these three basic
-pieces of information. Annotations and Regions go naturally together,
-as there is usually a one to one mapping of regions to annotations
-(the sub_annotations provide a finer grained interval on the larger
-annotation).
-<p>
-To combine the three objects we know of two basic strategies:
-<ul>
-<li>The Sequence objects has a list of annotations on it.
-<li>A more specialised object inherits from sequence and has additional
-methods for getting annotations.
-<li>There is a separate object which holds both the sequence
-object and the list of Sequence annotations, provisionally called
-Bio::AnnotatedSeq.
-
-</ul>
-<p>
-we favour the latter option as
-<ul>
-<li>The first two require either having circular references
-to allow both annotations to know about their parent sequences
-and visa-versa or annotations can exist without
-knowing anything about their parent sequence. In the third
-option, annotations hold onto their corresponding sequence,
-and only when all the annotations of a sequence go out of scope
-does the sequence dissappear.
-<li>The third option seems worse as one cannot use an 
-AnnotatedSeq wherever one has a Seq object: however
-we can mimic this by having a composition/delegation pattern
-to allow all the methods in Seq to be present in AnnotatedSeq
-</ul>
-
 
 
 

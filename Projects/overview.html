@@ -73,7 +73,7 @@ color="#000080">Overview of Projects</font>
 </TR>
 
 <tr>
-<td>
+
 
 The Bioperl project is a coordinated effort to collect computational
 methods routinely used in bioinformatics into a set of standard
@@ -93,44 +93,39 @@ in any case.
 <p>
 <p>
 We are currently focused on modules but a long term aim is to coordinate
-scripts as well. A place holder for scripts is at <a href="/ScriptCentral/">Script
-Central</a> on this server.
+scripts as well. A place holder for scripts is at <a href="/ScriptCentral/">Script Central</a> on this server.
 <p>
-This page focuses on the <b>design</b> of modules. The <b>implementation</b> of modules
-is mainly tracked through the <a href="/Core/status.html">
-Status</a> page.
+
+These pages refer to the 0.6 release series. Bioperl has strong
+support for the following areas
+<ul>
+<li><a href="Sequence/">Sequence manipulations</a>
+<li><a href="SeqAnnot/">Sequence annotations and sequence features</a>
+<li><a href="SeqDB/">Sequence Database access</a>
+</ul>
+Bioperl has reasonable support for Sequence Similarity searches, but 
+it is not ideal.
+<ul><li><a href="SeqSimSearch">Sequence Similarity Search</a>
+</ul>
+Bioperl has poor support for sequence alignment, with two modules providing
+partial support for sequence alignments
+<ul>
+<li><a href="SeqAlign">Sequence Alignment</a>
+</ul>
+Finally bioperl has no support for the following features, but many 
+of them have been actively considered at some point
+<ul>
+<li><a href="Structure">Protein Structure</a>
+<li>Mass spec and 2-D gels
+</ul>
 <hr>
-<b>Projects that need immediate attention</b>
+Support for large scale genomic projects is not provided inside
+bioperl, but the Ensembl project 
+(<a href="http://www.ensembl.org">ensembl</a>), which is built on
+top of bioperl provides this.
 <p>
-
-Looking at the defined areas, we feel the following projects deserve early attention.
-Many of them already have some code in the Core modules. 
-People who want to help out are encouraged to do so. The best way
-is to post a message to <a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">bioperl
-discussion list</a>.
-<ul>
-<li> <a href="Sequence">Sequence Data Manipulation</a>
-<li> <a href="SeqSimSearch">Sequence Similarity Search</a>
-<li> <a href="SeqDB">Sequence DB Access</a>
-<li> <a href="SeqAlign">Sequence Alignments</a>
-<li> <a href="SeqAnnot">Sequence Annotation</a>
-</ul>
-The following projects are already being discussed, but are not on the 'most important' list.
-<ul>
-<li> <a href="Structure">Biological 3D Structure</a>
-<li> <a href="XML">Biological XML definitions</a>
-</ul>
-
-If people want to open up a new discussion, feel free. You should post
-to the <a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">main
-bioperl discussion list</a>. If you need web space, just drop a mail to
-<a href="mailto:webmaster@bio.perl.org">the bioperl webmaster</a>.
-
-
-
-
-
-</td>
+Nearly any aspect of bioperl can be improved. Please post comments
+to the <a href="/MailList">Guts list</a>
 </tr>
 
 

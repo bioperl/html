@@ -76,103 +76,30 @@
 <td>
 <font face="Arial, Helvetica, sans-serif">
 
-This page describes the design of an object for a biological sequence 
-and lightweight analyses of sequence data. There is now a proposal to
-<a href="reimpl.html">reimplement</a> this object.
-
-The existing <a href="http://bio.perl.org/Core/POD/Seq.html">Bio::Seq.pm</a>
-module encapsulates data for a single DNA, RNA, or AminoAcid sequence.
-It also handles some of the lightweight sequence analysis tasks.
-A lightweight analysis depends primarily on the sequence information per se 
-and does not rely overly on external resources. The analyses included 
-in Bio::Seq are:
-<ul>
-<li>truncation
-<li>reverse-complement
-<li>translation
-</ul> 
-
-Parsing and output (I/O) is currently handled in the Bio::Seq.pm
-object (as of the 0.04 release). ReadSeq (a C sequence parser written by Don Gilbert) was also
-used to provide an interface to many formats, but this required
-ReadSeq to be installed and new formats to be intergrated into
-ReadSeq. Both these facts meant that some parsing code moved into Perl
-in the Bio::Seq object, which consequently started to fill up with
-parsing code.  Considering the number of formats at large in
-bioinformatics, a better design is to separate the parsing code from
-the sequence object.
-
+Sequence objects in 0.6 release have been reimplemented from the previous
+0.5 and 0.4 series. There are two main types of objects, and, with the new
+architecture rules, these are defined both as interfaces ("I" files) and
+implementations.
 <p>
-
-In the 0.05 releases a new mechanism for handling sequence I/O has been
-established, (SeqIO). Support for each format is handled by dedicated
-modules and only compiled if needed. This provides for better
-encapsulation of the format, a less monolithic Bio::Seq.pm and better
-extensibility. Eventually all the parsing code should be removed from
-Bio::Seq.pm once people get used to using SeqIO.
-<p>
-Current formats supported in Bio::Seq directly (old-style)
+The two objects are:
 <ul>
-<li>Raw
-<li>GenBank
-<li>Fasta
-<li>GCG
+<li>PrimarySeq - the sequence and names, which has the functionality of
+retrieving parts of a sequence and providing both reverse complement and
+translations for DNA sequence.
+<li>Seq - sequences with sequence features and annotation. As well as
+providing access to sequence features, the SeqI interface inheriets from
+the PrimarySeqI interface, meaning that one can use a Seq object anywhere
+one can use a PrimarySeq object. 
 </ul>
-Current formats supported in Bio::SeqIO
-<ul>
-<li>Fasta
-<li>Raw
-<li>EMBL
-</ul>
-<hr>
-<b>Bio::Seq future</b>
+The split between PrimarySeq and Seq seems at first glance quite confusing. 
+Generally most people will use Seq objects nearly all the time. The split
+is far more useful for using Sequences in larger scale projects. Firstly
+it means that people can replace the PrimarySeq object with their own 
+implementation without having to worry about sequence features. Secondly
+it provides a far easier memory management system, without any cycles.
 <p>
-Although more of a implementation issue, we would like to draw attention
-to the fact that Bio::Seq has become a rather large and rehacked module.
-It is the central module for bioperl, and so unsurprisingly the first written,
-and now the most difficult to maintain. 
-<p>
-We think it is sensible to try to move towards reimplementing Bio::Seq in
-a clean rewrite from well defined requirements. To do this we think the
-following steps are required
-<ul>
-<li>A careful description of the requirements of Bio::Seq
-<li>Development of a comprehensive test suite of Bio::Seq functionality that
-we wish to preserve
-<li>A separation of I/O functionality to SeqIO
-<li>A careful reimplementation of Bio::Seq
-</ul>
-<hr>
-<b>Other lightweight analyses provided outside of Bio::Seq</b>
-<p>
-To keep the sequence object simple and maintainable, these sorts of
-analyses should not be provided by the Bio::Seq object itself.
-Current modules that provide such lightweight analyses are located
-in Bio::Tools and are:
-<ul>
-<li>Restriction analysis (Bio::Tools::RestrictionEnzyme.pm)
-<li>Signal sequence identification (Bio::Tools::Sigcleave.pm)
-</ul>
-
-<p>
-<b>Desirable lightweight analyses not yet written</b>
-<p>
-<ul>
-<li>Property analysis (MW, pI, etc.)
-<li>Metric "sliding window" properties (GC-content, hydrophobicity, etc.)
-<li>Codon usage
-<li>Sequence/PCR primers (Tm, primer design, etc.)
-<li>Translation using alternate genetic codes
-<li>Reverse translation
-</ul>
-
-<p>
-These lightweight analyses are small, self-contained projects 
-that are in need of eager developers.
-We invite anyone interested in working on any of these items to post 
-a message to the <a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">bioperl
-discussion list</a>.
-
+For more information about sequence features and annotations please
+read <a href="../SeqAnnot">sequence annotation</a>
 <TR>
 <TD>
 <p>
