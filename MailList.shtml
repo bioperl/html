@@ -29,30 +29,27 @@ bioperl mailing lists
 <!-- INSERT YOUR  CONTENT HERE -->
 
 <p>
-Announcement list: <b><A HREF="mailto:vsns-bcd-perl-announce@lists.uni-bielefeld.de">vsns-bcd-perl-announce@lists.uni-bielefeld.de</a></b>
+Announcement list: <b><A HREF="mailto:bioperl-announce-l@bioperl.org">bioperl-announce-l@bioperl.org</a></b>
 <ul>
 <li>Low volume moderated list, providing announcements of major
-        bioperl releases and upgrades
-<li>Join by sending email to <A HREF="mailto:majordomo@lists.uni-bielefeld.de">majordomo@lists.uni-bielefeld.de</A>, with no subject line,
-and the following message body: <CODE>subscribe vsns-bcd-perl-announce</CODE>
-<li><a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-announce/index.html">Web archive</a>
+        bioperl releases, upgrades & events
+<li>List information page at <a href="http://bioperl.org/mailman/listinfo/bioperl-announce-l">http://bioperl.org/mailman/listinfo/bioperl-announce-l</a>
+<li><a href="http://bioperl.org/pipermail/bioperl-announce-l/">Web archive</a>
 </ul>
 <p>
-Discussion list: <b><A HREF="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">vsns-bcd-perl@lists.uni-bielefeld.de</a></b>
+Discussion list: <b><A HREF="mailto:bioperl-l@bioperl.org">bioperl-l@bioperl.org</a></b>
 <ul>
-<li>Low volume, unmoderated list for discussion of bioperl
-        modules and related topics.
-<li>Join by sending email to <A HREF="mailto:majordomo@lists.uni-bielefeld.de">majordomo@lists.uni-bielefeld.de</A>, with no subject line,
-and the following message body: <CODE>subscribe vsns-bcd-perl</CODE>
-<li><a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/index.html">Web archive</a>
+<li>Unmoderated list for general discussion of bioperl modules, current & future efforts  and related topics. 
+<li>List information page at <a href="http://bioperl.org/mailman/listinfo/bioperl-l">http://bioperl.org/mailman/listinfo/bioperl-l</a>
+
+<li><a href="http://bioperl.org/pipermail/bioperl-l/">Web archive</a>
 </ul>
 <p>
-Technical list: <b><A HREF="mailto:vsns-bcd-perl-guts@lists.uni-bielefeld.de">vsns-bcd-perl-guts@lists.uni-bielefeld.de</a></b>
+Technical list: <b><A HREF="mailto:bioperl-guts-l@bioperl.org">bioperl-guts-l@bioperl.org</a></b>
 <ul>
-<li> Unmoderated list for the Bioperl developers and interested parties. Deals with Bioperl internals & project logistics and may have high traffic from time to time.
-<li>Join by sending email to <A HREF="mailto:majordomo@lists.uni-bielefeld.de">majordomo@lists.uni-bielefeld.de</A>, with no subject line,
-and the following message body: <CODE>subscribe vsns-bcd-perl-guts</CODE>
-<li><a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/index.html">Web archive</a>
+<li> Unmoderated list for the Bioperl developers and interested parties. Primarily of interest for people who want to see the bug reports that come through the jitterbug reporting system.
+<li>List information page at <a href="http://bioperl.org/mailman/listinfo/bioperl-guts-l">http://bioperl.org/mailman/listinfo/bioperl-guts-l</a>
+<li><a href="http://bioperl.org/pipermail/bioperl-guts-l/">Web archive</a>
 </ul>
 
 <p>
@@ -70,11 +67,11 @@ and the following message body: <CODE>subscribe vsns-bcd-perl-guts</CODE>
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-03-31 16:52:09 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-06-28 16:26:09 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: MailList.shtml,v 1.1 2000-03-31 16:52:09 dag Exp $ -->
+    <!-- $Id: MailList.shtml,v 1.2 2000-06-28 16:26:09 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
