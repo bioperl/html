@@ -23,6 +23,27 @@ Project News
 </TR>
 <TD> 
 <!-- INSERT YOUR  CONTENT HERE -->
+	  <p><font size=-1>[July / August / September 2001]</font></p>
+	  <p>
+	  <ul>
+	  <li>The Bioperl 0.9.0 <b>developer</b> release <a href="http://bioperl.org/pipermail/bioperl-l/2001-August/006126.html">is available</a>. Developer releases are not suitable for production use and are intended primarily for people interested in seeing new modules and functionality before they appear in official releases.
+	  <p>
+	  <li>Jason Stajich has <a href="http://bioperl.org/pipermail/bioperl-l/2001-August/006067.html">created a scripts repository</a> and is seeking submissions. The goal is to have more utility and example scripts in our upcoming releases.
+<p>
+	  <li>Nathan Siemers has released a perl-based gene expression package called <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006037.html">Xobjects</a>. 
+<p>
+	  <li>The Open Bioinformatics Foundation <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006028.html">has been awarded</a> a significant hardware grant by Sun Microsystems.
+	  <p>
+	  <li>Ewan Birney is delivering a keynote address and several open-bio people are considering tutorials and presentation proposals for the <a href="http://conferences.ora.com/biocon/cfp.html">O'Reilly Bioinformatics Technology Conference</a> in Feb. 2002.
+	  <p>
+<li>Jason Stajich has issued the <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006026.html">Bioperl BOSC 2001 meeting report</a>. The report outlines our plans and directions for the 0.9.x series and the drive to a stable Bioperl 1.0 release.
+<p>
+<li>Lincoln Stein <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/005979.html">has checked <b>Bio::DB::GFF</b> code into the CVS repository</a>. The system is intended to be a lightweight data access layer for sequence annotations. It will support querying both ACeDB and relational databases. 
+<p>
+<li>Martin Senger is <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/005966.html">looking for comments and suggestions</a> regarding <em>Novella</em>, a "bridge" project aimed at providing easy access to CORBA BSA services.
+<p>
+ </ul>
+<p>
 	  <p><font size=-1>[May / June 2001]</font></p>
 	  <p>
 	  <ul>
@@ -301,11 +322,11 @@ ANNOUNCE: PubMed Monitor (alpha)</a><br>
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2001-07-23 13:27:39 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2001-10-19 15:33:23 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.8 2001-07-23 13:27:39 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.9 2001-10-19 15:33:23 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->

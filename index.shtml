@@ -88,25 +88,15 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[July / August 2001]</font></p>
+	  <p><font size=-1>[October / November 2001]</font></p>
+	  	  <ul>
+	 <li>Have you read the latest Open Bioinformatics Foundation <a href="http://open-bio.org/pipermail/open-bioinformatics-foundation/2001-October/000001.html">newsletter</a>?
+<p>
+	  <li>Bioperl <a href="http://bioperl.org/pipermail/bioperl-l/2001-October/006379.html">class diagrams are available</a> in PDF form.
 	  <p>
-	  <ul>
-	  <li>The Bioperl 0.9.0 <b>developer</b> release <a href="http://bioperl.org/pipermail/bioperl-l/2001-August/006126.html">is available</a>. Developer releases are not suitable for production use and are intended primarily for people interested in seeing new modules and functionality before they appear in official releases.
-	  <p>
-	  <li>Jason Stajich has <a href="http://bioperl.org/pipermail/bioperl-l/2001-August/006067.html">created a scripts repository</a> and is seeking submissions. The goal is to have more utility and example scripts in our upcoming releases.
-<p>
-	  <li>Nathan Siemers has released a perl-based gene expression package called <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006037.html">Xobjects</a>. 
-<p>
-	  <li>The Open Bioinformatics Foundation <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006028.html">has been awarded</a> a significant hardware grant by Sun Microsystems.
-	  <p>
-	  <li>Ewan Birney is delivering a keynote address and several open-bio people are considering tutorials and presentation proposals for the <a href="http://conferences.ora.com/biocon/cfp.html">O'Reilly Bioinformatics Technology Conference</a> in Feb. 2002.
-	  <p>
-<li>Jason Stajich has issued the <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006026.html">Bioperl BOSC 2001 meeting report</a>. The report outlines our plans and directions for the 0.9.x series and the drive to a stable Bioperl 1.0 release.
-<p>
-<li>Lincoln Stein <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/005979.html">has checked <b>Bio::DB::GFF</b> code into the CVS repository</a>. The system is intended to be a lightweight data access layer for sequence annotations. It will support querying both ACeDB and relational databases. 
-<p>
-<li>Martin Senger is <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/005966.html">looking for comments and suggestions</a> regarding <em>Novella</em>, a "bridge" project aimed at providing easy access to CORBA BSA services.
-<p>
+	  <li>(experimental feature) - New PDoc-style documentation for <em>bioperl-live</em> is online at <a href="http:/doc.bioperl.org/bioperl-live/">http://doc.bioperl.org/bioperl-live/</a>. It looks to be far more useful than our traditional pod2html translated documentation pages. Please evaluate and send comments to the bioperl-guts-l list. 
+	  </ul>
+
  </ul>
 	  
 
@@ -195,6 +185,8 @@ perl code that is freely available for download. If you have developed a utility
 or module that you think may be useful to others, please consider placing it in
 the public domain on your site or ours. Help advance our field! 
 <p>
+Jason Stajich has <a href="http://bioperl.org/pipermail/bioperl-l/2001-August/006067.html">created a scripts repository</a> and is seeking submissions. The goal is to have more utility and example scripts in our upcoming releases.
+<p>
 <font face="Arial, Helvetica, sans-serif" color="#000080">
 <a href="/ScriptCentral/"><b>More...</b></a></font>
 <p>
@@ -213,6 +205,28 @@ Getting Together</B></font>
 
 <TR>
 <TD>
+<p>
+<b>Events of interest</b>
+<p>
+Upcoming
+<ul>
+<li>[Jan 2002] O'Reilly <a href="http://conferences.ora.com/biocon/">Bioinformatics Technology Conference</a> in Tuscon, AZ. Ewan Birney is giving a keynote address and various open-bio volunteers will be giving talks and tutorials.
+<p>
+<li>[Aug 2002] 10th Annual Conference on Intelligent Systems for Molecular Biology (<a href="http://www.cs.ualberta.ca/~ismb02/">ISMB'2002</a>), Edmonton Alberta Canada. <br><br> Mark your calendar - ISMB is traditionally the meeting that large numbers of Open-Bio developers and users attend. Continuing the tradition our 3rd Bioinformatics Open Source Conference (BOSC'02) will be an official side-meeting of ISMB'2002. 
+</ul>
+<p>
+Past
+<ul>
+<li>
+[July 2001 - Boston] Objects in Bio- & Chem-Informatics (<a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a>). 
+Previous OiB meetings: <a href="http://cbcg.lbl.gov/OiB99/">OiB99</a>,   <a href="http://www.ebi.ac.uk/oib98">OiB98</a>, <a href="http://industry.ebi.ac.uk/~alan/Meeting/OiB.html">OiB97</a>
+<p>
+<li>[July 2001 - Copenhagen] <a href="http://ismb01.cbs.dtu.dk/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
+<p>
+<li>[August 2001 - Hinxton UK] Joint CSHL/Wellcome Trust <a href="http://nucleus.cshl.org/meetings/hinxtonmeetings.htm">Genome Informatics meeting</a>
+
+</ul>
+<p>
 <b><a href="/bioperl-99/">The first official Bioperl workshop</a></b> was
 held in Heidelberg Germany on August 5th 1999 conjunction with
 ISMB'99. Check out some <a href="/bioperl-99/pictures.html">pictures</a>.
@@ -224,21 +238,6 @@ with other events including the very successful Bioinformatics Open Source Confe
 Pictures from BOSC'2001 are being put online at <a href="http://open-bio.org/bosc2001/bosc2001_pics/">http://open-bio.org/bosc2001/bosc2001_pics/</a>.
 <p>
 
-<p>
-<b>Upcoming events of interest</b>
-<ul>
-<li>[Feb 2002] O'Reilly <a href="http://conferences.ora.com/biocon/cfp.html">Bioinformatics Technology Conference</a> in Tuscon, AZ.
-<p>
-<li>
-[July 2001 - Boston] Objects in Bio- & Chem-Informatics (<a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a>). 
-Previous OiB meetings: <a href="http://cbcg.lbl.gov/OiB99/">OiB99</a>,   <a href="http://www.ebi.ac.uk/oib98">OiB98</a>, <a href="http://industry.ebi.ac.uk/~alan/Meeting/OiB.html">OiB97</a>
-<p>
-<li>[July 2001 - Copenhagen] <a href="http://ismb01.cbs.dtu.dk/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
-<p>
-<li>[August 2001 - Hinxton UK] Joint CSHL/Wellcome Trust <a href="http://nucleus.cshl.org/meetings/hinxtonmeetings.htm">Genome Informatics meeting</a>
-
-</ul>
-<p>
 </TD>
 </TR>
 
@@ -256,16 +255,7 @@ Previous OiB meetings: <a href="http://cbcg.lbl.gov/OiB99/">OiB99</a>,   <a href
 <TD>
 Bioperl is run by volunteers from all over the world, with
 many types of backgrounds. Any contributions of Perl code, html,
-documentation writing or code testing are very welcome. We are
-specifically looking for people to do the following jobs (they
-should not take more than 1-2 hours a week). 
-<ul>
-<li>Open Bio webteam
-<li>Cookbook documentation writers
-</ul>
-Currently these responsibilities are being shared by the core
-group and we feel that they can be easy, small projects for 
-people looking to contribute to bioperl.
+documentation writing or code testing are very welcome. Contact <a href="mailto:volunteer@open-bio.org">volunteer@open-bio.org</a> for more information.
 </TD>
 </TR>
 
@@ -280,7 +270,7 @@ people looking to contribute to bioperl.
 
 <tr>
 <td>
-Documentation and information for people with accounts on <b>bio.perl.org<b>
+Documentation and information for people with accounts on <b>bioperl.org<b>
             <p> <font face="Arial, Helvetica, sans-serif" > <a href="UserInfo/"><b>More...</b></a> 
               </font>
             <p>&nbsp; 
@@ -319,11 +309,11 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-08-16 14:18:15 $</p>
+<p><p align=right>Last Modified: $Date: 2001-10-19 15:33:20 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.36 2001-08-16 14:18:15 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.37 2001-10-19 15:33:20 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
