@@ -48,38 +48,137 @@
 <TR>
 <TD>
 
+This page tells you about how you can use the cvs system in the bioperl set up.
+<p>
+Index
+<ul>
+<li><a href="#reqs">Requirements</a>
+<li><a href="#first">Making a local copy for the first time</a>
+<li><a href="#ex">An example session</a>
+<li><a href="#conf">Conflict resolution</a>
+<li><a href="#comm">Common cvs commands</a>
+</ul>
+<a name=reqs><h2>Requirements</h2></a>
 To use the CVS system you must have
 <ul>
 <li> An account on bio.perl.org
-<li> secure shell (ssh)
+<li> secure shell (ssh) on your own machine
 <li> cvs
 <li> setenv'd CVS_RSH to ssh
 </ul>
+<hr>
+<a name=first><h2>Making a local copy for the first time</h2></a>
 
-To start a repository from scratch, move to a clean area where you expect
+To start a cvs local copy from scratch, move to a clean area where you expect
 to see your working Bio/ directories from, then go
 <pre>
 prompt%cvs -d :ext:birney@bio.perl.org:/home/repository/bioperl checkout Bio
 </pre>
-
+(Obviously you'll substitute the birney for your own name)
+<p>
 This will build the Bio/ tree for you from the CVS system with all the current .pm files
 in it.
 <p>
-<ul>
-<li>cvs update - updates your local copy wrt to the repository (do this first thing when you get in)
-<li>cvs commit - publish your local changes to the repository (do this last thing before you leave!)
-<li>cvs status - see whether files have been changed locally or in the repository
-</ul>
-Do these commands from the Bio directory (inside it). cvs knows where to find the repository due
-to the CVS directories scattered around the place.
+To check out the html tree go
+<pre>
+prompt%cvs -d :ext:birney@bio.perl.org:/home/repository/bioperl checkout html
+</pre>
+To check out only a portion of the html (or Bio) tree you can do it easily, as
+<pre>
+prompt%cvs -d :ext:birney@bio.perl.org:/home/repository/bioperl checkout html/UserInfo
+</pre>
+html/UserInfo is a valid directory in the html tree (where in fact this page lives!)
 <p>
+
+The checkout process produces a copy of the directory structure as real read/write files and
+an additional file in each directory called CVS. The CVS file contains the information about which
+cvs repository this directory comes from and which files in the directory are part of the repository 
+(this way you can clutter you your local copy of the repository with temporary files and it is fine).
+You work in your local copy as if it was the root copy. Once you have made all the changes you want to
+make you go
+<pre>
+cvs commit
+</pre>
+which 'publishes' your changes back to the repository.
+<p>
+<hr>
+<a name=ex><h2>An example session</h2></a>
+So, an example session (once you have set up your local copy) of an entire days/sessions work is
+<ul>
+<li>Wake up, get a cup of coffee, cd into your local copy of the cvs directory and type
+<p>
+<pre>
+cvs update
+</pre>
+which brings your local copy up to date with the repository
+<li>Browse around any of the files that have changed (by other people) that you are interested in 
+<li>Do your work on the local copy. 
+<li>Make sure the local copy is in a sensible state, ie, it at least compiles
+<li>publish your changes by going
+<p>
+<pre>
+cvs commit
+</pre>
+<li>Drop a mail to perl-guts saying what you have done, and go to sleep ;)
+</ul>
+The important thing about cvs is that if you
+<ul>
+<li>Work in the cvs local copy as your primary development area
+<li>use cvs commit and cvs update often
+</ul>
+Then it works really well and it is freaky about how cvs coordinates the work.
+It is much more important that the cvs system <b>is up-to-date</b> than that the latest
+view of the repository works. In other words, if you are in doubt about whether to 
+cvs commit or not, always commit. Other people can always get back to an older version
+of the cvs system using cvs commands.
+<p>
+Notice there is no concept of a <b>lock</b> in the cvs system. Freaky... but it works.
+<hr>
+<a name=conf><h2>Conflict resolution</h2></a>
+
+Somewhere along the line two people will edit the same file in their local directory
+and each person wants to check it in. This is a conflict. This is how cvs deals with it:
+<ul>
+<li> The person to cvs commit first works fine
+<li> The second person gets a conflict warning, and the file is shown in their local directory
+with 
+<pre>
+>>>>>>>
+    some stuff
+<<<<<<<
+    other stuff
+<<<<<<<
+</pre>
+The regions in this file are the regions which are in conflict, and it is up to the second person
+to deal with it.
+<p>
+<li> The second person edits the file (locally) and cvs commits again, producing a clean copy.
+<li> It is very polite for the second person to get in  touch with the first person and explained
+what happened. People should double check the file in any case...
+</ul>
+<hr>
+<a name=comm><h2>Common commands</h2></a>
 
 The structure of all cvs commands are
 <pre>
 cvs ACTION
 </pre>
+
+<ul>
+<li>cvs update - updates your local copy wrt to the repository (do this first thing when you get in)
+<li>cvs commit - publish your local changes to the repository (do this last thing before you leave!)
+<li>cvs status - see whether files have been changed locally or in the repository
+<li>cvs add <b>filename</b> - add file to the repository
+<li>cvs remove <b>filename</b> - remove a file from the repository
+</ul>
+Do these commands from the Bio directory (inside it). cvs knows where to find the repository due
+to the CVS directories scattered around the place.
 <p>
-<b>This page is still under construction. In the meantime Ewan Birney is probably the one to address your CVS questions to.</b>
+
+<p>
+<b>This page is still under construction. In the meantime Ewan Birney 
+<a href=mailto:birney@sanger.ac.uk>birney@sanger.ac.uk</a>
+is probably the one to address your CVS questions to.</b>
 </TD>
 </TR>
 
