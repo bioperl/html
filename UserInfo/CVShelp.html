@@ -237,18 +237,25 @@ You <i>Must</i> have tagged the release you want to make a bug fix to.
 <p>
 Say we want to make a bug fix to 0.04. Here is what we do:
 <ul>
-<li> We make a branch in the repository by going 
+<li><b>Either</b> there is already a bug fix branch at 0.04 <b>or</b>
+you have to make one. If you are going to make one, it is probably best
+to post to guts first and ask people there if there is already one
+built. You can check out the symbolic tags by going cvs log README in
+the top level directory
+<ul>
+<li> To make a branch in the repository if noone else has for this release go
 <pre>
-cvs -d /home/repository/bioperl -r release-0-04-0 -b release-0-04-bug bioperl-live
+cvs -d /home/repository/bioperl rtag -r release-0-04-0 -b release-0-04-bug bioperl-live
 </pre>
+
 This make a branch in the repository at the 0-04 level called release-0-04-bug
+</ul>
 <li> move to a clean area and checkout the release-0-04-bug branch by going
 <pre>
 cvs -d /home/repository/bioperl checkout -r release-0-04-bug bioperl-live
 </pre>
 <li> Now fix the bug, and then behave as in the standard making a release in this directory
 (ie, cvs tagging, and then exporting etc).
-<li> Make sure each release has only one bug branch off it. Don't branch inside a bug branch.
 </ul>
 
 <p>
@@ -258,7 +265,7 @@ To see what tags a file already as in it go
 cvs log README | more
 </pre>
 
-To see what branch you are on, go
+To see what branch the local repository is on, go...
 
 <pre>
 cvs log README | more
