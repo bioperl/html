@@ -55,18 +55,17 @@
 
 <TR>
 <TD>
-<b>The Bioperl Project</b> is an international association of developers of public
-domain <a href="http://www.perl.com/">Perl</a> tools for computational
-molecular biology. 
+<b>The Bioperl Project</b> is an international association of developers of open source <a href="http://www.perl.com/">Perl</a> tools for bioinformatics, genomics and life science research. 
 <p>
-<b>bio.perl.org</b> provides an online resource for modules,
+We work closely with our friends and colleagues at <a href="http://biojava.org">biojava.org</a>, <a href="http://biopython.org">biopython.org</a> and <a href="http://bioxml.org">bioxml.org</a>. 
+<p>
+The Bioperl server provides an online resource for modules,
 scripts, and web links for developers of Perl-based software 
 for life science research. We can also provide web, FTP and CVS
 space for individuals and organizations wishing to distribute or
-otherwise make available standalone scripts & code.
+otherwise make freely available standalone scripts & code.
 
-            <p><a href="/cgi-bin/fom"><b>Frequently Asked Questions (FAQ)</b></a>. 
-            <p>
+<p>
 <font face="Arial, Helvetica, sans-serif" color="#000080">
 <a href="About/"><b>More...</b></a></font>
 <p>
@@ -81,14 +80,17 @@ otherwise make available standalone scripts & code.
 
 <TR>
           <TD>
-            <p><font size=-1>[Jan - Feb 2000]</font></p>
-            <p><ul>
-	    <li>SteveC <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-announce/0001/0001.html">steps down</a> as BioPerl chief coordinator. Ewan Birney will be taking over.
-	    <li>Ewan talks about the <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/0001/0019.html">current state</a> of BioPerl.
-	    <li><a href="http://biojava.org">biojava.org</a> is starting to take off, real code is available via anonymous CVS at <a href="http://cvs.biojava.org">cvs.biojava.org</a> and the <a href="http://biojava.org/pipermail/biojava-l/">mailing list</a> is generating good discussions.
-	    <li>BioPerl code via anonymous CVS available at <a href="http://cvs.bioperl.org">cvs.bioperl.org</a>
-            </ul>
-            <p>
+	  <p><font size=-1>[April 2000]</font></p>
+	  <p>
+	  <ul>
+	  <li>Bioperl .06 Released!<p>
+	  <li>Expect to hear an official announcement sometime soon
+ regarding the Bioinformatics Open Source Conference (BOSC-2000). This
+is our followup meeting to the bioperl-99 event. BOSC-2000 will expand
+in scope to cover all of the various bioperl, biopython, biojava
+and bioxml efforts.
+	  </ul>
+	  <p>
 <font face="Arial, Helvetica, sans-serif" >
 <a href="News/"><b>More...</b></a>
 </font>
@@ -134,7 +136,7 @@ computational biology? <p>
 <a href="GetStarted/tpj_ls_bio.html">"How Perl Saved the Human Genome 
 Project"</a></b>
 <li>Join a 
-<a href="http://bio.perl.org/MailList.html">Bioperl mailing list</a>
+<a href="http://bio.perl.org/MailList.shtml">Bioperl mailing list</a>
 <li>Read the <a href="http://www.tpj.com">The Perl Journal</a>
 <li>Visit <a href="http://www.perl.com">perl.com</a> or 
 <a href="http://www.perl.org">The Perl Institute</a>
@@ -231,12 +233,10 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 <TD>
  <P>We are now working from a central version-controlled code repository and have a <a href="http://bio.perl.org/bioperl-bugs/">web-based bug-tracking system</a> on this machine. There are a number of ongoing bioperl projects.
 <ul>
-<li><a href="/Projects/Sequence/reimpl.html">Seq.pm module rewrite proposal</a>
+<li><a href="Projects/modules.html">Registered module list & documentation</a>
 <li><a href="/Projects/overview.html">Bioperl design philosophy and project(s) overview</a>
-<li><a href="/Projects/">Current Project List</a>
 <li><a href="/Core/status.html">Current Coding/Development Status</a>
-<li><a href="Projects/modules.html">Registered module list</a>
-<li>The development source tree is <a href="ftp://bio.perl.org/pub/SRC/">mirrored on our FTP Server</a> (updated twice daily). This tree is our in-progress code so feel free to browse but use at your own risk.  
+<li>All of our source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
 </ul>
 <p>
 <font face="Arial, Helvetica, sans-serif" color="#000080">
@@ -290,30 +290,6 @@ the public domain on your site or ours. Help advance our field!
 
 <TR>
 <TD ALIGN=LEFT BGCOLOR="#dadada">
-<font face="Arial, Helvetica, sans-serif" color="#000080">
-<B>
-<a href="Related.html">Related sites & projects</a>
-</B></font>
-<BR>
-</TD>
-</TR>
-
-
-<TR>
-<TD>
-A number of web sites feature Perl-based tools for
-bioinformatics. Some of these are in the process of being subsumed by
-bio.perl.org. If you know of additional sites that should be listed
-here, send mail to  
-<a href="mailto:dag@sonsorol.org">dag@sonsorol.org</a>.
-<p>
-<a href="Related.html"><b>More...</b></a>
-</TD>
-</TR>
-
-
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
 <font face="Arial, Helvetica, sans-serif" color="#000080"><B>
 Getting Together</B></font>
 <BR>
@@ -357,7 +333,6 @@ should not take more than 1-2 hours a week).
 <ul>
 <li><a href="/cgi-bin/fom">FAQ</a> maintainers
 <li>Cookbook documentation writers
-<li><a href="Related.html">Related sites</a> manager
 </ul>
 Currently these responsibilities are being shared by the core
 group and we feel that they can be easy, small projects for 
@@ -378,11 +353,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-03-31 00:11:26 $</p>
+<p><p align=right>Last Modified: $Date: 2000-04-01 17:46:43 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.1 2000-03-31 00:11:26 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.2 2000-04-01 17:46:43 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
