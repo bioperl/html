@@ -54,7 +54,7 @@ connectivity is desired.
 File::Temp is used by network accessing modules such as Bio::DB::WebDBSeqI. This is a feature that will appear in Bioperl release 07, it is not needed for bioperl-0.06.2
 <p>
 <b>IO::Scalar & IO::String</b><br>
-IO::Scalar (contained in the "IO-stringy" CPAN perl module) is used only in Bio::Tools::Blast::Run::Webblast.pm<br>
+IO::Scalar (contained in the "IO-Stringy" CPAN perl module) is used only in Bio::Tools::Blast::Run::Webblast.pm<br>
 IO::String (contained in the "IO-String" CPAN perl module) is used in Bio::DB::Genbank and Bio::DB::Swissprot<br> 
 <p>
 <b>LWP::</b><br>
@@ -77,9 +77,9 @@ dependencies which must be present prior to installation:
 The current bioperl-live CVS codebase and future releases of bioperl (after 0.6.2) will include significant XML related functionality. The following external CPAN modules are recommended and may be required for the use of some bioperl modules:<br>
 <ul>
 <li>XML::Parser (<b>note:</b> Requires prior installation of 'xpat' from <a href="http://sourceforge.net/projects/expat/">http://sourceforge.net/projects/expat/</a> )
+<li>libxml-perl
 <li>XML::Writer
 <li>XML::Node
-<li>libxml-perl
 </ul>
 
 <p>
@@ -99,11 +99,11 @@ just want to download directly from CPAN and other source sites to insure the mo
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-12-15 17:16:26 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-12-15 18:44:14 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: external.shtml,v 1.5 2000-12-15 17:16:26 dag Exp $ -->
+    <!-- $Id: external.shtml,v 1.6 2000-12-15 18:44:14 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
