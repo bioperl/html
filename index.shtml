@@ -88,32 +88,15 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[May / June 2001]</font></p>
+	  <p><font size=-1>[July - August 2001]</font></p>
 	  <p>
 	  <ul>
-	  <li>Bioperl-0.7.1 has been <a href="http://bioperl.org/pipermail/bioperl-announce-l/2001-June/000180.html">released</a>
-	  <p>
-	  <li><font color="red">[ <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005853.html">tarball available</a> ] </font>We need people to help <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005796.html">test</a> the <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005853.html">0.7.1 release code</a> on as many operating systems as possible. Pending bugs holding up the 0.7.1 release are tracked in <a href="http://www.bioperl.org/wiki/html/BioPerl/071BugList.html">this Wiki page</a>.
-	  <p>
-	  <li> Jason suggests that <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005842.html">adding Grail functionality</a> would be a good project for new bioperl people who are interested in contributing to the project. Doug Hyatt, author of <a href="http://compbio.ornl.gov/grailexp/">GrailEXP</a> responds with an <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005849.html">offer to help out</a>.
-	  <p>
-	  <li>Heikki has <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005835.html">committed modules</a> for reading and writing PHYLIP (interleaved only) and NEXUS sequence formats.  
-	  <p>
-	  <li>bioperl.org server has switched to <a href="http://www.openssh.org">OpenSSH</a>. This message <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005795.html">explains</a> why users may see key related error messages.
-	  <p>
-	  <li>Heikki Lehvaslaiho has <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005739.html">joined the core group</a>.
-	  <p>
-	  <li>Ewan Birney <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005733.html">got bored on a train ride</a> and used Lincoln Stein's universal DB idea to implement <a href="http://cvs.bioperl.org/cgi-bin/viewcvs/viewcvs.cgi/bioperl-live/Bio/DB/?cvsroot=bioperl">Bio::DB::Universal</a>. The module is an artifical datbase that attempts to delegate to the proper database (web or local) based on the id.
-	  <p>
-	  <li>Jason Stajich <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005698.html">announces roadmap and todo list</a> for BioPerl 0.7.1 and beyond
-	  <p>
-	  <li>Lincoln Stein <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005693.html">cooks up Bio::DB::Fasta</a>  allowing fast indexed access to a directory of Fasta formatted files.
-	  <p>
-	  <li>Mark Wilkinson <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005677.html">has checked</a> the SeqCanvas v2 viewer into <a href="http://cvs.bioperl.org/cgi-bin/viewcvs/viewcvs.cgi/bioperl-gui/Bio/Tk/?cvsroot=bioperl">bioperl-gui</a>
-	  <p>
-	  <li>Jason Stajich has committed an initial Dia UML diagram of Bioperl objects & Heikki Lehvaslaiho has added diagrams for Bio::Variation. Look for them in the bioperl-live repository under <a href="http://cvs.bioperl.org/cgi-bin/viewcvs/viewcvs.cgi/bioperl-live/models/?cvsroot=bioperl">models/</a>.
-<p> 
-	  <li>Ewan Birney uses bioperl-db to implement a <a href="/pipermail/bioperl-l/2001-May/005589.html">caching BioCorba server</a>
+<li>Jason Stajich has issued the <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006026.html">Bioperl BOSC 2001 meeting report</a>. The report outlines our plans and directions for the 0.0.x series and the drive to a stable Bioperl 1.0 release.
+<p>
+<li>Lincoln Stein <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/005979.html">has checked <b>Bio::DB::GFF</b> code into the CVS repository</a>. The system is intended to be a lightweight data access layer for sequence annotations. It will support querying both ACeDB and relational databases. 
+<p>
+<li>Martin Senger is <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/005966.html">looking for comments and suggestions</a> regarding <em>Novella</em>, a "bridge" project aimed at providing easy access to CORBA BSA services.
+<p>
 
 	  </ul>
 	  
@@ -323,11 +306,11 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-06-26 15:17:54 $</p>
+<p><p align=right>Last Modified: $Date: 2001-07-23 13:27:35 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.32 2001-06-26 15:17:54 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.33 2001-07-23 13:27:35 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
