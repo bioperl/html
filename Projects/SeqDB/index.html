@@ -98,12 +98,15 @@ language) amongst sequence databases to let this happen,
 <li> write ability.
 </ul>
 
-This suggests a pretty straight forward design of:
+This suggests a pretty straightforward design of:
 <ul>
 <li>An abstract interface defining the methods that can be used,
-<li>Implementations that inherit from that interface.
+<li>Implementations that inherit from that interface,
+<li>Access to a different database systems such as Web-based
+(NCBI,SRS), flatfile, RDBMs, and ACeDB.
 </ul>
-This strategy is in place for the 0.05 release (due out in March 1999).
+This strategy is in place for the 0.05 release (due out in March 1999)
+with support for Web-based databases initially.
 <hr>
 Although the sequence database issue is relatively straightforward, a more complex
 issue is how to deal with a meta database system of which the sequence database would be
