@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Sequence Objects</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>
+<a href="http://bio.perl.org/">bio.perl.org</a>
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
+<font face="Arial, Helvetica, sans-serif">
+<a href="/">Home</a>
+<p>
+<b>
+<a href="/Projects">Projects</a>
+</b>
+<p>
+<a href="/Projects/modules.html">Docs</a>
+<p>
+<a href="http://bio.perl.org/Core/Latest/">Download</a>
+<p>
+<a href="/News/">News</a>
+<p>
+<a href="/MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/Bugs/">Bugs</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="/Related.html">Related</a>
+<p>
+<a href="/Thanks.html">Sponsors</a>
+<p>
+</font>
+<!########################## SIDEBAR CONTENTS>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD BGCOLOR="#dadada">
+<b>
+<font face="Arial, Helvetica, sans-serif" color="#000080">Project: Sequence</font>
+</b>
+</TD>
+</TR>
+
+<tr>
+<td>
+<h2>Reimplementation</h2>
+
+This page is about the possible reimplementation of Seq.pm. I (Ewan) strongly feel
+this should happen because:
+<ul>
+<li>There is too much code in Seq.pm, some useful, some not
+<li>The design of the object is not that clean
+<li>There is no clear interface definition for the object to allow
+other implementations
+<li>We need to seriously deprecate the IO handling of Seq.pm to using the SeqIO system.
+</ul>
+
+That said, I want to make it clear that we owe a great debt to the
+designers and coders of Bio::Seq.pm, which has been the workhorse in
+bringing bioperl together, the first object of bioperl and undoubtedly
+the most used. This of course makes the challenge of reimplementation
+that much harder, as this object is key for all of bioperl.
+
+<p>
+But like netscape with the switch to the NGL for Mozilla5 and other good projects, we need
+to bite the bullet, and move on. I think a full scale reimplementation is needed, as the
+code is semi-spagetti down there, documentation way out of whack (and in my opinion, far too long!),
+and I think a certain design shift is needed.
+<hr>
+First off lets deal with some of the 'meta' issues involved with reimplementation and the
+redesign
+<ul>
+<li>We need to discuss the design amongst the developers. As the core group will be
+at heidelberg we can do most of it there, with a quick turn-around.
+<li>We need to have a strong set of test cases built up to test the reimplementation.
+<li>The current Seq.pm will not leave us, but move to OldSeq.pm so there is always
+a migration path from the old to the new. An alternative is to make a NewSeq.pm and
+use that, have a stable release with both current and NewSeq.pm and then map back. I do
+not favour this.
+<li>The Meta documentation from Seq.pm should be distributed elsewhere
+</ul>
+<hr>
+The real redesign: 
+<p>
+As a introduction to some of the bioperl concepts, Bioperl has started to make
+"interface" files, which provide an abstract interface (like interfaces in Java)
+about how particular objects should behave, regardless of their implementation.
+This has proved very successful in the DB and SeqIO areas. Generally the interface
+files are nearly always pure documentation: the methods just throw exceptions
+indicating that the implementing object did not provide this method. An exception
+to this are methods which rely *solely* on the interface, and effective operate
+on top of the abstract interface. We are currently (at least Matt and I are at the
+Sanger Centre) calling these methods <b>decorating</b> methods.
+ For example, an interface could provide methods for
+<pre>
+     $obj->start()   # the start point
+     $obj->length()  # the length of the object
+</pre>
+which some objects would implement as a lookup into a hash, and other objects as 
+a lookup into a database. A decorating method would be
+<pre>
+     $obj->end()    # start+length, but no need to reimplement it
+                    # achievable from just the start and length interface calls
+</pre>
+Decorating methods, although provided by the interface code can be overridden by
+the implementation.
+<p>
+The proposal is to have the following two Perl Modules
+<ul>
+<li> Bio::SeqI - Sequence Interface and Decorating methods
+<li> Bio::Seq  - a pure perl implementation of the Seq object
+</ul>
+
+The Bio::SeqI interface would be something on these lines:
+<ul>
+<li>seq() - access to the sequence as a string
+<li>id()  - access to the id (common name) of the sequence as a string
+<li>accession() - access to the unique key for this sequence as determined by the
+implementation. A suggestion is to use accession numbers
+<li>start() - start point of the sequence, assummed to be meaningful somehow
+<li>desc()  - a single string description with no other proscribed semantics
+<li>length() - length of the sequence
+<li>strand() - 1,-1 of the strandness 
+<li>type() - returns a string of one of 'Dna', 'Rna', 'Amino'
+<li>can_call_new() - if returns 1, means can use the new constructor attached to the
+sequence object for the copy and trunc functions
+<li>new(hash) - returns a new object, which is intialised using the following hash values
+       <ul>
+         <li>-seq - a string of the sequence (must be provided)
+         <li>-id  - a string of the name (must be provided)
+         <li>-accession - a string of the accession (if not provided, assumme name)
+         <li>-start - start position (if not provided, assumme 1)
+         <li>-strand - strandness (if not provided, assumme 1)
+</ul>
+<p>
+The Bio::SeqI decorating methods would be
+<p>
+<li>str($start,$end) - access to the sequence currently employed by
+Bio::Seq. The semantics of start/end wrt to start of the sequence has
+to be defined.
+
+<li>ary($start,$end) - access to the sequence data as currently employed by Bio::Seq
+<li>getseq($start,$end) - access to the sequence data as currently employed by Bio::Seq
+<li>copy() - provides a copy of the Seq object. If can_call_new returns 1, uses the
+new constructor on this object. If not, uses a pure perl (Bio::Seq) implementation
+<li>trunc($start,$end) - provides a truncation of the Seq object. If can_call_new returns
+1, uses the new constructor on this object. If not uses a pure perl (Bio::Seq) implementation
+The use of start/end should agree with the use in str.
+<li>revcom() - provides a reversed and complemented copy. Standard constructor rules apply
+as in copy and trunc. 
+</ul>
+The following methods I am not sure if they should be in or not
+<ul>
+<li>translate() - 
+</ul>
+
+<p>
+The following methods should not be in the reimplementation:
+<ul>
+<li> names() - The accession has been promoted to a real field. All other stuff should 
+go into the AnnSeq object 
+<li> numbering() - deprecated
+<li> origin - now a species object on AnnSeq
+<li> ffmt - format issues done via SeqIO streams
+<li> descffmt - format issues done via SeqIO streams
+<li> all the out_* methods
+</ul>
+
+The following method will be in the actual Bio::Seq reimplementation
+<ul>
+<li>setseq() - sets the sequence
+</ul>
+
+<hr>
+The Bio::Seq object. This object would be a pure perl implementation of the
+first, interface definition above in Bio::SeqI. It would store fields as
+a hash of values, with the hash names being bio_seq_<i>fieldname</i> to
+allow inheritance and people who want to play with hashes the ability to.
+The fields will be set-able via get/set pairs on the accessors
+<ul>
+<li>seq() - access and setting of sequences
+<li>setseq() - sets the sequence
+<li>id()  - access and setting of id
+<li>accession() - access and setting of the accession
+<li>start() - access and setting of the start point
+<li>desc()  - access and setting of the description line
+<li>length() - length on the sequence field
+<li>strand() - access and setting of strandness
+<li>type() - access and setting of type
+</ul>
+
+We need to
+<ul>
+<li>Discuss the reimplementation as a 'meta' issue
+<li>Discuss the design
+<li>Gather together retrograde tests and put together one
+impressive test suite
+<li>Do it!
+</ul>
+
+<TR>
+<TD>
+<p>
+<font face="Arial, Helvetica, sans-serif" size=+1>
+<a href="../">&lt;&lt;back</a>
+</font>
+<p>
+</font>
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="/images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date$</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
+
+</BODY>
+</HTML>
