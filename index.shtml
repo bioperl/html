@@ -336,7 +336,7 @@ documentation writing or code testing are very welcome. We are
 specifically looking for people to do the following jobs (they
 should not take more than 1-2 hours a week). 
 <ul>
-<li><a href="/cgi-bin/fom">FAQ</a> maintainers
+<li>Open Bio web master
 <li>Cookbook documentation writers
 </ul>
 Currently these responsibilities are being shared by the core
@@ -358,11 +358,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-03-04 00:12:07 $</p>
+<p><p align=right>Last Modified: $Date: 2001-03-04 00:15:08 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.20 2001-03-04 00:12:07 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.21 2001-03-04 00:15:08 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
