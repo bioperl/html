@@ -109,7 +109,7 @@ documentation format (pod). This documentation is has been translated
 into HTML links available below. The best starting point for people
 learning about bioperl is the <a href="bioperl.html">bioperl.pod</a>
 documentation, followed by the <a
-href="/Core/POD/Seq.html">Bio::Seq.pm</a>
+href="/Core/POD/Bio/Seq.html">Bio::Seq.pm</a>
 documentation.
 
 
@@ -154,11 +154,11 @@ View the distribution files directly:
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-01 22:58:45 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-02 15:49:33 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.5 2000-04-01 22:58:45 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.6 2000-04-02 15:49:33 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
