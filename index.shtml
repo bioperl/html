@@ -20,6 +20,7 @@
 
 <font face="Arial, Helvetica, sans-serif" color="#000080">
 
+
 <center>
 <h2>
 <a href="http://bioperl.org/">bioperl.org</a>
@@ -94,7 +95,10 @@ otherwise make freely available standalone scripts & code.
 <li>
 <b>Almost 7 years in the making and a huge milestone for BioPerl and the Open Bioinformatics Foundation we proudly <a href="/Core/Latest/Release-1.0.txt">announce the 1.0 release</a> of the BioPerl distribution! </b>
 <p>
-According to the manifest, Bioperl-1.0 contains 832 files. The test suite contains 93 scripts which collectively perform 3042 functionality tests. This may or may not be the largest single distribution in the perl <a href="http:/www.cpan.org">CPAN<a>.
+According to the manifest, Bioperl-1.0 contains 832 files. The test suite contains 93 scripts which collectively perform 3042 functionality tests. This may or may not be the largest single distribution in the perl <a href="http://www.cpan.org">CPAN<a>.
+
+<p>
+<li>Please take some time to answer the  <a href="/survey.html">BioPerl survey</a>. Your feedback is very important!
 
 <p>
 <li>The <a href="http://www.gmod.org">Generic Model Organism Database</a>
@@ -320,11 +324,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2002-03-18 17:41:54 $</p>
+<p><p align=right>Last Modified: $Date: 2002-03-18 17:53:14 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.47 2002-03-18 17:41:54 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.48 2002-03-18 17:53:14 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
