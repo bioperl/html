@@ -1,0 +1,41 @@
+<html><head>
+<title>Core Bioperl</title>
+</head><body>
+<h2>Core Bioperl</h2>
+
+To use the CVS system you must have
+<ul>
+<li> An account on bio.perl.org
+<li> secure shell (ssh)
+<li> cvs 
+<li> setenv'd CVS_RSH to ssh
+</ul>
+
+To start a repository from scratch, move to a clean area where you expect
+to see your working Bio/ directories from, then go
+<pre>
+prompt%cvs -d :ext:birney@bioperl.sonsorol.org:/home/repository/bioperl checkout Bio
+</pre>
+
+This will build the Bio/ tree for you from the CVS system with all the current .pm files
+in it.
+<p>
+Once built the command you need to know are
+<ul>
+<li>cvs update - updates your local copy wrt to the repository (do this first thing when you get in)
+<li>cvs commit - publish your local changes to the repository (do this last thing before you leave!)
+<li>cvs status - see whether files have been changed locally or in the repository
+</ul>
+Do these commands from the Bio directory (inside it). cvs knows where to find the repository due
+to the CVS directories scattered around the place.
+<p>
+
+The structure of all cvs commands are 
+<pre>
+cvs ACTION
+</pre>
+
+
+
+
+</body></html>
