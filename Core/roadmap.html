@@ -78,7 +78,6 @@
 
 <b>Bio::</b>
  <a href="POD/Parse.html">Parse.pm</a>
- <a href="POD/PreSeq.html">PreSeq.pm</a>
  <a href="POD/Seq.html">Seq.pm</a>
  <a href="POD/SimpleAlign.html">SimpleAlign.pm</a>
 <b>Bio::Root/</b>
@@ -122,16 +121,20 @@ Click on module name <br>to view the pod2html<br> translated documentation
 <b>Current Efforts</b><br>
 General housekeeping efforts related to moving our code to a common source repository are underway. This includes getting bioperl deveopers up to speed regarding version control via CVS, building test suites, documention repositories and perl module Makefiles. The goal is to be able to build "official" bioperl module distributions off of one common source tree.
 <p>
+We expect to release a preliminary central distribution very shorty as we now have all our code building off
+a central Makefile.PL
+<p>
 <b>Code status & Committments</b><br>
-<b>PreSeq.pm</b> has been replaced by <b>Seq.pm</b> and will become our general flexible and lightweight sequence object. Ian Korf is integrating the functionality of his <b>GSC::SeqFeature</b> and <b>GSC::Entry</b> into the bioperl framwork. Ewan Birney is working on the following:
+<b>PreSeq.pm</b> has been replaced by <b>Seq.pm</b> and will become our general flexible and lightweight sequence object. <b>Parse.pm</b> is no longer being used by core bioperl code. Ian Korf is integrating the functionality of his <b>GSC::SeqFeature</b> and <b>GSC::Entry</b> into the bioperl framwork. Ewan Birney is working on the following:
 <ul>
-<li> SimpleAlign.pm testing
+<li> SimpleAlign.pm implementation & testing
 <li> Histogram package from Sean Eddy as an XS extension
 <li> SmithWaterman as an XS extension (<a href="POD/Tools/pSW.html">Bio::Tools::pSW</a>)
 </ul>
+Steve Chervits, the bioperl coordinator is maintaining and improving the <b>Bio::Tools::Blast</b> and <b>Bio::Root</b> code.
 <p>
 <b>Possible new projects</b><br>
-Several people are interested creating a <b>protein structure object</b>. Discussions on the basic design are underway on our mailing lists. Comments, proposals and participation are welcome.
+Several people are interested creating a <b>protein structure object</b>. Discussions on the basic design are underway on our mailing lists. We always need new sequence parsing and formatting code. Comments, proposals and participation are welcome.
 
 <p>
 <font face="Arial, Helvetica, sans-serif" size=+1>
