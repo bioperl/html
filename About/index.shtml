@@ -44,7 +44,25 @@ the <a href="http://www.perl.com/pub/language/misc/Artistic.html">same
 terms</a> as Perl itself. 
 <p>
 The Bioperl project is open to all and we invite suggestions and
-participation from the larger bioinformatics community. 
+participation from the larger bioinformatics community. There is little formal leadership structure within the group although there is an international "core" group of members who share the responsibility of getting the official releases out the door. The
+core group is very open (most of us joined after the start of the
+project), and people who contribute naturally become part of the core
+group.  You can follow developer discussions on the
+<a href="http://bioperl.org/pipermail/bioperl-guts-l/">bioperl-guts-l list</a> 
+which is where decisions about bioperl get thrashed out. Decisions are made by informal consensus. 
+<p>
+The core group are (as of May 2001)
+<ul>
+<li>Ewan Birney - <a href="http://www.ensembl.org">Project Ensembl</a> & <a href="http://www.ebi.ac.uk/">EBI</a>
+<li>Jason Stajich - <a href="http://www.chg.duke.edu/">Duke University Center for Human Genetics</a>
+<li>Hilmar Lapp - <a href="http://www.gnf.org">GNF/Novartis</a>
+<li>Heikki Lehvaslaiho - <a href="http://www.ebi.ac.uk/">EBI</a>
+<li>Chris Dagdigian - <a href="http://www.computefarm.com">Blackstone Technology Group</a>
+</ul>
+Previous people involved heavily in bioperl are Steve Chervitz, Steve
+Brenner, Aaron Mackey and Georg Fuellen.Many other people, most of them on this list have contributed invaluable code, comments, design advice and support. 
+<p>
+<b>What we stand for</b>
 <p>
 <blockquote>
 <p>
@@ -125,11 +143,11 @@ ability to get through the tedium of bioinformatics.
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2001-03-04 01:35:19 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-10 15:45:37 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.2 2001-03-04 01:35:19 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.3 2002-03-10 15:45:37 jason Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
