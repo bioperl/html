@@ -131,6 +131,7 @@ current projects.
 Just learning about <a href="http://www.perl.com">perl</a> and/or
 computational biology? <p>
 <ul>
+<li>Visit <a href="http://bioinformatics.org">bioinformatics.org</a>
 <li>Read Lincoln Stein's article, <b>
 <a href="/GetStarted/tpj_ls_bio.html">"How Perl Saved the Human Genome 
 Project"</a></b>
@@ -355,11 +356,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-10-12 00:31:25 $</p>
+<p><p align=right>Last Modified: $Date: 2000-10-12 00:37:25 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.14 2000-10-12 00:31:25 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.15 2000-10-12 00:37:25 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
