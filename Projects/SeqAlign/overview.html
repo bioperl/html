@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Sequence Alignment</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+
+<center>
+<h2>
+<a href="http://bio.perl.org/">bio.perl.org</a>
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
+<a href="/">Home</a>
+<p>
+<b>
+<a href="/Projects">Projects</a>
+</b>
+<p>
+<a href="/Projects/modules.html">Docs</a>
+<p>
+<a href="http://bio.perl.org/Core/Latest/">Download</a>
+<p>
+<a href="/News/">News</a>
+<p>
+<a href="/MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/Bugs/">Bugs</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="/Related.html">Related</a>
+<p>
+<a href="/Thanks.html">Sponsors</a>
+<p>
+<!########################## SIDEBAR CONTENTS>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD BGCOLOR="#dadada">
+<b>
+Project: Sequence Alignment - Overview 
+</b>
+</TD>
+</TR>
+
+
+<tr>
+<td>
+
+Sequence alignments encapsulate an essential part of biology - namely the evolution of 
+sequences over time. By providing an alignment one implies an evolution path between two
+(or more) sequences. Because of this important role in molecular biology there are a number
+of programs which make, manipulate and use multiple alignments. In addition, there are a number
+of different representations and data-formats for multiple alignments. 
+<p>
+It is clear that bioperl needs to support alignments in the core. This seems to be more than
+anything else an area where there is "more than one way to do it". However, having perhaps
+a small set of useful alignment representations (potentially one, but I personally don't
+believe in that) will be a "good thing".
+<p>
+Before we get into the nitty-gritty of this, lets step back and look at what a multiple alignment
+object needs
+<ol>
+<li> Each sequence needs
+<ul>
+<li> A name
+<li> A start in the parent sequence 
+<li> An end in the parent sequence
+<p>
+<i>Some people complain about having to carry start/end points of the parent sequence
+around, in which case they probably haven't delt with large multi-domain mosaic proteins,
+or protein domains at all, where you really need this information</i> 
+</ul>
+<li> The object needs to sensibly convert from and to common data formats
+<ul>
+<li> Clustalw, MSF format, Selex format (HMMer/Pfam)... others
+</ul>
+<li> The object should provide an easy way of saying "I have residue XXX in this protein, what
+is the aligned residues in this protein"
+<li> The alignment should be able to be changed/manipulated
+<ul>
+<li> Removal/Addition of sequences
+<li> Truncated at the N or C terminii
+<li> The alignment internally changed
+</ul>
+<p>
+So far we have only looked at alignments to homogenous types, eg, protein to protein, or dna to
+dna. What about alignments to protein to dna. What extra features does this add?
+<p>
+<li> Alignments must be able to handle more than one residue aligned to (potentially more than one residue) in
+another sequence
+<li> The alignment must have the ability to indicate what type of alignment is made at a particular position.
+Take for example the alignment of this:
+<pre>
+Protein:     Met---Leu
+DNA:         ATGGGGTTT
+</pre>
+This could mean two things:
+<ul>
+<li> The protein is aligned to the gene on the DNA as Met-Met, Gap-Gly, Leu-Phe
+<li> The protein is aligned to the gene on the DNA as Met-Met, Gap-[Sequencing Error Insertion], Leu-Phe
+</ul>
+Both are valid interpretations of the alignment. To distintguish them you need some concept of the
+'type' of the alignment at each aligned column. 
+<li> If we wish align directly to genomic DNA, we need to consider introns. In particular, we need to consider
+codons which are split by introns, as they are going to be a part of the alignment, but annoyingly, disjoint
+on the sequence
+<p>
+Again, we have only considered bio-polymers. What about alignments to common but artifical constructs
+in bioinformatics, such as regular expressions, profiles and hidden Markov models?
+<p>
+
+<li> These objects have a much more tenous idea of a region. What are we aligning to what? How can we insure
+that a client of an object can get out something consistent whatever types are being aligned (or indeed can we?)
+<p>
+Finally, we can imagine alignments of alignments. <i>NB - this is <b>not</b> what is being done with progressive
+alignment mechanisms like clustalw - that is the alignment of profiles (see above) from which they deduce an
+alignment</i>
+Useful but
+
+<li> You need to be able to query an alignment of alignment <i>as if it is standard alignment</i>
+<li> You need to be able to do the reverse - get out the alignment of the two (or more alignments) but not
+reveal the internal alignments of the alignments
+<li> This has to cope with recursive alignments of alignments of alignments
+</ol>
+
+Alignments, as you can see, are quite a tall order.
+<p>
+I have in my time, implemented objects which can do some of the points above (I think I've implemented every
+point on this list, not in the same object, but that is probably unsurprising as I wrote the list).
+<p>
+Some implementations/discussions about alignment objects are at
+<ul>
+<li><a href="http://bio.perl.org/Core/POD/SimpleAlign.html">SimpleAlign.pm</a> A very simplistic object,
+addressing points 1 and 2.
+<p>
+<li><a href="http://bio.perl.org/Core/POD/UnivAln.html">UnivAln.pm</a> A richer object, implementing points 1,2, and 4
+<p>
+<li>EBI Alignment idl <i>no link yet</i> A pretty complicated object, able to do points 1,2,5,6,7 and 8
+<p>
+Any others?
+</ul>
+
+<hr>
+This page is under development, pending people corresponding with <a href="mailto:birney@sanger.ac.uk">Ewan Birney</a>.
+Drop a note to me if you want to add a point to this...
+
+
+</td>
+</tr>
+
+
+<TR>
+<TD>
+<p>
+<a href="../">&lt;&lt;back</a>
+<p>
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="/images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date$</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
+
+</BODY>
+</HTML>
