@@ -10,7 +10,7 @@
 
 <!--
 <LINK REL=STYLESHEET TYPE="text/css" 
- HREF="http://bioperl.org/bioperl-doc.css"
+ HREF="/bioperl-doc.css"
  TITLE="Bioperl Documentation Style">
 -->
 
@@ -67,7 +67,7 @@ otherwise make freely available standalone scripts & code.
 
 <p>
 <font face="Arial, Helvetica, sans-serif" color="#000080">
-<a href="About/"><b>More...</b></a></font>
+<a href="/About/"><b>More...</b></a></font>
 <p>
 </TD>
 </TR>
@@ -83,7 +83,7 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[April 2000]</font></p>
 	  <p>
 	  <ul>
-	  <li>Bioperl .06 Released!<p>
+	  <li>Bioperl 06.0 Released!<p>
 	  <li>Expect to hear an official announcement sometime soon
  regarding the Bioinformatics Open Source Conference (BOSC-2000). This
 is our followup meeting to the bioperl-99 event. BOSC-2000 will expand
@@ -92,7 +92,7 @@ and bioxml efforts.
 	  </ul>
 	  <p>
 <font face="Arial, Helvetica, sans-serif" >
-<a href="News/"><b>More...</b></a>
+<a href="/News/"><b>More...</b></a>
 </font>
 <p>
 </TD>
@@ -113,7 +113,7 @@ Meet the people using perl for real world applications and learn about their res
 current projects.
 <p>
 <font face="Arial, Helvetica, sans-serif" >
-<a href="Participants/"><b>More...</b></a>
+<a href="/Participants/"><b>More...</b></a>
 </font>
 <p>
 </TD>
@@ -133,10 +133,10 @@ Just learning about <a href="http://www.perl.com">perl</a> and/or
 computational biology? <p>
 <ul>
 <li>Read Lincoln Stein's article, <b>
-<a href="GetStarted/tpj_ls_bio.html">"How Perl Saved the Human Genome 
+<a href="/GetStarted/tpj_ls_bio.html">"How Perl Saved the Human Genome 
 Project"</a></b>
 <li>Join a 
-<a href="http://bio.perl.org/MailList.shtml">Bioperl mailing list</a>
+<a href="/MailList.shtml">Bioperl mailing list</a>
 <li>Read the <a href="http://www.tpj.com">The Perl Journal</a>
 <li>Visit <a href="http://www.perl.com">perl.com</a> or 
 <a href="http://www.perl.org">The Perl Institute</a>
@@ -150,7 +150,7 @@ Project"</a></b>
 <TR>
 <TD ALIGN=LEFT BGCOLOR="#dadada">
 <font face="Arial, Helvetica, sans-serif" color="#000080"><B>
-<a href="/MailList.html">Mailing Lists</a></B></font>
+<a href="/MailList.shtml">Mailing Lists</a></B></font>
 <BR>
 </TD>
 </TR>
@@ -162,7 +162,7 @@ There are several mailing lists aimed at developers
 and interested parties.
 <p>
 <font face="Arial, Helvetica, sans-serif" >
-<a href="MailList.html"><b>More...</b></a>
+<a href="MailList.shtml"><b>More...</b></a>
 </font>
  
           </TD></TR></font>
@@ -247,13 +247,13 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (0.05.1)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (06.0)</a></B></font> 
           </TD>
 </TR>
 
 <tr>
           <td> Each official release passes our internal tests. We are committed 
-            to promptly fixing any bugs in the 0.05.1 release and making patched 
+            to promptly fixing any bugs in the 06.0 release and making patched 
             releases available. Bioperl releases are also mirrored by the Comprehensive 
             Perl Archive Network (CPAN). CPAN links and info can be found at <a href="http://www.perl.com"> 
             www.perl.com</a>. 
@@ -261,7 +261,7 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 
 <p>
 <font face="Arial, Helvetica, sans-serif" >
-<a href="Core/Latest/"><b>More...</b></a>
+<a href="/Core/Latest/"><b>More...</b></a>
 </font>
 </td>
 </tr>
@@ -353,11 +353,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-04-02 15:27:58 $</p>
+<p><p align=right>Last Modified: $Date: 2000-04-02 15:47:04 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.4 2000-04-02 15:27:58 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.5 2000-04-02 15:47:04 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
