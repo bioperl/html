@@ -233,7 +233,7 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 <TD>
  <P>We are now working from a central version-controlled code repository and have a <a href="http://bio.perl.org/bioperl-bugs/">web-based bug-tracking system</a> on this machine. There are a number of ongoing bioperl projects.
 <ul>
-<li><a href="Projects/modules.html">Registered module list & documentation</a>
+<li><a href="/Core/Latest/modules.html">Registered module list & documentation</a>
 <li><a href="/Projects/overview.html">Bioperl design philosophy and project(s) overview</a>
 <li><a href="/Core/status.html">Current Coding/Development Status</a>
 <li>All of our source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
@@ -353,11 +353,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-04-01 17:46:43 $</p>
+<p><p align=right>Last Modified: $Date: 2000-04-01 22:59:53 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.2 2000-04-01 17:46:43 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.3 2000-04-01 22:59:53 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
