@@ -78,33 +78,37 @@
 
 <p>The bioperl sequence object has been integrated into a general
 framework developed by Steve Chervitz. The current framework has since
-expanded and is comprised of <a href="http://bio.perl.org/Projects/modules.html">a set of integrated modules</a>. 
-
-<b>Current Efforts</b><br> General housekeeping efforts related to
-moving our code to a common source repository are now largely
-complete. This includes getting bioperl deveopers up to speed
-regarding version control via CVS, building test suites, documention
-repositories and perl module Makefiles. The goal is to be able to
-build "official" bioperl module distributions off of one common source
-tree.
+expanded and is comprised of <a href="http://bio.perl.org/Projects/modules.html">a set of integrated modules</a> The <a href="/Core/Latest/">core distribution</a> is now available worldwide via <a href="http://www.perl.com/CPAN/README.html">CPAN</a>. Our modules can be found in the <a href="http://www.perl.com/CPAN/modules/by-module/Bio/">Bio/ directory</a>. 
 <p>
-We expect to release a preliminary central distribution very shortly
-as we now have all our code building off a central makefile.
+<b>Current Efforts</b><br>
+Bioperl is now running smoothly from a central source code
+repository. The 0.04* release is out and is only being bug-fixed
+while people add features and work on code for the eventual 0.05 release.
 <p>
 <b>Code status & Committments</b><br> 
 <b>PreSeq.pm</b> has been
 replaced by <b>Seq.pm</b> and will become our general flexible and
 lightweight sequence object. <b>Parse.pm</b> is no longer being used
-by core bioperl code. <br>
+by core bioperl code. We will also be moving all sequence formatting and parsing code out of the sequence object and transitioning over to the <b>SeqIO/*</b> modules<br>
 <p>
-<b>To-do list</b><br>
+
+<b><font size=+1>In Progress / Things that may end up in the next release</b></font><br>
+<blockquote>
+If you are <b>really</b> curious about how these projects are going, join the <a href="/MailList.html">guts-list</a> or check the most <a href="ftp://bio.perl.org/pub/SRC/bioperl/">recent source code</a> dump. 
+</blockquote>
 <ul>
+<li><b>Bio::Tools::Fasta</b> - Similar to our robust support for launching and manipulating BLAST search results, we hope to do the same with Fasta.
+<li><b>Bio::DB::Genbank</b> - Given an accession number, fetches sequence from NCBI website and returns a bioperl sequence object. Genbank is the first of many databases we hope to make our objects 'aware' of in this way. Aaron Mackey is working on this.
+<li><b>Bio::SeqIO</b> - new stream based methods for reading and writing to/from sequence database files
+<li><b>Bio::Tools::Sigcleave</b> - perl emulator of the EGCG Sigcleave utility. Maintained by Chris Dagdigian.
 <li><b>Bio::SeqFeature</b> and <b>Bio::Entry</b> - The Bio::Entry is
 the 'heavy weight' sequence object which is more like a representation
 of a Genbank or EMBL flat file complete with feature table. Ian Korf
 is working on these objects.  <li><b>Bio::Structure</b> - A number of
 people have been talking about a Structure object (probably an object
-heirarchy).  <li><b>Bio::SearchDist</b> - A perl wrapper for Sean
+heirarchy). More info in the <a href="/Projects/">/Projects/ section</a>.
+
+ <li><b>Bio::SearchDist</b> - A perl wrapper for Sean
 Eddy's Extreme Value and Gaussian fitting code (already provided in
 the bp_sw XS extension). Ewan Birney is working on this.
 <li><b>Bio::Tools::dAlign</b> - DNA alignments like pSW provided in a
