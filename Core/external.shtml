@@ -104,6 +104,12 @@ The current bioperl-live CVS codebase and future releases of bioperl (after 0.6.
 
 <b>Storable</b><br> - Recommended for all releases after bioperl-0.7.2. This module used for persistant object storage and local file caching. 
 <p>
+
+<b>Parse::RecDecent</b><br> - Used only for Unigene file format parsing at this time. 
+<p>
+
+<b>Text::Shellwords</b><br> - Used only within the bioperl graphics package. 
+<p>
 </blockquote>
 
 <p>
@@ -145,16 +151,13 @@ Newer versions of Perl ship with a highly functional <a href="http://www.perl.co
 module groups. The use of CPAN.pm makes downloading and installation of 
 multiple independent CPAN packages an easy excercise.
 <p>
-There is a <a href="http://search.cpan.org/search?mode=module&query=BioPerl"><b>BioPerl::Bundle</b></a> (<a href="http://search.cpan.org/doc/CRAFFI/Bundle-BioPerl-1.00/BioPerl.pm">README</a>) module within CPAN that lists all the CPAN resident modules that BioPerl can make use of as (optional) dependencies. The bundle file can be used to simplify and automate the installation of our dependencies. 
+There is a <a href="http://search.cpan.org/search?mode=module&query=BioPerl"><b>BioPerl::Bundle</b></a> (<a href="http://search.cpan.org/doc/CRAFFI/Bundle-BioPerl-2.02/BioPerl.pm">README</a>) module within CPAN that lists all the CPAN resident modules that BioPerl can make use of as (optional) dependencies. The bundle file can be used to simplify and automate the installation of our dependencies. 
 <p>
 Before using BioPerl::Bundle users should be familiar with use and operation of the <a href="http://www.perl.com/pub/doc/manual/html/lib/CPAN.html">CPAN.pm module</a>. BioPerl::Bundle <b>WILL NOT</b> install the Bioperl distribution -- only the external perl packages that Bioperl may be dependent on. 
 <p>
 Installation of the XML related modules listed in the bundle will fail if the 'expat' package is not previously installed. This is not a problem with the bundle, merely a prerequisite of the XML modules. CPAN.pm can be used multiple times to install BioPerl::Bundle with no ill effects. Some users have reported that CPAN.pm will ocasionally attempt to upgrade their systems to the latest version of perl. This may not be a desired thing on a production system :) so be careful about blindly hitting the 'y' key when using CPAN.pm.
 <p>
-BioPerl users have reported success in getting CPAN.pm to download and install the actual Bioperl package by issuing the following command:
-<pre>
-<b>cpan> install "B/BI/BIRNEY/bioperl-0.7.2.tar.gz"</b>
-</pre>
+
 </td>
 </tr>
 
@@ -166,11 +169,11 @@ BioPerl users have reported success in getting CPAN.pm to download and install t
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-18 17:28:02 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-07-15 22:30:26 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: external.shtml,v 1.13 2002-03-18 17:28:02 dag Exp $ -->
+    <!-- $Id: external.shtml,v 1.14 2002-07-15 22:30:26 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
