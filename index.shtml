@@ -80,23 +80,12 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[August / September 2000]</font></p>
+	  <p><font size=-1>[October 2000]</font></p>
 	  <p>
 	  <ul>
-	  <li><a href="/bosc-2000/pictures.html">Pictures from BOSC'2000 are online</a>. We are working on getting the presentations and proceedings online as well. Send comments, corrections and additional pictures to <a href="mailto:dag@sonsorol.org:">dag@sonsorol.org</a>.
-	  <p>
-	  <li>The Bioperl website is in the process of becoming Wiki-enabled. We hope the collaborative editing and authoring features will keep the website more topical, accurate and up-to-date. To see a Wiki site in action check out the <a href="http://www.ensembl.org/Docs/wiki/html/EnsemblDocs/HomePage.html">EnsemblDocs Wiki</a>. 
-	  <p>
-	  <li>Peter van Heusden is <a href="http://bioperl.org/pipermail/bioperl-l/2000-August/001241.html"> coordinating the release</a> of Bioperl 0.6.2 which is a bug fix
-release of Bioperl 0.6.1. This should be available in September. The main CVS branch of Bioperl contains
-significant new code and functionality that will *NOT* be part of the 0.6.2 release. We are working on
-coordinating a Bioperl 0.7 release that will merge all the new features into the main distribution. We estimate that Bioperl 0.7 will come out in October or November. Scanning the <a href="http://bioperl.org/pipermail/bioperl-l/">bioperl-l archives</a> is a good way to see what new code and features have been added.
-	  <p>
-	  <li>Bioperl <a href="http://bioperl.org/pipermail/bioperl-l/2000-August/001201.html">has been added</a> to the FreeBSD ports tree! Thanks to Johann Visagie for putting this together.
-	  <p>
-          <li>A new sister site <a href="http://biocorba.org">biocorba.org</a> was launched during BOSC'2000. Jason Stajich is leading the effort.
-	  <p>
-          <li>Our <a href="http://ismb00.sdsc.edu/bosc2000/">Bioinformatics Open Source Conference (BOSC'2000)</a> was a success with more than 220 attendees. Pictures and presentations will be up shortly.
+	  <li> Bioperl 0.6.2 <a href="http://bioperl.org/pipermail/bioperl-l/2000-October/001504.html">has been released</a>. It is mostly a bugfix release with <a href="/Core/Latest/Changes">very few functional changes</a>.This should be the final 0.6 series release. The main branch of our current CVS repository (<a href="http://cvs.bioperl.org">bioperl-live</a>) contains significant new code and functionality that is *NOT* part of the 0.6.2 release.
+<p>
+<li> We are working on coordinating a Bioperl 0.7 release that will merge all the new features into the main distribution. We estimate that Bioperl 0.7 will come out by year end. Scanning the <a href="http://bioperl.org/pipermail/bioperl-l/">bioperl-l archives</a> is a good way to see what new code and features have been added.
            <p>
 	  </ul>
 	  
@@ -257,7 +246,7 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (0.6.1)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (0.6.2)</a></B></font> 
           </TD>
 </TR>
 
@@ -366,11 +355,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-08-27 21:28:35 $</p>
+<p><p align=right>Last Modified: $Date: 2000-10-12 00:31:25 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.13 2000-08-27 21:28:35 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.14 2000-10-12 00:31:25 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
