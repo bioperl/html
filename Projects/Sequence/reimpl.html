@@ -76,6 +76,103 @@
 <td>
 <h2>Reimplementation</h2>
 
+The top of this page is the final proposal by Ewan for the Seq.pm reimplementation. For
+your reference, lower down the page there is some of the discussion which lead to this design.
+<p>
+The basic design pattern we are using here (along with the new parts of bioperl) is the "bridge",
+which decouples the abstraction from the implementation of the object. Therefore two bioperl objects
+are going to be written to deal with this: <b>Bio::SeqI</b> - abstract interface of Sequences + implementation
+independent functions and <b>Bio::Seq</b> a pure perl implementation of the Bio::SeqI interface.
+<hr>
+<b>Bio::SeqI abstract definition</b>
+<p>
+<ul>
+<li>$obj->seq($start,$end) - returns the sequence of the object as a string. $start/$end are optional and
+apply to absolute coordinates of the string 
+<ul>
+<p>
+Unresolved questions
+<li>Do we specify the case of sequence characters? In which case, is it the same for the DNA and Protein types?
+<li>Alphabets. How alphabet paranoid do we get?
+</ul>
+<li>$obj->id() - returns the id of the sequence. The id is its common name, ie swissprot-style id.
+<li>$obj->accession() - returns the unique, stable, identifier of the sequence as a string. It can be undef, indicating that there is no unqiue identifier for this sequence (eg, because it was made on the fly). The accession field is
+there to be used as a unique key for this sequence object in some manner. I suggest the following semantics
+in the <a href="#accession">footnote</a> are used.
+<li>$obj->desc() - a string of the description line. Can be undef. Although this field is here to cater
+for people who use it, people are strongly encouraged <b>not to over use</b> this field for whatever additional
+information they have. People should be pointed towards the AnnSeq object and inheritance off the Seq object
+to get their information
+<li>$obj->type() - a string of either 'dna','rna','amino', or 'unknown'. 
+<li>$obj->can_call_new() - either 1 or a 0, meaning that other clients can call the new constructor on
+this object to get a fresh object.
+<li>$obj->new(%hash) - a constructor which takes a hashed parameter list, of the following meanings.
+    <pre>
+    -seq => $sequence_string
+    -id  => $id
+    -accession => $accession
+    -type => <as in the type field>
+    -desc => $description_string
+    </pre>
+</ul>
+<i>Notes on this</i>. I have dropped the start/end/strand information. I am planning to make a "locatable
+sequence object" as an inherited type of this, which will test out our ease of inheritance.
+<p>
+<b>Functions in Bio::SeqI which do not rely on implementation</b>
+<ul>
+<p><font color=green>Backward Compatibility functions. Will throw warnings</font>
+<li>$obj->str() - returns a string of the sequence
+<li>$obj->ary() - returns an array of the sequence
+<li>$obj->getseq() - looks at wantarray, returns a string or an array
+<p>
+<li>$obj->length() - returns the length of the sequence.
+<li>copy() - provides a copy of this sequence, using the underlying implementation if it is allowed to
+<li>trunc($start,$end) - provides a truncation of the sequence, using the underlying implementation if it is allowed to
+<li>revcom - provides a reverse complemented version of the sequence, using the underlying implementation if
+it is allowed to
+<p>
+<li>translate - will throw a fatal error, explaining carefully how to write something which uses the
+new translate functions in Bio::Tools::CodonTable->universal. 
+</ul>
+<i>Notes</i>. Translate is out but with a careful warning to get
+people to migrate. This is a tough decision about whether to be correct
+on the developers side or nice to our novice users.
+<hr>
+<b>Bio::Seq</b>
+
+Bio::Seq will be a straightforward perl implementation of the above abstract class, using
+getset methods on seq, id, type and accession. Type will throw exceptions if you try to set
+it to wrong types.
+
+<hr>
+<b>Accession number semantics</b>
+<a name="accession></a>
+
+If accession matches ([\w\d]+)\.(\d+) it is a primary key to a database, (the database being undefinied by
+the sequene object, but presumably however the user got the accession number would fill in this slot somehow).
+The information before the . is the biologically stable version. The number after is the precise version. The
+. and the number are optional
+<p>
+Whenever possible, things which make sequences should provide a
+sensible primary key for this sequence, for example, the accession
+number from the GenBank/EMBL database would be natural. However there
+are cases when one can retrieve sequences with no idea of a
+database. In this case the semantics below are defined.  
+<p>
+In cases where all we know about the sequence is how we loaded it in,
+the accession is a valid URL indicating the file/server location with
+the following additional qualifiers
+<ul>
+<li>If the url has a terminal --seq-format:(\w+) the word is assummed to be a placeholder for the format of the sequence
+<li>If the url has a terminal --seq-format:(\w+):(\d+) the word is assummed to be a placeholder for the format and the
+the number of the byte offset of the sequence in that stream.
+</ul>
+
+
+
+
+<hr>
+
 This page is about the possible reimplementation of Seq.pm. I (Ewan) strongly feel
 this should happen because:
 <ul>
