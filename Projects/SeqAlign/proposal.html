@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Sequence Alignment</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+
+<center>
+<h2>
+<a href="http://bio.perl.org/">bio.perl.org</a>
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
+<a href="/">Home</a>
+<p>
+<b>
+<a href="/Projects">Projects</a>
+</b>
+<p>
+<a href="/Projects/modules.html">Docs</a>
+<p>
+<a href="http://bio.perl.org/Core/Latest/">Download</a>
+<p>
+<a href="/News/">News</a>
+<p>
+<a href="/MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/Bugs/">Bugs</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="/Related.html">Related</a>
+<p>
+<a href="/Thanks.html">Sponsors</a>
+<p>
+<!########################## SIDEBAR CONTENTS>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD BGCOLOR="#dadada">
+<b>
+Project: Sequence Alignment - Proposal
+</b>
+</TD>
+</TR>
+
+
+<tr>
+<td>
+<p>
+<b>Send comments to 
+<a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">vsns-bcd-perl@lists.uni-bielefeld.de</a>
+<p>
+View responses (starting 1/99) at
+<a
+href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/">http://www.uni-bielefeld.de/mail
+inglists/BCD/vsns-bcd-perl/</a>
+</b>
+<p>
+Proposal for Multiple Alignments in Bioperl
+<p>
+The proposal I am going to put forward comes from the stimulating discussion on the bioperl
+list and my own experiences in designing alignment code. I am aiming for the following points
+in this proposal
+<ul>
+<li> The interfaces are simple (as possible) and adaquate for the job
+<li> There is very little proscription about the implementation of the objects
+<li> There is a good migration path from the existing alignment objects (SimpleAlign, UnivAlign) to
+using it
+</ul>
+<hr>
+The proposal is as follows
+<ul>
+<li> We specify a small heirarchy of interfaces to alignment objects, being something like
+<pre>
+   Bio::Align::AbstractBasic    # basic alignment functions - just storage, and other useful things
+   Bio::Align::AbstractComplex  # more involved functions, such as DNA to DNA alignments
+
+   Bio::Align::AbstractComplex inheriets from Bio::Align::AbstractBasic
+</pre>
+<li> We specify a number of other interfaces used as mix-ins to Alignment objects, in particular
+<pre>
+   Bio::AbstractTree  # abstract representation of the tree
+</pre>
+<li> We suggest that a number of different alignment implementations can be provided that satisify
+the Abstract classes above (starting with SimpleAlign and UnivAlign). Alignment implementations are
+free to offer their own useful additions but functions which want to portable between different
+implementations should stick to the Abstract interfaces. Implementations that have Bio::Align::AbstractComplex
+must have AbstractBasic in. Implementations are free as to whether they use Bio::AbstractTree or not.
+<p>
+The split between interface and implementation is important so that we can have different but
+cooperating implementations out there and also so we can flip over to a C/XS based one if
+need be (I think eventually it will be useful for just memory constraints).
+
+<li> The output IO is placed into a different object, preferably one for each format (so that
+we can 100 formats without loading up 100 different functions when we use a module). It would
+be
+<pre>
+   Bio::Align::IO::Abstract.pm # provides a template for what each alignment IO factory should make
+   Bio::Align::IO::Clustalw.pm # clustalw aln format
+</pre>
+So that the same format IO system can potentially intialise different implementation, we have to
+have construction rules from strings or another system (probably time to reach for design patterns and have
+a good read).
+<li> We have a test suite system which implementations can register with so that we test all
+implementations against the abstract interfaces
+</ul>
+
+The AbstractInterfaces are normal subroutine definitions which throw an exception, such as
+<pre>
+
+=head2 name
+
+ Title   : name
+ Usage   : $name = $self->name()
+ Function:
+ Returns : string of the name of the alignment (undef if none).
+ Args    : none
+
+
+=cut
+
+sub name{
+   my ($self,@args) = @_;
+
+   $self->throw("Abstract method, Bio::Align::AbstractBasic - should be filled by subclass so this is an error in your implementation");
+
+}
+</pre>
+
+I am leaving off hammering out the nitty-gritty of the interfaces until later.
+
+</td>
+</tr>
+
+
+<TR>
+<TD>
+<p>
+<a href="../">&lt;&lt;back</a>
+<p>
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="/images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date$</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
+
+</BODY>
+</HTML>

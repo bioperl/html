@@ -72,7 +72,16 @@ Project: Sequence Alignment - Overview
 
 <tr>
 <td>
-
+<p>
+<b>Send comments to 
+<a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">vsns-bcd-perl@lists.uni-bielefeld.de</a>
+<p>
+View responses (starting 1/99) at
+<a
+href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/">http://www.uni-bielefeld.de/mail
+inglists/BCD/vsns-bcd-perl/</a>
+</b>
+<p>
 Sequence alignments encapsulate an essential part of biology - namely the evolution of 
 sequences over time. By providing an alignment one implies an evolution path between two
 (or more) sequences. Because of this important role in molecular biology there are a number
@@ -142,7 +151,7 @@ that a client of an object can get out something consistent whatever types are b
 Finally, we can imagine alignments of alignments. <i>NB - this is <b>not</b> what is being done with progressive
 alignment mechanisms like clustalw - that is the alignment of profiles (see above) from which they deduce an
 alignment</i>
-Useful but
+Useful but the problems include
 
 <li> You need to be able to query an alignment of alignment <i>as if it is standard alignment</i>
 <li> You need to be able to do the reverse - get out the alignment of the two (or more alignments) but not
@@ -167,6 +176,11 @@ addressing points 1 and 2.
 Any others?
 </ul>
 
+<hr>
+Summary of comments from the mailing list:
+<ul>
+<li> Should the object(s) be mutable or not. Perhaps immutable base class and an inherieted derived class?
+<li> 
 <hr>
 This page is under development, pending people corresponding with <a href="mailto:birney@sanger.ac.uk">Ewan Birney</a>.
 Drop a note to me if you want to add a point to this...
