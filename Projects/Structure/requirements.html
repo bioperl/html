@@ -39,13 +39,13 @@ this is a rough set of use-cases for biomolecular structure
 information, which should be considered when designing a structure
 object.
 <p>
-One of the purposes of this requirements listing is to define what should
-be part of the structure object and what should not. 
-Not all of the functionalities listed here are expected to go into the
-structure object itself but instead would be provided by external utilities
-that could interact with this object. The structure object
-could provide an interface to such functionalities and delegate
-tasks to perrform the actual work as necessary.
+One of the purposes of this requirements listing is to define what
+should be part of the structure object and what should not.  Not all
+of the functionalities listed here are expected to go into the
+structure object itself but instead could be provided by external
+utilities. The structure object could provide an interface to such
+utilities and delegate tasks to perform the actual work as
+necessary.
 <p>
 Another important issue is whether to have lightweight and heavyweight
 versions of a structure object, as is being done for 
@@ -93,7 +93,8 @@ The requirements seem to fit into 5 main categories:
   graph of atoms and bonds). Some applications may utilize minimal representations of the 
    structure, such as only backbone atoms (C-alpha or mainchain for
 proteins; phosphodiester backbone for nucleic acids) or heavy-atom
-only (no hydrogens, no waters).
+only (no hydrogens, no waters) or a set of vectors representing
+  secondary structural elements.
 <p>
 <li>Convert between alternate representations of the structure. 
 <p>
