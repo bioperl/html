@@ -83,11 +83,13 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[March 2001]</font></p>
 	  <p>
 	  <ul>
+	  <li>The <a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a> meeting has been announced. Official announcements regarding the joint <a href="http://open-bio.org/bosc2001/">BOSC</a>  and BioPathways meeting will be out soon.
+	  <p>
+	  <li>Todd Richmond has written about his experiences <a href="/Core/mac-bioperl.html">installing Bioperl 07 on MacOS9</a>. Jurgen Pletinckx has done the same for <a href="/Core/windows-bioperl.html">Bioperl 07 on Windows NT 4.0</a>.
+<p>
 	  <li>Now that the 07 release is out the door, Jason Stajich is already thinking about <a href="http://bioperl.org/pipermail/bioperl-l/2001-March/005246.html">new directions</a> for bioperl. Read <a href="http://bioperl.org/pipermail/bioperl-l/2001-March/thread.html">the thread</a> and <a href="http://bioperl.org/MailList.shtml">join</a> the fray.
 	  <p>
 	  <li><a href="http://bioperl.org/pipermail/bioperl-l/2001-March/002613.html">Release 07</a> is official. Thanks to all who helped create, document and test!
-	  <p>
-	  <li>The "<b>branch-07</b>" branch was created in the CVS repository and final preparations are underway for releasing the official bioperl-07 suite on Monday March 5th!
 	  <p>
 	  <li>Alan Robinson has written a <a href="http://bioperl.org/pipermail/bioperl-l/2001-February/002325.html">tutorial</a> on writing CORBA clients in Java and Perl 
 	  </ul>
@@ -241,7 +243,6 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 <ul>
 <li><a href="/Core/POD/bptutorial.html">BioPerl 07 Tutorial</a>
 <li><a href="/Core/Latest/modules.html">Registered module list & documentation</a>
-<li><a href="/Projects/overview.html">Bioperl design philosophy and project(s) overview</a>
 <li>All of our source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
 <li>Anonymous CVS access available at <a href="http://cvs.bioperl.org">cvs.bioperl.org</a>
 </ul>
@@ -309,15 +310,19 @@ Getting Together</B></font>
 <b><a href="/bioperl-99/">The first official Bioperl workshop</a></b> was
 held in Heidelberg Germany on August 5th 1999 conjunction with
 ISMB'99. Check out some <a href="/bioperl-99/pictures.html">pictures</a>.
-<p>
 The success of the bioperl-99 gathering has lead to our involvement
-with <a href="http://ismb00.sdsc.edu/bosc2000/">BOSC'2000</a> which will be held right before <a href="http://ismb00.sdsc.edu/">ISMB'2000</a> in August.
+with other events including the very successful Bioinformatics Open Source Conference (<a href="http://ismb00.sdsc.edu/bosc2000/">BOSC'2000</a>). Since then our BOSC meetings have become officially recognized sister conferences of the much larger ISMB meetings.
+<p><b>Our next event is:</b><br>
+<a href="http://open-bio.org/bosc2001/"><img src="/images/bosc2001.gif" border=0></a>
+<p>
+
 <p>
 Bioperl people have been traditionally spotted at the following meetings:
 <ul>
-<li><a href="http://ismb00.sdsc.edu/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
-<li><a href="http://cbcg.lbl.gov/OiB99/">Objects in Bioinformatics (OiB)</a>. Previous
-OiB meetings: <a href="http://www.ebi.ac.uk/oib98">OiB98</a>, <a href="http://industry.ebi.ac.uk/~alan/Meeting/OiB.html">OiB97</a>
+<li><a href="http://ismb01.cbs.dtu.dk/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
+<li>
+Objects in Bio- & Chem-Informatics (<a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a>). 
+Previous OiB meetings: <a href="http://cbcg.lbl.gov/OiB99/">OiB99</a>,   <a href="http://www.ebi.ac.uk/oib98">OiB98</a>, <a href="http://industry.ebi.ac.uk/~alan/Meeting/OiB.html">OiB97</a>
 </ul>
 <p>
 </TD>
@@ -363,11 +368,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-03-08 15:09:59 $</p>
+<p><p align=right>Last Modified: $Date: 2001-03-20 12:54:03 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.23 2001-03-08 15:09:59 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.24 2001-03-20 12:54:03 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
