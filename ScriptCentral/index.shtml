@@ -43,6 +43,13 @@ ScriptCentral - Freely available perl code for the life sciences
 <td>
 
 
+<P>
+<B>Molecular Biological Software at the Hospital for Sick Children, Toronto</B><BR>
+<B>Author:</B> <A HREF="mailto:eddy@genet.sickkids.on.ca">Eddy Wong</A><br>
+<B>URL:</B> <A HREF="http://www.genet.sickkids.on.ca/bioinfo_resources/software.html">http://www.genet.sickkids.on.ca/bioinfo_resources/software.html</A><BR>
+<B>Description:</B><BR>
+A number of general perl scripts for sequence data mining, including webblast -- a perl script which allows you to BLAST sequences at NCBI via the web.  The bioperl code for webblasting was orginially based on one of these scripts<p>
+
 <p>
 <b>Will Fischer's Scripts</b><br>
 <b>Author:</b> <a href="mailto:wfischer@indiana.edu">Will Fischer</a><br>
@@ -175,11 +182,11 @@ Stein's GD module.</A> GD module requires Tom Boutell's graphic <A HREF="http://
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-02 19:24:35 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-05 00:16:16 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.2 2000-04-02 19:24:35 amatern Exp $ -->
+    <!-- $Id: index.shtml,v 1.3 2000-05-05 00:16:16 amatern Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
