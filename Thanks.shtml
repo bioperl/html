@@ -17,7 +17,7 @@
     <!--#include virtual="/_main_content_table_start.html" -->
 
 <B><font face="Arial, Helvetica, sans-serif" color="#000080">
-Contributors & Sponsors
+Supporters, acknowledgements & a bit of history
 </font></B><BR>
 </TD>
 </TR>
@@ -28,20 +28,42 @@ Contributors & Sponsors
 <TD>
 <p>
 Our group owes its early organizational support to its association with the <a href="http://www.techfak.uni-bielefeld.de/bcd/Transfer97/award.html">award-winning</a> VSNS-BCD <a href="http://www.techfak.uni-bielefeld.de/bcd/welcome.html">BioComputing
-Courses</a>; some students of the 1996 course (Chris Dagdigian, Richard Resnick, Lew Gramer, Alessandro Guffanti, and others) have contributed code and commentary. Georg Fuellen, the VSNS-BCD chief organizer is one of the driving forces behind bioperl.
+Courses</a>; some students of the 1996 course (Chris Dagdigian, Richard Resnick, Lew Gramer, Alessandro Guffanti, and others) have contributed code and commentary. Georg Fuellen, the VSNS-BCD chief organizer was one of the driving forces behind bioperl. Steven Brenner, who was an early adopter of Perl for
+bioinformatics provided some of the early work on bioperl. Lincoln Stein
+has long provided guidance and code.
 <p>
-Uni-bielefeld provides us with our <a href="MailList.html">Mailing lists</a>
+Bioperl was then taken up by people developing code at the large
+genome centres. In particular at Stanford, Steve Chervitz at the
+Genome Sequencing Centre (St Louis) Ian Korf and at the Sanger Centre
+(Cambridge UK) Ewan Birney.  All of the C code XS extensions were
+provided by Ewan Birney. Bioperl is used in anger at these sites,
+indicating that is both useful and that it works.
+<p>
+Jason Staijch and Hilmar Lapp joined bioperl for the drive towards a
+0.7 release over 2000 and the first part of 2001, which includes a
+revised feature location model, richer feature objects (in particular
+genes) and more and better tools. Peter Schatner and Lorenz Pollak
+contributed serious chunks of code, being the AlignIO and bptutorial
+scripts and the BPLite port to bioperl respectively. At this time
+Bioperl was being used in absolute earnest by the Ensembl group which
+shook out a number of problems in the code base. Additional
+compatibility with the Sequence Workbench (bioperl-gui) (Mark
+Wilkinson and David Block) and Biocorba (Jason Staijch, Brad Chapman
+and Alan Robinson) and finally Game-XML (Brad Marshall) provided more
+interoperability.
 <p>
 Jon Orwant at <a href="http://www.tpj.com">The Perl Journal</a> gave us permission to reprint
-<a href="GetStarted/tpj_ls_bio.html">Lincoln Stein's article</a>. He also worked with the <a href="http://www.perl.org">Perl Institute</a> to arrange our perl.org DNS entry. 
+<a href="GetStarted/tpj_ls_bio.html">Lincoln Stein's article</a>. He also worked with the <a href="http://www.perl.org">Perl Institute</a> (now the Perl Mongers) to arrange our perl.org DNS entry. 
 <p>
-The initial server hardware for bio.perl.org was donated by <a href="http://www.genetics.com">Genetics Institute</a> with hosting and internet connectivity (ISDN) provided by <a href="http://www.sonsorol.org">Chris Dagdigian</a>.
+Current server hardware for bioperl.org (and other open-bio.org hosted
+projects) was provided by Compaq Computer Corporation.  The donation
+was facilitated by both the Pharmaceutical Sales and High Performance
+Technical Computing (HPTC) groups.
 <p>
-In July of 1999, bio.perl.org was migrated onto a 600Mhz Alpha system donated
-by <a href="http://www.compaq.com">Compaq Computer Corporation</a>. Server hosting facilities and internet connectivity are now provided by <a href="http://www.genetics.com">Genetics Institute</a>.
-
-<p>
-We would like to thank Nat Goodman, the Compaq High Performance Technical Computing group and the Compaq Bioinformatics Solutions Center for making the hardware donation possible. 
+The bioperl servers reside in Cambridge, Massachusetts USA with
+colocation facilities and internet bandwidth donated by Genetics
+Institute. In particular Dr. Steven Howes, Kenny Grant &
+Rich DiNunno have made significant efforts on our behalf.
 <p>
 <font face="Arial, Helvetica, sans-serif" size=+1>
 <a href="/">&lt;&lt;back</a>
@@ -60,11 +82,11 @@ We would like to thank Nat Goodman, the Compaq High Performance Technical Comput
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-03-31 19:22:18 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2001-03-04 01:03:26 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: Thanks.shtml,v 1.1 2000-03-31 19:22:18 dag Exp $ -->
+    <!-- $Id: Thanks.shtml,v 1.2 2001-03-04 01:03:26 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
