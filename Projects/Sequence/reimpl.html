@@ -91,7 +91,7 @@ independent functions and <b>Bio::Seq</b> a pure perl implementation of the Bio:
 apply to absolute coordinates of the string 
 <ul>
 <p>
-Unresolved questions
+<font color=green>Unresolved questions</font>
 <li>Do we specify the case of sequence characters? In which case, is it the same for the DNA and Protein types?
 <li>Alphabets. How alphabet paranoid do we get?
 </ul>
@@ -124,7 +124,7 @@ sequence object" as an inherited type of this, which will test out our ease of i
 <li>$obj->str() - returns a string of the sequence
 <li>$obj->ary() - returns an array of the sequence
 <li>$obj->getseq() - looks at wantarray, returns a string or an array
-<p>
+<p><font color=green>Other implementation-independant functions</font>
 <li>$obj->length() - returns the length of the sequence.
 <li>$obj->copy() - provides a copy of this sequence, using the underlying implementation if it is allowed to
 <li>$obj->trunc($start,$end) - provides a truncation of the sequence, using the underlying implementation if it is allowed to
@@ -137,9 +137,12 @@ new translate functions in Bio::Tools::CodonTable->universal.
 <i>Notes</i>. Translate is out but with a careful warning to get
 people to migrate. This is a tough decision about whether to be correct
 on the developers side or nice to our novice users.
+<p>
+The implementation-independant functions can be overriden by subclasses if they wish - it is
+entirely up to the implementation if they want to provide these functions or not.
 <hr>
 <b>Bio::Seq</b>
-
+<p>
 Bio::Seq will be a straightforward perl implementation of the above abstract class, using
 getset methods on seq, id, type and accession. Type will throw exceptions if you try to set
 it to wrong types.
