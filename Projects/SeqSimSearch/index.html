@@ -80,23 +80,23 @@ These generally have similar logic.
 <p>
 A single similarity search is parameterised by
 <ul>
-<li>A query sequence or query object 
-<li>A target database of sequences
-<li>A number of other additional parameters 
+<li>A query sequence or query object,
+<li>A target database of sequences,
+<li>A number of other additional parameters.
 </ul>
 The search is then run and the results are returned (sometimes in batch mode, often
 using a text file to provide the results). The results consist of
 <ul>
-<li>A list of target sequences which matched the query
-<li>A number of scores foreach target hit
-<li>Potentially some alignments for some of the target hits
-<li>Potentially some other meta information about the search
+<li>A list of target sequences which matched the query,
+<li>A number of scores foreach target hit,
+<li>Potentially some alignments for some of the target hits,
+<li>Potentially some other meta information about the search.
 </ul>
 
 It would be desirable to allow clients or other objects to have access
 to generic sequence similarity searches, allowing new types of
 similarity searches to be added without specific rewriting of client
-code. In particular generic results browsers or HTML conversions can
+code. In particular, generic results browsers or HTML conversions can
 be written to work with all similarity searches, and this should be
 able to include all the information that a user would be interested
 in.  Potentially if enough meta-data can be described in the generic
@@ -108,7 +108,7 @@ This argues for a common interface for sequence similarity searches.
 <hr>
 <b>Current Sequence Similarity Search support</b>
 <p>
-The Blast modules starting at Bio::Tools::Blast.pm
+The Blast modules starting at <a href="http://bio.perl.org/Projects/Blast">Bio::Tools::Blast.pm</a>
 provide an object that represents the contents of
 a Blast report. 
 <p>
@@ -118,17 +118,17 @@ locally and remotely.
 The current Blast module hierarchy contains
 <ul>
 <li>Bio::Tools::Blast - meta data of the blast search and
-a list of hits
+a list of hits,
 <ul>
    <li>Bio::Tools::Blast::Sbjct is the hit object which has
-the different scores for this hit and a list of HSP objects
+the different scores for this hit and a list of HSP objects,
    <ul>
        <li>Bio::Tools::Blast::HSP is the individual alignment
-of each high scoring segment pair for this hit
+of each high scoring segment pair for this hit.
    </ul>
 </ul>
 </ul>
-Currently the Blast module inherits from Bio::Tools::SeqAnal, which
+Currently the Blast module inherits from <a href="http://bio.perl.org/Core/POD/Tools/SeqAnal.html">Bio::Tools::SeqAnal.pm</a>, which
 is a base class for generic sequence analysis. This encapsulates mainly
 the meta-data part of sequence similarity searches, and probably should
 be renamed/replaced by generic sequence similarity searching class.
@@ -144,7 +144,7 @@ we envisage are
 <li>Bio::Tools::SeqSimSearch::Factory - This would be the generic
 place for running and parsing similarity search analysis. It would
 produce objects that implement the Bio::Tools::SeqSimSearch::HitList
-interface.  Currently the Bio::Tools::Blast.pm module has this functionality for
+interface.  Currently the <a href="http://bio.perl.org/Core/POD/Tools/Blast.html">Bio::Tools::Blast.pm</a> module has this functionality for
 Blast.
 <p>
 <li>Bio::Tools::SeqSimSearch::HitList - This would be the generic
@@ -152,14 +152,14 @@ class of a single sequence similarity search, including meta data and
 list of objects that implemented the Bio::Tools::SeqSimSearch::Hit
 interface. The meta data should be able to
 coordinate with a larger scale workflow framework when (if) it is
-written.  Currently the Bio::Tools::Blast.pm module provides this
+written.  Currently the <a href="http://bio.perl.org/Core/POD/Tools/Blast.html">Bio::Tools::Blast.pm</a> module provides this
 class.
 <p>
 <li>Bio::Tools::SeqSimSearch::Hit - This would be the generic
 class of a single hit of the query to a sequence in the database.
 These objects would provide different scores that could occur for this
 hit and potentially a list of alignments (which can be none). Currently
-the Bio::Tools::Blast::Sbjct provides this class.
+the <a href="http://bio.perl.org/Core/POD/Tools/Blast/Sbjct.html">Bio::Tools::Blast::Sbjct.pm</a> module provides this class.
 <p>
 </ul>
 

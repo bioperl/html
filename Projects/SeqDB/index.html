@@ -83,30 +83,30 @@ part of a larger system where bioperl will probably not be the central component
 It makes sense therefore to concentrate on read only aspects of it.
 <p>
 At the moment the main need is for access to sequence databases. The access should
-have the following requirements
+have the following requirements:
 <ul>
 <li> It should provide sensible bioperl objects (eg Bio::Seq, or the AnnotatedSeq
-suggested in the <a href="../SeqAnnot">SeqAnnot</a> pages)
+suggested in the <a href="../SeqAnnot">SeqAnnot</a> pages),
 <li> The implementation should be transparent to the client script/object, ie all
-implementations work the same
+implementations work the same,
 <li> It should be easy to add a new implementation (eg, for an in house RDB).
 </ul>
-Notice that following things are probably not needed
+Notice that following things are probably not needed:
 <ul>
 <li> A complex query ability. There is not enough schema agreement (let alone query
-language) amongst sequence databases to let this happen
-<li> write ability
+language) amongst sequence databases to let this happen,
+<li> write ability.
 </ul>
 
-This suggests a pretty straight forward design of
+This suggests a pretty straight forward design of:
 <ul>
-<li>An abstract interface defining the methods that can be used 
-<li>Implementations that inheriet from that interface
+<li>An abstract interface defining the methods that can be used,
+<li>Implementations that inherit from that interface.
 </ul>
-This strategy is what is in place for the 0.05 release (due out in March 1999).
+This strategy is in place for the 0.05 release (due out in March 1999).
 <hr>
 Although the sequence database issue is relatively straightforward, a more complex
-issue is to deal with a meta database system of which the sequence database would be
+issue is how to deal with a meta database system of which the sequence database would be
 one such type.
 <p>
 The meta db is to provide a way of specifying some biological information without
@@ -120,13 +120,13 @@ This meta database system <b>is not</b> something that we need in place now, but
 important to think about it so that what we do does not clash with something in
 the future.
 <p>
-The meta db system might have the following sort of design
+The meta db system might have the following sort of design:
 <ul>
 <li>A Cross Reference object, which uniquely indicates some sort of biological data
-without actually storing it, or knowing where it should found, or the object representation
+without actually storing it, or knowing where it should found, or the object representation,
 of it. It could be something as simiple as "Database = DNA, Primary_id = X46070".
 <li>A Resolver object, which can take a Cross Reference object and return the biological
-information indicated, potentially with a indication of the object type returned
+information indicated, potentially with a indication of the object type returned.
 </ul>
 
 For the moment, it is clear that the DB system developed for Sequence databases 
