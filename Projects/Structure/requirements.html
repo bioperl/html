@@ -20,18 +20,30 @@
 Preliminary requirements list for a Structure object
 </h2>
 
+<a href="http://bio.perl.org">Bioperl</a> |
+<a href="http://bio.perl.org/Projects/">Projects</a> |
+<a href="http://bio.perl.org/Projects/Structure">Structure</a> 
 </center>
 
 <hr>
 
-This is an initial listing. It is not necessarily complete. Not all of
-the things listed here are expected to go into the Structure object
-itself. Think of this is a rough set of use-cases for biomolecular
-structure information, which should be considered when designing a
-structure object.
+This is an initial listing. It is not necessarily complete. Think of
+this is a rough set of use-cases for biomolecular structure
+information, which should be considered when designing a structure
+object.
+<p>
+A major issue is what goes into the structure object itself.
+Not all of the functionalities listed here are expected to go into the
+structure object but instead would be provided by external utilities
+that could interact with the structure object. The structure object
+could provide an interface to such functionalities and delegate
+tasks to other objects to perform the actual work. It is one of the
+purposes of this requirements listing to help define what should
+be part of the structure object and what should not.
 
 <p>
-<b>Send suggestions to <a href="mailto:sac@neomorphic.com">sac@neomorphic.com</a>
+<b>Send suggestions to <a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">vsns-bcd-perl@lists.uni-bielefeld.de</a>
+</b>
 
 <p>
 The requirements seem to fit into 5 main categories:
@@ -40,7 +52,7 @@ The requirements seem to fit into 5 main categories:
 <li><a href="#features">Structural features</a>
 <li><a href="#anal">Analyzing & editing structures</a>
 <li><a href="#seq">Sequence information</a>
-<li><a href="#db">Database information</a>
+<li><a href="#db">Database-related</a>
 </ol>
 
 <!--     Atomic Coordinates Requirements     -->
@@ -55,8 +67,10 @@ The requirements seem to fit into 5 main categories:
 
 <ol type="1">
 
+<p>
 <li>Parse and output different structure file formats, at a
   minimum PDB but could include mmCIF, CML/XML, and other formats.
+<p>
 <li>Be able to obtain different representations the structural coordinates.
   For example, some applications require a hierarchical representation (complex, 
   molecule, domain, residue, atom) while other might require a
@@ -65,10 +79,13 @@ The requirements seem to fit into 5 main categories:
    structure, such as only backbone atoms (C-alpha or mainchain form
 proteins; phosphodiester backbone for nucleic acids) or heavy-atom
 only (no hydrogens, no waters).
+<p>
 <li>Convert between alternate representations of the structure. 
+<p>
 <li>Molecular coverage: at a minimum, support protein and nucleic acid xtallograpic and NMR
   structures and their heterogens. Multi-chain and multi-model (NMR) structures
  should also be supported.
+<p>
 <li>Theoretical structural models: Obtain quality factors and other
 relevant modeling statistics. this will depend on the modeling
 method. For a homology-based model, methods should be available to get
@@ -91,26 +108,37 @@ the structure and region of the structure the model is based on.
   disulfide bonds, presence of alternate conformations, structure
   quality factors (resolution, R factor), crystal packing group,
   and other data obtainable directly from a PDB file. 
+<p>
   Specific  examples:
    <ul>
-   <li>get the  start  and end residue numbers for each chain in a
+   <li>Get the  start  and end residue numbers for each chain in a
       structure.
-   <li>get the chain association for a given hetero group.
+   <li>Get the chain association for a given hetero group.
    </ul>
+<p>
 <li> Obtain all atomic details for a given atom (xyz, atom serial
   number, atom name, chain name, residue name, residue number, occupancy, B-factor).
   For example, given an atom, determine what residue and what molecule
   (chain) it is in.
+<p>
+<li>Display/select atoms or residues based on physical-chemical
+properties: acidic, basic, polar, non-polar amino acids, residues/
+atoms of a certain type (e.g., oxygen, glycine),  hydrogen
+bonds, disulfide bonds, etc.
+<p>
 <li> Obtain information regarding what domains and other structurally
   or biologically relevant information such as the locations of active sites,
   metal binding site, covalently modified residues, etc.
+<p>
 <li>Need a robust domain-definition mechanism:
  <ul>
 <li> how defined (SCOP, CATH, etc.)
 <li> interchain, intra-chain, contiguous, discontiguous.
 <li> Many of the requirements of the structure object apply
-    at the level of the individual domain as well.
+    at the level of the individual domain as well (e.g., coordinates
+    representations, analysis methods, features, etc.).
 </ul>
+<p>
 <li>Need a flexible mechanism for specifying locations of features.
 
 </ol>
@@ -127,15 +155,27 @@ sense to not burden the structure object with complex analytical
 methods. Such methods are best left for a structural utility module or
 application. Still, it's useful to consider these analysis from the
 point of view of what requirements they impose on a structure object.
+<p>
 <ol type="1">
-
-<li>Display/select acidic, basic, polar and non-polar amino acids,
-hydrogen  bonds
+<li>Calculate dihedral angles (for Ramachandran plot, for example).
+<p>
+<li>Get a list of atoms or residues within a given radius from a
+specified atom or residue.
+<p>
 <li>Charge molecule and compute energy, hydrogen bonds, salt bridges.
+<p>
+<li>Spatial calulations: solvent accessible surface, volume, cavities,
+etc. 
+<p>
+<li>Display/calculate the axes of secondary structural elements.
+<p>
 <li>Given sequence alignment, compute optimal structure superposition
 (produce a rotation/translation matrix and/or RMSD).
+<p>
 <li>Given a matrix, compute the RMSD.
+<p>
 <li>Add/remove/change residues, hydrogens, and water molecules.
+<p>
 <li>Energy minimize an altered structure.
 </ol>
 
@@ -152,35 +192,47 @@ hydrogen  bonds
 
 <li> Obtain a representation of the structure as sequence or
   a set of sequences (strings as well as specialized objects).
+<p>
 <li> Get sequence from the actual set of residues in the atomic
 coordinate set.
+<p>
 <li> Map between residue numbers between the atomic coordinate set
 and the numbers in the sequence string (say from a Fasta
 representation). 
+<p>
 <li> Specify and generate subsections of the structure given a
   subsequence (range of integer positions as well as a sequence object).
+<p>
+<li>Display/select an arbitrary set of residues on a structure.
 
 </ol>
 
 
 
-<!--     Database Information Requirements     -->
+<!--     Database-Related Requirements     -->
 
 <h3>
 <a name="db">
-<li>Database Information
+<li>Database-Related
 </a>
 </h3>
 
 <ol type="1">
 
 <li> Build a structure object given a valid structural database identifier.
+<p>
 <li> Obtain information about the structure given a valid structural
   database identifier (molecule name, source organism, deposition
   date, etc.). 
+<p>
+<li>Get related structures and domains based on criteria such as
+  sequence similarity, structural similarity, date deposited,
+  resolution, organism name, molecule name, etc.
+<p>
+<li> Get URLs for web-based information about the structure.
+<p>
 <li> Support local and remote database access. Many groups store
 versions of the PDB locally or may have their own private structural database.
-<li> Get URLs for web-based information about the structure.
 
 
 </ol>
