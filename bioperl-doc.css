@@ -1,0 +1,48 @@
+BODY {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12pt
+}
+.sidebar, .subheading {
+    font-family: arial, helvetica, sans-serif;
+    background-color: #dadada;
+}
+.subheading {
+    font-weight: 800;
+    color: #000080
+}
+.news-date {
+    font-size: 10pt
+}
+.more {
+    font-weight: 800
+}
+.home {
+    font-weight: 800;
+    text-align=right
+}
+#side-home {
+}
+#side-projects {
+}
+#side-docs {
+}
+#side-download {
+}
+#side-news {
+}
+#side-maillists {
+}
+#side-developers {
+}
+#side-bugs {
+}
+#side-participants {
+}
+#side-related {
+}
+#side-sponsors {
+}
+
+
+
+
