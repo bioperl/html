@@ -149,6 +149,28 @@ Project"</a></b>
 <li>The International Society for Computational Biology (<a href="http://iscb.org">iscb.org</a>)
 </ul>
 
+<p>
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<B><a href="/Thanks.shtml">Contributors & sponsors</a></B></font>
+<BR>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+<P>People and organizations we need to thank
+<p>
+<font face="Arial, Helvetica, sans-serif" >
+<a href="Thanks.html"><b>More...</b></a>
+</font>
+</TD>
+</TR>
+
+
 
 <!spacer >
 <TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
@@ -189,28 +211,6 @@ The latest <b>developer</b> release is <a href="ftp://bioperl.org/pub/DIST/biope
 </tr>
 
 
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
-<font face="Arial, Helvetica, sans-serif" color="#000080"><B><a href="/ScriptCentral">Script Central</a></B></font>
-
-</TD>
-</TR>
-
-<TR>
-<TD>
-We are looking to archive, mirror or provide pointers to any and all biology-related
-perl code that is freely available for download. If you have developed a utility
-or module that you think may be useful to others, please consider placing it in
-the public domain on your site or ours. Help advance our field! 
-<p>
-Jason Stajich has <a href="http://bioperl.org/pipermail/bioperl-l/2001-August/006067.html">created a scripts repository</a> and is seeking submissions. The goal is to have more utility and example scripts in our upcoming releases.
-<p>
-<font face="Arial, Helvetica, sans-serif" color="#000080">
-<a href="/ScriptCentral/"><b>More...</b></a></font>
-<p>
-</TD>
-</TR>
-
 
 <TR>
 <TD ALIGN=LEFT BGCOLOR="#dadada">
@@ -228,16 +228,23 @@ Getting Together</B></font>
 <p>
 Upcoming
 <ul>
+<li>[August 1-2, 2002] The 3rd Annual Bioinformatics Open Source Conference (BOSC'2002)! The official website is <a href="http://open-bio.org/bosc2002/">www.open-bio.org/bosc2002/</a> <br>
+ <a href="http://open-bio.org/bosc2002/"><img src=http://open-bio.org/bosc2002/bosc2002.png border=0></a> 
+<p>
 <li>[Aug 2002] 10th Annual Conference on Intelligent Systems for Molecular Biology (<a href="http://www.cs.ualberta.ca/~ismb02/">ISMB'2002</a>), Edmonton Alberta Canada. <br><br> Mark your calendar - ISMB is traditionally the meeting that large numbers of Open-Bio developers and users attend. Continuing the tradition our 3rd Bioinformatics Open Source Conference (BOSC'02) will be an official side-meeting of ISMB'2002. 
 </ul>
 <p>
 Past
 <ul>
-
+<li>[Jan / Mar 2002] - 1st ever invitation only Open Source Biohackathon held in Tucscon, Arizona and Cape Town, South Africa. The main website/blog from the event is <a href="http://www.technophage.com">www.technophage.com</a> and pictures are online <a href="http://www.technophage.com/gallery/">here</a>.
+<p>
 <li>[Jan 2002] O'Reilly <a href="http://conferences.ora.com/biocon/">Bioinformatics Technology Conference</a> in Tuscon, AZ. Ewan Birney is giving a keynote address and various open-bio volunteers will be giving talks and tutorials.
 <p>
 <li>[July 2001 - Boston] Objects in Bio- & Chem-Informatics (<a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a>). 
 Previous OiB meetings: <a href="http://cbcg.lbl.gov/OiB99/">OiB99</a>,   <a href="http://www.ebi.ac.uk/oib98">OiB98</a>, <a href="http://industry.ebi.ac.uk/~alan/Meeting/OiB.html">OiB97</a>
+<p>
+<li>[July 2001 - Copenhagen] - 2nd Annual <a href="http://open-bio.org/bosc2001/">Bioinformatics Open Source Conference</a> ('BOSC'). Pictures from BOSC'2001 are online at <a href="http://open-bio.org/bosc2001/bosc2001_pics/">http://open-bio.org/bosc2001/bosc2001_pics/</a>.
+
 <p>
 <li>[July 2001 - Copenhagen] <a href="http://ismb01.cbs.dtu.dk/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
 <p>
@@ -245,15 +252,14 @@ Previous OiB meetings: <a href="http://cbcg.lbl.gov/OiB99/">OiB99</a>,   <a href
 
 </ul>
 <p>
+<blockquote>
 <b><a href="/bioperl-99/">The first official Bioperl workshop</a></b> was
 held in Heidelberg Germany on August 5th 1999 conjunction with
 ISMB'99. Check out some <a href="/bioperl-99/pictures.html">pictures</a>.
 The success of the bioperl-99 gathering has lead to our involvement
 with other events including the very successful Bioinformatics Open Source Conference (<a href="http://ismb00.sdsc.edu/bosc2000/">BOSC'2000</a>). Since then our BOSC meetings have become officially recognized sister conferences of the much larger ISMB meetings.
-<p><b>Our most recent event was:</b><br>
-<a href="http://open-bio.org/bosc2001/"><img src="/images/bosc2001.gif" border=0></a>
-<p>
-Pictures from BOSC'2001 are being put online at <a href="http://open-bio.org/bosc2001/bosc2001_pics/">http://open-bio.org/bosc2001/bosc2001_pics/</a>.
+</blockquote>
+
 <p>
 
 </TD>
@@ -295,25 +301,6 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
             </b></b></td>
 </tr>
 
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
-<font face="Arial, Helvetica, sans-serif" color="#000080">
-<B><a href="/Thanks.shtml">Contributors & sponsors</a></B></font>
-<BR>
-</TD>
-</TR>
-
-
-<TR>
-<TD>
-<P>People and organizations we need to thank
-<p>
-<font face="Arial, Helvetica, sans-serif" >
-<a href="Thanks.html"><b>More...</b></a>
-</font>
-</TD>
-</TR>
-
 
 
 <! bottom spacer, col 2 >
@@ -327,11 +314,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2002-02-20 16:40:39 $</p>
+<p><p align=right>Last Modified: $Date: 2002-03-17 19:40:23 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.44 2002-02-20 16:40:39 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.45 2002-03-17 19:40:23 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>

@@ -4,7 +4,7 @@
     <!--#include virtual="/_header_start.html" -->
 
 
-<TITLE> bioperl.org - ScriptCentral </TITLE>
+<TITLE> bioperl.org - ScriptCentral IS NO LONGER MAINTAINED</TITLE>
 
     <!--#include virtual="/_header_end.html" -->
     <!--#include virtual="/_body_start.html" -->
@@ -30,8 +30,8 @@ ScriptCentral - Freely available perl code for the life sciences
 
 <tr>
 <td ALIGN=LEFT BGCOLOR="#dadada">
-<font face="Arial, Helvetica, sans-serif" color="#000080">
-<b>A call for help:</b> Creating and keeping this index organized and current is a time consuming task. Help us out by letting us know if you spot a dead link, errors or know of some new software that has been released. If you have scripts that you would like to share, please feel free to contact us as well --  <a href="mailto:alm13@cornell.edu">Andreas Matern</a>. 
+<font face="Arial, Helvetica, sans-serif" size="+1" color="#000080">
+<b>THIS PAGE IS NO LONGER MAINTIANED:</b> We are no longer actively tracking or listing external programs or scripts. We may in the future open up a CVS sourceode repository for third party scripts and programs. </a>. 
 </td>
 </tr>
 
@@ -189,11 +189,11 @@ Stein's GD module.</A> GD module requires Tom Boutell's graphic <A HREF="http://
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2001-11-27 15:14:40 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-17 19:40:26 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.6 2001-11-27 15:14:40 jason Exp $ -->
+    <!-- $Id: index.shtml,v 1.7 2002-03-17 19:40:26 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
