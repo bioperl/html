@@ -89,28 +89,24 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[December / November 2001]</font></p>
+	  <p><font size=-1>[Jan - March 2002]</font></p>
 	 <ul>
-<li>Jason adds <b><a href="http://bioperl.org/pipermail/bioperl-l/2001-December/006835.html">Bio::AlignIO::emboss</a></b> to bioperl-live
+<li>An alpha version of Bioperl 1.0 <a href="http://bioperl.org/pipermail/bioperl-l/2002-February/007269.html">is available</a>. Lots of eyeballs needed to ensure a clean 1.0 release.
 <p>
-<li>Pasteur Institute publishes an online <a href="http://www.pasteur.fr/recherche/unites/sis/formation/bioperl/">bioperl course</a>
+<li>The 1st half of the 2002 <a href="http://prometheus.frii.com/">Hackathon</a> was a success. Pictures <a href="http://prometheus.frii.com/gallery/">are online</a>.
 <p>
-<li><a href="http://bioperl.org/pipermail/bioperl-announce-l/2001-November/000184.html">bioperl-0.7.2 released</a>.
+<li>We have <a href="http://bioperl.org/pipermail/bioperl-l/2002-February/007202.html">a new CVS alias</a> called "bioperl_all" that can be used to checkout or download all of the active bioperl CVS modules. 
 <p>
-<li><a href="http://bioperl.org/pipermail/bioperl-announce-l/2001-November/000184.html">bioperl-db released</a>. <em>bioperl-db</em> provides code and modules for storing and retrieving biological sequence information from relational databases (current version only supports mysql).
+<li>An <a href="http://biojava.org/pipermail/biojava-l/2002-February/002110.html">interesting thread</a> on biojava-l started a discussion on comparisons between bioperl and biojava. 
 <p>
-<li>"Genquire" - A graphical genomic editor/browser built on top of the bioperl and bioperl-gui codebases has been released by Mark Wilkinson and David Block. The Genquire project is hosted at <a href="http://bioinformatics.org">Bioinformatics.org</a>.
+<li>Jason Stajich <a href="http://bioperl.org/pipermail/bioperl-l/2002-February/007272.html">commits code</a> that makes it easier to call external <a href="http://www.emboss.org">EMBOSS</a> applications.
 <p>
-<li>Kris Boulez commits inital <a href="http://bioperl.org/pipermail/bioperl-l/2001-November/006628.html">Bio::Structure objects</a> into bioperl-live
+<li>Heikki Lehvaslaiho reworked the <b><a href="http://bioperl.org/pipermail/bioperl-l/2002-February/007208.html">Bio::Map</b></a> classes.
 <p>
-<li>Bristol-Myers Squibb <a href="http://bioperl.org/pipermail/bioperl-l/2001-November/006617.html">contributes code</a> for converting bioseq objects to and from the <a href="http://www.labbook.com/products/xmlbsml.asp">BSML</a> XML format.
-<p>
-	 <li>Have you read the latest Open Bioinformatics Foundation <a href="http://open-bio.org/pipermail/open-bioinformatics-foundation/2001-October/000001.html">newsletter</a>?
-<p>
-	  <li>Bioperl <a href="http://bioperl.org/pipermail/bioperl-l/2001-October/006379.html">class diagrams are available</a> in PDF form.
-	  <p>
-	  <li>(experimental feature) - New PDoc-style documentation for all of the bioperl codebases is online at <a href="http://doc.bioperl.org/">http://doc.bioperl.org/</a>. It looks to be far more useful than our traditional pod2html translated documentation pages. Please evaluate and send comments to the bioperl-guts-l list.
+<li>Steve Cannon compiles <b><a href="http://bioperl.org/pipermail/bioperl-l/2002-January/006904.html">MacOS X</b> install instructions</a>.
+
 	  </ul>
+
 
  </ul>
 	  
@@ -177,7 +173,7 @@ Project"</a></b>
             Perl Archive Network (CPAN). CPAN links and info can be found at <a href="http://www.perl.com"> 
             www.perl.com</a>. 
             <p>
-The latest <b>developer</b> release is <a href="ftp://bioperl.org/pub/DIST/bioperl-0.9.3.tar.gz">bioperl 0.9.3</a>.
+The latest <b>developer</b> release is <a href="ftp://bioperl.org/pub/DIST/bioperl-1.0alpha.tar.gz">bioperl-1.0.alpha</a>.
 <p>
 <font face="Arial, Helvetica, sans-serif" >
 <a href="/Core/Latest/"><b>More...</b></a>
@@ -225,15 +221,15 @@ Getting Together</B></font>
 <p>
 Upcoming
 <ul>
-<li>[Jan 2002] O'Reilly <a href="http://conferences.ora.com/biocon/">Bioinformatics Technology Conference</a> in Tuscon, AZ. Ewan Birney is giving a keynote address and various open-bio volunteers will be giving talks and tutorials.
-<p>
 <li>[Aug 2002] 10th Annual Conference on Intelligent Systems for Molecular Biology (<a href="http://www.cs.ualberta.ca/~ismb02/">ISMB'2002</a>), Edmonton Alberta Canada. <br><br> Mark your calendar - ISMB is traditionally the meeting that large numbers of Open-Bio developers and users attend. Continuing the tradition our 3rd Bioinformatics Open Source Conference (BOSC'02) will be an official side-meeting of ISMB'2002. 
 </ul>
 <p>
 Past
 <ul>
-<li>
-[July 2001 - Boston] Objects in Bio- & Chem-Informatics (<a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a>). 
+
+<li>[Jan 2002] O'Reilly <a href="http://conferences.ora.com/biocon/">Bioinformatics Technology Conference</a> in Tuscon, AZ. Ewan Birney is giving a keynote address and various open-bio volunteers will be giving talks and tutorials.
+<p>
+<li>[July 2001 - Boston] Objects in Bio- & Chem-Informatics (<a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a>). 
 Previous OiB meetings: <a href="http://cbcg.lbl.gov/OiB99/">OiB99</a>,   <a href="http://www.ebi.ac.uk/oib98">OiB98</a>, <a href="http://industry.ebi.ac.uk/~alan/Meeting/OiB.html">OiB97</a>
 <p>
 <li>[July 2001 - Copenhagen] <a href="http://ismb01.cbs.dtu.dk/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
@@ -324,11 +320,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2002-01-17 22:46:27 $</p>
+<p><p align=right>Last Modified: $Date: 2002-02-19 23:21:28 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.42 2002-01-17 22:46:27 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.43 2002-02-19 23:21:28 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
