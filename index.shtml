@@ -83,6 +83,8 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[March 2001]</font></p>
 	  <p>
 	  <ul>
+	  <li><a href="http://bioperl.org/pipermail/bioperl-l/2001-March/002613.html">Release 07</a> is official. Thanks to all who helped create, document and test!
+	  <p>
 	  <li>The "<b>branch-07</b>" branch was created in the CVS repository and final preparations are underway for releasing the official bioperl-07 suite on Monday March 5th!
 	  <p>
 	  <li>Alan Robinson has written a <a href="http://bioperl.org/pipermail/bioperl-l/2001-February/002325.html">tutorial</a> on writing CORBA clients in Java and Perl 
@@ -235,6 +237,7 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 <TD>
  <P>We are now working from a central version-controlled code repository and have a <a href="http://bio.perl.org/bioperl-bugs/">web-based bug-tracking system</a> on this machine. There are a number of ongoing bioperl projects.
 <ul>
+<li><a href="/Core/POD/bptutorial.html">BioPerl 07 Tutorial</a>
 <li><a href="/Core/Latest/modules.html">Registered module list & documentation</a>
 <li><a href="/Projects/overview.html">Bioperl design philosophy and project(s) overview</a>
 <li>All of our source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
@@ -249,13 +252,13 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (0.6.2)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (0.7.0)</a></B></font> 
           </TD>
 </TR>
 
 <tr>
           <td> Each official release passes our internal tests. We are committed 
-            to promptly fixing any bugs in the 0.6 release and making patched 
+            to promptly fixing any bugs in the 0.7 release and making patched 
             releases available. Bioperl releases are also mirrored by the Comprehensive 
             Perl Archive Network (CPAN). CPAN links and info can be found at <a href="http://www.perl.com"> 
             www.perl.com</a>. 
@@ -358,11 +361,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-03-04 00:15:08 $</p>
+<p><p align=right>Last Modified: $Date: 2001-03-05 19:30:08 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.21 2001-03-04 00:15:08 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.22 2001-03-05 19:30:08 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
