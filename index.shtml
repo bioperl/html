@@ -80,13 +80,16 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[October 2000]</font></p>
+	  <p><font size=-1>[December 2000]</font></p>
 	  <p>
 	  <ul>
-	  <li> Bioperl 0.6.2 <a href="http://bioperl.org/pipermail/bioperl-l/2000-October/001504.html">has been released</a>. It is mostly a bugfix release with <a href="/Core/Latest/Changes">very few functional changes</a>.This should be the final 0.6 series release. The main branch of our current CVS repository (<a href="http://cvs.bioperl.org">bioperl-live</a>) contains significant new code and functionality that is *NOT* part of the 0.6.2 release.
-<p>
-<li> We are working on coordinating a Bioperl 0.7 release that will merge all the new features into the main distribution. We estimate that Bioperl 0.7 will come out by year end. Scanning the <a href="http://bioperl.org/pipermail/bioperl-l/">bioperl-l archives</a> is a good way to see what new code and features have been added.
-           <p>
+	  <li>Bioperl CVS now <a href="http://cvs.bioperl.org/cgi-bin/viewcvs/viewcvs.cgi/?cvsroot=bioperl">web browsable</a>
+	  <li>Waiting for Release 0.7? Check the <a href="http://www.bioperl.org/wiki/html/BioPerl/BioperlRelease0.7.html">status page</a> or <a href="http://bioperl.org/wiki/html/BioPerl/TaskList.html">task list</a>
+	  <li>New BioXML GAME parser <a href="http://bioperl.org/pipermail/bioperl-l/2000-November/001739.html">committed</a>
+	  <li>New GFF v2 output support <a href="http://bioperl.org/pipermail/bioperl-l/2000-November/001726.html">committed</a>
+	  <li>More bioperl-gui code: <a href="http://bioperl.org/pipermail/bioperl-l/2000-November/001616.html">Bio::Tk::HitDisplay</a>
+	  <li>New NCBI local blast module & psiblast parser <a href="http://bioperl.org/pipermail/bioperl-l/2000-November/001608.html">committed</a>
+
 	  </ul>
 	  
 
@@ -356,11 +359,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-10-12 00:37:25 $</p>
+<p><p align=right>Last Modified: $Date: 2000-12-03 22:43:18 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.15 2000-10-12 00:37:25 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.16 2000-12-03 22:43:18 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
