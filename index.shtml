@@ -91,7 +91,11 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[May / June 2001]</font></p>
 	  <p>
 	  <ul>
-	  <li>We need people to help <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005796.html">test the 0.7.1 release code</a> on as many operating systems as possible. Pending bugs holding up the 0.7.1 release are tracked in <a href="http://www.bioperl.org/wiki/html/BioPerl/071BugList.html">this Wiki page</a>.
+	  <li><font color="red">[ <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005853.html">tarball available</a> ] </font>We need people to help <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005796.html">test</a> the <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005853.html">0.7.1 release code</a> on as many operating systems as possible. Pending bugs holding up the 0.7.1 release are tracked in <a href="http://www.bioperl.org/wiki/html/BioPerl/071BugList.html">this Wiki page</a>.
+	  <p>
+	  <li> Jason suggests that <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005842.html">adding Grail functionality</a> would be a good project for new bioperl people who are interested in contributing to the project. Doug Hyatt, author of <a href="http://compbio.ornl.gov/grailexp/">GrailEXP</a> responds with an <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005849.html">offer to help out</a>.
+	  <p>
+	  <li>Heikki has <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005835.html">committed modules</a> for reading and writing PHYLIP (interleaved only) and NEXUS sequence formats.  
 	  <p>
 	  <li>bioperl.org server has switched to <a href="http://www.openssh.org">OpenSSH</a>. This message <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005795.html">explains</a> why users may see key related error messages.
 	  <p>
@@ -317,11 +321,11 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-06-11 18:51:05 $</p>
+<p><p align=right>Last Modified: $Date: 2001-06-15 22:12:32 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.29 2001-06-11 18:51:05 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.30 2001-06-15 22:12:32 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
