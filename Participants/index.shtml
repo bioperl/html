@@ -686,6 +686,52 @@ similarity and data visualization among others
 </tr>
 
 <! ##### END PERSON #### >
+<tr>
+  <td bgcolor="#d9d5d5" colspan=2>&nbsp;</td>
+</tr>
+
+<! ##### BEGIN PERSON #### >
+<tr>
+<td valign="top" ><font face="Arial, Helvetica, sans-serif" size=-1><b>Name</b></td>
+<td>Jason Stajich, <a href="jason@chg.mc.duke.edu">jason@chg.mc.duke.edu</a><br>
+</tr>
+
+<tr>
+<td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Affiliation</b></td>
+<td>Duke University Medical Center, Center for Human Genetics</td>
+</tr>
+
+<tr>
+<td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Location</b></td>
+<td>Durham, NC  USA</td>
+</tr>
+
+<tr>
+<td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Uses perl for</b></td>
+<td>duct taping legacy projects, solutions to lab informatic needs,
+database needs
+</td>
+</tr>
+
+<tr>
+<td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Research/work interests</b></td>
+<td>automation of lab processes, systems design, improving sequence
+analysis 
+</td>
+
+<tr>
+<td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Bioperl Activity</b></td>
+<td> Bio::CorbaClient, Bio::CorbaServer
+</td>
+</tr>
+
+<tr>
+<td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Web resources</b></td>
+<td>
+<a href="http://wwwchg.mc.duke.edu">http://wwwchg.mc.duke.edu</a>
+</td>
+</tr>
+<! ##### END PERSON #### >
 
 <tr>
   <td bgcolor="#d9d5d5" colspan=2>&nbsp;</td>
@@ -750,11 +796,11 @@ biologists
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-03-31 16:44:06 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-04 20:03:59 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.1 2000-03-31 16:44:06 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.2 2000-05-04 20:03:59 jason Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
