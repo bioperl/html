@@ -58,7 +58,7 @@
 <TD>
 Officially organized in 1995 and existing informally for several years prior, <b>The Bioperl Project</b> is an international association of <a href="/Core/Latest/AUTHORS">developers</a> of open source <a href="http://www.perl.com/">Perl</a> tools for bioinformatics, genomics and life science research. 
 <p>
-Facilitated by the <a href="http://open-bio.org">Open Bioinformatics Foundation</a> we work closely with our friends and colleagues across many projects including <a href="http://biojava.org">biojava.org</a>, <a href="http://biopython.org">biopython.org</a>, <a href="http://biodas.org">DAS</a>, <a href="http://bioruby.org">bioruby.org</a>, <a href="http://biocorba.org">biocorba.org</a>, <a href="http://ensembl.org">ENSEMBL</a> and <a href="http://www.emboss.org">EMBOSS</a>. 
+Facilitated by the <a href="http://open-bio.org">Open Bioinformatics Foundation</a> we work closely with our friends and colleagues across many projects including <a href="http://biojava.org">biojava.org</a>, <a href="http://biopython.org">biopython.org</a>, <a href="http://biodas.org">DAS</a>, <a href="http://bioruby.org">bioruby.org</a>, <a href="http://biocorba.org">biocorba.org</a>, <a href="http://www.ensembl.org">EnsEMBL</a> and <a href="http://www.emboss.org">EMBOSS</a>. 
 <p>
 The Bioperl server provides an online resource for modules,
 scripts, and web links for developers of Perl-based software 
@@ -70,7 +70,7 @@ otherwise make freely available standalone scripts & code.
 <ul>
 <li><a href="/Core/bptutorial.html">BioPerl 1.0 Tutorial</a>
 <li><a href="http://www.pasteur.fr/recherche/unites/sis/formation/bioperl/">Pasteur Institute Bioperl Course</a>
-<li><a href="http://doc.bioperl.org/releases/bioperl-1.0/">BioPerl 1.0 Documentation</a>
+<li><a href="http://doc.bioperl.org/releases/bioperl-1.0.1/">BioPerl 1.0.1 Documentation</a>
 <li>Anonymous CVS (<a href="http://cvs.bioperl.org">cvs.bioperl.org</a>)
 <li>All source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
 </ul>
@@ -90,12 +90,18 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
+<p><font size=-1>[April - June 2002]</font></p>
+<ul>
+<li>Bugfix release 1.0.1 is available for download. See <a href="/Core/Latest/">distribution page</a> for more information.</li>
+<p>
+<li><a href="http://www.open-bio.org/bosc2002/">BOSC 2002</a> speaker schedule has been set.  Keynotes include Ewan Birney, Michael Eisen, and Winston Hide.  Registration closes June 28.</li>
+</ul>
 	  <p><font size=-1>[Jan - March 2002]</font></p>
 	 <ul>
 <li>
 <b>Almost 7 years in the making and a huge milestone for BioPerl and the Open Bioinformatics Foundation we proudly <a href="/Core/Latest/Release-1.0.txt">announce the 1.0 release</a> of the BioPerl distribution! </b>
 <p>
-According to the manifest, Bioperl-1.0 contains 832 files. The test suite contains 93 scripts which collectively perform 3042 functionality tests. This may or may not be the largest single distribution in the perl <a href="http://www.cpan.org">CPAN<a>.
+According to the manifest, Bioperl-1.0 contains 832 files. The test suite contains 93 scripts which collectively perform 3042 functionality tests. This may or may not be the largest single distribution in the perl <a href="http://www.cpan.org">CPAN</a>.
 
 <p>
 <li>Please take some time to answer the  <a href="/survey.html">BioPerl survey</a>. Your feedback is very important!
@@ -201,7 +207,7 @@ Project"</a></b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (1.0)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (1.0.1)</a></B></font> 
           </TD>
 </TR>
 
@@ -324,11 +330,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2002-03-18 17:53:14 $</p>
+<p><p align=right>Last Modified: $Date: 2002-06-17 21:17:02 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.48 2002-03-18 17:53:14 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.49 2002-06-17 21:17:02 jason Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
