@@ -1,0 +1,551 @@
+<html>
+<body bgcolor="ivory">
+<h1>
+Bioperl: Standard Perl Modules for Bioinformatics
+</h1>
+THIS TEXT IS BEING UPDATED.
+<p>
+Steve A. Chervitz*<br>
+Department of Genetics, Stanford University, Stanford, CA 94305-5120. Tel: (650) 725-8956, Fax:
+ (650) 723-7016. sac@genome.stanford.edu
+<p>
+Georg Fuellen <br>
+Universitaet Bielefeld, Techfak - AG PI, Postfach 100131, D-33501 Bielefeld, Germany. Tel: +49 521 106 2903, Fax: +49 521 106 6411. fuellen@dali.Mathematik.Uni-Bielefeld.DE.
+<p>
+Chris Dagdigian <br>
+Genetics Institute, 35 CambridgePark Dr., Cambridge, MA 02140. cdagdigian@genetics.com.
+<p>
+Steven Brenner<br>
+ Department of Structural Biology, Stanford University, Stanford, CA 94305-5400. brenner@hyper.stanford.edu
+<p>
+Ewan Birney<br>
+Sanger Centre, The Wellcome Trust Genome Campus, Hinxton, Cambridge UK. birney@sanger.ac.uk
+<p>
+Ian Korf<br>
+The Genome Sequencing Centre, ????
+<p>
+The bioperl developpers can be address as a group by sending a mail to 
+vsns-bcd-perl-guts@lists.uni-bielefeld.de
+<p>
+*Corresponding author.
+
+<p>
+
+Keywords: Perl, standardization, object-oriented programming, open source, biological sequence, alignment, BLAST, protein structure, genomic analysis, Unified Modeling Language.
+<p>
+
+
+<b>
+Abstract 
+</b>
+<p>
+
+The Bioperl project is a coordinated effort to collect computational
+methods routinely used in bioinformatics into a set of standard,
+well-documented, and freely available Perl modules. Perl provides
+unparalleled support for many tasks common in bioinformatics yet there
+are no standard Perl modules for biology. In this paper, we present
+the core modules being designed for key entities in computational
+biology: sequences, sequence alignments, three-dimensional molecular
+structures, and sequence comparisons such as BLAST. Also presented is
+a set of integrated modules for genomic analysis which models the
+essential features and interrelationships of biological objects. The
+Bioperl project is open to all and we invite suggestions and
+participation from the larger bioinformatics community.
+<p>
+
+
+<b>
+Introduction
+</b>
+<p>
+
+A large part of computational biology consists of routine
+text-processing tasks such as string manipulation, regular expression
+matching, file parsing, and data format interconversion. Consequently,
+many developers in the bioinformatics community make extensive use of
+the Perl programming language which excels at such tasks (Wall et al.
+1996; Stein 1996). However, despite the widespread use of Perl by
+computational biologists, there are no standard Perl modules available
+that are designed specifically for bioinformatics. Different
+developers have therefore had to independently write code for common
+tasks in bioinformatics (such as translating DNA to amino acid
+sequence, parsing BLAST reports, interconverting sequence file
+formats, etc.). This has lead to the creation of similar but mutually
+incompatible programs, modules, and functions.
+ 
+<p>
+
+The Bioperl project addresses this deficiency by coordinating the
+development of a set of core Perl modules with well-documented
+interfaces that provide standard functionality for molecular
+biological data management. Bioperl modules are offered as "common
+currency" for data management and algorithmic operations frequently
+required in bioinformatics. By disseminating standard modules for
+common objects and operations, Bioperl hopes to promote the
+development of interoperable programs and decrease the amount of
+redundant effort by bioinformatics developers.
+
+<p>
+
+In this report we present an overview of the Bioperl project and, in
+so doing, encourage participation and feedback from members of the
+bioinformatics community. We first describe the core Bioperl modules
+currently under development. These modules address the management of
+nucleotide and protein sequences, sequence alignments, 3D structures,
+and BLAST reports.
+
+<p>
+
+We then present some preliminary work toward the development of a
+comprehensive framework of Perl modules that incorporate the core
+modules and add additional modules defining key bio-objects like gene,
+protein, genome, etc. These modules are being designed to manage
+genomic information in a consistent way for different organisms and
+represent an attempt to encapsulate the essential semantics and
+interrelationships of bio-objects.
+
+<p>
+
+
+<b>
+Software
+</b>
+<p>
+
+Modules were developed using Perl version 5.002 or higher (Wall et
+al. 1996) and rely heavily on the object-oriented features of
+Perl. Documentation and source code for Bioperl modules is accessible
+via the Bioperl homepage (http://bio.perl.org).  The broader Perl
+community provides a component-oriented approach for sharing code in
+the form of modules via the Comprehensive Perl Archive Network (CPAN,
+see the Perl home page listed under Wall et al. 1996).  The Bioperl
+modules are distributed in a standard CPAN form, which is very easy to
+install and provide in placing testing for the modules. Source code
+for modules, as well as the Perl source, are free for use under the
+Perl artistic license.
+
+<p>
+
+Perl module names reflect the directory structure in which the module
+files are located, not class inheritance. Thus, Bio::Gene::Gene.pm
+indicates that the module for the gene object is located in
+subdirectory "Gene" within directory "Bio". Generally the directory
+heirarchy gives some indication of how 
+
+<p>
+
+Unified Modeling Language (UML, Eriksson and Penker 1997) class
+diagrams were created with a demo version of the Rational Rose
+software, version 4.0.3 (1996).
+<p>
+
+
+<b>
+Core Object: Sequence
+</b>
+<p>
+
+Seq.pm implements a Perl object containing a single nucleotide or
+peptide sequence. Programs and other objects that create, produce, or
+edit sequences are expected to operate on and return sequence objects
+(by creating them directly or via sequence factories which handle
+requests for creating sequence objects according to defined
+specifications).  The sequence object contains methods for reading and
+writing sequence data from different file formats as well as simple
+manipulations of the sequence including translation, reverse
+complement, sub-sequence extraction, and support for extended
+alphabets. 
+<p>
+
+An important aspect of the sequence object is the ability to
+accommodate diverse sequence data file formats. By accommodating
+multiple data file formats, the sequence object permits access to
+sequence data in a format-independent manner.  This enables the
+sequence object to act as a translator between applications with
+incompatible sequence data formats. The variety of sequence data
+formats is a result of the requirements of different sequence analysis
+software. We expect this situation to persist for some time.
+<p>
+
+For reading sequence data, Seq.pm directly supports raw, Fasta, and
+GCG sequence formats. To extend the range of readable sequence
+formats, Seq.pm can utilize ReadSeq (Gilbert 1990). ReadSeq is
+invoked only when internal parsing code fails to recognize the
+submitted sequence format. Formats supported by ReadSeq include ASN.1,
+DnaStrider, GenBank/GB, EMBL, Fitch, GCG, IG/Stanford, MSF, NBRF,
+Olsen, PAUP, Pearson/Fasta, Phylip, Phylip3.2, PIR/CODATA, Plain/Raw,
+Pretty, and Zuker. The output formats currently supported by Seq.pm
+include Raw, Fasta, GCG, GenBank, and PIR. Support for additional
+output formats is planned. It should be recognized that although
+Seq.pm may utilize non-Perl software to access sequence data, the
+Seq.pm object allows the client to focus on how to use the sequence
+data without having to worry about how to access the data.
+<p>
+
+
+<b>
+Core Object: Sequence Alignment
+</b>
+<p>
+
+There are two Objects which can be used for multiple sequence
+alignments: SimpleAlign.pm is a a very simplistic view of an object,
+which considers it to be immutable text that can converted into a
+number of formats. Despite this seemingly useless limitation, it
+is a convienent way of being able to store, interconvert and manipulate
+alignments when the alignment is fixed.
+
+
+The other multiple alignment object, UnivAln.pm implements an object
+for reading, parsing, writing, slicing, and manipulating multiple
+biological sequences (these can be sequence multisets or
+alignments). This module is designated "UnivAln.pm" since it can hold
+alignments of any kind of data, not just sequence
+characters. Available methods include: flexible access to specific
+rows/columns or slices of the alignment, identification of variable,
+invariable, and gap-free regions, mapping arbitrary functions to
+specific rows/columns, consensus building, and flexible output
+formatting.
+<p>
+
+Support for multiple input and output formats is an important feature
+for the alignment object just as it is for the sequence object, as
+discussed above. UnivAln.pm objects can be constructed from files,
+multi-line strings, arrays, and Bio::Seq.pm objects. At present,
+the only supported file formats are Fasta and raw but this is expected
+to change soon to allow other multiple sequence alignment formats via
+ReadSeq as described above for Seq.pm. Figure 1 illustrates some
+key functions provided by the Seq.pm and UnivAln.pm objects.
+<p>
+
+
+<b>
+Core Object: Structure
+</b>
+<p>
+
+A Bioperl module dedicated to 3D structure and domain organization of
+biological polymers is presently at an early stage of development, but
+is a high priority given the importance of this data. The Bioperl
+structure object (Bio::Struct::Structure.pm) encapsulates the
+coordinate data and annotation for 3D structures as well as core data
+management and analysis features. Just as Seq.pm permits
+format-independence for sequence data, the sequence object is expected
+to permit format-independent manipulation of 3D structural data (at
+present, however, only PDB format is supported). An intriguing use for
+a structure object might involve collaboration with an alignment
+object to create structure-based sequence alignments.
+<p>
+
+A number of Perl modules relevant to 3D structure have been
+implemented including PDB.pm, Scop.pm, and Domain.pm. PDB.pm is a
+utility object used for accessing information about any given 3D
+structure in the Brookhaven PDB (Bernstein et al. 1977) and serves as
+a factory for objects that encapsulate data for any given PDB
+structure. The PDB.pm object can download and parse PDB coordinate
+data for any structure from Brookhaven or from local files and can
+generate Bioperl Structure.pm objects from this data. Access to
+MMDB-validated structural data is planned (Ohkawa et al. 1995). The
+Scop.pm object provides a parallel service for the SCOP protein domain
+database (Murzin et al. 1995) permitting access to information about
+the class-fold-superfamily-family classification of domains of protein
+structures within the PDB. The Bio::Struct::Domain.pm object is a base
+class that is used for representing generic domains within
+biomolecules. While a domain can be defined by a variety of methods
+ranging from sequence alignment to structure analysis,
+Bio::Struct::Domain.pm currently focuses on structurally defined
+domains, as in the SCOP database.
+<p>
+
+<b>
+Core Object: BLAST
+</b>
+<p>
+
+The Blast.pm sequence analysis module is an example of a utility, or
+wrapper type of module. Such modules provide an interface for key
+computational tools whose use is ubiquitous within bioinformatics. The
+widespread, routine use of the BLAST sequence alignment algorithm
+(Altschul et al. 1990) has created a need for a standard object which
+can execute commands to generate BLAST reports as well as parse and
+analyze the BLAST output.  Several independent implementations of a
+Bioperl BLAST object currently exist, some which can generate Blast
+reports from Blast servers, and some which just parse pre-existing
+Blast reports. Important features include the ability to provide lists
+of sequence identifiers for the best matches, statistics for the
+matches, and support for different varieties of the BLAST program
+(BLAST1.4, BLAST2, WU-BLAST2, PSI-BLAST). We are in the process of
+creating a standard BLAST object that merges the functionality and
+design of the existing objects. The Blast.pm module also serves as a
+model wrapper module for other sequence analysis utilities of
+wide-spread interest in bioinformatics (Fasta, Smith-Waterman,
+ClustalW, HMMER and SAM).
+
+<p>
+<b>
+Core Object : Alignment Factories
+</b><p>
+
+A set of alignment factories, that is objects which make alignments
+have been implemented for the protein Smith Waterman algorithm. In the
+future other algorithms will also be supported. These alignment
+factories produce SimpleAlign objects from two sequences and the
+parameters (namely gap penalties and comparison matrix) stored in the
+factory
+<p>
+The factory objects are actually implemented in C and compiled to a
+dynamically loaded object. This object file is loaded into the perl
+executable at run time when needed and interfaces with the Perl
+interpreter through the XS interface provided in Perl. The combination
+of the speed of C and efficient memory usage coupled with the ease of
+use of Perl is an ideal combination for the dynamic programing algorithm
+required to make Smith Waterman alignments, which can be computationally
+expensive, and, for large sequences, require considerable memory.
+<p>
+<b>
+Bio-Object Framework
+</b>
+<p>
+
+A set of inter-operable Perl modules representing key biological
+objects has been implemented to provide a framework for managing and
+processing genomic information. This system of objects aims to model
+the semantics (data structures, functionality, and relationships) of
+high-level entities such as genome, chromosome, gene, protein,
+etc. that are common to all organisms. The hierarchy contains the core
+Bioperl modules presented above and also contains modules representing
+objects that are biologically intuitive to facilitate use by
+biologically-minded developers working with genomic datasets. The
+value of an object-oriented approach for modeling genomic data as well
+as a discussion of different object-oriented methodologies have been
+described (Bergemen et al. 1995).
+<p>
+
+Another important feature of the Perl modules comprising this
+bio-object hierarchy is web-awareness.  The framework contains modules
+that provide access to the homepages and search engines of a variety
+of key bioinformatics websites.  Perl's exceptional support for CGI
+scripting and other web-savvy tools such as lib-www-perl (LWP module
+available from CPAN) facilitate distributed computing via the
+internet.  The bio-object modules currently do not make use of CORBA
+technology, but this is discussed below.
+<p>
+
+A complete description of this framework is beyond the scope of this
+article. Table I describes the basic organization and modules
+comprising the framework. Additional information is available on-line
+(Bioperl Bio::Object Schema 1997). To illustrate an example of usage,
+the Bio::Genome.pm object is subclassed to create a Genome object
+specialized for the S. cerevisiae genome, Sacch::Genome.pm. This
+genome object is intimately familiar with the yeast genomic data and
+the Saccharomyces Genome Database (SGD) website (Cherry et
+al. 1998). It can do such things as disambiguate names of yeast genes
+defined genetically or based on systematic sequence and distinguishing
+obsolete from standard gene names. This genome object also acts as a
+factory for other objects within the genome; it can return a
+Sacch::Gene.pm object reference given a valid yeast gene name.
+<p>
+
+The bio-object framework is presently in use at the SGD.  The
+S. cerevisiae genomic dataset has provided an invaluable guide for the
+design and implementation of this bio-object framework. However, care
+has been taken to generalize the design of the base objects and to
+derive S. cerevisiae-specific versions where appropriate. Thus,
+specialized subclasses that derive from the base classes will be
+compatible with the existing circuitry of the framework. These objects
+are being designed with attention to design patterns (Gamma
+et. al. 1995) to aid development and flexibility of the resulting
+code.
+<p>
+
+As the bio-object framework and the objects themselves increase in
+complexity, it becomes increasingly important to document the module
+interfaces as well as the overall organization of the framework
+showing object inter-relationships. The Unified Modeling Language
+(UML) is an language for specifying, constructing, visualizing, and
+documenting software-intensive systems (Eriksson and Penker 1997). UML
+provides a expressive and flexible way to describe object-oriented
+systems and we have begun using it to describe the bio-object
+framework. A sample UML class diagram for a Bioperl gene object is
+shown in Figure 2.  UML is in the process of being adopted as the
+industry-standard object modeling language by the OMG (Object
+Management Group 1989) and there are commercial software tools for UML
+design containing powerful features such as code generation from
+diagrams or reverse engineering to create diagrams from code (Rational
+Rose 1998).
+<p>
+
+<b>
+A Single Central Distribution
+</b>
+<p>
+
+Much of the recent work at bioperl has been focused on drawing together
+the disparate areas of the project (our members are truely worldwide)
+into single working distributions. The latest distribution from bio.perl.org
+(bioperl-0.04) is an 'out-of-the-box' working distribution comprising the
+Sequence, Blast, SimpleAlign, RestrictionEnzyme and Smith Waterman Alignment
+Factory. The distribution contains extensive documentation both of a
+'getting started' type and documentation of the modules themselves. Finally
+there are a number of example scripts bundled with the distribution.
+The source code is coordinated from a cvs repository which dumps
+to the ftp site every night, so if desired, the most recent code is
+always available.
+<p>
+We hope that these easy to use distributions will broaden the use
+of bioperl both by perl experts who don't want to reinvent the
+tools made already and the many biologists who are learning perl
+as their first programming language.
+
+
+<b>
+Discussion
+</b>
+<p>
+
+Bioperl developers recognize that Perl has and will continue to play
+an important role in bioinformatics in the future. Perl has become
+somewhat of a phenomena in the field as many biologists find it an
+easy to learn language which has many of the tools they need: in
+particular Perl's text processing and regular expression support make
+it well-suited for complex text parsing tasks (common in
+bioinformatics). Perl has proven to be a powerful, easy to use,
+high-level environment for scripting, object-oriented development, and
+fast prototyping for bioinformatics software.  By providing a resource
+for standard modules, the Bioperl project aims to leverage this large
+number of interested programmers who primarily program in perl. This
+will hopefully increase the amount of code sharing and decrease the
+amount of redundant effort among developers of bioinformatics
+software.
+<p>
+
+
+The Bioperl modules presented here certainly reflect the strengths and
+limitations of Perl. Thus, there are not very many functions for
+graphical output of bio-object data. It is therefore likely that
+Bioperl objects, specialized for text parsing and analysis, could
+collaborate with objects implemented in other languages (such as Java)
+that provide graphical displays of the results. It is easy to find
+isolated examples of Perl CGI scripts that configure Java applets for
+web browsers. More complex relationships are possible through
+technologies such as CORBA that can mediate interactions between
+objects in different languages (Pope 1997). We are encouraged in this
+regard by the ongoing CORBA-Perl project (Schuller 1997) and we have
+begun developing connections with a CORBA-related effort in the
+bioinformatics community known as the Life Sciences Research Group
+within the OMG (Life Science Research Group 1997).
+<p>
+
+It is noted that Perl is not always the best choice for final,
+production-grade software. With this in mind, Bioperl modules can be
+viewed as prototypes for bio-objects and concepts which could be
+implemented in other programming languages: one obvious choice is the
+C or C++ implementations that can then be wrapped via the XS interface
+to Perl. Perl's flexibility makes it an ideal fast-prototyping
+language for experimenting with biological concepts and software
+design. When execution speed is an issue, C code can be linked in
+directly or the Perl program itself can be compiled. For researchers
+who do not have the resources, time, or ability to design their own
+code, Bioperl modules provide a convenient option for common
+bioinformatics operations.
+<p>
+
+<b>
+Conclusion 
+</b>
+<p>
+
+Perl has matured from a simple scripting language to powerful
+programming environment for both object-oriented and procedural
+styles.  While it is still used for simple, "throw-away" scripts, it
+can also be used to design complex, well-documented, and maintainable
+applications. Perl's ease of use for a variety of high-level tasks as
+well as CGI scripting is unparalleled. Standard modules being
+developed by Bioperl intend to provide a coherent set of tools with
+well-documented interfaces for standard molecular biological data
+management tasks. Widespread use of common modules will minimize wheel
+reinvention and foster better code reuse. These modules will permit
+logically simple tasks to be quickly implemented. Bioperl is still at
+an early stage of evolution and we would like to encourage the
+suggestions and participation of the bioinformatics community in this
+effort, as both users and developers of modules. Feedback from workers
+in different domains of bioinformatics is essential for refining and
+further extending the Bioperl modules. <p>
+
+<b>
+Availability
+</b>
+<p>
+Source code, documentation, and more information about Bioperl is available at 
+http://bio.perl.org/
+<p>
+
+
+<b>
+References 
+</b>
+<pre>
+Altschul, S.F., Gish, W., Miller, W., Myers, E.W., and Lipman, D.J. 1990. Basic Local Alignment Search Tool. J. Mol. Biol., 215, 403-410. URLs: http://www.ncbi.nlm.nih.gov/BLAST/, ftp://blast.wustl.edu/blast2/.
+
+Bergeman, E.R., Graves, M., and Lawrence, C.B. 1995. Viewing genome data as objects for application development. Proceedings of the Third International Conference on Intelligent Systems for Molecular Biology, 48-56.
+
+Bernstein, F.C., Koetzle, T.F., Williams, G.J.B., Meyer, E.F. Jr., Brice, M.D., Rodgers,J .R., Kennard, O., Shimanouchi, T. and Tasumi, M. 1977. The Protein Data Bank: a Computer-based Archival File for Macromolecular Structures. J. Mol. Biol., 112, 535-542. Homepage: http://www.pdb.bnl.gov/.
+
+Bioperl Project. 1995. Homepage: http://www.techfak.uni-bielefeld.de/bcd/Perl/Bio/
+
+Bioperl Bio::Object Schema, 1997. Homepage: http://genome-www.stanford.edu/perlOOP/bioperl/schema/.
+
+bioWidget Consortium, 1996. Homepage: http://www.biowidgets.org/
+
+Cherry, J.M., Adler, C., Ball, C., Chervitz, S.A., Dwight, S.S., Hester, E.T., Jia, Y, Juvik, G., Roe, T., Schroeder, M., Weng, S., and Botstein, D. 1998. SGD: Saccharomyces Genome Database. Nucl. Acids Res. 26: 73-79. Homepage: http://genome-www.stanford.edu/Saccharomyces/.
+
+Eriksson, H.-E., and Penker, M. 1997. UML Toolkit. John Wiley & Sons. New York, NY.
+
+Gamma, E., Helm, R., Johnson, R. and Vlissides, J. 1995. Design Patterns: Elements of Reusable Object-Oriented Design. Addison-Wesley, Reading, MA.
+
+Gilbert, D.G. 1990. ReadSeq program, version 1 Feb 93. Readseq is freely distributed and is available by ftp from ftp.bio.indiana.edu (129.79.224.25) in the molbio/readseq directory.
+
+Life Science Research Group, 1997. Homepage: http://lsr.ebi.ac.uk/  (USA mirror: http://lsr.lbl.gov).
+
+Murzin, A.G., Brenner, S.E., Hubbard, T., Chothia, C. 1995. Structural Classification Of Proteins.  J. Mol. Biol., 247, 536-540. Homepage: http://scop.mrc-lmb.cam.ac.uk/scop/  (USA mirror: http://scop.stanford.edu/scop/).
+
+Object Management Group, 1989. Homepage: http://www.omg.org/.
+
+Ohkawa, H., Ostell, J., and Bryant, S. 1995. MMDB: An ASN.1 specification for macromolecular structure. Proceedings of the Third International Conference on Intelligent Systems for Molecular Biology, 259-267.
+
+Pope, A. 1997. The corba reference guide: Understanding the common object request broker architecture. Addison-Wesley. Reading, MA.
+
+Rational Rose, 1998. Homepage: http://www.rational.com/products/rose/.
+
+Schuller, B. 1997. CORBA-Perl Project. Homepage: http://www.lunatech.com/cope/.
+
+Stein, L. 1996. How Perl saved the human genome project. TPJ, 1:  5-9.
+
+Wall, L., Christiansen, T., and Schwartz, R.L. 1996. Programming Perl (Second Ed.). O'Reilly & Associates. Sebastopol, CA. Homepage: http://www.perl.com/.
+
+Wall, L., Patwardhan, N., Siever, E., Futato, D., Jepson, B., and Irving, C. 1997. Perl Resource Kit (First Ed.). O'Reilly & Associates, Sebastopol, CA. URL: http://perl.oreilly.com/.
+
+</pre>
+<p>
+<b>
+Figure Legends
+</b>
+<p>
+Figure1.  Shown is a UML model illustrating some key methods and the
+relationship between the Seq.pm and UnivAln.pm Bioperl
+modules. The method names are fairly self-explanatory. Complete interface
+documentation for these modules is available via the Bioperl homepage (Bioperl
+Project 1995). 
+<p>
+Figure 2.  Shown is a UML model of a Bioperl Gene object (Bio::Gene::Gene.pm)
+illustrating its relationship to other Bioperl modules in the
+framework including its superclass (Bio::Object.pm) and associated
+objects (Bio::Gene::SeqManager.pm, Bio::Prot::Protein.pm,
+Bio::Chrm::Chromosome.pm). The Gene object inherits key functionality
+from Bio::Object.pm, such as connections to the Genome, Structure,
+Sequence, and Blast objects. Symbols: triangle = inheritance ("is a"); 
+filled diamond = containment ("has a"); cardinality indicators: 0..* = zero or more; 
+1..* = one or more.
+<p>
+
