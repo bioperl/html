@@ -72,8 +72,8 @@ Standalone perl scripts for searching GenBank files by pattern,  translating nuc
 <p>
 
 <b>Jong Park's Perl Subroutine Library - Bio.pl</b><br>
-<b>Author:</b><a href="mailto:jong@ebi.ac.uk">Jong Park</a>, others.<br>
-<b>URL:</b> <a href="http://www.mrc-lmb.cam.ac.uk/genomes/jong/Bio.pl.html">http://www.mrc-lmb.cam.ac.uk/genomes/jong/Bio.pl.html</a><br>
+<b>Author:</b><a href="mailto:jong@mrc-dunn.cam.ac.uk">Jong Park</a>, others.<br>
+<b>URL:</b> <a href="http://www.bio.cc/Bioperl/Bioinf.html">http://www.bio.cc/Bioperl/Bioinf.html</a><br>
 <b>Description:</b> A huge library of bio-related perl subroutines. A great place to find bits of useful code to add into your own programs.
 
 
@@ -189,11 +189,11 @@ Stein's GD module.</A> GD module requires Tom Boutell's graphic <A HREF="http://
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-14 15:06:49 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2001-11-27 15:05:20 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.4 2000-05-14 15:06:49 amatern Exp $ -->
+    <!-- $Id: index.shtml,v 1.5 2001-11-27 15:05:20 jason Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
