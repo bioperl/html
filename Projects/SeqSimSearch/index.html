@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Sequence Objects</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>
+<a href="http://bio.perl.org/">bio.perl.org</a>
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
+<font face="Arial, Helvetica, sans-serif">
+<a href="/">Home</a>
+<p>
+<b>
+<a href="/Projects">Projects</a>
+</b>
+<p>
+<a href="/Projects/modules.html">Docs</a>
+<p>
+<a href="http://bio.perl.org/Core/Latest/">Download</a>
+<p>
+<a href="/News/">News</a>
+<p>
+<a href="/MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/Bugs/">Bugs</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="/Related.html">Related</a>
+<p>
+<a href="/Thanks.html">Sponsors</a>
+<p>
+</font>
+<!########################## SIDEBAR CONTENTS>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD BGCOLOR="#dadada">
+<b>
+<font face="Arial, Helvetica, sans-serif" color="#000080">Project: Sequence Similarity Searches</font>
+</b>
+</TD>
+</TR>
+
+<tr>
+<td>
+<font face="Arial, Helvetica, sans-serif">
+There are a number of sequence similarity searches which are common in bioinformatics.
+These generally have similar logic.
+<p>
+A single similarity search is parameterised by
+<ul>
+<li>A query sequence or query object 
+<li>A target database of sequences
+<li>A number of other additional parameters 
+</ul>
+The search is then run and the results are returned (sometimes in batch mode, often
+using a text file to provide the results). The results consist of
+<ul>
+<li>A list of target sequences which matched the query
+<li>A number of scores foreach target hit
+<li>Potentially some alignments for some of the target hits
+<li>Potentially some other meta information about the search
+</ul>
+
+It would be desirable to allow clients or other objects to have access
+to generic sequence similarity searches, allowing new types of
+similarity searches to be added without specific rewriting of client
+code. In particular generic results browsers or HTML conversions can
+be written to work with all similarity searches, and this should be
+able to include all the information that a user would be interested
+in.  Potentially if enough meta-data can be described in the generic
+object, clients might be able to automatically redo the analysis
+without in depth knowledge of the similarity search.
+<p>
+This argues for a common interface for sequence similarity searches.
+<p>
+<hr>
+<b>Current Sequence Similarity Search support</b>
+<p>
+The Blast modules starting at Bio::Tools::Blast.pm
+provide an object that represents the contents of
+a Blast report. 
+<p>
+The module also has mechanisms for running Blast both
+locally and remotely.
+<p>
+The current Blast module hierarchy contains
+<ul>
+<li>Bio::Tools::Blast - meta data of the blast search and
+a list of hits
+<ul>
+   <li>Bio::Tools::Blast::Sbjct is the hit object which has
+the different scores for this hit and a list of HSP objects
+   <ul>
+       <li>Bio::Tools::Blast::HSP is the individual alignment
+of each high scoring segment pair for this hit
+   </ul>
+</ul>
+</ul>
+Currently the Blast module inherits from Bio::Tools::SeqAnal, which
+is a base class for generic sequence analysis. This encapsulates mainly
+the meta-data part of sequence similarity searches, and probably should
+be renamed/replaced by generic sequence similarity searching class.
+<p>
+<hr>
+<b>Sequence Similarity Future</b>
+<p>
+We think a set of 'abstract' interfaces which represent the component
+parts of a sequence similarity search should be designed. The interfaces
+we envisage are
+
+<ul>
+<li>Bio::Tools::SeqSimSearch::Factory - This would be the generic
+place for running and parsing similarity search analysis. It would
+produce objects that implement the Bio::Tools::SeqSimSearch::HitList
+interface.  Currently the Bio::Tools::Blast.pm module has this functionality for
+Blast.
+<p>
+<li>Bio::Tools::SeqSimSearch::HitList - This would be the generic
+class of a single sequence similarity search, including meta data and
+list of objects that implemented the Bio::Tools::SeqSimSearch::Hit
+interface. The meta data should be able to
+coordinate with a larger scale workflow framework when (if) it is
+written.  Currently the Bio::Tools::Blast.pm module provides this
+class.
+<p>
+<li>Bio::Tools::SeqSimSearch::Hit - This would be the generic
+class of a single hit of the query to a sequence in the database.
+These objects would provide different scores that could occur for this
+hit and potentially a list of alignments (which can be none). Currently
+the Bio::Tools::Blast::Sbjct provides this class.
+<p>
+</ul>
+
+The precise definitions of this generic interface are under active
+discussion. <a href="mailto:sac@neomorphic.com">Steve Chervitz</a> is
+coordinating this project, and as always, discussions about it should
+be directed to the <a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">main bioperl
+discussion list</a>
+<p>
+We hope this will become one of the flagship projects for bioperl.
+
+<TR>
+<TD>
+<p>
+<font face="Arial, Helvetica, sans-serif" size=+1>
+<a href="../">&lt;&lt;back</a>
+</font>
+<p>
+</font>
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="/images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date$</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
+
+</BODY>
+</HTML>

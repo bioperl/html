@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Documentation</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>
+<a href="http://bio.perl.org/">bio.perl.org</a>
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
+<font face="Arial, Helvetica, sans-serif">
+<a href="/">Home</a>
+<p>
+<a href="/Projects">Projects</a>
+<p>
+<a href="/Projects/modules.html">Docs</a>
+<p>
+<a href="http://bio.perl.org/Core/Latest/">Download</a>
+<p>
+<a href="/News/">News</a>
+<p>
+<a href="/MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/Bugs/">Bugs</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="/Related.html">Related</a>
+<p>
+<a href="/Thanks.html">Sponsors</a>
+<p>
+</font>
+<!########################## SIDEBAR CONTENTS>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD BGCOLOR="#dadada">
+<b>
+<font face="Arial, Helvetica, sans-serif"
+color="#000080">Areas of interest</font>
+</b>
+<BR>
+</TD>
+</TR>
+
+<tr>
+<td>
+
+This list is to idenitify key areas
+where bioperl <i>might</i> provide sensible solutions
+for bioinformatics.
+<p>
+For each area we give a number of criteria about its
+status in bioperl
+<ul>
+<li>an indicator of importance 
+ranked from 0 to 5, with 0 being the most important  
+<li>a percentage
+of how much functionality we know of in bioperl that covers
+this area
+<li>whether or not this functionality exists in a working
+form in the current CORE modules (as of Feburary 1999).
+</ul>
+
+<table border=yes >
+<tr><th>Area</th><th>Description</th><th>Importance</th><th>%done</th><th>In CORE?</th><th>notes</th></tr>
+<tr><td>Sequence data manipulation </td>
+    <td>Translation, truncation and lightweight analysis of sequences </td>
+    <td align=center>0</td> 
+    <td align=center>70%</td> 
+    <td align=center>yes</td> 
+    <td> Restriction enzyme and Signal peptide are examples of lightweight analysis</td>
+</tr>
+<tr><td>Sequence Similarity Searches</td>
+    <td>BLAST, Fasta, Smith-Waterman, HMMer/SAM, Wise2</td>
+    <td align=center>1 </td> 
+    <td align=center>40%</td> 
+    <td align=center>yes</td> 
+    <td>Only BLAST is in the core modules, but we think it covers at least 40% of this area</td>
+</tr>
+
+<tr><td>Sequence Database Access</td>
+    <td>Web (NCBI,SRS), Flatfile, RDB, ACeDB</td>
+    <td align=center>1</td> 
+    <td align=center>10%</td> 
+    <td align=center>yes</td> 
+    <td>The DB directory due out in 0.05 has this info, but only currently covers Web</td>
+</tr>
+<tr><td>Sequence Alignment</td>
+    <td>Protein to Protein, DNA to DNA, DNA to protein etc </td>
+    <td align=center>1</td> 
+    <td align=center>30%</td> 
+    <td align=center>yes</td> 
+    <td>We cannot handle complex DNA to protein alignments. Alignment creation is not well covered
+See <a href="SeqAlign">Projects/SeqAlign</a></td>
+</tr>
+<tr><td>Sequence Annotation</td>
+    <td>Attaching computational results and other annotations to a single sequence</td>
+    <td align=center>1</td> 
+    <td align=center>10%</td> 
+    <td align=center>no</td> 
+    <td>We have Ian Korf's SeqFeature, but no parent object</td>
+</tr>
+<tr><td>3D Structures</td>
+    <td>Data Models for biologically relevant 3D structures</td>
+    <td align=center>2</td> 
+    <td align=center>20%</td> 
+    <td align=center>no</td> 
+    <td>A start made at bioperl. See <a href="Structure">Projects/Structure</a></td>
+</tr>
+<tr><td>Sequence/Structure families</td>
+    <td>Collections of related sequences or structures</td>
+    <td align=center>2</td> 
+    <td align=center>30%</td> 
+    <td align=center>no</td> 
+    <td>Preliminary work on SCOP and Pfam.</td>
+</tr>
+<tr><td>Genomic Data Manipulation</td>
+    <td>Handling whole genome datasets sensibly</td>
+    <td align=center>2</td> 
+    <td align=center>15%</td> 
+    <td align=center>no</td> 
+    <td>SacchDB work and also Aceperl can provide starting points for this</td>
+</tr>
+<tr><td>Phylogenetic Trees</td>
+    <td>Making and handling phylogenetic trees</td>
+    <td align=center>2</td> 
+    <td align=center>50%(?)</td> 
+    <td align=center>no</td> 
+    <td>Georg Fuellen has started this project</td>
+</tr>
+<tr><td>Clustering sequences/structures/literature</td>
+    <td>Generic mechanisms for making,handling and traversing clusters</td>
+    <td align=center>3</td> 
+    <td align=center>10%</td> 
+    <td align=center>no</td> 
+    <td>This maybe solved better in other fields. GeneFammer from Jong Park may solve this</td>
+</tr>
+<tr><td>Comparitive Genome Analysis</td>
+    <td>Combining whole genome analysis from a number of genomes</td>
+    <td align=center>3</td> 
+    <td align=center>0%</td> 
+    <td align=center>no</td> 
+    <td>This requires genome data manipulation to be well solved</td>
+</tr>
+<tr><td>Biological Literature</td>
+    <td>Fetching and handling biological literature (PubMed,online journals)</td>
+    <td align=center>4</td> 
+    <td align=center>20%(?)</td> 
+    <td align=center>no</td> 
+    <td>We are aware of at least one effort in this area. XML may have a big role in this</td>
+</tr>
+<tr><td>Analysis Workflow</td>
+    <td>Scheduling, running and versioning analysis on sequences</td>
+    <td align=center>4</td> 
+    <td align=center>5%</td> 
+    <td align=center>no</td> 
+    <td>To a certain extent, the current core BLAST modules</td>
+</tr>
+<tr><td>Sequence Assemblies</td>
+    <td>Assemblies of traces from shotgun to make a sequence</td>
+    <td align=center>5</td> 
+    <td align=center>0%</td> 
+    <td align=center>no</td> 
+    <td>We don't see a big role for bioperl in this, as it typically intergrated into LIMS system
+and heavyweight GUIs</td>
+</tr>
+<tr><td>Proteomics</td>
+    <td>2D gel analysis, 2-hybrid system and mass spec</td>
+    <td align=center>5</td> 
+    <td align=center>0%</td> 
+    <td align=center>no</td> 
+    <td>2D gels require image analysis, which perl is not well suited to. Other things could be interesting</td>
+</tr>
+</table>
+
+
+</td>
+</tr>
+
+
+<TR>
+<TD>
+<p>
+<font face="Arial, Helvetica, sans-serif" size=+1>
+<a href="/Projects">&lt;&lt;back</a>
+</font>
+<p>
+</font>
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="/images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date$</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
+
+</BODY>
+</HTML>

@@ -67,7 +67,7 @@
 <TR>
 <TD BGCOLOR="#dadada">
 <b>
-<font face="Arial, Helvetica, sans-serif" color="#000080">Project: Sequence Objects</font>
+<font face="Arial, Helvetica, sans-serif" color="#000080">Project: Sequence</font>
 </b>
 </TD>
 </TR>
@@ -75,28 +75,102 @@
 <tr>
 <td>
 <font face="Arial, Helvetica, sans-serif">
-The development of data models for biomolecular sequences (DNA, RNA,
-Amino Acid) a central concern othe Bioperl project.
 
-<p>
-There are two different sequence objects under development:
+This page describes the design of an object for a biological sequence 
+and lightweight analyses of sequence data.
+
+The existing Bio::Seq.pm module encapsulates data for a single
+DNA, RNA, or AminoAcid sequence.
+It also handles some of the lightweight sequence analysis tasks.
+A lightweight analysis depends primarily on the sequence information per se 
+and does not rely overly on external resources. The analyses included 
+in Bio::Seq are:
 <ul>
-<li><a href="http://bio.perl.org/Core/POD/Seq.html">Bio::Seq.pm</a>: 
-"Lightweight" sequence object
+<li>truncation
+<li>reverse-complement
+<li>translation
+</ul> 
+
+Parsing and output (I/O) is currently handled in the Bio::Seq.pm
+object (as of the 0.04 release). ReadSeq (a C sequence parser written by Don Gilbert) was also
+used to provide an interface to many formats, but this required
+ReadSeq to be installed and new formats to be intergrated into
+ReadSeq. Both these facts meant that some parsing code moved into Perl
+in the Bio::Seq object, which consequently started to fill up with
+parsing code.  Considering the number of formats at large in
+bioinformatics, a better design is to separate the parsing code from
+the sequence object.
 
 <p>
-<li><a href="http://sapiens.wustl.edu/~ikorf/BioGSC/">Ian Korf's Bio::GSC modules.</a>
-"Heavyweight" sequence object:
-<br>
-Ian is currently working a heavyweight sequence object, heavy in the
-sense that it includes a mechanism for annotating sequence
-information. It will be based partly on his Bio::GSC modules.
 
+In the 0.05 releases a new mechanism for handling sequence I/O has been
+established, (SeqIO). Support for each format is handled by dedicated
+modules and only compiled if needed. This provides for better
+encapsulation of the format, a less monolithic Bio::Seq.pm and better
+extensibility. Eventually all the parsing code should be removed from
+Bio::Seq.pm once people get used to using SeqIO.
+<p>
+Current formats supported in Bio::Seq directly (old-style)
+<ul>
+<li>Raw
+<li>GenBank
+<li>Fasta
+<li>GCG
+</ul>
+Current formats supported in Bio::SeqIO
+<ul>
+<li>Fasta
+<li>Raw
+<li>EMBL
+</ul>
+<hr>
+<b>Bio::Seq future</b>
+<p>
+Although more of a implementation issue, we would like to draw attention
+to the fact that Bio::Seq has become a rather large and rehacked module.
+It is the central module for bioperl, and so unsurprisingly the first written,
+and now the most difficult to maintain. 
+<p>
+We think it is sensible to try to move towards reimplementing Bio::Seq in
+a clean rewrite from well defined requirements. To do this we think the
+following steps are required
+<ul>
+<li>A careful description of the requirements of Bio::Seq
+<li>Development of a comprehensive test suite of Bio::Seq functionality that
+we wish to preserve
+<li>A separation of I/O functionality to SeqIO
+<li>A careful reimplementation of Bio::Seq
+</ul>
+<hr>
+<b>Other lightweight analyses provided outside of Bio::Seq</b>
+<p>
+To keep the sequence object simple and maintainable, these sorts of
+analyses should not be provided by the Bio::Seq object itself.
+Current modules that provide such lightweight analyses are located
+in Bio::Tools and are:
+<ul>
+<li>Restriction analysis (Bio::Tools::RestrictionEnzyme.pm)
+<li>Signal sequence identification (Bio::Tools::Sigcleave.pm)
 </ul>
 
-</td>
-</tr>
+<p>
+<b>Desirable lightweight analyses not yet written</b>
+<p>
+<ul>
+<li>Property analysis (MW, pI, etc.)
+<li>Metric "sliding window" properties (GC-content, hydrophobicity, etc.)
+<li>Codon usage
+<li>Sequence/PCR primers (Tm, primer design, etc.)
+<li>Translation using alternate genetic codes
+<li>Reverse translation
+</ul>
 
+<p>
+These lightweight analyses are small, self-contained projects 
+that are in need of eager developers.
+We invite anyone interested in working on any of these items to post 
+a message to <a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">bioperl
+discussion list</a>.
 
 <TR>
 <TD>
