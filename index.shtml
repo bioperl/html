@@ -91,14 +91,17 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[July / August 2001]</font></p>
 	  <p>
 	  <ul>
+	  <li>The Open Bioinformatics Foundation <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006028.html">has been awarded</a> a significant hardware grant by Sun Microsystems.
+	  <p>
+	  <li>Ewan Birney is delivering a keynote address and several open-bio people are considering tutorials and presentation proposals for the <a href="http://conferences.ora.com/biocon/cfp.html">O'Reilly Bioinformatics Technology Conference</a> in Feb. 2002.
+	  <p>
 <li>Jason Stajich has issued the <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006026.html">Bioperl BOSC 2001 meeting report</a>. The report outlines our plans and directions for the 0.9.x series and the drive to a stable Bioperl 1.0 release.
 <p>
 <li>Lincoln Stein <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/005979.html">has checked <b>Bio::DB::GFF</b> code into the CVS repository</a>. The system is intended to be a lightweight data access layer for sequence annotations. It will support querying both ACeDB and relational databases. 
 <p>
 <li>Martin Senger is <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/005966.html">looking for comments and suggestions</a> regarding <em>Novella</em>, a "bridge" project aimed at providing easy access to CORBA BSA services.
 <p>
-
-	  </ul>
+ </ul>
 	  
 
 <font face="Arial, Helvetica, sans-serif" >
@@ -209,13 +212,17 @@ held in Heidelberg Germany on August 5th 1999 conjunction with
 ISMB'99. Check out some <a href="/bioperl-99/pictures.html">pictures</a>.
 The success of the bioperl-99 gathering has lead to our involvement
 with other events including the very successful Bioinformatics Open Source Conference (<a href="http://ismb00.sdsc.edu/bosc2000/">BOSC'2000</a>). Since then our BOSC meetings have become officially recognized sister conferences of the much larger ISMB meetings.
-<p><b>Our next event is:</b><br>
+<p><b>Our most recent event was:</b><br>
 <a href="http://open-bio.org/bosc2001/"><img src="/images/bosc2001.gif" border=0></a>
+<p>
+Pictures from BOSC'2001 are being put online at <a href="http://open-bio.org/bosc2001/bosc2001_pics/">http://open-bio.org/bosc2001/bosc2001_pics/</a>.
 <p>
 
 <p>
 <b>Upcoming events of interest</b>
 <ul>
+<li>[Feb 2002] O'Reilly <a href="http://conferences.ora.com/biocon/cfp.html">Bioinformatics Technology Conference</a> in Tuscon, AZ.
+<p>
 <li>
 [July 2001 - Boston] Objects in Bio- & Chem-Informatics (<a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a>). 
 Previous OiB meetings: <a href="http://cbcg.lbl.gov/OiB99/">OiB99</a>,   <a href="http://www.ebi.ac.uk/oib98">OiB98</a>, <a href="http://industry.ebi.ac.uk/~alan/Meeting/OiB.html">OiB97</a>
@@ -306,11 +313,11 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-07-23 13:28:47 $</p>
+<p><p align=right>Last Modified: $Date: 2001-07-24 19:46:58 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.34 2001-07-23 13:28:47 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.35 2001-07-24 19:46:58 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
