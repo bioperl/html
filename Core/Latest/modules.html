@@ -73,7 +73,7 @@
 color="#000080">Documentation for Registered Modules</font>
 </b>
 <BR>
-            <b><i>Current for bioperl release 0.05.1</i></b></TD>
+            <b><i>Current for bioperl release 06.0</i></b></TD>
         </TR></font> 
 
 
@@ -81,28 +81,39 @@ color="#000080">Documentation for Registered Modules</font>
           <td> 
             <p><b><font face="Arial, Helvetica, sans-serif" size="-1">Select file 
               name to view the translated HTML documentation. </font></b><b><font face="Arial, Helvetica, sans-serif" size="-1">The 
-              source code for this release can be browsed at <a href="ftp://bio.perl.org/pub/SRC/release-0-05.1/">ftp://bio.perl.org/pub/SRC/release-0-05.1</a>/.</font></b> 
+              source code for this release can be browsed at <a href="ftp://bio.perl.org/pub/SRC/release-06.0/">ftp://bio.perl.org/pub/SRC/release-06.0</a>/.</font></b> 
               <font face="Arial, Helvetica, sans-serif" color="#000080"> </font></p>
             <font face="Arial, Helvetica, sans-serif" color="#000080"> </font>
 
             <table border="0" width="99%" cellspacing="1" cellpadding="2">
               <tr> 
                 <td colspan="3"> 
-                  <pre><b>scripts/</b></pre>
+                  <pre><b>Misc</b></pre>
                 </td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"> <font face="Courier New, Courier, mono" color="#000080" ><a href="/Core/POD/scripts/bpfetch.html">bpfetch.pl</a></font></td>
-                <td width="72%"> <font face="Courier New, Courier, mono" >Fetches 
-                  sequences from remote or bioperl indexed databases. See also 
-                  Bio::DB and Bio::Index</font></td>
+                <td width="2%" height="25">&nbsp;</td>
+                <td width="26%" height="25"> <font face="Courier New, Courier, mono" color="#000080" ><a href="/Core/POD/biostart.html">biostart.pod</a></font></td>
+                <td width="72%" height="25"> <font face="Courier New, Courier, mono" >Getting 
+                  started with bioperl code</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"> <font face="Arial, Helvetica, sans-serif" color="#000080"><a href="/Core/POD/scripts/bpindex.html"><font size="" face="Courier New, Courier, mono">bpindex.pl</font></a></font></td>
-                <td width="72%"> <font size="" face="Courier New, Courier, mono">Indexes 
-                  flatfile databases for use by bpfetch. See also Bio::Index::*</font></td>
+                <td width="26%"> <font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/bioperl.html"><font face="Courier New, Courier, mono">bioperl.pod</font></a></font></td>
+                <td width="72%"> <font face="Courier New, Courier, mono">Intro 
+                  to bioperl module layout &amp; design</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/bioback.html"><font face="Courier New, Courier, mono">bioback.pod</font></a></font></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Customizing 
+                  bioperl for your site/server</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/biodesign.html"><font face="Courier New, Courier, mono">biodesign.pod</font></a></font></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Info for 
+                  authors and new contributors</font></td>
               </tr>
               <tr> 
                 <td colspan="3"> 
@@ -111,294 +122,524 @@ color="#000080">Documentation for Registered Modules</font>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"> <font face="Courier New, Courier, mono" color="#000080"><a href="../Core/POD/bioperl.html">bioperl.pod</a></font> 
+                <td width="26%"> <font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/Annotation.html">Annotation.pm</a></font> 
                 </td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">General 
-                  bioperl documentation and info</font></td>
+                <td width="72%"><font face="Courier New, Courier, mono">A generic 
+                  object for annotations</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"> <font face="Arial, Helvetica, sans-serif" color="#000080"><a href="/Core/POD/bioback.html"><font size="" face="Courier New, Courier, mono">bioback.pod</font></a></font></td>
-                <td width="72%"> <font size="" face="Courier New, Courier, mono">Bioperl 
-                  backend - how to customise bioperl for your site</font></td>
+                <td width="26%"> <font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/LocatableSeq.html">LocatableSeq.pm</a></font> 
+                </td>
+                <td width="72%"> <font face="Courier New, Courier, mono">Not documented 
+                  yet :)</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"> <font face="Arial, Helvetica, sans-serif" color="#000080"><a href="/Core/POD/Parse.html"><font size="" face="Courier New, Courier, mono">Parse.pm</font></a></font></td>
-                <td width="72%"> <font size="" face="Courier New, Courier, mono">Depreciated 
-                  in favor of SeqIO:: approach. This module can interface with 
-                  Gilbert's ReadSeq program</font></td>
+                <td width="2%" height="26">&nbsp;</td>
+                <td width="26%" height="26"> <font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/PrimarySeq.html">PrimarySeq.pm</a></font></td>
+                <td width="72%" height="26"> <font face="Courier New, Courier, mono">Lightweight 
+                  sequence object</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"> <font face="Arial, Helvetica, sans-serif" color="#000080"><a href="/Core/POD/Seq.html"><font size="" face="Courier New, Courier, mono">Seq.pm</font></a></font></td>
-                <td width="72%"><font face="Courier New, Courier, mono" size="">Core 
-                  'heavyweight' sequence object</font></td>
+                <td width="26%"> <font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/PrimarySeqI.html">PrimarySeqI.pm</a></font></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Interface 
+                  definition for Bio::PrimarySeq</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%" height="18">&nbsp;</td>
-                <td width="26%" height="18"> <font face="Arial, Helvetica, sans-serif" color="#000080"><a href="/Core/POD/SearchDist.html"><font face="Courier New, Courier, mono" size="">SearchDist.pm</font></a></font> 
+                <td width="26%" height="18"> <font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/Range.html">Range.pm</a></font> 
                 </td>
-                <td width="72%" height="18"><font size="" face="Courier New, Courier, mono">wrapper 
-                  for Sean Eddy's extreme value distribution histogram object</font></td>
+                <td width="72%" height="18"><font face="Courier New, Courier, mono">Range 
+                  object</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"> <font face="Arial, Helvetica, sans-serif" color="#000080"><a href="/Core/POD/SeqIO.html"><font size="" face="Courier New, Courier, mono">SeqIO.pm</font></a></font></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Handler 
-                  class for the various Bio::SeqIO:: modules and formats</font></td>
+                <td width="26%"> <font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/RangeI.html">RangeI.pm</a></font></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Interface 
+                  definition for Bio::Range</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
+                <td width="2%" height="21">&nbsp;</td>
+                <td width="26%" height="21"><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/Seq.html">Seq.pm</a></font></td>
+                <td width="72%" height="21"><font face="Courier New, Courier, mono">Heavyweight 
+                  sequence object</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%" height="23">&nbsp;</td>
+                <td width="26%" height="23"><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/SeqI.html">SeqI.pm</a></font></td>
+                <td width="72%" height="23"><font face="Courier New, Courier, mono">Abstract 
+                  interface of Sequence (with features)</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%" height="19">&nbsp;</td>
+                <td width="26%" height="19"><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/SeqFeatureI.html">SeqFeatureI.pm</a></font></td>
+                <td width="72%" height="19"><font face="Courier New, Courier, mono">Abstract 
+                  interface of a sequence feature</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"> <font face="Arial, Helvetica, sans-serif" color="#000080"><a href="../Core/POD/SimpleAlign.html"><font size="" face="Courier New, Courier, mono">SimpleAlign.pm</font></a></font></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Multiple 
+                <td width="26%"><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/SeqIO.html">SeqIO.pm</a></font></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Handler 
+                  for SeqIO formats</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%" height="34">&nbsp;</td>
+                <td width="26%" height="34"> <font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/SimpleAlign.html"><font face="Courier New, Courier, mono">SimpleAlign.pm</font></a></font></td>
+                <td width="72%" height="34"><font face="Courier New, Courier, mono">Multiple 
                   alignments held as a set of sequences </font> </td>
               </tr>
               <tr bgcolor="#afafaf"> 
+                <td width="2%" height="19">&nbsp;</td>
+                <td width="26%" height="19"><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/SeqIO.html">Species.pm</a></font></td>
+                <td width="72%" height="19"><font face="Courier New, Courier, mono">Generic 
+                  species object</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"> <font face="Arial, Helvetica, sans-serif" color="#000080"><a href="../Core/POD/UnivAln.html"><font size="" face="Courier New, Courier, mono">UnivAln.pm</font></a></font></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">A 
-                  bioperl alignment object</font></td>
+                <td width="26%"> <font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/UnivAln.html"><font face="Courier New, Courier, mono">UnivAln.pm</font></a></font></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Multiple 
+                  alignment object</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td height="26">&nbsp;</td>
+                <td height="26"><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/SearchDist.html"><font face="Courier New, Courier, mono">SearchDist.pm</font></a></font></td>
+                <td height="26"><font face="Courier New, Courier, mono">Wrapper 
+                  for Sean Eddy's histogram object</font></td>
               </tr>
               <tr> 
-                <td colspan="3"><font size="" face="Courier New, Courier, mono"><b>Bio::Root::/</b></font></td>
+                <td colspan="3"><b>Bio::Annotation/</b></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Root/Err.html"><font size="" face="Courier New, Courier, mono">Err.pm</font></a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Bioperl 
-                  exception class</font></td>
+                <td>&nbsp;</td>
+                <td><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/Annotation/Comment.html">Comment.pm</a></font></td>
+                <td><font face="Courier New, Courier, mono">Not documented yet 
+                  :)</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><font size="" face="Courier New, Courier, mono">Global.pm</font></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">(no 
-                  POD doc) Globally useful methods, objects &amp; data</font></td>
+                <td>&nbsp;</td>
+                <td><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/Annotation/DBLink.html">DBLink.pm</a></font></td>
+                <td><font face="Courier New, Courier, mono">Not documented yet 
+                  :)</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Root/IOManager.html"><font size="" face="Courier New, Courier, mono">IOManager.pm</font></a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Input 
-                  and output manager for bioperl objects</font></td>
-              </tr>
-              <tr bgcolor="#afafaf"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Root/Object.html"><font size="" face="Courier New, Courier, mono">Object.pm</font></a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Core 
-                  object code</font></td>
-              </tr>
-              <tr bgcolor="#d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Root/Utilities.html"><font size="" face="Courier New, Courier, mono">Utilities.pm</font></a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">General 
-                  purpose utilities</font></td>
-              </tr>
-              <tr bgcolor="#afafaf"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Root/Vector.html"><font face="Courier New, Courier, mono">Vector.pm</font></a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Interface 
-                  for managing linked lists of Perl5 objects</font></td>
-              </tr>
-              <tr bgcolor="d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Root/Xref.html"><font size="" face="Courier New, Courier, mono">Xref.pm</font></a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">A 
-                  generic cross-reference object</font><font size=""> </font></td>
+                <td>&nbsp;</td>
+                <td><font face="Courier New, Courier, mono" color="#000080"><a href="/Core/POD/Bio/Annotation/Reference.html">Reference.pm</a></font></td>
+                <td><font face="Courier New, Courier, mono">Not documented yet 
+                  :)</font></td>
               </tr>
               <tr> 
-                <td colspan="3"><font size=""><b><font face="Courier New, Courier, mono">Bio::DB::/</font></b></font></td>
+                <td colspan="3"><font face="Courier New, Courier, mono"><b>Bio::DB::/</b></font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/DB/Ace.html">Ace.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Database 
-                  object interface to remote ACeDB servers</font></td>
+                <td width="2%" height="26">&nbsp;</td>
+                <td width="26%" height="26"><a href="/Core/POD/Bio/DB/Ace.html">Ace.pm</a></td>
+                <td width="72%" height="26"><font face="Courier New, Courier, mono">Database 
+                  object interface to ACeDB servers</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/DB/BioSeqI.html">BioSeqI.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Abstract 
-                  interface for a sequence database</font></td>
-              </tr>
-              <tr bgcolor="#d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/DB/GenBank.html">GenBank.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Database 
+                <td width="26%"><a href="/Core/POD/Bio/DB/GenBank.html">GenBank.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Database 
                   object interface to GenBank </font></td>
               </tr>
-              <tr bgcolor="#afafaf"> 
+              <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/DB/GenPept.html">GenPept.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Database 
+                <td width="26%"><a href="/Core/POD/Bio/DB/GenPept.html">GenPept.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Database 
                   object interface to GenPept </font></td>
               </tr>
-              <tr> 
-                <td colspan="3"><font size=""><b><font face="Courier New, Courier, mono">Bio::Index::/</font></b></font></td>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/DB/SeqI.html">SeqI.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Abstract 
+                  interface for sequence databases</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/Index/Abstract.html">Abstract.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Abstract 
+                <td width="26%"><a href="/Core/POD/Bio/DB/SeqI.html">RandomAccessI.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Abstract 
+                  interface for a sequence database</font></td>
+              </tr>
+              <tr> 
+                <td colspan="3"><font><b><font face="Courier New, Courier, mono">Bio::Index::/</font></b></font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Index/Abstract.html">Abstract.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Abstract 
                   interface for indexing a flat file</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/Index/EMBL.html">EMBL.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Interface 
-                  for indexing (multiple) EMBL/Swissprot .dat files</font></td>
+                <td width="26%"><a href="/Core/POD/Bio/Index/AbstractSeq.html">AbstractSeq.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono"> Base 
+                  class for AbstractSeq's</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/Index/Fasta.html">Fasta.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Interface 
-                  for indexing fasta formatted flatfile database </font></td>
+                <td width="26%"><a href="/Core/POD/Bio/Index/EMBL.html">EMBL.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Interface 
+                  for indexing (multiple) EMBL/Swissprot .dat files</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/Index/SwissPfam.html">SwissPfam.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Interface 
-                  for indexing swisspfam files</font></td>
-              </tr>
-              <tr> 
-                <td colspan="3"><font size="" face="Courier New, Courier, mono"><b>Bio::SeqIO::/</b></font></td>
+                <td width="26%"><a href="/Core/POD/Bio/Index/Fasta.html">Fasta.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Interface 
+                  for indexing fasta formatted flatfile database </font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"> <a href="/Core/POD/SeqIO/EMBL.html">EMBL.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">EMBL 
+                <td width="26%"><a href="/Core/POD/Bio/Index/SwissPfam.html">SwissPfam.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Interface 
+                  for indexing swisspfam files</font></td>
+              </tr>
+              <tr> 
+                <td width="100%" colspan="3"><font face="Courier New, Courier, mono"><b>Bio::Root::/</b></font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Root/Err.html"><font face="Courier New, Courier, mono">Err.pm</font></a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Bioperl 
+                  exception class</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%" height="22">&nbsp;</td>
+                <td width="26%" height="22"><font face="Courier New, Courier, mono"><a href="/Core/POD/Bio/Root/Global.html">Global.pm</a></font></td>
+                <td width="72%" height="22"><font face="Courier New, Courier, mono">Globally 
+                  useful methods, objects &amp; data</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Root/IOManager.html"><font face="Courier New, Courier, mono">IOManager.pm</font></a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Input 
+                  and output manager for bioperl objects</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Root/Object.html"><font face="Courier New, Courier, mono">Object.pm</font></a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Core object 
+                  code</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Root/Utilities.html"><font face="Courier New, Courier, mono">Utilities.pm</font></a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">General 
+                  purpose utilities</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Root/RootI.html"><font face="Courier New, Courier, mono">RootI.pm</font></a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Abstract 
+                  interface to root object code</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Root/Vector.html"><font face="Courier New, Courier, mono">Vector.pm</font></a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Interface 
+                  for managing linked lists of Perl5 objects</font></td>
+              </tr>
+              <tr bgcolor="afafaf"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Root/Xref.html"><font face="Courier New, Courier, mono">Xref.pm</font></a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">A generic 
+                  cross-reference object</font><font size=""> </font></td>
+              </tr>
+              <tr> 
+                <td colspan="3"><font face="Courier New, Courier, mono"><b>Bio::Search::/</b></font></td>
+              </tr>
+              <tr bgcolor="d9d5d5"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/Search/Processor.html"><font face="Courier New, Courier, mono">Processor.pm</font></a></td>
+                <td><font face="Courier New, Courier, mono">Not documented yet 
+                  :)</font></td>
+              </tr>
+              <tr> 
+                <td colspan="3"><font face="Courier New, Courier, mono"><b>Bio::Search::Hit/</b></font></td>
+              </tr>
+              <tr bgcolor="d9d5d5"> 
+                <td height="22">&nbsp;</td>
+                <td height="22"><a href="/Core/POD/Bio/Search/Hit/Fasta.html"><font face="Courier New, Courier, mono">Fasta.pm</font></a></td>
+                <td height="22"><font face="Courier New, Courier, mono">Hit object 
+                  specific to fasta generated hits</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/Search/Hit/HitI.html"><font face="Courier New, Courier, mono">HitI.pm</font></a></td>
+                <td><font face="Courier New, Courier, mono">Abstract interface 
+                  for hit objects</font></td>
+              </tr>
+              <tr> 
+                <td colspan="3"><font face="Courier New, Courier, mono"><b>Bio::Search::Processor/</b></font></td>
+              </tr>
+              <tr bgcolor="d9d5d5"> 
+                <td height="15">&nbsp;</td>
+                <td height="15"><a href="/Core/POD/Bio/Search/Processor/Fasta.html"><font face="Courier New, Courier, mono">Fasta.pm</font></a></td>
+                <td height="15"><font face="Courier New, Courier, mono">Processor 
+                  of fasta generated data streams</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/Search/Processor/ProcessorI.html"><font face="Courier New, Courier, mono">ProcessorI.pm</font></a></td>
+                <td><font face="Courier New, Courier, mono">Abstract interface 
+                  to processor objects</font></td>
+              </tr>
+              <tr> 
+                <td colspan="3"><font face="Courier New, Courier, mono"><b>Bio::Search::Result/</b></font></td>
+              </tr>
+              <tr bgcolor="d9d5d5"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/Search/Result/Fasta.html"><font face="Courier New, Courier, mono">Fasta.pm</font></a></td>
+                <td><font face="Courier New, Courier, mono">Result object for 
+                  fasta generated data streams</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/Search/Result/ResultI.html"><font face="Courier New, Courier, mono">ResultI.pm</font></a></td>
+                <td><font face="Courier New, Courier, mono">Abstract interface 
+                  to result objects</font></td>
+              </tr>
+              <tr> 
+                <td colspan="3"><font face="Courier New, Courier, mono"><b>Bio::SeqFeature::/</b></font></td>
+              </tr>
+              <tr bgcolor="d9d5d5"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/SeqFeature/FeaturePair.html"><font face="Courier New, Courier, mono">FeaturePair.pm</font></a></td>
+                <td><font face="Courier New, Courier, mono">Holds a pair of SeqFeature's</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/SeqFeature/Generic.html"><font face="Courier New, Courier, mono">Generic.pm</font></a></td>
+                <td><font face="Courier New, Courier, mono">Generic SeqFeature 
+                  object</font></td>
+              </tr>
+              <tr> 
+                <td colspan="3"><font face="Courier New, Courier, mono"><b>Bio::SeqIO::/</b></font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%" height="19">&nbsp;</td>
+                <td width="26%" height="19"><a href="/Core/POD/Bio/SeqIO/FTHelper.html">FTHelper.pm</a></td>
+                <td width="72%" height="19"><font face="Courier New, Courier, mono">Helper 
+                  class for EMBL/GenBank feature tables</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/SeqIO/MultiFile.html">MultiFile.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Treats 
+                  a set of files as a single input stream</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"> <a href="/Core/POD/Bio/SeqIO/embl.html">embl.pm</a></td>
+                <td width="72%"><font  face="Courier New, Courier, mono">EMBL 
                   sequence input/output stream </font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/SeqIO/Fasta.html">Fasta.pm</a></td>
+                <td width="26%"><a href="/Core/POD/Bio/SeqIO/fasta.html">fasta.pm</a></td>
                 <td width="72%"><font face="Courier New, Courier, mono">FASTA 
                   sequence input/output stream</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/SeqIO/GCG.html">GCG.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">GCG 
-                  sequence input/output stream</font></td>
+                <td width="26%"><a href="/Core/POD/Bio/SeqIO/gcg.html">gcg.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">GCG sequence 
+                  input/output stream</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/SeqIO/Handler.html">Handler.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Handler 
-                  of the SeqIO classes for tieing to filehandles</font></td>
-              </tr>
-              <tr bgcolor="#d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/SeqIO/Raw.html">Raw.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Raw 
+                <td width="26%"><a href="/Core/POD/Bio/SeqIO/genbank.html">genbank.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">GenBank 
                   sequence input/output stream</font></td>
               </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/SeqIO/pir.html">pir.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">PIR sequence 
+                  input/output stream</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/SeqIO/raw.html">raw.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Raw sequence 
+                  input/output stream</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/SeqIO/scf.html">scf.pm</a></td>
+                <td><font face="Courier New, Courier, mono">SCF sequence input/output 
+                  stream</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/SeqIO/swiss.html">swiss.pm</a></td>
+                <td><font face="Courier New, Courier, mono">SwissProt sequence 
+                  input/output stream</font></td>
+              </tr>
               <tr> 
-                <td colspan="3"><font size="" face="Courier New, Courier, mono"><b>Bio::Tools::/</b></font></td>
+                <td colspan="3"><font face="Courier New, Courier, mono"><b>Bio::Tools::/</b></font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"> <a href="/Core/POD/Tools/IUPAC.html">IUPAC.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Generates 
+                <td width="26%"> <a href="/Core/POD/Bio/Tools/IUPAC.html">IUPAC.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Generates 
                   unique Seq objects from an ambiguous Seq object </font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="/Core/POD/Tools/SeqPattern.html">SeqPattern.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Bioperl 
+                <td width="26%"><a href="/Core/POD/Bio/Tools/SeqPattern.html">SeqPattern.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Bioperl 
                   object for a sequence pattern or motif </font> </td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
-                <td width="2%" height="21">&nbsp;</td>
-                <td width="26%" height="21"><a href="/Core/POD/Tools/Sigcleave.html">Sigcleave.pm</a></td>
-                <td width="72%" height="21"><font size="" face="Courier New, Courier, mono">Bioperl 
-                  object for sigcleave analysis</font></td>
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Tools/Blast.html">Blast.pm</a></td>
+                <td width="72%"> <font face="Courier New, Courier, mono">Bioperl 
+                  BLAST sequence analysis object </font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/Blast.html">Blast.pm</a></td>
-                <td width="72%"> <font size="" face="Courier New, Courier, mono">Bioperl 
-                  BLAST sequence analysis object </font></td>
+                <td width="26%"><a href="/Core/POD/Bio/Tools/CodonTable.html">CodonTable.pm</a></td>
+                <td width="72%">&nbsp;</td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/Fasta.html">Fasta.pm</a></td>
-                <td width="72%"> <font size="" face="Courier New, Courier, mono">Bioperl 
+                <td width="26%"><a href="/Core/POD/Tools/Fasta.html">Fasta.pm</a></td>
+                <td width="72%"> <font face="Courier New, Courier, mono">Bioperl 
                   FASTA sequence analysis object </font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/SeqAnal.html">SeqAnal.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Bioperl 
+                <td width="26%"><a href="/Core/POD/Tools/SeqAnal.html">SeqAnal.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Bioperl 
                   sequence analysis base class</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/WWW.html">WWW.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Bioperl 
+                <td width="26%"><a href="/Core/POD/Tools/WWW.html">WWW.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Bioperl 
                   manager for web resources related to biology</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/pSW.html">pSW.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Pairwise 
+                <td width="26%"><a href="/Core/POD/Tools/pSW.html">pSW.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Pairwise 
                   protein smith waterman alignment factory(uses compiled C code 
                   XS extentions)</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/AlignFactory.html">AlignFactory.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Base 
-                  object for alignment factories</font></td>
+                <td width="26%"><a href="/Core/POD/Bio/Tools/AlignFactory.html">AlignFactory.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Base object 
+                  for alignment factories</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/RestrictionEnzyme.html">RestrictionEnzyme.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Bioperl 
+                <td width="26%"><a href="/Core/POD/Bio/Tools/RestrictionEnzyme.html">RestrictionEnzyme.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Bioperl 
                   object for a restriction endonuclease object</font></td>
               </tr>
+              <tr  bgcolor="#d9d5d5"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/Tools/SeqAnal.html">SeqAnal.pm</a></td>
+                <td><font face="Courier New, Courier, mono">Sequence analysis 
+                  base class</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td height="25">&nbsp;</td>
+                <td height="25"><a href="/Core/POD/Bio/Tools/SeqPattern.html">SeqPattern.pm</a></td>
+                <td height="25"><font face="Courier New, Courier, mono">Object 
+                  for a sequence pattern or motif</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/Tools/SeqStats.html">SeqStats.pm</a></td>
+                <td><font face="Courier New, Courier, mono">Holds statistics for 
+                  one particular sequence</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/Tools/SeqWords.html">SeqWords.pm</a></td>
+                <td><font face="Courier New, Courier, mono">Holds n-mer statistics 
+                  for one particular sequence</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5" > 
+                <td>&nbsp;</td>
+                <td><a href="/Core/POD/Bio/Tools/Sigcleave.html">Sigcleave.pm</a></td>
+                <td><font face="Courier New, Courier, mono">Object for sigcleave 
+                  analysis</font></td>
+              </tr>
               <tr> 
-                <td colspan="3"><font size="" face="Courier New, Courier, mono"><b>Bio::Tools::Blast::/</b></font></td>
+                <td colspan="3"><font face="Courier New, Courier, mono"><b>Bio::Tools::Blast::/</b></font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/Blast/HSP.html">HSP.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">BLAST 
+                <td width="26%"><a href="/Core/POD/Bio/Tools/Blast/HSP.html">HSP.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">BLAST 
                   High-Scoring Segment Pair object</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/Blast/HTML.html">HTML.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Utility 
+                <td width="26%"><a href="/Core/POD/Bio/Tools/Blast/HTML.html">HTML.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Utility 
                   module for HTML formatting Blast reports</font></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/Blast/Sbjct.html">Sbjct.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Bioperl 
-                  BLAST ``Hit'' object </font></td>
+                <td width="26%"><a href="/Core/POD/Bio/Tools/Blast/Sbjct.html">Sbjct.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">BLAST 
+                  hit object </font></td>
               </tr>
               <tr> 
-                <td colspan="3"><font size=""><b><font face="Courier New, Courier, mono">Bio::Tools::Blast::Run/</font></b></font></td>
+                <td colspan="3"><b><font face="Courier New, Courier, mono">Bio::Tools::Blast::Run/</font></b></td>
               </tr>
               <tr bgcolor="#d9d5d5"> 
-                <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/Blast/Run/LocalBlast.html">LocalBlast.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Bioperl 
-                  module for running Blast analyses locally</font></td>
+                <td width="2%" height="22">&nbsp;</td>
+                <td width="26%" height="22"><a href="/Core/POD/Bio/Tools/Blast/Run/LocalBlast.html">LocalBlast.pm</a></td>
+                <td width="72%" height="22"><font face="Courier New, Courier, mono">module 
+                  for running Blast analyses locally</font></td>
               </tr>
               <tr bgcolor="#afafaf"> 
                 <td width="2%">&nbsp;</td>
-                <td width="26%"><a href="../Core/POD/Tools/Blast/Run/Webblast.html">Webblast.pm</a></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">Remote 
-                  NCBI blast launcher</font></td>
+                <td width="26%"><a href="/Core/POD/Bio/Tools/Blast/Run/Webblast.html">Webblast.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Remote 
+                  NCBI Blast launcher</font></td>
               </tr>
               <tr> 
-                <td colspan="3"><font size="" face="Courier New, Courier, mono"><b>Bio::Compile/</b></font></td>
+                <td width="100%" colspan="3"><b><font face="Courier New, Courier, mono">Bio::Tools::HMMER/</font></b></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Tools/HMMER/Domain.html">Domain.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">One particular 
+                  domain hit from HMMER</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Tools/HMMER/Results.html">Results.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Object 
+                  representing HMMER output results</font></td>
+              </tr>
+              <tr bgcolor="#d9d5d5"> 
+                <td width="2%" height="18">&nbsp;</td>
+                <td width="26%" height="18"><a href="/Core/POD/Bio/Tools/HMMER/Set.html">Set.pm</a></td>
+                <td width="72%" height="18"><font face="Courier New, Courier, mono">Set 
+                  of identical domains from HMMER matches</font></td>
               </tr>
               <tr> 
-                <td colspan="2"><font size="" face="Courier New, Courier, mono"><b>Bio::Compile::SW::/</b></font></td>
-                <td width="72%"><font size="" face="Courier New, Courier, mono">(<em>C 
-                  code for various XS extensions</em>)</font></td>
+                <td width="100%" colspan="3"><b><font face="Courier New, Courier, mono">Bio::Tools::Sim4/</font></b></td>
+              </tr>
+              <tr bgcolor="#d9d5d5">
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Tools/Sim4/Exon.html">Exon.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Not documented 
+                  yet :)</font></td>
+              </tr>
+              <tr bgcolor="#afafaf"> 
+                <td width="2%">&nbsp;</td>
+                <td width="26%"><a href="/Core/POD/Bio/Tools/Sim4/Results.html">Results.pm</a></td>
+                <td width="72%"><font face="Courier New, Courier, mono">Results 
+                  of one Sim4 run</font></td>
               </tr>
             </table>
             <p>&nbsp;</p>

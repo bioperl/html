@@ -127,7 +127,7 @@ View the distribution files directly:
 </pre>
 <p>
 
-<a href="/Core/modules.html">View Module Documentation</a>
+<a href="/Core/Latest/modules.html">View Module Documentation</a>
 
 <p>
 </font></td>
@@ -154,11 +154,11 @@ View the distribution files directly:
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-01 19:57:12 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-01 22:58:45 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.4 2000-04-01 19:57:12 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.5 2000-04-01 22:58:45 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
