@@ -83,6 +83,8 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[March 2001]</font></p>
 	  <p>
 	  <ul>
+	  <li>Now that the 07 release is out the door, Jason Stajich is already thinking about <a href="http://bioperl.org/pipermail/bioperl-l/2001-March/005246.html">new directions</a> for bioperl. Read <a href="http://bioperl.org/pipermail/bioperl-l/2001-March/thread.html">the thread</a> and <a href="http://bioperl.org/MailList.shtml">join</a> the fray.
+	  <p>
 	  <li><a href="http://bioperl.org/pipermail/bioperl-l/2001-March/002613.html">Release 07</a> is official. Thanks to all who helped create, document and test!
 	  <p>
 	  <li>The "<b>branch-07</b>" branch was created in the CVS repository and final preparations are underway for releasing the official bioperl-07 suite on Monday March 5th!
@@ -361,11 +363,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-03-05 19:30:08 $</p>
+<p><p align=right>Last Modified: $Date: 2001-03-08 15:09:59 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.22 2001-03-05 19:30:08 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.23 2001-03-08 15:09:59 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
