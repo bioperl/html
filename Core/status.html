@@ -89,42 +89,50 @@ expected to be eventually.
 
 <b><font face="Arial, Helvetica, sans-serif" color="#000080">Current Efforts</font></b><br>
 Bioperl is now running smoothly from a central source code
-repository. The current 0.05 release came out on 27 April 1999. Eventually 0.05
-will be frozen (bug fixes only) while we prepare for the next new release. 
+repository. The current 0.05.1 release came out on 30 June 1999. The 0.05 branch has
+been frozen (bug fixes only) while we prepare for the next core release. 
+<p> 
+Our first <a href="/bioperl-99">Bioperl Workshop</a> held right before ISMB-99 in Heidelberg, Germany was
+a great success and we have attracted some new developers. We expect the next major bioperl
+release to occur in December.
 <p>
-We are busy preparing for the first <a href="/bioperl-99">Bioperl Workshop</a> which will be held right before ISMB-99 in Heidelberg Germany.
 <p>
 <b><font face="Arial, Helvetica, sans-serif" color="#000080">Code Status and Committments</font></b><br>
+We have changed our versioning scheme, the next bioperl release will be 0.6 not 0.06!<p>
 <b>PreSeq.pm</b> has been
 replaced by <b>Seq.pm</b> and will become our general flexible and
 lightweight sequence object. <b>Parse.pm</b> is no longer being used
 by core bioperl code. We will also be moving all sequence formatting and parsing code out of the sequence object and transitioning over to the <b>SeqIO/*</b> modules<br>
 <p>
 
-<b><font face="Arial, Helvetica, sans-serif" color="#000080">In Progress / Things that may end up in the next release</font></b><br>
+<b><font face="Arial, Helvetica, sans-serif" color="#000080">In Progress / Things that may end up in the next (0.6) release</font></b><br>
 <blockquote>
 If you are <b>really</b> curious about how these projects are going, join the <a href="/MailList.html">guts-list</a> or check the most <a href="ftp://bio.perl.org/pub/SRC/bioperl/">recent source code</a> dump in the FTP area. 
 </blockquote>
 <ul>
-<li><b>Bio::Tools::Fasta</b> - Similar to our robust support for launching and manipulating BLAST search results, we hope to do the same with Fasta.
-<li><b>Bio::DB::Genbank</b> - Given an accession number, fetches sequence from NCBI website and returns a bioperl sequence object. Genbank is the first of many databases we hope to make our objects 'aware' of in this way. Aaron Mackey is working on this.
-<li><b>Bio::SeqIO</b> - new stream based methods for reading and writing to/from sequence database files. Lots of code coming in-- so far we have <b>SeqIO::Genbank</b>, <b>SeqIO::EMBL</b>, <b>SeqIO::Fasta</b>, <b>SeqIO::Raw</b>, <b>SeqIO::GCG</b> and more on the way.
-<li><b>Bio::Tools::Sigcleave</b> - perl emulator of the EGCG Sigcleave utility. Chris Dagdigian is working on this.
-<li><b>Bio::SeqFeature</b> and <b>Bio::Entry</b> - The Bio::Entry is
-the 'heavy weight' sequence object which is more like a representation
-of a Genbank or EMBL flat file complete with feature table. Ian Korf
-is working on these objects.  <li><b>Bio::Structure</b> - A number of
-people have been talking about a Structure object (probably an object
-heirarchy). More info in the <a href="/Projects/">Projects/ section</a>.
-
- <li><b>Bio::SearchDist</b> - A perl wrapper for Sean
-Eddy's Extreme Value and Gaussian fitting code (already provided in
-the bp_sw XS extension). Ewan Birney is working on this.
-
+<li><b><a href="/Projects/Sequence/reimpl.html">Seq.pm rewrite</a> and reimplementation</b> - Coordinated by Ewan Birney
+<li><b>PSI-Blast support and misc. blast improvements</b> - Steve Chervitz
+<li><b>Fasta support / Similarity search handling infrastructure</b> Aaron Mackey
+<li><b>Annotation and SeqFeature objects</b> - Ewan Birney and Wolfgang Fleischmann
+<li><b>Publication object</b> - Ralf Spenneberg
+<li><b>XML support</b> - Adam Moore & Keith Neil w/ help from Lincoln Stein
+<li><b>Database access</b> - Bobby Otillar
 </ul>
-Steve Chervits, the bioperl coordinator is maintaining and improving
-the <b>Bio::Tools::Blast</b> and <b>Bio::Root</b> code.
-<p>
+
+<b><font face="Arial, Helvetica, sans-serif" color="#000080">New projects and stuff that
+will not make it into the next release</b></font><br>
+<blockquote>
+ When these projects gain momentum, look for more information to
+ appear in the <a href="/Projects/">Projects/</a> section of the website.
+</blockquote>
+
+<ul>
+<li> <b>BioPerl Cookbook</b> - Kris Boulez
+<li> <b>Alignment proposal work</b> - George Fuellen
+<li> <b>Distribution Issues (rpm's etc. etc.)</b>  - Adam Moore
+<li> <b><a href="http://bioxml.org">bioxml.org</a></b> - Helge Weissig & others 
+<li> <b><a href="http://biopython.org">biopython.org</a></b> - Jeffrey Chang, Andrew Dalke & others
+</ul>
 
 <p>
 <font face="Arial, Helvetica, sans-serif" size=+1>
