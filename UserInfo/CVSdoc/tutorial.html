@@ -1,0 +1,149 @@
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<TITLE> A CVS Tutorial for NuTeV </TITLE>
+   <H1> A CVS Tutorial for NuTeV </H1>
+
+	This is a step-by-step set of instructions on how to use CVS, 
+written for the users on experiment E815.  The first list explains how
+to get the source code for a product and use it for your own
+applications. <P> 
+
+<HR>
+<H2><A NAME="T1"> Getting a new Product </A></H2>
+
+	The basics of getting a new product is fairly easy.  Most (but 
+not neccessarily all) products are designed with a Makefile so that you 
+can create a default executable and start running immediately.  
+
+<PRE>
+<B>1. (Optional)</B> &gt; mkdir <VAR>productdir</VAR>
+
+<B>2. (Optional)</B> &gt; cd <VAR>productdir</VAR>
+
+<B>3.           </B> &gt; cvs checkout <VAR>productname</VAR>
+
+<B>4.           </B> &gt; cd <VAR>productname</VAR>
+
+<B>5.           </B> &gt; make
+</PRE>
+
+	You should always check the README document, if there is one, or 
+consult other sources.  See the list of <A HREF="../cvs_software.html">
+Software Available in CVS</A> for product names and links to WWW 
+documentation.  <P>
+
+<DL>
+<DT><STRONG>1-2 (Optional): Creating a product directory.</STRONG>
+
+<DD> CVS will make its own directory for the source code it takes
+from the repository.  However, if you are going to be significantly 
+customizing or adding to the code, it is helpful to have a personal 
+area separate from the ``pure'' product code.  <P>
+
+<DT><STRONG>3: Checking out the product.</STRONG>
+
+<DD> This creates a new subdirectory of the current directory, with a 
+directory name the same as the name of the product.  
+
+<DT><STRONG>4-5: Making the executable.</STRONG>
+<DD> Several products have a default Makefile which lets you create an 
+     executable quickly.  You should check for the specifics, however.  
+</DL>
+
+	For more details on this, see the section on 
+<A HREF="commands.html#checkout">cvs checkout</A> in the full
+documentation. <P>
+
+
+<HR>
+<H2><A NAME="T2"> Updating Your Version </A></H2>
+
+	In order to get all the updates which have been made to the
+product, simply go into the <VAR>productname</VAR> directory and say: 
+
+<PRE>
+<B>1.      </B> &gt; cvs update -d 
+</PRE>
+
+	CVS will automatically <STRONG>merge</STRONG> the changes made 
+to the repository and the changes which you have made.  It will keep what 
+changes you have made, and overlay the changes which have been made to the 
+repository. This is indicated by the output which the <SAMP>cvs update</SAMP> 
+command produces, which looks something like:  <P>
+
+<PRE>
+U afile.F
+M changedfile.F
+U driver.F
+A newfile.F
+? userfile.f
+</PRE>
+
+	The single-letter code on the left indicates what has happened 
+to that file.  The <STRONG>only</STRONG> code which you have to worry 
+about would be a `<SAMP>C</SAMP>' - which would indicate that your 
+changes and the repository changes <EM>conflict</EM>.  This means that 
+you have to go into that file, and edit it to be the version which you 
+want. Within the file, you will find something like: <P>
+
+<PRE>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+   avar = value1
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+   avar = value2
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+</PRE>
+
+	The first code is the repository change, the second is the change 
+which you made.  You have to delete the version you don't want, and 
+remove all the <SAMP>&gt;</SAMP>'s and <SAMP>&lt;</SAMP>'s. <P>
+
+	The other codes mean the following: <P>
+
+<UL>
+<LI> <SAMP>U</SAMP> : 
+	the file was <EM>updated</EM> to match the repository
+<LI> <SAMP>M</SAMP> : 
+	your changes were <EM>merged</EM> with changes in the repository
+<LI> <SAMP>A</SAMP> : 
+	the file was recently <EM>added</EM> to the repository
+<LI> <SAMP>?</SAMP> : 
+	the file was unrecognized and ignored - it is not in the repository
+</UL>
+
+	For more details on this, see the section on 
+<A HREF="commands.html#add">cvs add</A> in the full documentation. <P>
+
+
+<HR>
+<H2><A NAME="T3"> Committing Changes to the Central Repository </A></H2>
+
+	The most important thing to remember in committing is to be 
+careful.  Test the code <EM>exactly</EM> as it will appear in the 
+repository (i.e. no user-only routines or changes).  You should inform 
+whoever is in charge of that code what you are going to do.  Assuming 
+he or she approves, then the steps are as follows: <P>
+
+<DL>
+<DT> <SAMP> &gt; setenv EDITOR <VAR>yourfavorite</VAR> </SAMP>
+<DD> This line should probably be added to your <CODE>.login</CODE> file. 
+
+<DT><B>(Optional)</B> <SAMP> &gt; cvs add <VAR>newfilename</VAR> </SAMP>
+<DD> If you are adding a new file or directory to the repository, you must 
+specify it in advance of committing.  Otherwise CVS will just ignore it.  
+
+<DT> <SAMP> &gt; cvs commit <VAR>filename</VAR> </SAMP>
+<DD> This commits the changes you have made to file <VAR>filename</VAR> to 
+the central repository.  If you leave <VAR>filename</VAR> blank, it will 
+commit <EM>all</EM> the changes you have made to the code. <P>
+
+	Upon the <SAMP>commit</SAMP> command, CVS will demand from you a 
+comment for the record on the changes which you have done (using the 
+editor defined in the first step).  For most significant changes, you 
+should also send a note to the NuTeV Bank System. <P>
+</DL>
+
+	For more details on this, see the section on 
+<A HREF="commands.html#commit">cvs commit</A> in the full documentation. <P>
+

@@ -1,0 +1,490 @@
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<TITLE> Reference manual for the Administrative files </TITLE>
+   <H1> Reference manual for the Administrative files </H1>
+
+	Inside the repository, in the directory
+<code>$CVSROOT/CVSROOT</code>, there are a number of supportive files
+for CVS.  You can use CVS in a limited fashion without any of them,
+but if they are set up properly they can help make life easier. <P>
+
+	The most important of these files is the <code>modules</code> 
+file, that defines the modules inside the repository. <P>
+
+<UL>
+* modules::                     Defining modules
+* commit files::                The commit support files
+* commitinfo::                  Pre-commit checking
+* editinfo::                    Specifying how log messages are created
+* loginfo::                     Where should log messages be sent?
+* rcsinfo::                     Templates for the log messages
+* cvsignore::                   Ignoring files via cvsignore
+* history file::                History information
+* Setting up::                  Setting up the repository
+</UL>
+
+
+
+<H2><A NAME="D1"> The modules file </A></H2>
+
+	The <code>modules</code> file records your definitions of
+names for collections of source code.  CVS will use
+these definitions if you create a file with the right
+format in <code>$CVSROOT/CVSROOT/modules,v</code>.  The
+mkmodules(1) command should be run whenever the modules
+file changes, so that the appropriate files can be
+generated (depending on how you have configured CVS
+operation). <P>
+
+To allow convenient editing of the <code>modules</code> file
+itself, the file should include an entry like the
+following (where <var>localbin</var> represents the
+directory where your site installs programs like
+mkmodules(1)): <P>
+
+<PRE>
+modules    -i /<var>localbin</var>/mkmodules CVSROOT modules
+</PRE>
+
+This defines the name <samp>modules</samp> as the module name
+for the file itself, so that you can use
+
+<PRE>
+$ cvs checkout modules
+</PRE>
+
+to get a copy of the file that you can edit.  You should define
+similar module entries for the other configuration
+files described in this appendix, except
+<code>history</code>). <P>
+
+	The <code>modules</code> file may contain blank lines and
+comments (lines beginning with <samp>#</samp>) as well as
+module definitions.  Long lines can be continued on the
+next line by specifying a backslash (<samp>\</samp>) as the
+last character on the line. <P>
+
+	A module definition is a single line of the
+<code>modules</code> file, in either of two formats.  In both
+cases, <var>mname</var> represents the symbolic module name,
+and the remainder of the line is its definition. <P>
+
+<DL>
+<DT> <var>mname</var> -a <var>aliases</var>...
+<DD> This represents the simplest way of defining a module
+  <var>mname</var>.  The <samp>-a</samp> flags the definition as a
+  simple alias: CVS will treat any use of <var>mname</var> (as a
+  command argument) as if the list of names <var>aliases</var> had
+  been specified instead. <var>aliases</var> may contain either other
+  module names or paths.  When you use paths in aliases,
+  <code>checkout</code> creates all intermediate directories in the
+  working directory, just as if the path had been specified 
+  explicitly in the CVS arguments.
+
+<DT> <var>mname</var> [ options ] <var>dir</var> 
+     [<var>files</var>... ] [ &<var>module</var>... ] 
+<DD> In the simplest case, this form of module definition reduces to
+  <samp><var>mname</var> <var>dir</var></samp>.  This defines all the
+  files in directory <var>dir</var> as module mname. <var>dir</var> is
+  a relative path (from <code>$CVSROOT</code>) to a directory of
+  source in the source repository.  In this case, on checkout, a
+  single directory called <var>mname</var> is created as a working
+  directory; no intermediate directory levels are used by default,
+  even if <var>dir</var> was a path involving several directory
+  levels.  <P>
+
+	By explicitly specifying files in the module definition after
+  <var>dir</var>, you can select particular files from directory
+  <var>dir</var>.  The sample definition for <samp>modules</samp> is
+  an example of a module defined with a single file from a particular
+  directory.  Here is another example:
+
+<PRE>
+m4test  unsupported/gnu/m4 foreach.m4 forloop.m4
+</PRE>
+
+  With this definition, executing <samp>cvs checkout m4test</samp>
+  will create a single working directory <code>m4test</code>
+  containing the two files listed, which both come from a common
+  directory several levels deep in the CVS source repository. <P>
+
+	A module definition can refer to other modules by including
+  <samp>&amp<var>module</var></samp> in its definition.
+  <code>checkout</code> creates a subdirectory for each such module,
+  in your working directory. (Note: ``in your working directory'' is
+  wrong. What is right?) 
+
+  <DL>
+  <DT> -d <var>name</var>
+  <DD> Name the working directory something other than the module
+	name. 
+
+  <DT> -i <var>prog</var>
+  <DD> Specify a program <var>prog</var> to run whenever files in a
+	module are committed.  <var>prog</var> runs with a single 
+	argument, the full pathname of the affected directory in a
+	source repository.  The <code>commitinfo</code>, 
+	<code>loginfo</code>, and <code>editinfo</code> files provide 
+	other ways to call a program on commit.
+
+  <DT> -o <var>prog</var>
+  <DD> Specify a program <var>prog</var> to run whenever files in a
+	module are checked out.  <var>prog</var> runs with a single
+	argument, the module name.
+
+  <DT> -s <var>status</var>
+  <DD> Assign a status to the module.  When the module file is
+	printed with <samp>cvs checkout -s</samp> the modules are
+	sorted according to primarily module status, and
+	secondarily according to the module name.  This option
+	has no other meaning.  You can use this option for
+	several things besides status: for instance, list the
+	person that is responsible for this module.
+
+  <DT> -t <var>prog</var>
+  <DD> Specify a program <var>prog</var> to run whenever files in a
+	module are tagged with <code>rtag</code>.  <var>prog</var> runs
+	with two arguments: the module name and the symbolic
+	tag specified to <code>rtag</code>.  There is no way to
+	specify a program to run when <code>tag</code> is executed.
+
+  <DT> -u <var>prog</var>
+  <DD> Specify a program <var>prog</var> to run whenever <samp>cvs
+	update</samp> is executed from the top-level directory of the
+	checked-out module.  <var>prog</var> runs with a single
+	argument, the full path to the source repository for
+	this module.
+  </DL>
+</DL>
+
+
+
+<H2><A NAME="D2"> The commit support files </A></H2>
+
+	The <samp>-i</samp> flag in the <code>modules</code> file can
+be used to run a certain program whenever files are committed
+(@pxref{modules}).  The files described in this section provides
+other, more flexible, ways to run programs whenever something is
+committed.  <P>
+
+	There are three kind of programs that can be run on
+commit.  They are specified in files in the repository,
+as described below.  The following table summarizes the
+file names and the purpose of the corresponding
+programs. <P>
+
+<DL>
+<DT> commitinfo
+<DD> The program is responsible for checking that the commit is
+allowed.  If it exits with a non-zero exit status the commit will be
+aborted. 
+
+<DT> editinfo
+<DD> The specified program is used to edit the log message, and
+possibly verify that it contains all required fields.  This is most
+useful in combination with the <code>rcsinfo</code> file, which can 
+hold a log message template (@pxref{rcsinfo}).
+
+<DT> loginfo
+<DD> The specified program is called when the commit is complete.  It
+receives the log message and some additional information and can store
+the log message in a file, or mail it to appropriate persons, or maybe 
+post it to a local newsgroup, or...  Your imagination is the limit!
+</DL>
+
+
+<H3> The common syntax </H3>
+
+	The four files <code>commitinfo</code>, <code>loginfo</code>,
+<code>rcsinfo</code> and <code>editinfo</code> all have a common
+format.  The purpose of the files are described later on.  The common
+syntax is described here. <P>
+
+Each line contains the following:
+<UL>
+<LI> A regular expression
+<LI> A whitespace separator---one or more spaces and/or tabs.
+<LI> A file name or command-line template.
+</UL>
+
+Blank lines are ignored.  Lines that start with the
+character <samp>#</samp> are treated as comments.  Long lines
+unfortunately can <em>not</em> be broken in two parts in
+any way. <P>
+
+	Whenever one of the regular expression matches a directory
+name in the repository, the rest of the line is used. <P>
+
+
+
+<H2><A NAME="D3"> Commitinfo </A></H2>
+
+	The <code>commitinfo</code> file defines programs to execute
+whenever <samp>cvs commit</samp> is about to execute.  These programs
+are used for pre-commit checking to verify that the modified, added
+and removed files are really ready to be committed.  This could be
+used, for instance, to verify that the changed files conform to 
+your site's standards for coding practice. As mentioned earlier, each
+line in the <code>commitinfo</code> file consists of a regular
+expression and a command-line template.  The template can include a
+program name and any number of arguments you wish to supply to it.
+The full path to the current source repository is appended to the
+template, followed by the file names of any files involved in the
+commit (added, removed, and modified files). <P>
+
+	All lines with a regular expression matching the
+relative path to the module will be used.  If any of
+the commands return a non-zero exit status the commit
+will be aborted. <P>
+
+	If the repository name does not match any of the
+regular expressions in this file, the <samp>DEFAULT</samp>
+line is used, if it is specified. <P>
+
+	If the name <samp>ALL</samp> appears as a regular expression
+it is always used in addition to any matching regular
+expression or <samp>DEFAULT</samp>. <P>
+
+
+
+<H2><A NAME="D4"> Editinfo </A></H2>
+
+	If you want to make sure that all log messages look the
+same way, you can use the <code>editinfo</code> file to
+specify a program that is used to edit the log message.
+This program could be a custom-made editor that always
+enforces a certain style of the log message, or maybe a
+simple shell script that calls an editor, and checks
+that the entered message contains the required fields. <P>
+
+	If no matching line is found in the <code>editinfo</code>
+file, the editor specified in the environment variable
+<code>$EDITOR</code> is used instead.  If that variable is not
+set a precompiled default, normally <code>vi</code>, will be
+used. <P>
+
+	The <code>editinfo</code> file is often most useful together
+with the <code>rcsinfo</code> file, which can be used to
+specify a log message template. <P>
+
+	Each line in the <code>editinfo</code> file consists of a
+regular expression and a command-line template.  The template must 
+include a program name, and can include any number of arguments.  The
+full path to the current log message template file is appended to the
+template. <P> 
+
+	One thing that should be noted is that the ALL keyword is not
+supported.  If more than one matching line is found, the last one is
+used.  This can be useful for specifying a default edit script in a
+module, and then overriding it in a subdirectory. <P>
+
+	If the edit script exits with a non-zero exit status,
+the commit is aborted. <P>
+
+
+
+<H3> Editinfo example </H3>
+
+	The following is a little silly example of a
+<code>editinfo</code> file, together with the corresponding
+<code>rcsinfo</code> file, the log message template and an editor
+script.  We begin with the log message template. We want to always
+record a bug-id number on the first line of the log message.  The rest
+of log message is free text.  The following template is found in the
+file <code>/usr/cvssupport/tc.template</code>. <P>
+
+<PRE>
+BugId:    
+</PRE>
+
+The script <code>/usr/cvssupport/bugid.edit</code> is used to
+edit the log message. <P>
+
+<PRE>
+#!/bin/sh
+#
+#       bugid.edit filename
+#
+#  Call $EDITOR on FILENAME, and verify that the
+#  resulting file contains a valid bugid on the first
+#  line.
+$EDITOR $1
+until head -1|grep '^BugId:[ ]*[0-9][0-9]*$' &lt $1
+do  echo -n  &quotNo BugId found.  Edit again? ([y]/n)&quot
+    read ans
+    case $@{ans@} in
+        n*) exit 1;;
+    esac
+    $EDITOR $1
+done
+</PRE>
+
+The <code>editinfo</code> file contains this line:
+
+<PRE>
+^tc     /usr/cvssupport/bugid.edit
+</PRE>
+
+The <code>rcsinfo</code> file contains this line:
+
+<PRE>
+^tc     /usr/cvssupport/tc.template
+</PRE>
+
+
+<H2><A NAME="D5"> Loginfo </A></H2>
+
+The <code>loginfo</code> file is used to control where
+<samp>cvs commit</samp> log information is sent.  The first
+entry on a line is a regular expression which is tested
+against the directory that the change is being made to,
+relative to the <code>$CVSROOT</code>.  If a match is found, then
+the remainder of the line is a filter program that
+should expect log information on its standard input. <P>
+
+The filter program may use one and only one % modifier
+(a la printf).  If <samp>%s</samp> is specified in the filter
+program, a brief title is included (enclosed in single
+quotes) showing the modified file names. <P>
+
+If the repository name does not match any of the
+regular expressions in this file, the <samp>DEFAULT</samp>
+line is used, if it is specified. <P>
+
+If the name <samp>ALL</samp> appears as a regular expression
+it is always used in addition to any matching regular expression or
+<samp>DEFAULT</samp>. <P>
+
+All matching regular expressions are used. <P>
+
+@xref{commit files}, for a description of the syntax of
+the <code>loginfo</code> file. <P>
+
+
+
+<H3> Loginfo example </H3>
+
+	The following <code>loginfo</code> file, together with the
+tiny shell-script below, appends all log messages  to the file
+<code>$CVSROOT/CVSROOT/commitlog</code>, and any commits to the
+administrative files (inside the <code>CVSROOT</code> directory) are a
+also logged in <code>/usr/adm/cvsroot-log</code> and mailed to
+<samp>ceder</samp>. <P>
+
+<PRE>
+ALL             /usr/local/bin/cvs-log $CVSROOT/CVSROOT/commitlog
+^CVSROOT        Mail -s %s ceder
+^CVSROOT        /usr/local/bin/cvs-log /usr/adm/cvsroot-log
+</PRE>
+
+The shell-script <code>/usr/local/bin/cvs-log</code> looks
+like this: <P>
+
+<PRE>
+#!/bin/sh
+(echo &quot-------------------------------------------------------------&quot;
+ echo -n $USER&quot  &quot;
+ date;
+ echo;
+ sed '1s+'$@{CVSROOT@}'++') >> $1
+</PRE>
+
+
+
+<H2><A NAME="D6"> Rcsinfo </A></H2>
+
+	The <code>rcsinfo</code> file can be used to specify a form to
+edit when filling out the commit log.  The <code>rcsinfo</code> file
+has a syntax similar to the <code>editinfo</code>,
+<code>commitinfo</code> and <code>loginfo</code> files.
+@xref{syntax}.  Unlike the other files the second part is <em>not</em>
+a command-line template.  Instead, the part after the regular
+expression should be a full pathname to a file containing the log
+message template. <P>
+
+	If the repository name does not match any of the
+regular expressions in this file, the <samp>DEFAULT</samp>
+line is used, if it is specified. <P>
+
+	If the name <samp>ALL</samp> appears as a regular expression
+it is always used in addition to the first matching
+regular expression or <samp>DEFAULT</samp>. <P>
+
+	The log message template will be used as a default log
+message.  If you specify a log message with <samp>cvs
+commit -m <var>message</var></samp> or <samp>cvs commit -f
+<var>file</var></samp> that log message will override the
+template. <P>
+
+@xref{editinfo example}, for an example <code>rcsinfo</code>
+file. <P>
+
+
+
+<H2><A NAME="D7"> Ignoring files via cvsignore </A></H2>
+
+	There are certain file names that frequently occur inside your
+working copy, but that you don't want to put under CVS control.
+Examples are all the object files that you get while you compile your
+sources. Normally, when you run <samp>cvs update</samp>, it prints a 
+line for each file it encounters that it doesn't know about
+(@pxref{update output}). <P>
+
+	CVS has a list of files (or sh(1) file name patterns) that it
+should ignore while running <code>update</code>. This list is
+constructed in the following way. <P>
+
+<UL>
+<LI> The list is initialized to the following file name patterns:
+
+<PRE>
+    RCSLOG  RCS     SCCS
+    CVS*    cvslog.*
+    tags    TAGS
+    .make.state     .nse_depinfo
+    *~      #*      .#*     ,*
+    *.old   *.bak   *.BAK   *.orig  *.rej   .del-*
+    *.a     *.o     *.so    *.Z     *.elc   *.ln  
+    core
+</PRE>
+
+<LI> The per-repository list in <code>$CVSROOT/CVSROOT/cvsignore
+</code> is appended to the list, if that file exists.
+
+<LI> The per-user list in <code><samp>$HOME</samp>/.cvsignore</code>
+is appended to the list, if it exists.
+
+<LI> As CVS traverses through your directories, the contents of any
+<code>.cvsignore</code> will be appended to the list. The patterns
+found in <code>.cvsignore</code> are only valid for the directory that
+contains them, not for any sub-directories.
+</UL>
+
+
+<H2><A NAME="D8"> The history file </A></H2>
+
+	The file <code>$CVSROOT/CVSROOT/history</code> is used to log
+information for the <code>history</code> command (@pxref{history}).
+This file must be created to turn on logging.  This is done
+automatically if the <code>cvsinit</code> script is used to set up the
+repository. <P>
+
+	The file format of the <code>history</code> file is
+unfortunately not yet documented anywhere, but it is
+fairly easy to understand most of it. <P>
+
+
+
+<H2><A NAME="D9"> Setting up the repository </A></H2>
+
+	When you install CVS for the first time, you should follow the
+instructions in the <code>INSTALL</code> file to set up the repository. <P>
+
+	If you want to set up another repository, the easiest way to
+get a reasonable set of working administrative files is to get the
+source to CVS, and run the <code>cvsinit</code> shell script.  It will set
+up an empty repository in the directory defined by the environment 
+variable <code>$CVSROOT</code>.  (<code>cvsinit</code> is careful to never
+overwrite any existing files in the repository, so no harm is done if
+you run <code>cvsinit</code> on an already set-up repository.) <P>
+

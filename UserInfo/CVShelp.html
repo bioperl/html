@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project">
+<META name="keywords" content="perl, biology, bioinformatics, bioperl">
+<TITLE>bio dot perl dot org</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>bio.perl.org
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<font face="Arial, Helvetica, sans-serif" size=-1>
+<a href="/">Home</a>
+<p>
+<a href="ftp://bio.perl.org/pub/">FTP Site</a>
+<p>
+</font>
+</TD>
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="../images/transparent.gif" WIDTH=20 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<B>
+<font face="Arial, Helvetica, sans-serif" color="#000080">Bioperl CVS help</font></B>
+<BR>
+</TD>
+</TR>
+
+<TR>
+<TD>
+
+To use the CVS system you must have
+<ul>
+<li> An account on bio.perl.org
+<li> secure shell (ssh)
+<li> cvs
+<li> setenv'd CVS_RSH to ssh
+</ul>
+
+To start a repository from scratch, move to a clean area where you expect
+to see your working Bio/ directories from, then go
+<pre>
+prompt%cvs -d :ext:birney@bio.perl.org:/home/repository/bioperl checkout Bio
+</pre>
+
+This will build the Bio/ tree for you from the CVS system with all the current .pm files
+in it.
+<p>
+<ul>
+<li>cvs update - updates your local copy wrt to the repository (do this first thing when you get in)
+<li>cvs commit - publish your local changes to the repository (do this last thing before you leave!)
+<li>cvs status - see whether files have been changed locally or in the repository
+</ul>
+Do these commands from the Bio directory (inside it). cvs knows where to find the repository due
+to the CVS directories scattered around the place.
+<p>
+
+The structure of all cvs commands are
+<pre>
+cvs ACTION
+</pre>
+<p>
+<b>This page is still under construction. In the meantime Ewan Birney is probably the one to address your CVS questions to.</b>
+</TD>
+</TR>
+
+<tr>
+<td>
+<font face="Arial, Helvetica, sans-serif" size=+1>
+<a href="/UserInfo/">&lt;&lt;back</a>
+</font>
+</td>
+</tr>
+
+<!spacer >
+<TR><TD><IMG SRC="../images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+
+</TABLE>
+</TD>
+
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="../images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+</TD>
+</TR>
+
+</TABLE>
+
+
+</BODY>
+</HTML>
+
+
+

@@ -1,0 +1,1586 @@
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<TITLE> CVS Documentation </TITLE>
+<H1> CVS Documentation </H1>
+
+
+<H2> What is CVS? </A></H2>
+
+CVS is a version control system.  Using it, you can record the history
+of your source files. <P> 
+
+	For example, bugs sometimes creep in when software is
+modified, and you might not detect the bug until a long time after you
+make the modification. With CVS, you can easily retrieve old versions
+to see exactly which change caused the bug.  This can sometimes be a
+big help. <P> 
+
+	You could of course save every version of every file you have
+ever created.  This would however waste an enormous amount of disk
+space.  CVS stores all the versions of a file in a single file in a
+clever way that only stores the differences between versions. <P>
+
+	CVS also helps you if you are part of a group of people
+working on the same project.  It is all too easy to overwrite each
+others' changes unless you are extremely careful. Some editors, like
+GNU Emacs, try to make sure that the same file is never modified
+by two people at the same time.  Unfortunately, if someone is using
+another editor, that safeguard will not work.  CVS solves this
+problem by insulating the different developers.  Every developer works
+in his own directory, and CVS merges the work when each developer is
+done. <P>
+
+
+<H2><A NAME="A1"> Basic concepts </A></H2>
+
+	CVS stores all files in a centralized <dfn>repository</dfn>: a
+directory (such as <code>/usr/local/cvsroot</code>) which is populated
+with a hierarchy of files and directories. <P>
+
+	Normally, you never access any of the files in the repository
+directly.  Instead, you use CVS commands to get your own copy of the
+files, and then work on that copy. <P>
+
+	The files in the repository are organized in
+<dfn>modules</dfn>.  Each module is made up of one or more files, and
+can include files from several directories. <P>
+
+
+
+<H3><A NAME="A1.1"> Revision numbers </A></H3>
+
+	Each version of a file has a unique <dfn>revision
+number</dfn>. Revision numbers look like 1.1, 1.2, 1.3.2.2 or even
+1.3.2.2.4.5. A revision number always has an even number of
+period-separated decimal numbers.  By default revision 1.1 is the
+first revision of a file.  Each successive revision is given a new
+number by increasing the rightmost number by one.  The following
+figure displays a few revisions, with newer revisions to the
+right. <P>
+<PRE>
+       +-----+    +-----+    +-----+    +-----+    +-----+
+       ! 1.1 !----! 1.2 !----! 1.3 !----! 1.4 !----! 1.5 !
+       +-----+    +-----+    +-----+    +-----+    +-----+
+</PRE>
+
+	CVS is not limited to linear development.  The <dfn>revision
+tree</dfn> can be split into <dfn>branches</dfn>, where each branch is
+a self-maintained line of development.  Changes made on one branch can
+easily be moved back to the main trunk. <P>
+
+	Each branch has a <dfn>branch number</dfn>, consisting of an
+odd number of period-separated decimal numbers.  The branch number is
+created by appending a number to the revision number where the
+corresponding branch forked off.  Having branch numbers allows more
+than one branch to be forked off from a certain revision. <P>
+
+	All revisions on a branch have revision numbers formed by
+appending an ordinal number to the branch number. The following figure
+illustrates branching with an example. <P>
+<PRE>
+                                                     +-------------+
+                          Branch 1.2.2.3.2 ->        ! 1.2.2.3.2.1 !
+                                                   / +-------------+
+                                                  /
+                                                 /
+                 +---------+    +---------+    +---------+    +---------+
+Branch 1.2.2 -> _! 1.2.2.1 !----! 1.2.2.2 !----! 1.2.2.3 !----! 1.2.2.3 !
+               / +---------+    +---------+    +---------+    +---------+
+              /
+             /
++-----+    +-----+    +-----+    +-----+    +-----+
+! 1.1 !----! 1.2 !----! 1.3 !----! 1.4 !----! 1.5 !     &lt- The main trunk
++-----+    +-----+    +-----+    +-----+    +-----+
+                !
+                !
+                !   +---------+    +---------+    +---------+
+Branch 1.2.4 -> +---! 1.2.4.1 !----! 1.2.4.2 !----! 1.2.4.3 !
+                    +---------+    +---------+    +---------+
+
+</PRE>
+
+	CVS only assigns even numbers to branch numbers that you
+create.  The branch 1.1.1 has a special meaning. 
+@xref{Tracking sources}. <P>
+
+
+<H3><A NAME="A1.2"> Versions, revisions and releases </A></H3>
+
+	A file can have several versions, as described
+above. Likewise, a software product can have several versions. A
+software product is often given a version number such as 4.1.1. <P>
+
+	Versions in the first sense are called <dfn>revisions</dfn> in
+this document, and versions in the second sense are called
+<dfn>releases</dfn>.  To avoid confusion, the word <dfn>version</dfn>
+is almost never used in this document. <P>
+
+
+
+<H2><A NAME="A2"> A sample session </A></H2>
+
+	This section describes a typical work-session using CVS.  It
+assumes that a repository is set up (@pxref{Repository}). <P>
+
+	Suppose you are working on a simple compiler.  The source
+consists of a handful of C files and a <code>Makefile</code>. The
+compiler is called <samp>tc</samp> (Trivial Compiler), and the
+repository is set up so that there is a module called
+<samp>tc</samp>. <P>
+
+
+<H3><A NAME="A2.1"> Getting the source </A></H3>
+
+	The first thing you must do is to get your own working copy of
+the source for <samp>tc</samp>.  For this, you use the
+<code>checkout</code> command: <P>
+<PRE>
+$ cvs checkout tc
+</PRE>
+
+
+	This will create a new directory called <code>tc</code> and
+populate it with the source files. <P>
+<PRE>
+$ cd tc
+$ ls tc
+CVS         Makefile    backend.c   driver.c    frontend.c  parser.c
+</PRE>
+
+	The <code>CVS</code> directory is used internally by CVS.
+Normally, you should not modify or remove any of the files in it. <P>
+
+	You start your favourite editor, hack away at
+<code>backend.c</code>, and a couple of hours later you have added an
+optimization pass to the compiler. A note to RCS and SCCS users: There
+is no need to lock the files that you want to edit.  @xref{Multiple
+developers} for an explanation. <P>
+
+
+<H3><A NAME="A2.2"> Committing your changes </A></H3>
+
+	When you have checked that the compiler is still compilable
+you decide to make a new version of <code>backend.c</code>. <P>
+<PRE>
+$ cvs commit backend.c
+</PRE>
+
+
+	CVS starts an editor, to allow you to enter a log message.
+You type in ``Added an optimization pass.'', save the temporary file,
+and exit the editor. <P>
+
+	The environment variable <code>$EDITOR</code> determines which
+editor is started.  If <code>$EDITOR</code> is not set, the editor is
+<code>vi</code>.  If you want to avoid the overhead of starting an
+editor you can specify the log message on the command line using the
+<samp>-m</samp> flag instead, like this: <P>
+
+<PRE>
+$ cvs commit -m "Added an optimization pass" backend.c
+</PRE>
+
+
+<H3><A NAME="A2.3"> Cleaning up </A></H3>
+
+	Before you turn to other tasks you decide to remove your
+working copy of tc.  One acceptable way to do that is of course <P>
+<PRE>
+$ cd ..
+$ rm -r tc
+</PRE>
+
+but a better way is to use the <code>release</code> command (@pxref{release}):
+
+<PRE>
+$ cd ..
+$ cvs release -d tc
+M driver.c
+? tc
+You have [1] altered files in this repository.
+Are you sure you want to release (and delete) module `tc': n
+** `release' aborted by user choice.
+</PRE>
+
+The <code>release</code> command checks that all your modifications have been
+committed.  If history logging is enabled it also makes a note in the
+history file.  @xref{history file}.
+
+When you use the <samp>-d</samp> flag with <code>release</code>, it
+also removes your working copy.
+
+In the example above, the <code>release</code> command wrote a couple of lines
+of output.  <samp>? tc</samp> means that the file <code>tc</code> is unknown to CVS.
+That is nothing to worry about: <code>tc</code> is the executable compiler,
+and it should not be stored in the repository.  @xref{cvsignore},
+for information about how to make that warning go away.
+@xref{release output}, for a complete explanation of
+all possible output from <code>release</code>.
+
+<samp>M driver.c</samp> is more serious.  It means that the
+file <code>driver.c</code> has been modified since it was
+checked out.
+
+The <code>release</code> command always finishes by telling
+you how many modified files you have in your working
+copy of the sources, and then asks you for confirmation
+before deleting any files or making any note in the
+history file.
+
+You decide to play it safe and answer <kbd>n &ltRETURN&gt</kbd>
+when <code>release</code> asks for confirmation.
+
+
+<H3><A NAME="A2.4"> Viewing differences </A></H3>
+
+You do not remember modifying <code>driver.c</code>, so you want to see what
+has happened to that file.
+
+<PRE>
+$ cd tc
+$ cvs diff driver.c
+</PRE>
+
+This command runs <code>diff</code> to compare the version of <code>driver.c</code>
+that you checked out with your working copy.  When you see the output
+you remember that you added a command line option that enabled the
+optimization pass.  You check it in, and release the module.
+
+<PRE>
+$ cvs commit -m "Added an optimization pass" driver.c
+Checking in driver.c;
+/usr/local/cvsroot/tc/driver.c,v  &lt--  driver.c
+new revision: 1.2; previous revision: 1.1
+done
+$ cd ..
+$ cvs release -d tc
+? tc
+You have [0] altered files in this repository.
+Are you sure you want to release (and delete) module `tc': y
+</PRE>
+
+
+
+<H2><A NAME="A3"> The Repository </A></H2>
+
+Figure 3 below shows a typical setup of a repository.
+Only directories are shown below.
+
+<PRE>
+<code>/usr</code>
+ |
+ +--<code>local</code>
+ |   |
+ |   +--<code>cvsroot</code>
+ |   |    | 
+ |   |    +--<code>CVSROOT</code>
+          |      (administrative files) 
+          | 
+          +--<code>gnu</code>
+          |   | 
+          |   +--<code>diff</code>
+          |   |   (source code to GNU diff) 
+          |   | 
+          |   +--<code>rcs</code>
+          |   |   (source code to RCS)
+          |   | 
+          |   +--<code>cvs</code>
+          |       (source code to CVS) 
+          | 
+          +--<code>yoyodyne</code>
+              | 
+              +--<code>tc</code>
+              |    |
+              |    +--<code>man</code>
+              |    |
+              |    +--<code>testing</code>
+              | 
+              +--(other Yoyodyne software)
+</PRE>                              
+
+The <code>$CVSROOT</code> environment variable should always be an absolute
+path to the root of the repository, <code>/usr/local/cvsroot</code> in this
+example.  With this setup all <code>csh</code> and <code>tcsh</code> users should
+have this line in their <code>.cshrc</code> or <code>.tcshrc</code> files:
+
+<PRE>
+setenv CVSROOT /usr/local/cvsroot
+</PRE>
+
+
+<code>sh</code> and <code>bash</code> users should instead have these lines in their
+<code>.profile</code> or <code>.bashrc</code>:
+
+<PRE>
+CVSROOT=/usr/local/cvsroot
+export CVSROOT
+</PRE>
+
+There is nothing magical about the name
+<code>/usr/local/cvsroot</code>.  You can choose to place the
+repository anywhere you like, but <code>$CVSROOT</code> must
+always point to it.
+
+The repository is split in two parts.  <code>$CVSROOT/CVSROOT</code> contains
+administrative files for CVS.  The other directories contains the actual
+user-defined modules.
+
+
+
+<H3><A NAME="A3.1"> User modules </A></H3>
+
+<PRE>
+  <code>$CVSROOT</code>
+    |
+    +--<code>yoyodyne</code>
+    |   |
+    |   +--<code>tc</code>
+    |   |   |
+            +--<code>Makefile,v</code>
+            +--<code>backend.c,v</code>
+            +--<code>driver.c,v</code>
+            +--<code>frontend.c,v</code>
+            +--<code>parser.c,v</code>
+            +--<code>man</code>
+            |    |
+            |    +--<code>tc.1,v</code>
+            |     
+            +--<code>testing</code>
+                 |
+                 +--<code>testpgm.t,v</code>
+                 +--<code>test2.t,v</code>
+</PRE>
+
+
+	The figure above shows the contents of the <samp>tc</samp>
+module inside the repository.  As you can see all file names ends in
+<samp>,v</samp>.  The files are <dfn>history files</dfn>.  They
+contain, among other things, enough information to recreate any
+revision of the file, a log of all commit messages and the user-name
+of the person who committed the revision.  CVS uses the facilities of
+RCS, a simpler version control system, to maintain these files.  For a
+full description of the file format, see the <code>man</code>
+page. <P> 
+
+
+
+<H4><A NAME="A3.1.1"> File permissions </A></H4>
+
+	All <samp>,v</samp> files are created read-only, and you
+should not change the permission of those files.  The directories
+inside the repository should be writable by the persons that have
+permission to modify the files in each directory.  This normally means
+that you must create a UNIX group (see group(5)) consisting of the
+persons that are to edit the files in a project, and set up the
+repository so that it is that group that owns the directory. <P> 
+
+	This means that you can only control access to files on
+a per-directory basis. <P> 
+
+	CVS tries to set up reasonable file permissions for new
+directories that are added inside the tree, but you must fix the
+permissions manually when a new directory should have different
+permissions than its parent directory. <P> 
+
+	Since CVS was not written to be run setuid, it is unsafe to
+try to run it setuid.  You cannot use the setuid features of RCS
+together with CVS. <P> 
+
+
+<H3><A NAME="A3.2"> The administrative files </A></H3>
+
+	The directory <code>$CVSROOT/CVSROOT</code> contains some
+<dfn>administrative files</dfn>.  @xref{Administrative files}, for a
+complete description. You can use CVS without any of these files, but
+some commands works better when at least the <code>modules</code> file
+is properly set up. <P>
+
+	The most important of these files is the <code>modules</code>
+file.  It defines all modules in the repository.  This is a sample
+<code>modules</code> file. <P>
+<PRE>
+CVSROOT         -i mkmodules CVSROOT
+modules         -i mkmodules CVSROOT modules
+cvs             gnu/cvs
+rcs             gnu/rcs
+diff            gnu/diff
+tc              yoyodyne/tc
+</PRE>
+
+	The <code>modules</code> file is line oriented.  In its
+simplest form each line contains the name of the module, whitespace,
+and the directory where the module resides.  The directory is a path
+relative to <code>$CVSROOT</code>. <P>
+
+	Each module definition can contain options.  The <samp>-i
+mkmodules</samp> is an example of an option.  It arranges for CVS to
+run the <code>mkmodules</code> program whenever any file in the module
+CVSROOT is committed.  That program is responsible for checking out
+read-only copies from the RCS <dfn>history files</dfn> of all the
+administrative files. These read-only copies are used by CVS.  You
+should never edit them directly. <P>
+
+	The line that defines the module called <samp>modules</samp>
+uses features that are not explained here. @xref{modules}, for a full
+explanation of all the available features. <P>
+
+<H4><A HREF="A3.2.1"> Editing administrative files </A></H4>
+
+	You edit the administrative files in the same way that you
+would edit any other module.  Use <samp>cvs checkout CVSROOT</samp> to
+get a working copy, edit it, and commit your changes in the normal
+way. <P>
+
+	It is possible to commit an erroneous administrative file.
+You can often fix the error and check in a new revision, but sometimes
+a particularly bad error in the administrative file makes it
+impossible to commit new revisions.  @xref{Bad administrative files}
+for a hintabout how to solve such situations.  <P>
+
+
+<H3><A NAME="A3.3"> Multiple repositories </A></H3>
+
+	In some situations it is a good idea to have more than one
+repository, for instance if you have two development groups that work
+on separate projects without sharing any code. <P>
+
+	All you have to do to have several repositories is to set
+<code>$CVSROOT</code> to the repository you want to use. <P>
+
+	There are disadvantages to having more than one repository.
+In CVS 1.3 you <em>must</em> make sure that <code>$CVSROOT</code>
+always points to the correct repository.  If the same filename is used
+in two repositories, and you mix up the setting of
+<code>$CVSROOT</code>, you might lose data.  Later versions of CVS
+will probably fix this problem. Also, it can be confusing to have two
+or more repositories. <P>
+
+	All examples in this manual assumes that you have asingle
+repository. <P> 
+
+
+<H2><A NAME="A4"> Starting a project with CVS </A></H2>
+
+	Since CVS 1.3 is bad at renaming files and moving
+them between directories, the first thing you do when
+you start a new project should be to think through your
+file organization.  It is not impossible---just
+awkward---to rename or move files in CVS 1.3.  <P>
+
+What to do next depends on the situation at hand. <P>
+
+<strong>Alpha note:</strong> This chapter is not finished yet.
+I will rewrite it before the final release of this
+manual.  Comments are welcome! <P>
+
+
+
+<H3><A NAME="A4.1"> Setting up the files </A></H3>
+
+The first step is to create the files inside the repository.  This can
+be done in a couple of different ways. <P>
+
+
+<H4><A NAME="A4.1.1"> Creating a module from a number of files
+</A></H4>
+
+	When you begin using CVS, you will probably already have
+several projects that can be put under CVS control.  In these cases
+the easiest way is to use the <code>import</code> command.  An example
+is probably the easiest way to explain how to use it.  If the files
+you want to install in CVS resides in <code><var>dir</var></code>, and
+you want them to appear in the repository as
+<code>$CVSROOT/yoyodyne/<var>dir</var></code>, you can do this: <P>
+<PRE>
+$ cd <var>dir</var>
+$ cvs import -m "Imported sources" yoyodyne/<var>dir</var> yoyo start
+</PRE>
+
+	Unless you supply a log message with the <samp>-m</samp> flag,
+CVS starts an editor and prompts for a message.  The string
+<samp>yoyo</samp> is a <dfn>vendor tag</dfn>, and <samp>start</samp> 
+is a <dfn>release tag</dfn>.  They may fill no purpose in this
+context, but since CVS requires them they must be present.
+@xref{Tracking sources}, for more information about them. <P>
+
+	You can now verify that it worked, and remove your
+original source directory. <P>
+<PRE>
+$ cd ..
+$ mv <var>dir</var> <var>dir</var>.orig
+$ cvs checkout yoyodyne/<var>dir</var>       # @r{Explanation below}
+$ ls -R yoyodyne
+$ rm -r <var>dir</var>.orig
+</PRE>
+
+	Erasing the original source is a good idea, to make sure that
+you do not accidentally edit them in <var>dir</var>, bypassing CVS. <P>
+
+	The <code>checkout</code> command can either take a module
+name as argument (as it has done in all previous examples) or a path
+name relative to <code>$CVSROOT</code>, as it did in the example
+above. <P>
+
+<H4><A NAME="A4.1.2"> Creating a module from scratch </A></H4>
+
+<PRE>
+$ mkdir tc
+$ mkdir tc/man
+$ mkdir tc/testing
+</PRE>
+
+After that, you use the <code>import</code> command to create a module...
+
+
+<H3><A NAME="A4.2"> Defining the module </A></H3>
+
+	The next step is to define the module in the
+<code>modules</code> file.  Some CVS commands work without this step,
+but others (most notably <code>release</code>) require that all
+modules are properly defined in the <code>modules</code> file. <P>
+
+In simple cases these steps are sufficient to define a module. <P>
+
+<OL>
+<LI> Get a working copy of the modules file.
+<PRE>
+$ cvs checkout modules
+$ cd modules
+</PRE>
+
+<LI> Edit the file and insert a line that defines the module.  @xref{Intro
+  administrative files}, for an introduction.  @xref{modules}, for a full
+  description of the modules file.  You can use the following line to
+  define the module <samp>tc</samp>:
+<PRE>
+tc   yoyodyne/tc
+</PRE>
+
+<LI> Commit your changes to the modules file.
+<PRE>
+$ cvs commit -m "Added the tc module." modules
+</PRE>
+
+<LI> Release the modules module.
+<PRE>
+$ cd ..
+$ cvs release -d modules
+</PRE>
+</OL>
+
+
+
+<H2><A NAME="A5"> Multiple developers </A></H2>
+
+	When more than one person works on a software project things
+often get complicated.  Often, two people try to edit the same file
+simultaneously.  Some other version control systems (including RCS and
+SCCS) tries to solve that particular problem by introducing <dfn>file
+locking</dfn>, so that only one person can edit each file at a time.
+Unfortunately, file locking can be very counter-productive.  If
+different people want to edit different parts of a file, there may be
+no reason to prevent either of them from doing that. <P>
+
+	CVS does not use file locking.  Instead, it allows many people
+to edit their own <dfn>working copy</dfn> of a file simultaneously.
+The first person that commits his changes has no automatic way of
+knowing that another has started to edit it.  Others will get an error
+message when they try to commit the file.  They must then use CVS
+commands to bring their working copy up to date with the repository
+revision.  This process is almost automatic, and explained in this
+chapter. <P>
+
+	There are many ways to organize a team of developers. CVS does
+not try to enforce a certain organization.  It is a tool that can be
+used in several ways.  It is often useful to inform the group of
+commits you have done.  CVS has several ways of automating that
+process.  @xref{Informing others}. @xref{Revision management}, for
+more tips on how to use CVS. <P>
+
+
+
+<H3><A NAME="A5.1"> File status </A></H3>
+
+	After you have checked out a file out from CVS, it is in
+one of these four states: <P>
+
+<DL>
+<DT> Up-to-date
+<DD> The file is identical with the latest revision in the
+repository. (Note: this is not always true if branching is used.)
+
+<DT> Locally modified
+<DD> You have edited the file, and not yet committed your changes.
+
+<DT> Needing update
+<DD> Someone else has committed a newer revision to the repository.
+
+<DT> Needing merge
+<DD> Someone else have committed a newer revision to the repository, and you
+  have also made modifications to the file.
+</DL>
+
+You can use the <code>status</code> command to find out the status of a given
+file.  @xref{status}. <P>
+
+
+<H3><A NAME="A5.2"> Bringing a file up to date </A></H3>
+
+	When you want to update or merge a file, use the
+<code>update</code> command.  For files that are not up to date this
+is roughly equivalent to a <code>checkout</code> command: the newest
+revision of the file is extracted from the repository and put in your
+working copy of the module. <P>
+
+	Your modifications to a file are never lost when you use
+<code>update</code>.  If no newer revision exists, running
+<code>update</code> has no effect.  If you have edited the file, and a
+newer revision is available, CVS will merge all changes into your
+working copy. <P>
+
+	For instance, imagine that you checked out revision 1.4 and
+started editing it.  In the meantime someone else committed revision
+1.5, and shortly after that revision 1.6.  If you run
+<code>update</code> on the file now, CVS will incorporate all changes
+between revision 1.4 and 1.6 into your file. <P>
+
+	If any of the changes between 1.4 and 1.6 was made too close
+to any of the changes you have made, an <dfn>overlap</dfn> occurs.  In
+such cases a warning is printed, and the resulting file includes both
+versions of the lines that overlap, delimited by special markers.
+@xref{update}, for a complete description of the <code>update</code>
+command. <P>
+
+
+
+<H3><A NAME="A5.3"> Conflicts example </A></H3>
+
+Suppose revision 1.4 of <code>driver.c</code> contains this: <P>
+
+<PRE>
+#include <stdio.h>
+
+void main()
+@{
+    parse();
+    if (nerr == 0)
+        gencode();
+    else
+        fprintf(stderr, "No code generated.\n");
+    exit(nerr == 0 ? 0 : 1);
+@}
+</PRE>
+
+Revision 1.6 of <code>driver.c</code> contains this: <P>
+
+<PRE>
+#include <stdio.h>
+
+int main(int argc,
+         char **argv)
+@{
+    parse();
+    if (argc != 1)
+    @{
+        fprintf(stderr, "tc: No args expected.\n");
+        exit(1);
+    @}
+    if (nerr == 0)
+        gencode();
+    else
+        fprintf(stderr, "No code generated.\n");
+    exit(!!nerr);
+@}
+</PRE>
+
+Your working copy of <code>driver.c</code>, based on revision
+1.4, contains this before you run <samp>cvs update</samp>: <P>
+
+<PRE>
+#include <stdlib.h>
+#include <stdio.h>
+
+void main()
+@{
+    init_scanner();
+    parse();
+    if (nerr == 0)
+        gencode();
+    else
+        fprintf(stderr, "No code generated.\n");
+    exit(nerr == 0 ? EXIT_SUCCESS : EXIT_FAILURE);
+@}
+</PRE>
+
+You run <samp>cvs update</samp>:
+
+<PRE>
+$ cvs update driver.c
+RCS file: /usr/local/cvsroot/yoyodyne/tc/driver.c,v
+retrieving revision 1.4
+retrieving revision 1.6
+Merging differences between 1.4 and 1.6 into driver.c
+rcsmerge warning: overlaps during merge
+cvs update: conflicts found in driver.c
+C driver.c
+</PRE>
+
+
+CVS tells you that there were some conflicts.
+Your original working file is saved unmodified in
+<code>.#driver.c.1.4</code>.  The new version of
+<code>driver.c</code> contains this:
+
+<PRE>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(int argc,
+         char **argv)
+@{
+    init_scanner();
+    parse();
+    if (argc != 1)
+    @{
+        fprintf(stderr, "tc: No args expected.\n");
+        exit(1);
+    @}
+    if (nerr == 0)
+        gencode();
+    else
+        fprintf(stderr, "No code generated.\n");
+&lt&lt&lt&lt&lt&lt driver.c
+    exit(nerr == 0 ? EXIT_SUCCESS : EXIT_FAILURE);
+=======
+    exit(!!nerr);
+&gt&gt&gt&gt&gt&gt 1.6
+@}
+</PRE>
+
+
+
+Note how all non-overlapping modifications are incorporated in your
+working copy, and that the overlapping section is clearly marked with
+<samp>&lt&lt&lt&lt&lt&lt</samp>, <samp>=======</samp> and
+<samp>&gt&gt&gt&gt&gt&gt</samp>.
+
+
+You resolve the conflict by editing the file, removing the markers and
+the erroneous line.  Suppose you end up with this file:
+<PRE>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(int argc,
+         char **argv)
+@{
+    init_scanner();
+    parse();
+    if (argc != 1)
+    @{
+        fprintf(stderr, "tc: No args expected.\n");
+        exit(1);
+    @}
+    if (nerr == 0)
+        gencode();
+    else
+        fprintf(stderr, "No code generated.\n");
+    exit(nerr == 0 ? EXIT_SUCCESS : EXIT_FAILURE);
+@}
+</PRE>
+
+
+You can now go ahead and commit this as revision 1.7.
+
+<PRE>
+$ cvs commit -m "Initialize scanner. Use symbolic exit values." driver.c
+Checking in driver.c;
+/usr/local/cvsroot/yoyodyne/tc/driver.c,v  &lt--  driver.c
+new revision: 1.7; previous revision: 1.6
+done
+</PRE>
+
+If you use version 1.04 or later of pcl-cvs (a GNU
+Emacs front-end for CVS) you can use an Emacs
+package called emerge to help you resolve conflicts.
+Se the documentation for pcl-cvs.
+
+
+<H3><A NAME="A5.4"> Informing others about commits </A></H3> 
+
+
+It is often useful to inform others when you commit a
+new revision of a file.  The <samp>-i</samp> option of the
+<code>modules</code> file, or the <code>loginfo</code> file, can be
+used to automate this process.  @xref{modules}.
+@xref{loginfo}.  You can instruct CVS to mail a
+message to all developers, or post a message to a local
+newsgroup.
+
+
+
+<H2><A NAME="A6"> Branches </A></H2>
+
+So far, all revisions shown in this manual have been on
+the <dfn>main trunk</dfn>
+of the revision tree, i.e., all revision numbers
+have been of the form <var>x</var>.<var>y</var>.  One useful
+feature, especially when maintaining several releases
+of a software product at once, is the ability to make
+branches on the revision tree.  <dfn>Tags</dfn>, symbolic
+names for revisions, will also be
+introduced in this chapter.
+
+
+
+<H3><A NAME="A6.1"> Tags--Symbolic revisions </A></H3>
+
+The revision numbers live a life of their own.  They
+need not have anything at all to do with the release
+numbers of your software product.  Depending
+on how you use CVS the revision numbers might change several times
+between two releases.  As an example, some of the
+source files that make up RCS 5.6 have the following
+revision numbers:
+
+
+<PRE>
+ci.c            5.21
+co.c            5.9
+ident.c         5.3
+rcs.c           5.12
+rcsbase.h       5.11
+rcsdiff.c       5.10
+rcsedit.c       5.11
+rcsfcmp.c       5.9
+rcsgen.c        5.10
+rcslex.c        5.11
+rcsmap.c        5.2
+rcsutil.c       5.10
+</PRE>
+
+	You can use the <code>tag</code> command to give a symbolic
+name to a certain revision of a file.  You can use the <samp>-v</samp>
+flag to the <code>status</code> command to see all tags that a file
+has, and which revision numbers they stand for.  (The output of
+<code>status</code> unfortunately uses the word ``version'' instead of
+``revision''.) <P>
+
+	The following example shows how you can add a tag to a file.
+The commands must be issued inside your working copy of the module.
+That is, you should issue the command in the directory where
+<code>backend.c</code> resides. <P>
+<PRE>
+$ cvs tag release-0-4 backend.c
+T backend.c
+$ cvs status -v backend.c
+===================================================================
+File: backend.c         Status: Up-to-date
+
+    Version:            1.4     Tue Dec  1 14:39:01 1992
+    RCS Version:        1.4     /usr/local/cvsroot/yoyodyne/tc/backend.c,v
+    Sticky Tag:         (none)
+    Sticky Date:        (none)
+    Sticky Options:     (none)
+
+    Existing Tags:
+        release-0-4                     (revision: 1.4)
+
+</PRE>
+
+	There is seldom reason to tag a file in isolation.  A more
+common use is to tag all the files that constitute a module with the
+same tag at strategic points in the development life-cycle, such as
+when a release is made. <P>
+<PRE>
+$ cvs tag release-1-0 .
+cvs tag: Tagging .
+T Makefile
+T backend.c
+T driver.c
+T frontend.c
+T parser.c
+</PRE>
+
+	(When you give CVS a directory as argument, it generally
+applies the operation to all the files in that directory, and
+(recursively), to any subdirectories that it may contain.
+@xref{Recursive behaviour}.) <P>
+
+	The <code>checkout</code> command has a flag, <samp>-r</samp>,
+that lets you check out a certain revision of a module.  This flag
+makes it easy to retrieve the sources that make up release 1.0 of the
+module <samp>tc</samp> at any time in the future: <P>
+<PRE>
+$ cvs checkout -r release-1-0 tc
+</PRE>
+
+	This is useful, for instance, if someone claims that there is
+a bug in that release, but you cannot find the bug in the current
+working copy.  <P>
+
+	You can also check out a module as it was at any given date.
+@xref{checkout options}. <P>
+
+
+<H3><A NAME="A6.2"> What branches are good for </A></H3>
+
+	Suppose that release 1.0 of tc has been made.  You are
+continuing to develop tc, planning to create release 1.1 in a couple
+of months.  After a while your customers start to complain about a
+fatal bug.  You check out release 1.0 (@pxref{Tags}) and find the bug
+(which turns out to have a trivial fix).  However, the current revision
+of the sources are in a state of flux and are not expected to be stable
+for at least another month.  There is no way to make a
+bugfix release based on the newest sources. <P>
+
+	The thing to do in a situation like this is to create a
+<dfn>branch</dfn> on the revision trees for all the files that make up 
+release 1.0 of tc.  You can then make modifications to the branch
+without disturbing the main trunk.  When the modifications are
+finished you can select to either incorporate them on the main trunk,
+or leave them on the branch.  <P>
+
+
+<H3><A NAME="A6.3"> Creating a branch </A></H3>
+
+	The <code>rtag</code> command can be used to create a
+branch. The <code>rtag</code> command is much like <code>tag</code>,
+but it does not require that you have a working copy of the module.
+@xref{rtag}.  (You can also use the <code>tag</code> command;
+@pxref{tag}). <P>
+<PRE>
+$ cvs rtag -b -r release-1-0 release-1-0-patches tc
+</PRE>
+
+	The <samp>-b</samp> flag makes <code>rtag</code> create a branch
+(rather than just a symbolic revision name).
+<samp>-rrelease-1-0</samp> says that this branch should be rooted at
+the node (in the revision tree) that corresponds to the tag
+<samp>release-1-0</samp>.  Note that the numeric revision number that
+matches <samp>release-1-0</samp> will probably be different from file
+to file. The name of the new branch is
+<samp>release-1-0-patches</samp>, and the module affected is
+<samp>tc</samp>.  <P>
+
+	To fix the problem in release 1.0, you need a working
+copy of the branch you just created. <P>
+<PRE>
+$ cvs checkout -r release-1-0-patches tc
+$ cvs status -v driver.c backend.c
+===================================================================
+File: driver.c          Status: Up-to-date
+
+    Version:            1.7     Sat Dec  5 18:25:54 1992
+    RCS Version:        1.7     /usr/local/cvsroot/yoyodyne/tc/driver.c,v
+    Sticky Tag:         release-1-0-patches (branch: 1.7.2)
+    Sticky Date:        (none)
+    Sticky Options:     (none)
+
+    Existing Tags:
+        release-1-0-patches             (branch: 1.7.2)
+        release-1-0                     (revision: 1.7)
+
+===================================================================
+File: backend.c         Status: Up-to-date
+
+    Version:            1.4     Tue Dec  1 14:39:01 1992
+    RCS Version:        1.4     /usr/local/cvsroot/yoyodyne/tc/backend.c,v
+    Sticky Tag:         release-1-0-patches (branch: 1.4.2)
+    Sticky Date:        (none)
+    Sticky Options:     (none)
+
+    Existing Tags:
+        release-1-0-patches             (branch: 1.4.2)
+        release-1-0                     (revision: 1.4)
+        release-0-4                     (revision: 1.4)
+
+</PRE>
+
+	As the output from the <code>status</code> command shows the
+branch number is created by adding a digit at the tail of the revision
+number it is based on.  (If <samp>release-1-0</samp> corresponds to
+revision 1.4, the branch's revision number will be 1.4.2.  For obscure
+reasons CVS always gives branches even numbers, starting at
+2. @xref{Revision numbers}). <P>
+
+
+
+<H3><A NAME="A6.4"> Sticky tags </A></H3>
+
+	The <samp>-r release-1-0-patches</samp> flag that was given to
+<code>checkout</code> is <dfn>sticky</dfn>, that is, it will apply to
+subsequent commands in this directory.  If you commit any
+modifications, they are committed on the branch.  You can later merge
+the modifications into the main trunk.  @xref{Merging}. <P>
+<PRE>
+$ vi driver.c   # @r{Fix the bugs}
+$ cvs commit -m "Fixed initialization bug" driver.c
+Checking in driver.c;
+/usr/local/cvsroot/yoyodyne/tc/driver.c,v  &lt--  driver.c
+new revision: 1.7.2.1; previous revision: 1.7
+done
+$ cvs status -v driver.c
+===================================================================
+File: driver.c          Status: Up-to-date
+
+    Version:            1.7.2.1 Sat Dec  5 19:35:03 1992
+    RCS Version:        1.7.2.1 /usr/local/cvsroot/yoyodyne/tc/driver.c,v
+    Sticky Tag:         release-1-0-patches (branch: 1.7.2)
+    Sticky Date:        (none)
+    Sticky Options:     (none)
+
+    Existing Tags:
+        release-1-0-patches             (branch: 1.7.2)
+        release-1-0                     (revision: 1.7)
+
+</PRE>
+
+	The sticky tags will remain on your working files until
+you delete them with <samp>cvs update -A</samp>.  @xref{update}. <P>
+
+	Sticky tags are not just for branches.  If you check out a
+certain revision (such as 1.4) it will also become sticky.  Subsequent
+<samp>cvs update</samp> will not retrieve the latest revision until
+you reset the tag with <samp>cvs update -A</samp>. <P>
+
+	See the descriptions in Appendix A for more information about
+sticky tags.  Dates and some other options can also be sticky.  Again,
+see Appendix A for details. <P>
+
+
+
+<H2><A NAME="A7"> Merging </A></H2>
+
+	You can include the changes made between any two revisions
+into your working copy, by <dfn>merging</dfn>. You can then commit
+that revision, and thus effectively copy the changes onto another
+branch. <P>
+
+
+<H3><A NAME="A7.1"> Merging an entire branch </A></H3>
+
+	You can merge changes made on a branch into your working copy
+by giving the <samp>-j <var>branch</var></samp> flag to the
+<code>update</code> command. With one <samp>-j
+<var>branch</var></samp> option it merges the changes made between the
+point where the branch forked and newest revision on that branch (into
+your working copy).  <P>
+
+	The <samp>-j</samp> stands for ``join''.  In previous versions
+of CVS there was a special command, <samp>cvs join</samp>, that was
+used to merge changes between branches. <P>
+
+	Consider this revision tree: <P>
+
+<PRE>
++-----+    +-----+    +-----+    +-----+    +-----+
+! 1.1 !----! 1.2 !----! 1.3 !----! 1.4 !----! 1.5 !     &lt- The main trunk
++-----+    +-----+    +-----+    +-----+    +-----+
+                !
+                !
+                !   +---------+    +---------+    +---------+
+Branch R1fix -> +---! 1.2.2.1 !----! 1.2.2.2 !----! 1.2.2.3 !
+                    +---------+    +---------+    +---------+
+</PRE>
+
+	The branch 1.2.2 has been given the tag (symbolic name)
+<samp>R1fix</samp>.  The following example assumes that the module
+<samp>mod</samp> contains only one file, <code>m.c</code>. <P>
+
+<PRE>
+$ cvs checkout mod               # @r{Retrieve the latest revision, 1.5}
+
+$ cvs update -j R1fix m.c        # @r{Merge all changes made on the branch,}
+                                 # @r{i.e. the changes between revision 1.2}
+                                 # @r{and 1.2.2.3, into the main trunk.}
+
+$ cvs commit -m "Included R1fix" # @r{Create revision 1.6.}
+</PRE>
+
+	The <code>checkout</code> command also supports the <samp>-j
+<var>branch</var></samp> flag.  The same effect as above could be
+achieved with this: <P>
+
+<PRE>
+$ cvs checkout -j R1fix mod
+$ cvs commit -m "Included R1fix"
+</PRE>
+
+
+<H3><A NAME="A7.2"> Merging differences between any two revisions </A></H3>
+
+	With two <samp>-j revision</samp> flags, the <code>update</code>
+(and <code>checkout</code>) command can merge the differences
+between any two revisions into your working file.
+<PRE>
+$ cvs update -j 1.5 -j 1.3 backend.c
+</PRE>
+
+will <em>remove</em> all changes made between revision
+1.3 and 1.5.  Note the order of the revisions! <P>
+
+	If you try to use this option with the <code>checkout</code>
+command, remember that the numeric revisions will probably be very
+different between the various files that make up a module.  You almost
+always use symbolic tags rather than revision numbers to the
+<code>checkout</code> command. <P>
+
+
+
+<H2><A NAME="A8"> Recursive behaviour </A></H2>
+
+	Almost all of the subcommands of CVS work recursively when you
+specify a directory as an argument.  For instance, consider this
+directory structure: <P>
+<PRE>
+    <code>$HOME</code>
+      |
+      +--<code>tc</code>
+      |   |
+          +--<code>CVS</code>
+          |      (internal CVS files)
+          +--<code>Makefile</code>
+          +--<code>backend.c</code>
+          +--<code>driver.c</code>
+          +--<code>frontend.c</code>
+          +--<code>parser.c</code>
+          +--<code>man</code>
+          |    |
+          |    +--<code>CVS</code>
+          |    |  (internal CVS files)
+          |    +--<code>tc.1</code>
+          |     
+          +--<code>testing</code>
+               |
+               +--<code>CVS</code>
+               |  (internal CVS files)
+               +--<code>testpgm.t</code>
+               +--<code>test2.t</code>
+</PRE>
+
+	If <code>tc</code> is the current working directory, the
+following is true: <P>
+
+<UL>
+<LI> <samp>cvs update testing</samp> is equivalent to 
+  <samp>cvs update testing/testpgm.t testing/test2.t</samp>
+
+<LI> <samp>cvs update testing man</samp> updates all files in the
+  subdirectories 
+
+<LI> <samp>cvs update .</samp> or just <samp>cvs update</samp> updates
+  all files in the <code>tc</code> module
+</UL>
+
+	If no arguments are given to <code>update</code> it will
+update all files in the current working directory and all its
+subdirectories.  In other words, <code>.</code> is a default argument
+to <code>update</code>.  This is also true for most of the CVS
+subcommands, not only the <code>update</code> command. <P>
+
+	The recursive behaviour of the CVS subcommands can be
+turned off with the <samp>-l</samp> option. <P>
+
+<PRE>
+$ cvs update -l         # @r{Don't update files in subdirectories}
+</PRE>
+
+
+
+<H2><A NAME="A9"> Adding files to a module </A></H2>
+
+To add a new file to a module, follow these steps. <P>
+
+<UL>
+<LI> You must have a working copy of the module.
+	@xref{Getting the source}.
+<LI> Create the new file inside your working copy of the module.
+<LI> Use <samp>cvs add <var>filename</var></samp> to tell CVS that you
+  want it to handle the file.
+<LI> Use <samp>cvs commit <var>filename</var></samp> to actually check
+  in the file into the repository.  Other developers cannot see the
+  file until you perform this step.
+</UL>
+
+	You can also use the <code>add</code> command to add a new
+directory inside a module. <P>
+
+	Unlike most other commands, the <code>add</code> command is
+not recursive.  You cannot even type <samp>cvs add foo/bar</samp>!  
+Instead, you have to: <P>
+
+<PRE>
+$ cd foo
+$ cvs add bar
+</PRE>
+
+@xref{add}, for a more complete description of the <code>add</code>
+command. <P>
+
+
+
+<H2><A NAME="A10"> Removing files from a module </A></H2>
+
+	Modules change.  New files are added, and old files disappear.
+Still, you want to be able to retrieve an exact copy of old releases
+of the module. <P>
+
+	Here is what you can do to remove a file from a module,
+but remain able to retrieve old revisions: <P>
+
+<UL>
+<LI> Make sure that you have not made any uncommitted modifications to
+  the file.  @xref{Viewing differences}, for one way to do that.  You
+  can also use the <code>status</code> or <code>update</code> command.
+  If you remove the file without committing your changes, you will of
+  course not be able to retrieve the file as it was immediately before
+  you deleted it.
+<LI> Remove the file from your working copy of the module.
+  You can for instance use <code>rm</code>.
+<LI> Use <samp>cvs remove <var>filename</var></samp> to tell CVS that
+  you really want to delete the file.
+<LI> Use <samp>cvs commit <var>filename</var></samp> to actually
+  perform the removal of the file from the repository.
+</UL>
+
+	What happens when you commit the removal of the file is that
+inside the source repository, it is moved into a subdirectory called
+<code>Attic</code>.  CVS normally doesn't look in that directory when
+you run e.g. <code>checkout</code>.  However, if you are retrieving a
+certain revision via e.g. <samp>cvs checkout -r
+<var>some-tag</var></samp>, it will look at the files inside the
+<code>Attic</code> and include any files that contain the specified
+tag. <P>
+
+	This method is simple and works quite well, but it has
+some known deficiencies: <P>
+
+<UL>
+<LI> If you remove the file <code>foo.c</code>, you cannot later
+  create a new file called <code>foo.c</code> unless you manually
+  remove the file <code>Attic/foo.c,v</code> inside the repository.
+  On the other hand, if you remove <code>Attic/foo.c,v</code> you will
+  of course not be able to retrieve any revision of the old file
+  <code>foo.c</code>.
+<LI> If the file <code>bar.c</code> is present in release 1.0 of a
+  product, and was accidentally removed in release 1.1, you cannot
+  easily resurrect it to release 1.2.  You have to move the file out
+  of the <code>Attic</code> manually inside the repository.  (Do a
+  <samp>mv Attic/<var>file</var> <var>file</var></samp>).
+</UL>
+
+	There is a design for a <dfn>rename database</dfn> that will
+solve these problems and many others, but it is not yet
+implemented. <P>
+
+
+
+
+<H2><A NAME="A11"> Tracking third-party sources </A></H2>
+
+	If you modify a program to better fit your site, you probably
+want to include your modifications when the next release of the
+program arrives.  CVS can help you with this task. <P>
+
+	In the terminology used in CVS, the supplier of the program is
+called a <dfn>vendor</dfn>.  The unmodified distribution from the
+vendor is checked in on its own branch, the <dfn>vendor branch</dfn>.
+CVS reserves branch 1.1.1 for this use. <P>
+
+	When you modify the source and commit it, your revision will
+end up on the main trunk.  When a new release is made by the vendor,
+you commit it on the vendor branch and copy the modifications onto the
+main trunk. <P>
+
+	Use the <code>import</code> command to create and update the
+vendor branch.  After a successful <code>import</code> the vendor
+branch is made the `head' revision, so anyone that checks out a copy
+of the file gets that revision.  When a local modification is
+committed it is placed on the main trunk, and made the `head'
+revision. <P>
+
+
+
+
+<H3><A NAME="A11.1"> Importing a module for the first time </A></H3>
+
+	Use the <code>import</code> command to check in the sources
+for the first time.  @xref{From files}, for an example.  When you use
+the <code>import</code> command to track third-party sources, the
+<dfn>vendor tag</dfn> and <dfn>release tags</dfn> are useful.  The <dfn>vendor
+tag</dfn> is a symbolic name for the branch (which is 1.1.1, unless you use
+the <samp>-b <var>branch</var></samp> flag---@xref{import options}).  The
+<dfn>release tags</dfn> are symbolic names for a particular release, such as
+<samp>SunOS_4_1</samp>. <P>
+
+
+
+<H3><A NAME="A11.2"> Updating a module with the import command </A></H3>
+
+	When a new release of the source arrives, you import it into
+the repository with the same <code>import</code> command that you used
+to set up the repository in the first place.  The only difference is
+that you specify a different release tag this time. <P>
+
+	For files that have not been modified locally, the newly
+created revision becomes the head revision.  If you have made local
+changes, <code>import</code> will warn you that you must merge the
+changes into the main trunk, and tell you to use <samp>checkout
+-j</samp> to do so. <P>
+
+<PRE>
+$ cvs checkout -j<var>tag</var>:yesterday -j<var>tag</var> <var>module</var>
+</PRE>
+
+	The above command will check out the latest revision of
+<var>module</var>, merging the changes made on the vendor branch
+<var>tag</var> since yesterday into the working copy.  If any
+conflicts arise during the merge they should be resolved in the normal
+way (@pxref{Conflicts example}).  Then, the modified files may be
+committed. <P>
+
+
+
+
+<H3><A NAME="A11.3"> Tracking sources---a success story </A></H3>
+
+	This is a story from Brian Berliner, the main author of CVS,
+who describes how an early version of CVS helped him.  Since this text
+was written, the <code>join</code> command has been replaced by the
+<samp>-j</samp> flag in <code>checkout</code> and <code>update</code>,
+and there are no hard-coded limits when CVS is used together with GNU
+<code>diff</code>. <P>
+
+<blockquote>
+The true test of the CVS vendor branch support came with the arrival of
+the SunOS 4.0.3 source upgrade tape.  As described above, the checkin
+program was used to install the new sources and the resulting output
+file listed the files that had been locally modified, needing to be
+merged manually.  For the kernel, there were 94 files in conflict.  The
+CVS <code>join</code> command was used on each of the 94 conflicting files,
+and the remaining conflicts were resolved. <P>
+
+	The <code>join</code> command performs an rcsmerge operation.
+This in turn uses <code>diff3</code> to produce a three-way diff file.
+As it happens, the <code>diff3</code> program has a hard-coded limit
+of 200 source-file changes maximum.  This proved to be too small for a
+few of the kernel files that needed merging by hand, due to the large
+number of local changes that Prisma had made.  The <code>diff3</code>
+problem was solved by increasing the hard-coded limit by an order of
+magnitude. <P> 
+
+	The SunOS 4.0.3 kernel source upgrade distribution contained
+346 files, 233 of which were modifications to previously released
+files, and 113 of which were newly added files.  checkin added the 113
+new files to the source repository without intervention.  Of the 233
+modified files, 139 dropped in cleanly by checkin, since Prisma had
+not made any local changes to them, and 94 required manual merging due to
+local modifications.  The 233 modified files consisted of 20,766 lines
+of differences.  It took one developer two days to manually merge the 94
+files using the <code>join</code> command and resolving conflicts manually.  An
+additional day was required for kernel debugging.  The entire process of
+merging over 20,000 lines of differences was completed in less than a
+week.  This one time-savings alone was justification enough for the CVS
+development effort; we expect to gain even more when tracking future
+SunOS releases. <P>
+</blockquote>
+
+
+
+<H2><A NAME="A12"> Moving and renaming files </A></H2>
+
+
+	One of the biggest design flaw with the current release of CVS
+is that it is very difficult to move a file to a different directory or
+rename it.  There are workarounds, and they all have their strong and weak
+points.  (Moving or renaming a directory is even harder.  @xref{Moving
+directories}). <P>
+
+	The examples below assume that the file <var>old</var> is
+renamed to <var>new</var>.  Both files reside in the same module,
+<var>module</var>, but not necessarily in the same directory. The
+relative path to the module inside the repository is assumed to be
+<var>module</var>. <P> 
+
+
+
+<H3><A NAME="A12.1"> Moving outside the repository </A></H3>
+
+	One way to move the file is to copy <var>old</var> to
+<var>new</var>, and then issue the normal CVS commands to remove
+<var>old</var> from the repository, and add <var>new</var> to it.
+(Both <var>old</var> and <var>new</var> could contain relative paths
+inside the module).  <P>
+<PRE>
+$ mv <var>old</var> <var>new</var>
+$ cvs remove <var>old</var>
+$ cvs add <var>new</var>
+$ cvs commit -m "Renamed <var>old</var> to <var>new</var>" <var>old</var> <var>new</var>
+</PRE>
+
+Advantages:
+<UL>
+<LI> Checking out old revisions works correctly.
+</UL>
+
+Disadvantages:
+<UL>
+<LI> You cannot easily see the history of the file across the rename.
+<LI> Unless you use the <samp>-r rev</samp> flag when <var>new</var> is
+  committed its revision numbers will start at 1.0 again.
+</UL>
+
+
+
+<H3><A NAME="A12.2"> Move the history file </A></H3>
+
+This method is more dangerous, since it involves moving
+files inside the repository.  Read this entire section
+before trying it out! <P>
+
+<PRE>
+$ cd $CVSROOT/module
+$ mv <var>old</var>,v <var>new</var>,v
+</PRE>
+
+Advantages:
+<UL>
+<LI> The log of changes is maintained intact.
+<LI> The revision numbers are not affected.
+</UL>
+
+Disadvantages:
+<UL>
+<LI> Old releases of the module cannot easily be fetched from the
+  repository.  (The file will show up as <var>new</var> even in revisions
+  from the time before it was renamed).
+<LI> There is no log information of when the file was renamed.
+<LI> Nasty things might happen if someone accesses the history file
+  while you are moving it.  Make sure no one else runs any of the CVS
+  commands while you manually perform these steps.
+</UL>
+
+
+
+<H2><A NAME="A13"> Moving and renaming directories </A></H2>
+
+	If you want to be able to retrieve old versions of the
+module, you must move each file in the directory
+with the CVS commands.  @xref{Outside}.  The old, empty
+directory will remain inside the repository, but it
+will not appear in your workspace when you check out
+the module in the future. <P>
+
+	If you really want to rename or delete a directory, you
+can do it like this: <P>
+
+<OL>
+<LI> Inform everyone that has a copy of the module that the directory
+  will be renamed.  They should commit all their changes, and remove
+  their working copies of the module, before you take the steps below.
+
+<LI> Rename (or delete) the directory inside the repository.
+<PRE>
+$ cd $CVSROOT/module
+$ mv <var>old-dir</var> <var>new-dir</var>
+</PRE>
+
+<LI> Fix the CVS administrative files, if necessary (for instance if
+  you renamed an entire module).
+
+<LI> Tell everyone that they can check out the module and continue
+  working.
+
+</OL>
+
+If someone had a working copy of the module the CVS commands will
+cease to work for him, until he removes the directory that was
+removed in the repository. <P>
+
+It is almost always better to move the files in the
+directory instead of the directory.  If you move the
+directory you will probably not be able to retrieve old
+releases correctly, since they probably depend on the
+name of the directories. <P>
+
+
+
+<H2><A NAME="A14"> History browsing </A></H2>
+
+<strong>Alpha note:</strong> This chapter is not yet finished.  <P>
+
+CVS tries to make it easy for a group of people to work
+together.  This is done in two ways: <P>
+
+<UL>
+<LI> Isolation---You have your own working copy of the
+source.  You are not affected by modifications made by
+others until you decide to incorporate those changes
+(via the <code>update</code> command---@pxref{update}).
+
+<LI> Traceability---When something has changed, you can
+always see <em>exactly</em> what changed.
+</UL>
+
+There are several features of CVS that together lead
+to traceability. <P>
+
+<UL>
+<LI> Each revision of a file has an accompanying log message.
+<LI> All commits are optionally logged to a central history database.
+<LI> Logging information can be sent to a user-defined program. 
+</UL>
+
+This chapter should talk about the history file, the
+<code>log</code> command, the usefulness of ChangeLogs
+even when you run CVS, and things like that. <P>
+
+
+<H3><A NAME="A14.1"> Log messages </A></H3>
+
+Whenever you commit a file you must specify a log message. /// <P>
+
+
+
+
+<H2><A NAME="A15"> Revision management </A></H2>
+
+	If you have read this far, you probably have a pretty good
+grasp on what CVS can do for you.  This chapter talks a little about
+things that you still have to decide. <P>
+
+	If you are doing development on your own using CVS you could
+probably skip this chapter.  The questions this chapter takes up
+becomes more important when more than one person are working against a
+repository. <P> 
+
+
+
+<H3><A NAME="A1.1"> When to commit? </A></H3>
+
+	Your group should decide which policy to use regarding
+commits.  Several policies are possible, and as your experience with
+CVS grows you will probably find out what works for you. <P>
+
+	If you commit files too quickly you might commit files that
+doesn't even compile.  If your partner updates his working sources to
+include your buggy file, he will be unable to compile the code. <P>
+
+	The following list is intended to give you something to
+think about. <P>
+
+<DL>
+<DT> Compileable
+<DD> Only files that are compileable are committed.
+
+<DT> Test suit
+<DD> Only files that have passed a test suit are committed.
+</DL>
+
+	Tests like the ones above can be enforced using the commitinfo
+file (@pxref{commitinfo}), but you should think twice before you
+enforce such a convention.  By making the development environment too
+controlled it might be boring and thus counter-productive. <P>
+
+

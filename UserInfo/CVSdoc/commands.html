@@ -1,0 +1,2265 @@
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<TITLE> Reference manual for CVS commands </TITLE>
+<H1> Reference manual for CVS commands </H1>
+
+This describes every subcommand of CVS in detail, and how to invoke
+CVS. <P> 
+
+<UL>
+<LI><A HREF="#C1">Structure</A> ... 
+	<i>overall structure of CVS commands</i>
+<LI><A HREF="#C2">Global options</A> ... 
+	<i>options you give to the left of cvs_command</i>
+<LI><A HREF="#C3">Common options</A> ... 
+	<i>options you give to the right of cvs_command</i>
+<p>
+<LI><A HREF="#add"><strong>cvs add</strong></A> ... 
+	<i>adds a new file/directory to the repository</i>
+<LI><A HREF="#admin"><strong>cvs admin</strong></A> ... 
+	<i>administration front end for rcs</i>
+<LI><A HREF="#checkout"><strong>cvs checkout</strong></A> ... 
+	<i>checkout sources for editing</i>
+<LI><A HREF="#commit"><strong>cvs commit</strong></A> ... 
+	<i>checks files into the repository</i>
+<LI><A HREF="#diff"><strong>cvs diff</strong></A> ... 
+	<i>runs diffs between revisions</i>
+<LI><A HREF="#export"><strong>cvs export</strong></A> ... 
+	<i>export sources from CVS, similar to checkout</i>
+<LI><A HREF="#history"><strong>cvs history</strong></A> ... 
+	<i>shows status of files and users</i>
+<LI><A HREF="#import"><strong>cvs import</strong></A> ... 
+	<i>import sources into CVS, using vendor branches</i>
+<LI><A HREF="#log"><strong>cvs log</strong></A> ... 
+	<i>prints out 'rlog' information for files</i>
+<LI><A HREF="#rdiff"><strong>cvs rdiff</strong></A> ... 
+	<i>'patch' format diffs between releases</i>
+<LI><A HREF="#release"><strong>cvs release</strong></A> ... 
+	<i>indicate that a Module is no longer in use</i>
+<LI><A HREF="#remove"><strong>cvs remove</strong></A> ... 
+	<i>removes an entry from the repository</i>
+<LI><A HREF="#rtag"><strong>cvs rtag</strong></A> ... 
+	<i>add a tag to a module</i>
+<LI><A HREF="#status"><strong>cvs status</strong></A> ... 
+	<i>status info on the revisions</i>
+<LI><A HREF="#tag"><strong>cvs tag</strong></A> ... 
+	<i>add a tag to checked out version</i>
+<LI><A HREF="#update"><strong>cvs update</strong></A> ... 
+	<i>brings work tree in sync with repository</i>
+</UL>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="C1"> Overall structure of CVS commands </A></H2>
+
+The first release of CVS consisted of a number of shell-scripts. Today
+CVS is implemented as a single program that is a front-end to RCS and
+<code>diff</code>. <P>
+
+	The overall format of all CVS commands is: <P>
+
+<PRE>
+cvs [ cvs_options ] cvs_command [ command_options ] [ command_args ]
+</PRE>
+
+<DL>
+<DT><code> cvs </code>
+<DD> The program that is a front-end to RCS.
+
+<DT><code> cvs_options </code>
+<DD> Some options that affect all sub-commands of CVS.  These are
+described below.
+
+<DT><code> cvs_command </code>
+<DD> One of several different sub-commands.  Some of the commands have
+aliases that can be used instead; those aliases are noted in the
+reference manual for that command.  There are only two situations
+where you may omit <samp>cvs_command</samp>: <samp>cvs -H</samp> elicits a
+list of available commands, and <samp>cvs -v</samp> displays version
+information on CVS itself.
+
+<DT><code> command_options </code>
+<DD> Options that are specific for the command.
+
+<DT><code> command_args </code>
+<DD> Arguments to the commands.
+</DL>
+
+	There is unfortunately some confusion between
+<code>cvs_options</code> and <code>command_options</code>.  For 
+example, <samp>-q</samp> can often (but not always) be given
+as both a <code>cvs_option</code> and a
+<code>command_option</code>.  <samp>-l</samp>, when given as a
+<code>cvs_option</code>, only affect some of the commands.
+When it is given as a <code>command_option</code> is has a
+different meaning, and is accepted by more commands.
+In other words, do not take the above categorization
+too seriously.  Look at the documentation instead. <P>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="C2"> Global options </A></H2>
+
+The available <samp>cvs_options</samp> (that are given to the
+left of <samp>cvs_command</samp>) are: <P>
+
+<DL>
+<DT><code> -H </code>
+<DD> Display usage information about the specified <samp>cvs_command</samp>
+(but do not actually execute the command).  If you don't specify
+a command name, <samp>cvs -H</samp> displays a summary of all the
+commands available.
+
+<DT><code> -Q </code>
+<DD> Causes the command to be really quiet; the command will only
+generate output for serious problems.
+
+<DT><code> -q </code>
+<DD> Causes the command to be somewhat quiet; informational messages,
+such as reports of recursion through subdirectories, are
+suppressed.
+
+<DT><code> -b <var>bindir</var> </code>
+<DD> Use <var>bindir</var> as the directory where RCS programs are
+located.  Overrides the setting of the <code>$RCSBIN</code> environment
+variable and any precompiled directory.  This value should be
+specified as an absolute pathname.
+
+<DT><code> -d <var>cvs_root_directory</var> </code>
+<DD> Use <var>cvs_root_directory</var> as the root directory
+pathname of the repository.  Overrides the setting of
+the <code>$CVSROOT</code> environment variable.  This value
+should be specified as an absolute pathname.
+
+<DT><code> -e <var>editor</var> </code>
+<DD> Use <var>editor</var> to enter revision log information.  Overrides the
+setting of the <code>$EDITOR</code> environment variable.
+
+<DT><code> -l </code>
+<DD> Do not log the cvs_command in the command history (but execute it
+     anyway).  cf. <a href="#history">history</a>, for information on
+     command history.
+
+<DT><code> -n </code>
+<DD> Do not change any files.  Attempt to execute the
+     <samp>cvs_command</samp>, but only to issue reports; do not remove,
+     update, or merge any existing files, or create any new files.
+
+<DT><code> -t </code>
+<DD> Trace program execution; display messages showing the steps of
+     CVS activity.  Particularly useful with <samp>-n</samp> to explore the
+     potential impact of an unfamiliar command.
+
+<DT><code> -r </code>
+<DD> Makes new working files files read-only.  Same effect
+     as if the <code>$CVSREAD</code> environment variable is set
+     (@pxref{Environment variables}).  The default is to
+     make working files writable.
+
+<DT><code> -v </code>
+<DD> Displays version and copyright information for CVS.
+
+<DT><code> -w </code>
+<DD> Makes new working files read-write.  Overrides the
+     setting of the <code>$CVSREAD</code> environment variable.
+     Files are created read-write, unless <code>$CVSROOT</code> is
+     set or <samp>-r</samp> is given.
+
+</DL>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="C3"> Common command options </A></H2>
+
+	This section describes the <samp>command_options</samp> that
+are available across several CVS commands.  These options are always
+given to the right of <samp>cvs_command</samp>. Not all commands support
+all of these options; each option is only supported for commands where it
+makes sense.  However, when a command has one of these options you can
+almost always count on the same meaning for the option as in other
+commands.  (Other command options, which are listed with the individual
+commands, may have different meanings from one CVS command to another). <P>
+
+<strong>Warning:</strong> the <samp>history</samp> command is an 
+exception; it supports many options that conflict even with these
+standard options. <P> 
+
+<DL>
+<DT><code> -D <var>date_spec</var> </code>
+<DD> Use the most recent revision no later than <var>date_spec</var>.
+<var>date_spec</var> is a single argument, a date description
+specifying a date in the past. <P>
+
+The specification is <dfn>sticky</dfn> when you use it to make a
+private copy of a source file; that is, when you get a working
+file using <samp>-D</samp>, CVS records the date you specified, so that
+further updates in the same directory will use the same date
+(unless you explicitly override it; cf. <a href="#update">update</a>). <p>
+
+A wide variety of date formats are supported by the underlying
+RCS facilities, similar to those described in co(1), but not
+exactly the same.  The <var>date_spec</var> is interpreted as being
+in the local timezone, unless a specific timezone is specified.
+Examples of valid date specifications include: <P>
+
+<PRE>
+                    1 month ago
+                    2 hours ago
+                    400000 seconds ago
+                    last year
+                    last Monday
+                    yesterday
+                    a fortnight ago
+                    3/31/92 10:00:07 PST
+                    January 23, 1987 10:05pm
+                    22:00 GMT
+</PRE>
+
+	<samp>-D</samp> is available with the <code>checkout</code>,
+<code>diff</code>, <code>export</code>, <code>history</code>,
+<code>rdiff</code>, <code>rtag</code>, and <code>update</code> 
+commands.  (The <code>history</code> uses this option in a slightly
+different way; cf. <a href="#history_opts">history options</a>). <p>
+
+Remember to quote argument to the <samp>-D</samp>
+flag so that your shell doesn't interpret the spaces as
+argument separators.  A command using the <samp>-D</samp>
+flag can look like this: <P>
+
+<PRE>
+$ cvs diff -D &quot1 hour ago&quot cvs.texinfo
+</PRE>
+
+<DT><code> -f </code>
+<DD> When you specify a particular date or tag to CVS commands, they
+normally ignore files that do not contain the tag (or did not
+exist on the date) that you specified.  Use the <samp>-f</samp> option
+if you want files retrieved even when there is no match for the
+tag or date.  (The most recent version is used in this
+situation).  <P>
+
+	<samp>-f</samp> is available with these commands:
+<code>checkout</code>, <code>export</code>, <code>rdiff</code>,
+<code>rtag</code>, and <code>update</code>.  <P>
+
+<strong>Warning:</strong>  The <code>commit</code> command also has a 
+<samp>-f</samp> option, but it has a different meaning in
+that command.  cf. <a href="#commit_opts">commit options</a>. <P>
+
+<DT><code> -H </code>
+<DD> Help; describe the options available for this command.  This is
+the only option supported for all CVS commands.
+
+<DT><code> -k <var>kflag</var> </code>
+<DD> Alter the default RCS processing of keywords. @xref{Keyword
+  expansion}, for the meaning of <var>kflag</var>.  Your
+  <var>kflag</var> specification is <dfn>sticky</dfn> when you use it
+  to create a private copy of a source file; that is, when you use
+  this option with the <code>checkout</code> or <code>update</code>
+  commands, CVS associates your selected <var>kflag</var> with the 
+  file, and continues to use it with future update commands on the
+  same file until you specify otherwise.  <P>
+
+	The <samp>-k</samp> option is available with the
+  <code>add</code>, <code>checkout</code>, <code>diff</code> and
+  <code>update</code> commands.  <P>
+
+<DT><code> -l </code>
+<DD> Local; run only in current working directory, rather than
+  recursing through subdirectories. <P>
+
+  <strong>Warning:</strong> this is not the same as the overall
+  <samp>cvs -l</samp> option, which you can specify to the left of a
+  cvs command! <P>
+
+	Available with the following commands: <code>checkout</code>, 
+  <code>commit</code>, <code>diff</code>, <code>export</code>,
+  <code>log</code>, <code>remove</code>, <code>rdiff</code>,
+  <code>rtag</code>, <code>status</code>, <code>tag</code>, and
+  <code>update</code>. 
+
+<DT><code> -n </code>
+<DD> Do not run any checkout/commit/tag program.  (A program can be
+  specified to run on each of these activities, in the modules
+  database (@pxref{modules}); this option bypasses it).  <P>
+
+  <strong>Warning:</strong> this is not the same as the overall
+  <samp>cvs -n</samp> option, which you can specify to the left 
+  of a cvs command! <P>
+
+  Available with the <code>checkout</code>, <code>commit</code>,
+  <code>export</code>, and <code>rtag</code> commands.
+
+<DT><code> -m <var>message</var> </code>
+<DD> Use <var>message</var> as log information, instead of
+  invoking an editor.
+
+  Available with the following commands: <code>add</code>,
+  <code>commit</code> and <code>import</code>.
+
+<DT><code> -P </code>
+<DD> Prune (remove) directories that are empty after being updated, on
+  <code>checkout</code>, or <code>update</code>.  Normally, an empty
+  directory (one that is void of revision-controlled files) is left
+  alone. Specifying <samp>-P</samp> will cause these directories to be
+  silently removed from your checked-out sources.  This does not
+  remove the directory from the repository, only from your checked out
+  copy. Note that this option is implied by the <samp>-r</samp> or
+  <samp>-D</samp> options of <code>checkout</code> and
+  <code>export</code>. 
+
+<DT><code> -p </code>
+<DD> Pipe the files retrieved from the repository to standard output,
+  rather than writing them in the current directory.  Available
+  with the <code>checkout</code> and <code>update</code> commands.
+
+<DT><code> -Q </code>
+<DD> Causes the command to be really quiet; the command will only
+  generate output for serious problems.  Available with the following
+  commands: <code>checkout</code>, <code>import</code>, <code>export</code>,
+  <code>rdiff</code>, <code>rtag</code>, <code>tag</code>, and
+  <code>update</code>. 
+
+<DT><code> -q </code>
+<DD> Causes the command to be somewhat quiet; informational messages,
+  such as reports of recursion through subdirectories, are suppressed.
+  Available with the following commands: <code>checkout</code>,
+  <code>import</code>, <code>export</code>, <code>rtag</code>,
+  <code>tag</code>, and <code>update</code>. 
+
+<DT><code> -r <var>tag</var> </code>
+<DD> Use the revision specified by the <var>tag</var> argument instead
+  of the default <dfn>head</dfn> revision.  As well as arbitrary tags
+  defined with the <code>tag</code> or <code>rtag</code> command, two
+  special tags are always available: <samp>HEAD</samp> refers to the
+  most recent version available in the repository, and
+  <samp>BASE</samp> refers to the revision you last checked out into
+  the current working directory. <P>
+
+	The tag specification is sticky when you use this option
+  with <code>checkout</code> or <code>update</code> to make your own
+  copy of a file: CVS remembers the tag and continues to use it on
+  future update commands, until you specify otherwise.  The
+  tag can be either a symbolic or numeric tag. @xref{Tags}. <P>
+
+	Specifying the <samp>-q</samp> option along with the
+  <samp>-r</samp> option is often useful, to suppress the warning
+  messages when the RCS history file does not contain the specified
+  tag. <P>
+
+	<strong>Warning:</strong> this is not the same as the overall
+  `cvs -r' option, which you can specify to the left of a cvs command! <P>
+
+	<samp>-r</samp> is available with the <code>checkout</code>,
+  <code>commit</code>, <code>diff</code>, <code>history</code>,
+  <code>export</code>, <code>rdiff</code>, <code>rtag</code>, and
+  <code>update</code> commands. 
+</DL>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="add"> cvs add </A></H2>
+<UL>
+<LI> Function: Add a new file/directory to the repository. 
+<LI> Synopsis: add [-k kflag] [-m 'message'] files...
+<LI> Requires: repository, working directory.
+<LI> Changes: working directory.
+<LI> Synonym: new
+</UL>
+
+	Use the <code>add</code> command to create a new file or
+directory in the source repository.  The files or directories
+specified with <code>add</code> must already exist in the current
+directory (which must have been created with the <code>checkout</code>
+command).  To add a whole new directory hierarchy to the source
+repository (for example, files received from a third-party vendor),
+use the <code>import</code> command instead.  cf. 
+<a href="#import">import</a>. <P>
+
+	If the argument to <code>add</code> refers to an immediate
+sub-directory, the directory is created at the correct place in the
+source repository, and the necessary CVS administration files are
+created in your working directory.  If the directory already exists in
+the source repository, <code>add</code> still creates the
+administration files in your version of the directory. This allows you
+to use <code>add</code> to add a particular directory to your private
+sources even if someone else created that directory after your
+checkout of the sources.  You can do the following: <P>
+
+<PRE>
+$ mkdir new_directory
+$ cvs add new_directory
+$ cvs update new_directory
+</PRE>
+
+An alternate approach using <code>update</code> might be: <P>
+
+<PRE>
+$ cvs update -d new_directory
+</PRE>
+
+(To add any available new directories to your working directory, it's
+probably simpler to use <code>checkout</code> (cf. <a href="#checkout">
+checkout</a>) or <samp>update -d</samp> (cf <a href="#update">update</a>)). <p>
+
+The added files are not placed in the source repository until you
+use <code>commit</code> to make the change permanent.  Doing an
+<code>add</code> on a file that was removed with the <code>remove</code>
+command will resurrect the file, unless a <code>commit</code> command
+intervened. <P>
+
+cf. <a href="#remove_exs">remove examples</a> for an example. <P>
+
+
+Unlike most other commands <code>add</code> never recurses down
+directories.  It cannot yet handle relative paths.  Instead of <P>
+
+<PRE>
+$ cvs add foo/bar.c
+</PRE>
+
+you have to do <P>
+
+<PRE>
+$ cd foo
+$ cvs add bar.c
+</PRE>
+
+
+
+<H3><A NAME="add_opts"> cvs add options </A></H3>
+
+There are only two options you can give to <samp>add</samp>: <P>
+
+<DL>
+<DT><code> -k <var>kflag</var> </code>
+<DD> This option specifies the default way that this file will be
+checked out.  See rcs(1) and co(1).  The <var>kflag</var> argument is
+stored in the RCS file and can be changed with <code>admin</code>.
+Specifying <samp>-ko</samp> is useful for checking in binaries that
+shouldn't have the RCS id strings expanded. <P>
+
+<strong>Warning:</strong> this option is reported to be broken in
+version 1.3 and 1.3-s2 of CVS.  Use <samp>admin -k</samp>
+after the commit instead.  cf. <a href="#admin">admin</a>.
+
+<DT><code> -m <var>description</var> </code>
+<DD> Using this option, you can give a description for the file.  This
+  description appears in the history log (if it is enabled,
+  @pxref{history file}).  It will also be saved in the RCS history
+  file inside the repository when the file is committed.  The
+  <code>log</code> command displays this description.
+
+	The description can be changed using <samp>admin -t</samp>.
+  cf. <a href="#admin">admin</a>.
+
+	If you omit the <samp>-m <var>description</var></samp> flag,
+  an empty string will be used.  You will not be prompted for a
+  description. 
+</DL>
+
+
+<H3><A NAME="add_exs"> cvs add examples </A></H3>
+
+	To add the file @file{backend.c} to the repository, with a
+description, the following can be used.
+
+<PRE>
+$ cvs add -m &quotOptimizer and code generation passes.&quot backend.c
+$ cvs commit -m &quotEarly version. Not yet compilable.&quot backend.c
+</PRE>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="admin"> cvs admin </A></H2>
+
+<UL>
+<LI> Function: Administration front end for rcs. 
+<LI> Requires: repository, working directory.
+<LI> Changes: repository.
+<LI> Synonym: rcs
+</UL>
+
+This is the CVS interface to assorted administrative RCS
+facilities, documented in rcs(1).  <code>admin</code> simply passes
+all its options and arguments to the <code>rcs</code> command; it does
+no filtering or other processing.  This command <em>does</em> work
+recursively, however, so extreme care should be used.
+
+Since this command is seldom used, it is not documented here.
+Complete documentation will appear here in the future.
+
+
+<H3><A NAME="admin_opts"> cvs admin options </A></H3>
+
+See rcs(1).
+
+
+<H3><A NAME="admin_exs"> cvs admin examples </A></H3>
+
+For the time being, the only example included here is an example
+of how <em>not</em> to use the <code>admin</code> command.  It is
+included to stress the fact that this command can be quite
+dangerous unless you know <em>exactly</em> what you are doing.
+
+The <samp>-o</samp> option can be used to <dfn>outdate</dfn> old revisions
+from the history file.  If you are short on disc this option
+might help you.  But think twice before using it --- there is no
+way short of restoring the latest backup to undo this command!
+
+The next line is an example of a command that you would
+<em>not</em> like to execute.
+
+<PRE>
+$ cvs admin -o:R_1_02 .
+</PRE>
+
+The above command will delete all revisions up to, and including,
+the revision that corresponds to the tag R_1_02.  But beware!  If there are
+files that have not changed between R_1_02 and R_1_03 the
+file will have <em>the same</em> numerical revision number assigned
+to the tags R_1_02 and R_1_03.  So not only will it be impossible
+to retrieve R_1_02; R_1_03 will also have to be restored from the
+tapes!
+
+Example 2: 
+
+	I use ``cvs admin'' all the time for comment leaders on files
+that are currently not recognized (which then defaults to ``# '').
+If you <code>cvs add</code> then <code>cvs commit</code> a new file,
+and you want to change the comment leader (to one for nroff source,
+for example) I would use:
+
+<PRE>
+        cvs admin -c'.\&quot ' *.man
+</PRE>
+
+	Then, I have to remove the local version of the file (which still
+has the ``# '' comment leader in it, even though ``cvs log'' says
+it is '.\&quot ', and update it.
+
+<PRE>
+        rm *.man
+        cvs update *.man        # to get version with correct leaders.
+</PRE>
+
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="checkout"> cvs checkout </A></H2>
+<UL>
+<LI> Function: Checkout sources for editing
+<LI> Synopsis: checkout [options] modules...
+<LI> Requires: repository.
+<LI> Changes: working directory.
+<LI> Synonyms: co, get
+</UL>
+
+Make a working directory containing copies of the
+source files specified by <var>modules</var>.  You must execute
+<code>checkout</code> before using most of the other CVS
+commands, since most of them operate on your working
+directory.
+
+The <var>modules</var> part of the command are either
+symbolic names for some
+collection of source directories and files, or paths to
+directories or files in the repository.  The symbolic
+names are defined in the <samp>modules</samp> file.
+@xref{modules}.
+
+Depending on the modules you specify, <code>checkout</code> may
+recursively create directories and populate them with
+the appropriate source files.  You can then edit these
+source files at any time (regardless of whether other
+software developers are editing their own copies of the
+sources); update them to include new changes applied by
+others to the source repository; or commit your work as
+a permanent change to the source repository.
+
+Note that <code>checkout</code> is used to create
+directories.  The top-level directory created is always
+added to the directory where <code>checkout</code> is
+invoked, and usually has the same name as the specified
+module.  In the case of a module alias, the created
+sub-directory may have a different name, but you can be
+sure that it will be a sub-directory, and that
+<code>checkout</code> will show the relative path leading to
+each file as it is extracted into your private work
+area (unless you specify the <samp>-Q</samp> option).
+
+Running <code>checkout</code> on a directory that was already
+built by a prior <code>checkout</code> is also permitted, and
+has the same effect as specifying the <samp>-d</samp> option
+to the <code>update</code> command.  cf. <a href="#update">update</a>.
+
+
+<H3><A NAME="checkout_opts"> cvs checkout options </A></H3>
+
+These standard options are supported by <code>checkout</code>
+(cf. <a href="#C3">Common options</a>, for a complete description of
+them):
+
+<DL>
+<DT><code> -D <var>date</var> </code>
+<DD> Use the most recent revision no later than <var>date</var>.
+This option is sticky, and implies <samp>-P</samp>.
+
+<DT><code> -f </code>
+<DD> Only useful with the <samp>-D <var>date</var></samp> or <samp>-r
+<var>tag</var></samp> flags.  If no matching revision is found,
+retrieve the most recent revision (instead of ignoring
+the file).
+
+<DT><code> -k <var>kflag</var> </code>
+<DD> Process RCS keywords according to <var>kflag</var>.  See
+co(1).  This option is sticky; future updates of
+this file in this working directory will use the same
+<var>kflag</var>.  The <code>status</code> command can be viewed
+to see the sticky options.  cf. <a href="#status">status</a>.
+
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.
+
+<DT><code> -n </code>
+<DD> Do not run any checkout program (as specified
+with the <samp>-o</samp> option in the modules file;
+@pxref{modules}).
+
+<DT><code> -P </code>
+<DD> Prune empty directories.
+
+<DT><code> -p </code>
+<DD> Pipe files to the standard output.
+
+<DT><code> -Q </code>
+<DD> Really quiet.
+
+<DT><code> -q </code>
+<DD> Somewhat quiet.
+
+<DT><code> -r <var>tag</var> </code>
+<DD> Use revision <var>tag</var>.  This option is sticky, and implies <samp>-P</samp>.
+</DL>
+
+In addition to those, you can use these special command
+options with <code>checkout</code>:
+
+<DL>
+<DT><code> -A </code>
+<DD> Reset any sticky tags, dates, or <samp>-k</samp> options.
+(If you get a working file using one of the <samp>-r</samp>,
+<samp>-D</samp>, or <samp>-k</samp> options, CVS remembers the
+corresponding tag, date, or <var>kflag</var> and continues using
+it for future updates; use the <samp>-A</samp> option to make
+CVS forget these specifications, and retrieve the
+`head' revision of the file).
+
+<DT><code> -c </code>
+<DD> Copy the module file, sorted, to the standard output,
+instead of creating or modifying any files or
+directories in your working directory.
+
+<DT><code> -d <var>dir</var> </code>
+<DD> Create a directory called <var>dir</var> for the working
+files, instead of using the module name.  Unless you
+also use <samp>-N</samp>, the paths created under <var>dir</var>
+will be as short as possible.
+
+<DT><code> -j <var>tag</var> </code>
+<DD> Merge the changes made between the resulting revision
+and the revision that it is based on (e.g., if
+<var>tag</var> refers to a branch, CVS will merge all
+changes made on that branch into your working file).
+
+With two <samp>-j <var>tag</var></samp> options, CVS will merge in the
+changes between the two respective revisions.  This can
+be used to undo changes made between two revisions
+(@pxref{Merging two revisions}) in your working copy,
+or to move changes between different branches.
+
+In addition, each -j option can contain on optional
+date specification which, when used with branches, can
+limit the chosen revision to one within a specific
+date.  An optional date is specified by adding a colon
+(:) to the tag.  An example might be what <code>import</code>
+tells you to do when you have just imported sources
+that have conflicts with local changes:
+
+<PRE>
+$ cvs checkout -jTAG:yesterday -jTAG module
+</PRE>
+
+<DT><code> -N </code>
+<DD> Only useful together with <samp>-d <var>dir</var></samp>.  With this
+option, CVS will not shorten module paths in your
+working directory.  (Normally, CVS shortens paths as
+much as possible when you specify an explicit target
+directory).
+
+<DT><code> -s </code>
+<DD> Like <samp>-c</samp>, but include the status of all modules,
+and sort it by the status string.  @xref{modules}, for
+info about the <samp>-s</samp> option that is used inside the
+modules file to set the module status.
+</DL>
+
+<H3><A NAME="checkout_exs"> cvs checkout examples </A></H3>
+
+Get a copy of the module <samp>tc</samp>:
+
+<PRE>
+$ cvs checkout tc
+</PRE>
+
+Get a copy of the module <samp>tc</samp> as it looked one day
+ago:
+
+<PRE>
+$ cvs checkout -D yesterday tc
+</PRE>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="commit"> cvs commit </A></H2>
+<UL>
+<LI> Function: Checks files into the repository
+<LI> Version 1.3 Synopsis: commit [-lnR] [-m 'log_message' |
+	-f file] [-r revision] [files...]
+<LI> Version 1.3.1 Synopsis: commit [-lnRf] [-m 'log_message' |
+	-F file] [-r revision] [files...]
+<LI> Requires: working directory, repository.
+<LI> Changes: repository.
+<LI> Synonym: ci
+</UL>
+
+<strong>Warning:</strong> The <samp>-f <var>file</var></samp> option 
+will probably be renamed to <samp>-F <var>file</var></samp>, and 
+<samp>-f</samp> will be given a new meaning in future releases 
+of CVS.
+
+Use <code>commit</code> when you want to incorporate changes
+from your working source files into the source
+repository. <p>
+
+If you don't specify particular files to commit, all of
+the files in your working current directory are
+examined.  <code>commit</code> is careful to change in the
+repository only those files that you have really
+changed.  By default (or if you explicitly specify the
+<samp>-R</samp> option), files in subdirectories are also
+examined and committed if they have changed; you can
+use the <samp>-l</samp> option to limit <code>commit</code> to the
+current directory only. <p>
+
+<code>commit</code> verifies that the selected files are up to date with 
+the current revisions in the source repository; it will notify you, and
+exit without committing, if any of the specified files must be made
+current first with <code>update</code> (cf. <a href="#update">update</a>).
+<code>commit</code> does not call the <code>update</code> command
+for you, but rather leaves that for you to do when the
+time is right. <p>
+
+When all is well, an editor is invoked to allow you to enter a log
+message that will be written to one or more logging programs
+(@pxref{modules}, and @pxref{loginfo}) and placed in the RCS history
+file inside the repository.  This log message can be retrieved with the
+<code>log</code> command; cf. <a href="#log">log</a>.  You can specify the
+log message on the command line with the <samp>-m <var>message</var></samp>
+option, and thus avoid the editor invocation, or use the
+<samp>-[fF] <var>file</var></samp> option to specify that the argument
+file contains the log message. <p>
+
+
+<H3><A NAME="commit_opts"> cvs commit options </A></H3>
+
+These standard options are supported by <code>commit</code>
+(@pxref{Common options}, for a complete description of
+them):
+
+<DL>
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.
+
+<DT><code> -n </code>
+<DD> Do not run any module program.
+
+<DT><code> -R </code>
+<DD> Commit directories recursively.  This is on by default.
+
+<DT><code> -r <var>revision</var> </code>
+<DD> Commit to <var>revision</var>.  <var>revision</var> must be
+either a branch, or a revision on the main trunk that
+is higher than any existing revision number.  You
+cannot commit to a specific revision on a branch.
+</DL>
+
+<code>commit</code> also supports these options:
+
+<DL>
+<DT><code> -F <var>file</var> </code>
+<DD> This option is present in CVS releases 1.3-s3 and
+     later.  Read the log message from <var>file</var>, instead
+     of invoking an editor.
+
+<DT><code> -f </code>
+<DD> This option is present in CVS 1.3-s3 and later releases of CVS.
+     Note that this is not the standard meaning of the <samp>-f</samp>
+     option as defined in <a href="#C3">Common options</a>. <p>
+
+     Force CVS to commit a new revision even if you haven't
+     made any changes to the file.  If the current revision
+     of <var>file</var> is 1.7, then the following two commands
+     are equivalent:
+
+<PRE>
+$ cvs commit -f <var>file</var>
+$ cvs commit -r 1.8 <var>file</var>
+</PRE>
+
+<DT><code> -f <var>file</var> </code>
+<DD> This option is present in CVS releases 1.3, 1.3-s1 and 1.3-s2.  Note
+     that this is not the standard meaning of the <samp>-f</samp> option
+     as defined in <a href="#C3">Common options</a>. <p>
+
+     Read the log message from <var>file</var>, instead
+     of invoking an editor.
+
+<DT><code> -m <var>message</var> </code>
+<DD> Use <var>message</var> as the log message, instead of
+     invoking an editor.
+</DL>
+
+<H3><A NAME="commit_exs"> cvs commit examples </A></H3>
+
+@appendixsubsubsec New major release number
+
+When you make a major release of your product, you
+might want the revision numbers to track your major
+release number.  You should normally not care about
+the revision numbers, but this is a thing that many
+people want to do, and it can be done without doing any
+harm.
+
+To bring all your files up to the RCS revision 3.0
+(including those that haven't changed), you might do:
+
+<PRE>
+$ cvs commit -r 3.0
+</PRE>
+
+Note that it is generally a bad idea to try to make the
+RCS revision number equal to the current release number
+of your product.  You should think of the revision
+number as an internal number that the CVS package
+maintains, and that you generally never need to care
+much about.  Using the <code>tag</code> and <code>rtag</code>
+commands you can give symbolic names to the releases
+instead. cf <a href="#tag">tag</a> and <a href="#rtag">rtag</a>.
+
+Note that the number you specify with <samp>-r</samp> must be
+larger than any existing revision number.  That is, if
+revision 3.0 exists, you cannot <samp>cvs commit
+-r 1.3</samp>.
+
+@appendixsubsubsec Committing to a branch
+
+You can commit to a branch revision (one that has an
+even number of dots) with the <samp>-r</samp> option.  To
+create a branch revision, use the <samp>-b</samp> option
+of the <code>rtag</code> or <code>tag</code> commands (@pxref{tag}
+or @pxref{rtag}).  Then, either <code>checkout</code> or
+<code>update</code> can be used to base your sources on the
+newly created branch.  From that point on, all
+<code>commit</code> changes made within these working sources
+will be automatically added to a branch revision,
+thereby not disturbing main-line development in any
+way.  For example, if you had to create a patch to the
+1.2 version of the product, even though the 2.0 version
+is already under development, you might do:
+
+<PRE>
+$ cvs rtag -b -r FCS1_2 FCS1_2_Patch product_module
+$ cvs checkout -r FCS1_2_Patch product_module
+$ cd product_module
+[[ hack away ]]
+$ cvs commit
+</PRE>
+
+This works automatically since the <samp>-r</samp> option is sticky. <P>
+
+@appendixsubsubsec Creating the branch after editing
+
+Say you have been working on some extremely
+experimental software, based on whatever revision you
+happened to checkout last week.  If others in your
+group would like to work on this software with you, but
+without disturbing main-line development, you could
+commit your change to a new branch.  Others can then
+checkout your experimental stuff and utilize the full
+benefit of CVS conflict resolution.  The scenario might
+look like:
+
+<PRE>
+[[ hacked sources are present ]]
+$ cvs tag -b EXPR1
+$ cvs update -r EXPR1
+$ cvs commit
+</PRE>
+
+The <code>update</code> command will make the <samp>-r
+EXPR1</samp> option sticky on all files.  Note that your
+changes to the file will never be removed by the
+<code>update</code> command.  The <code>commit</code> will
+automatically commit to the correct branch, because the
+<samp>-r</samp> is sticky.  You could also do like this:
+
+<PRE>
+[[ hacked sources are present ]]
+$ cvs tag -b EXPR1
+$ cvs commit -r EXPR1
+</PRE>
+
+but then, only those files that were changed by you
+will have the <samp>-r EXPR1</samp> sticky flag.  If you hack
+away, and commit without specifying the <samp>-r EXPR1</samp>
+flag, some files may accidentally end up on the main
+trunk. <P>
+
+To work with you on the experimental change, others
+would simply do <P>
+
+<PRE>
+$ cvs checkout -r EXPR1 whatever_module
+</PRE>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="diff"> cvs diff </A></H2>
+<UL>
+<LI> Function: Runs diffs between revisions
+<LI> Synopsis: diff [-l] [rcsdiff_options] [[-r rev1 | -D date1] 
+	[-r rev2 |  -D date2]] [files...]
+<LI> Requires: working directory, repository.
+<LI> Changes: nothing.
+</UL>
+
+The <code>diff</code> command is used to compare different
+revisions of files.  The default action is to compare
+your working files with the revisions they were based
+on, and report any differences that are found.
+
+If any file names are given, only those files are
+compared.  If any directories are given, all files
+under them will be compared.
+
+The exit status will be 0 if no differences were found,
+1 if some differences were found, and 2 if any error
+occurred.
+
+
+<H3><A NAME="diff_opts"> cvs diff options </A></H3>
+
+These standard options are supported by <code>diff</code>
+(@pxref{Common options}, for a complete description of
+them):
+
+<DL>
+<DT><code> -D <var>date</var> </code>
+<DD> Use the most recent revision no later than <var>date</var>.
+See <samp>-r</samp> for how this affects the comparison.
+
+CVS can be configured to pass the <samp>-D</samp> option
+through to <code>rcsdiff</code> (which in turn passes it on
+to <code>diff</code>.  @sc{gnu} diff uses <samp>-D</samp> as a way to
+put <code>cpp</code>-style <samp>#define</samp> statements around the output
+differences.  There is no way short of testing to
+figure out how CVS was configured.  In the default
+configuration CVS will use the <samp>-D <var>date</var></samp> option.
+
+<DT><code> -k <var>kflag</var> </code>
+<DD> Process RCS keywords according to <var>kflag</var>.  See
+co(1).
+
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.
+
+<DT><code> -Q </code>
+<DD> Really quiet.
+
+<DT><code> -q </code>
+<DD> Somewhat quiet.
+
+<DT><code> -R </code>
+<DD> Examine directories recursively.  This option is on by
+default.
+
+<DT><code> -r <var>tag</var> </code>
+<DD> Compare with revision <var>tag</var>.  Zero, one or two
+<samp>-r</samp> options can be present.  With no <samp>-r</samp>
+option, the working file will be compared with the
+revision it was based on.  With one <samp>-r</samp>, that
+revision will be compared to your current working file.
+With two <samp>-r</samp> options those two revisions will be
+compared (and your working file will not affect the
+outcome in any way).
+
+One or both <samp>-r</samp> options can be replaced by a
+<samp>-D <var>date</var></samp> option, described above.
+</DL>
+
+Any other options that are found are passed through to
+<code>rcsdiff</code>, which in turn passes them to
+<code>diff</code>.  The exact meaning of the options depends
+on which <code>diff</code> you are using.  The long options
+introduced in @sc{gnu} diff 2.0 are not yet supported in
+CVS.  See the documentation for your <code>diff</code> to see
+which options are supported.
+
+
+<H3><A NAME="diff_exs"> cvs diff examples </A></H3>
+
+The following line produces a Unidiff (<samp>-u</samp> flag)
+between revision 1.14 and 1.19 of
+@file{backend.c}.  Due to the <samp>-kk</samp> flag no
+keywords are expanded, so differences that only depends
+on keyword expansion are ignored.
+
+<PRE>
+$ cvs diff -kk -u -r 1.14 -r 1.19 backend.c
+</PRE>
+
+Suppose the experimental branch EXPR1 was based on a
+set of files tagged RELEASE_1_0.  To see what has
+happened on that branch, the following can be used:
+
+<PRE>
+$ cvs diff -r RELEASE_1_0 -r EXPR1
+</PRE>
+
+A command like this can be used to produce a context
+diff between two releases:
+
+<PRE>
+$ cvs diff -c -r RELEASE_1_0 -r RELEASE_1_1 > diffs
+</PRE>
+
+If you are maintaining ChangeLogs, a command like the following
+just before you commit your changes may help you write
+the ChangeLog entry.  All local modifications that have
+not yet been committed will be printed.
+
+<PRE>
+$ cvs diff -u | less
+</PRE>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="export"> cvs export </A></H2>
+<UL>
+<LI> Function: Export sources from CVS, similar to checkout
+<LI> Synopsis: export [-flNnQq] -r rev|-D date [-d dir] module...
+<LI> Requires: repository.
+<LI> Changes: current directory.
+</UL>
+
+This command is a variant of <code>checkout</code>; use it
+when you want a copy of the source for module without
+the CVS administrative directories.  For example, you
+might use <code>export</code> to prepare source for shipment
+off-site.  This command requires that you specify a
+date or tag (with <samp>-D</samp> or <samp>-r</samp>), so that you
+can count on reproducing the source you ship to others.
+
+The keyword expansion option <samp>-kv</samp> is always set when
+export is used.  This causes any RCS keywords to be
+expanded such that an import done at some other site
+will not lose the keyword revision information.  There
+is no way to override this.  Note that this breaks the
+<code>ident</code> command (which is part of the RCS
+suite---see ident(1)) which looks for RCS keyword
+strings.  If you want to be able to use <code>ident</code>
+you must use <code>checkout</code> instead.
+
+
+<H3><A NAME="export_opts"> cvs export options </A></H3>
+
+These standard options are supported by <code>export</code>
+(@pxref{Common options}, for a complete description of
+them):
+
+<DL>
+<DT><code> -D <var>date</var> </code>
+<DD> Use the most recent revision no later than <var>date</var>.
+
+<DT><code> -f </code>
+<DD> If no matching revision is found, retrieve the most
+recent revision (instead of ignoring the file).
+
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.
+
+<DT><code> -n </code>
+<DD> Do not run any checkout program.
+
+<DT><code> -Q </code>
+<DD> Really quiet.
+
+<DT><code> -q </code>
+<DD> Somewhat quiet.
+
+<DT><code> -R </code>
+<DD> Export directories recursively.  This is on by default.
+
+<DT><code> -r <var>tag</var> </code>
+<DD> Use revision <var>tag</var>.
+</DL>
+
+In addition, these options (that are common to
+<code>checkout</code> and <code>export</code>) are also supported:
+
+<DL>
+<DT><code> -d <var>dir</var> </code>
+<DD> Create a directory called <var>dir</var> for the working
+files, instead of using the module name.  Unless you
+also use <samp>-N</samp>, the paths created under <var>dir</var>
+will be as short as possible.
+
+<DT><code> -N </code>
+<DD> Only useful together with <samp>-d <var>dir</var></samp>.  With this
+option, CVS will not shorten module paths in your
+working directory.  (Normally, CVS shortens paths as
+much as possible when you specify an explicit target
+directory.)
+</DL>
+
+
+<H3><A NAME="export_exs"> cvs export examples </A></H3>
+
+	Contributed examples are gratefully accepted.
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="history"> cvs history </A></H2>
+<UL>
+<LI> Function: Shows status of files and users
+<LI> Synopsis: history [-report] [-flags] [-options args] [files...]
+<LI> Requires: the file @file{$CVSROOT/CVSROOT/history}
+<LI> Changes: nothing.
+</UL>
+
+CVS can keep a history file that tracks each use of the
+<code>checkout</code>, <code>commit</code>, <code>rtag</code>,
+<code>update</code>, and <code>release</code> commands.  You can
+use <code>history</code> to display this information in
+various formats.
+
+Logging must be enabled by creating the file
+@file{$CVSROOT/CVSROOT/history}.
+
+<strong>Warning:</strong> <code>history</code> uses 
+<samp>-f</samp>, <samp>-l</samp>, <samp>-n</samp>, and <samp>-p</samp> 
+in ways that conflict with the normal use inside CVS 
+(@pxref{Common options}). 
+
+
+<H3><A NAME="history_opts"> cvs history options </A></H3>
+
+Several options (shown above as <samp>-report</samp>)  control  what
+kind of report is generated:
+
+<DL>
+<DT><code> -c </code>
+<DD> Report on each time commit was used (i.e., each time
+the repository was modified).
+
+<DT><code> -e  </code>
+<DD> Everything (all record types); equivalent to specifying
+<samp>-xMACFROGWUT</samp>.
+
+<DT><code> -m <var>module</var> </code>
+<DD> Report on a particular module.  (You can meaningfully
+use <samp>-m</samp> more than once on the command line.)
+
+<DT><code> -o </code>
+<DD> Report on checked-out modules.
+
+<DT><code> -T </code>
+<DD> Report on all tags.
+
+<DT><code> -x <var>type</var> </code>
+<DD> Extract a particular set of record types <var>type</var> from the CVS
+history.  The types are indicated by single letters,
+which you may specify in combination.  
+
+Certain commands have a single record type: 
+
+<DL>
+<DT><code> F </code>
+<DD> release
+<DT><code> O </code>
+<DD> checkout
+<DT><code> T </code>
+<DD> rtag
+</DL>
+
+One of four record types may result from an update: <P>
+
+<DL>
+<DT><code> C </code>
+<DD> A merge was necessary but collisions were detected (requiring
+	manual merging).   
+<DT><code> G </code>
+<DD> A merge was necessary and it succeeded.
+<DT><code> U </code>
+<DD> A working file was copied from the repository.
+<DT><code> W </code>
+<DD> The working copy of a file is deleted during update (because it
+	was gone from the repository). 
+</DL>
+
+One of three record types results from commit:
+
+<DL>
+<DT><code> A </code>
+<DD> A file was added for the first time.
+<DT><code> M </code>
+<DD> A file was modified.
+<DT><code> R </code>
+<DD> A file was removed.
+</DL>
+</DL>
+
+The options shown as <samp>-flags</samp> constrain or expand
+the report without requiring option arguments:
+
+<DL>
+<DT><code> -a </code>
+<DD> Show data for all users (the default is to show data
+only for the user executing <code>history</code>).
+
+<DT><code> -l </code>
+<DD> Show last modification only.
+
+<DT><code> -w </code>
+<DD> Show only the records for modifications done from the
+same working directory where <code>history</code> is executing.
+</DL>
+
+The options shown as <samp>-options <var>args</var></samp> constrain the report
+based on an argument:
+
+<DL>
+<DT><code> -b <var>str</var> </code>
+<DD> Show data back to a record containing  the  string
+<var>str</var>  in  either the module name, the file name, or
+the repository path.
+
+<DT><code> -D <var>date</var> </code>
+<DD> Show data since <var>date</var>.
+
+<DT><code> -p <var>repository</var> </code>
+<DD> Show data for a particular source repository  (you
+can specify several <samp>-p</samp> options on the same command line). 
+
+<DT><code> -r <var>rev</var> </code>
+<DD> Show records referring to revisions since the revision
+or tag named <var>rev</var> appears in individual RCS
+files.  Each RCS file is searched for the revision or
+tag.
+
+<DT><code> -t <var>tag</var> </code>
+<DD> Show records since tag <var>tag</var> was last added to the the
+history file.  This differs from the <samp>-r</samp> flag
+above in that it reads only the history file, not the
+RCS files, and is much faster.
+
+<DT><code> -u <var>name</var> </code>
+<DD> Show records for user <var>name</var>.
+</DL>
+
+
+<H3><A NAME="history_exs"> cvs history examples </A></H3>
+
+	Contributed examples will gratefully be accepted. <P>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="import"> cvs import </A></H2>
+<UL>
+<LI> Function: Import sources into CVS, using vendor branches
+<LI> Synopsis: import [-options] repository vendortag releasetag...
+<LI> Requires: Repository, source distribution directory.
+<LI> Changes: repository.
+</UL>
+
+Use <code>import</code> to incorporate an entire source
+distribution from an outside source (e.g., a source
+vendor) into your source repository directory.  You can
+use this command both for initial creation of a
+repository, and for wholesale updates to the module
+from the outside source.  @xref{Tracking sources}, for
+a discussion on this subject. <P>
+
+The <var>repository</var> argument gives a directory name
+(or a path to a directory) under the CVS root directory
+for repositories; if the directory did not exist,
+import creates it. <P>
+
+When you use import for updates to source that has been
+modified in your source repository (since a prior
+import), it will notify you of any files that conflict
+in the two branches of development; use <samp>checkout
+-j</samp> to reconcile the differences, as import instructs
+you to do. <P>
+
+By default, certain file names are ignored during
+<code>import</code>: names associated with CVS
+administration, or with other common source control
+systems; common names for patch files, object files,
+archive files, and editor backup files; and other names
+that are usually artifacts of assorted utilities.
+Currently, the default list of ignored files includes
+files matching these names: <P>
+
+<PRE>
+        RCSLOG  RCS     SCCS
+        CVS*    cvslog.*
+        tags    TAGS
+        .make.state     .nse_depinfo
+        *~      #*      .#*     ,*
+        *.old   *.bak   *.BAK   *.orig  *.rej   .del-*
+        *.a     *.o     *.so    *.Z     *.elc   *.ln  
+        core
+</PRE>
+
+If the file @file{$CVSROOT/CVSROOT/cvsignore} exists,
+any files whose names match the specifications in that
+file will also be ignored. <P>
+
+The outside source is saved in a first-level RCS
+branch, by default 1.1.1.  Updates are leaves of this
+branch; for example, files from the first imported
+collection of source will be revision 1.1.1.1, then
+files from the first imported update will be revision
+1.1.1.2, and so on. <P>
+
+	At least three arguments are required. <var>repository</var>
+is needed to identify the collection of source.  <var>vendortag</var>
+is a tag for the entire branch (e.g., for 1.1.1).  You must also
+specify at least one <var>releasetag</var> to identify the files at 
+the leaves created each time you execute <code>import</code>. <P> 
+
+
+<H3><A NAME="import_opts"> cvs import options </A></H3>
+
+	These standard options are supported by <code>import</code>
+(@pxref{Common options}, for a complete description of them): <P>
+
+<DL>
+<DT><code> -m <var>message</var> </code>
+<DD> Use <var>message</var> as log information, instead of invoking an editor.
+
+<DT><code> -Q </code>
+<DD> Really quiet.
+
+<DT><code> -q </code>
+<DD> Somewhat quiet.
+</DL>
+
+There are two additional special options. <P>
+
+<DL>
+<DT><code> -b <var>branch</var> </code>
+<DD> Specify a first-level branch other than 1.1.1.  Unless the
+  <samp>-b <var>branch</var></samp> flag is given, revisions will 
+  <em>always</em> be made to the branch 1.1.1---even if a
+  <var>vendortag</var> that matches another branch is given!
+  What happens in that case, is that the tag will be reset to 1.1.1.
+  Warning: This behaviour might change in the future. <P>
+
+<DT><code> -I <var>name</var> </code>
+<DD> Specify file names that should be ignored during import.  You can
+  use this option repeatedly.  To avoid ignoring any files at all
+  (even those ignored by default), specify `-I !'. <P>
+
+	<var>name</var> can be a file name pattern of the same type
+  that you can specify in the @file{.cvsignore} file.
+  @xref{cvsignore}.
+</DL>
+
+<H3><A NAME="import_exs"> cvs import examples </A></H3>
+
+	@xref{Tracking sources}. <P>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="log"> cvs log </A></H2>
+<UL>
+<LI> Function: Prints out 'rlog' information for files
+<LI> Synopsis: log [-l] rlog-options [files...]
+<LI> Requires: repository, working directory.
+<LI> Changes: nothing.
+<LI> Synonym: rlog
+</UL>
+
+	Display log information for files.  <code>log</code> calls the
+RCS utility <code>rlog</code>, which prints all available information
+about the RCS history file.  This includes the location of the RCS
+file, the <dfn>head</dfn> revision (the latest revision on the trunk),
+all symbolic names (tags) and some other things.  For each revision,
+the revision number, the author, the number of lines added/deleted and 
+the log message are printed.  All times are displayed in Coordinated
+Universal Time (UTC).  (Other parts of CVS print times in the local
+timezone). <P> 
+
+
+<H3><A NAME="log_opts"> cvs log options </A></H3>
+
+Only one option is interpreted by CVS and not passed on to
+<code>rlog</code>: <P>
+
+<DL>
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.  (Default
+is to run recursively).
+</DL>
+
+	By default, <code>rlog</code> prints all information that is
+available.  All other options (including those that normally have
+other meanings) are passed through to <code>rlog</code> and restrict
+the output.  See rlog(1) for a complete description of options.  This
+incomplete list (which is a slightly edited extract from rlog(1))
+lists all options that are useful in conjunction with CVS. <P>
+
+<strong>Please note:</strong>  There can be no space between the
+option and its argument, since <code>rlog</code> parses its options 
+in a different way than CVS. <P>
+
+<DL>
+<DT><code> -b </code>
+<DD> Print information about the revisions on the default
+branch, normally the highest branch on the trunk.
+
+<DT><code> -d<var>dates</var> </code>
+<DD> Print information about revisions with a checkin date/time in the
+  ranges given by the semicolon-separated list of dates.  The
+  following table explains the available range formats:
+
+  <DL>
+  <DT><code> <var>d1</var>&lt<var>d2</var> </code>
+  <DT><code>x <var>d2</var>&gt<var>d1</var> </code>
+  <DD> Select the revisions that were deposited between
+	<var>d1</var> and <var>d2</var> inclusive.
+
+  <DT><code> &lt<var>d</var> </code>
+  <DT><code>x <var>d</var>&gt </code>
+  <DD> Select all revisions dated <var>d</var> or earlier.
+
+  <DT><code> <var>d</var>&lt </code>
+  <DT><code>x &gt<var>d</var> </code>
+  <DD> Select all revisions dated <var>d</var> or later.
+
+  <DT><code> <var>d</var> </code>
+  <DD> Select the single, latest revision dated <var>d</var> or earlier.
+  </DL>
+
+  The date/time strings <var>d</var>, <var>d1</var>, and <var>d2</var>
+  are in the free format explained in co(1).  Quoting is normally
+  necessary, especially for &lt and &gt.  Note that the separator is a
+  semicolon (;). 
+
+<DT><code> -h </code>
+<DD> Print only the RCS pathname, working pathname, head, default
+  branch, access list, locks, symbolic names, and suffix.
+
+<DT><code> -R </code>
+<DD> Print only the name of the RCS history file.
+
+<DT><code> -r<var>revisions</var> </code>
+<DD> Print information about revisions given in the comma-separated
+  list <var>revisions</var> of revisions and ranges.  The following
+  table explains the available range formats:
+
+  <DL>
+  <DT><code> <var>rev1</var>:<var>rev2</var> </code>
+  <DD> Revisions <var>rev1</var> to <var>rev2</var> (which must be on
+	the same branch).
+  <DT><code> :<var>rev</var> </code>
+  <DD> Revisions from the beginning of the branch up to
+	and including <var>rev</var>
+  <DT><code> <var>rev</var>:  </code>
+  <DD> Revisions starting with <var>rev</var> to the end of the
+	branch containing <var>rev</var>. 
+  <DT><code> <var>branch</var> </code>
+  <DD> An argument that is a branch means all revisions on
+	that branch.  You can unfortunately not specify a
+	symbolic branch here.  You must specify the numeric
+	branch number.  @xref{Branches and log}.
+  <DT><code> <var>branch1</var>:<var>branch2</var> </code>
+  <DD> A range of branches means all revisions on the branches in that
+	range. 
+  <DT><code> <var>branch</var>. </code>
+  <DD> The latest revision in <var>branch</var>.
+  </DL>
+
+A bare <samp>-r</samp> with no revisions means the latest revision on
+the default branch, normally the trunk. 
+
+<DT><code> -s<var>states</var> </code>
+<DD> Print information about revisions whose state attributes match one
+  of the states given in the comma-separated list <var>states</var>. 
+
+<DT><code> -t </code>
+<DD> Print the same as <samp>-h</samp>, plus the descriptive text.
+
+<DT><code> -w<var>logins</var> </code>
+<DD> Print information about revisions checked in by users with login
+  names appearing in the comma-separated list <var>logins</var>.  If
+  <var>logins</var> is omitted, the user's login is assumed.
+</DL>
+
+	<code>rlog</code> prints the intersection of the revisions
+selected with the options <samp>-d</samp>, <samp>-l</samp>,
+<samp>-s</samp>, and <samp>-w</samp>, intersected with the union of 
+the revisions selected by <samp>-b</samp> and <samp>-r</samp>. <P>
+
+
+<H3><A NAME="log_exs"> cvs log examples </A></H3>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="rdiff"> cvs rdiff </A></H2>
+<UL>
+<LI> Function: 'patch' format diffs between releases.
+<LI> Synopsis: rdiff [-flags] [-V vn] [-r t|-D d [-r t2|-D d2]]
+	modules...
+<LI> Requires: repository.
+<LI> Changes: nothing.
+<LI> Synonym: patch
+</UL>
+
+	Builds a Larry Wall format patch(1) file between two releases,
+that can be fed directly into the patch program to bring an old
+release up-to-date with the new release.  (This is one of the few CVS
+commands that operates directly from the repository, and doesn't
+require a prior checkout.) The diff output is sent to the standard
+output device. <P>
+
+	You can specify (using the standard <samp>-r</samp> and
+<samp>-D</samp> options) any combination of one or two revisions or
+dates.  If only one revision or date is specified, the patch file
+reflects differences between that revision or date and the current
+head revisions in the RCS file. <P>
+
+	Note that if the software release affected is contained in
+more than one directory, then it may be necessary to specify the
+<samp>-p</samp> option to the patch command when patching the old
+sources, so that patch is able to find the files that are located in
+other directories. <P>
+
+
+<H3><A NAME="rdiff_opts"> cvs rdiff options </A></H3>
+
+These standard options are supported by <code>rdiff</code>
+(@pxref{Common options}, for a complete description of them): <P>
+
+<DL>
+<DT><code> -D <var>date</var> </code>
+<DD> Use the most recent revision no later than <var>date</var>.
+
+<DT><code> -f </code>
+<DD> If no matching revision is found, retrieve the most
+  recent revision (instead of ignoring the file).
+
+<DT><code> -l </code>
+<DD> Local; don't descend subdirectories.
+
+<DT><code> -Q </code>
+<DD> Really quiet.
+
+<DT><code> -q </code>
+<DD> Somewhat quiet.
+
+<DT><code> -r <var>tag</var> </code>
+<DD> Use revision <var>tag</var>.
+</DL>
+
+In addition to the above, these options are available: <P>
+
+<DL>
+<DT><code> -c </code>
+<DD> Use the context diff format.  This is the default format.
+
+<DT><code> -s </code>
+<DD> Create a summary change report instead of a patch.  The summary
+  includes information about files that were changed or added between
+  the releases.  It is sent to the standard output device.  This is
+  useful for finding out, for example, which files have changed
+  between two dates or revisions.
+
+<DT><code> -t </code>
+<DD> A diff of the top two revisions is sent to the standard output
+  device.  This is most useful for seeing what the last change to a
+  file was. 
+
+<DT><code> -u </code>
+<DD> Use the unidiff format for the context diffs. This option is not
+  available if your diff does not support the unidiff format.
+  Remember that old versions of the <code>patch</code> program can't
+  handle the unidiff format, so if you plan to post this patch to the
+  net you should probably not use <samp>-u</samp>.
+
+<DT><code> -V <var>vn</var> </code>
+<DD> Expand RCS keywords according to the rules current in RCS version
+  <var>vn</var> (the expansion format changed with RCS version 5).
+</DL>
+
+
+<H3><A NAME="rdiff_exs"> cvs rdiff examples </A></H3>
+
+Suppose you receive mail from @t{foo@@bar.com} asking for an
+update from release 1.2 to 1.4 of the tc compiler.  You
+have no such patches on hand, but with CVS that can
+easily be fixed with a command such as this: <P>
+
+<PRE>
+$ cvs rdiff -c -r FOO1_2 -r FOO1_4 tc | \
+$$ Mail -s 'The patches you asked for' foo@@bar.com
+</PRE>
+
+Suppose you have made release 1.3, and forked a branch
+called <samp>R_1_3fix</samp> for bugfixes.  <samp>R_1_3_1</samp>
+corresponds to release 1.3.1, which was made some time
+ago.  Now, you want to see how much development has been
+done on the branch.  This command can be used: <P>
+
+<PRE>
+$ cvs patch -s -r R_1_3_1 -r R_1_3fix module-name
+cvs rdiff: Diffing module-name
+File ChangeLog,v changed from revision 1.52.2.5 to 1.52.2.6
+File foo.c,v changed from revision 1.52.2.3 to 1.52.2.4
+File bar.h,v changed from revision 1.29.2.1 to 1.2
+</PRE>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="release"> cvs release </A></H2>
+<UL>
+<LI> Function: Indicate that a Module is no longer in use
+<LI> Synopsis: release [-dQq] modules...
+<LI> Requires: Working directory.
+<LI> Changes: Working directory, history log.
+</UL>
+
+	This command is meant to safely cancel the effect of <samp>cvs
+checkout</samp>.  Since CVS doesn't lock files, it isn't strictly
+necessary to use this command.  You can always simply delete your
+working directory, if you like; but you risk losing changes you may
+have forgotten, and you leave no trace in the CVS history file
+(@pxref{history file}) that you've abandoned your checkout. <P>
+
+	Use <samp>cvs release</samp> to avoid these problems.  This
+command checks that no un-committed changes are present; that you are
+executing it from immediately above a CVS working directory; and that
+the repository recorded for your files is the same as the repository 
+defined in the module database. <P>
+
+	If all these conditions are true, <samp>cvs release</samp>
+leaves a record of its execution (attesting to your intentionally
+abandoning your checkout) in the CVS history log. <P>
+
+
+<H3><A NAME="release_opts"> cvs release options </A></H3>
+
+Only these standard options are supported by <code>release</code>. <P>
+
+<DL>
+<DT><code> -Q </code>
+<DD> Really quiet.
+
+<DT><code> -q </code>
+<DD> Somewhat quiet.
+</DL>
+
+In addition to the above, it supports one additional flag. <P>
+
+<DL>
+<DT><code> -d </code>
+<DD> Delete your working copy of the file if the release succeeds.  If
+  this flag is not given your files will remain in your working
+  directory. <P> 
+
+<strong>Warning:</strong>  The <code>release</code> command uses
+<samp>rm -r @file{module</samp>} to delete your file.  This has the
+very serious side-effect that any directory that you have created
+inside your checked-out sources, and not added to the repository
+(using the <code>add</code> command; @pxref{add}) will be silently
+deleted---even if it is non-empty!
+</DL>
+
+<H3><A NAME="release_out"> cvs release output </A></H3>
+
+	Before <code>release</code> releases your sources it will
+print a one-line message for any file that is not up-to-date. <P>
+
+<strong>Warning:</strong>  Any new directories that you have
+created, but not added to the CVS directory hierarchy
+with the <code>add</code> command (@pxref{add}) will be
+silently ignored, even if they contain files. <P>
+
+<DL>
+<DT><code> U <var>file</var> </code>
+<DD> There exists a newer revision of this file in the
+     repository, and you have not modified your local copy
+     of the file.
+
+<DT><code> A <var>file</var> </code>
+<DD> The file has been added to your private copy of the
+     sources, but has not yet been committed to the
+     repository.  If you delete your copy of the sources
+     this file will be lost.
+
+<DT><code> R <var>file</var> </code>
+<DD> The file has been removed from your private copy of the
+     sources, but has not yet been removed from the
+     repository, since you have not yet committed the
+     removal.  cf. <a href="#commit">commit</a>.
+
+<DT><code> M <var>file</var> </code>
+<DD> The file is modified in your working directory.  There
+     might also be a newer revision inside the repository.
+
+<DT><code> ? <var>file</var> </code>
+<DD> <var>file</var> is in your working directory, but does not
+     correspond to anything in the source repository, and is
+     not in the list of files for CVS to ignore (see the
+     description of the <samp>-I</samp> option, and
+     @pxref{cvsignore}).  If you remove your working
+     sources, this file will be lost. <P>
+
+Note that no warning message like this is printed for
+spurious directories that CVS encounters.  The
+directory, and all its contents, are silently ignored.
+</DL>
+
+
+<H3><A NAME="release_exs"> cvs release examples </A></H3>
+
+Release the module, and delete your local working copy
+of the files. <P>
+
+<PRE>
+$ cd ..         # You must stand immediately above the
+                # sources when you issue cvs release.
+$ cvs release -d tc
+You have [0] altered files in this repository.
+Are you sure you want to release (and delete) module `tc: y
+$
+</PRE>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="remove"> cvs remove </A></H2>
+<UL>
+<LI> Function: Removes an entry from the repository
+<LI> Synopsis: remove [-lR] [files...]
+<LI> Requires: Working directory.
+<LI> Changes: Working directory.
+<LI> Synonyms: rm, delete
+</UL>
+
+	Use this command to declare that you wish to remove files from
+the source repository.  Like most CVS commands, <samp>cvs
+remove</samp> works on files in your working directory, not directly
+on the repository.  As a safeguard, it also requires that you first
+erase the specified files from your working directory. <P>
+
+	The files are not actually removed until you apply your
+changes to the repository with <code>commit</code>; at that point, the
+corresponding RCS files in the source repository are moved into the
+@file{Attic} directory (also within the source repository). <P>
+
+	This command is recursive by default, scheduling all
+physically removed files that it finds for removal by the next commit.
+Use the <samp>-l</samp> option to avoid this recursion, or just
+specify the actual files that you wish removed. <P>
+
+
+<H3><A NAME="remove_opts"> cvs remove options </A></H3>
+
+Two of the standard options are the only options supported by
+<code>remove</code>.  <P>
+
+<DL>
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.
+
+<DT><code> -R </code>
+<DD> Commit directories recursively.  This is on by default.
+</DL>
+
+
+<H3><A NAME="remove_exs"> cvs remove examples </A></H3>
+
+Remove a couple of files. <P>
+
+<PRE>
+$ cd test
+$ rm ?.c
+$ cvs remove
+cvs remove: Removing .
+cvs remove: scheduling a.c for removal
+cvs remove: scheduling b.c for removal
+cvs remove: use 'CVS commit' to remove these files permanently
+$ cvs ci -m &quotRemoved unneeded files&quot
+cvs commit: Examining .
+cvs commit: Committing .
+</PRE>
+
+If you change your mind you can easily resurrect the
+file before you commit it, using the <code>add</code>
+command. <P>
+
+<PRE>
+$ ls
+CVS  ja.h  oj.c
+$ rm oj.c
+$ cvs remove oj.c
+cvs remove: scheduling oj.c for removal
+cvs remove: use 'CVS commit' to remove this file permanently
+$ cvs add oj.c
+U oj.c
+cvs add: oj.c, version 1.1.1.1, resurrected
+</PRE>
+
+If you realise your mistake before you run the
+<code>remove</code> command you can use <code>update</code> to
+resurrect the file: <P>
+
+<PRE>
+$ rm oj.c
+$ cvs update oj.c
+cvs update: warning: oj.c was lost
+U oj.c
+</PRE>
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="rtag"> cvs rtag </A></H2>
+<UL>
+<LI> Function: Add a tag to the RCS file
+<LI> Synopsis: rtag [-falnRQq] [-b] [-d] [-r tag | -Ddate]
+	symbolic_tag modules...
+<LI> Requires: repository.
+<LI> Changes: repository.
+<LI> Synonym: rfreeze
+</UL>
+
+	You can use this command to assign symbolic tags to
+particular, explicitly specified source revisions in the repository.
+<code>rtag</code> works directly on the repository contents (and
+requires no prior checkout). Use <code>tag</code> instead
+(@pxref{tag}), to base the selection of revisions on the contents of
+your working directory. <P>
+
+
+<H3><A NAME="rtag_opts"> cvs rtag options </A></H3>
+
+	These standard options are supported by <code>rtag</code>
+(@pxref{Common options}, for a complete description of them): <P>
+
+<DL>
+<DT><code> -D <var>date</var> </code>
+<DD> Tag the most recent revision no later than <var>date</var>.
+
+<DT><code> -f </code>
+<DD> Only useful with the <samp>-D <var>date</var></samp> or <samp>-r
+  <var>tag</var></samp> flags.  If no matching revision is found, use
+  the most recent revision (instead of ignoring the file).
+
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.
+
+<DT><code> -n </code>
+<DD> Do not run any tag program that was specified with the
+  <samp>-t</samp> flag inside the @file{modules} file. (@pxref{modules}).
+
+<DT><code> -Q </code>
+<DD> Really quiet.
+
+<DT><code> -q </code>
+<DD> Somewhat quiet.
+
+<DT><code> -R </code>
+<DD> Commit directories recursively.  This is on by default.
+
+<DT><code> -r <var>tag</var> </code>
+<DD> Only tag those files that contain <var>tag</var>.  This can be
+     used to rename a tag: tag only the files identified by the old tag,
+     then delete the old tag, leaving the new tag on exactly the same
+     files as the old tag. 
+</DL>
+
+In addition to the above common options, these options are available: <P>
+
+<DL>
+<DT><code> -a </code>
+<DD> Use the <samp>-a</samp> option to have <code>rtag</code> look in
+     the @file{Attic} (@pxref{Removing files}) for removed files that
+     contain the specified tag.  The tag is removed from these files,
+     which makes it convenient to re-use a symbolic tag as development
+     continues (and files get removed from the up-coming distribution).
+
+<DT><code> -b </code>
+<DD> Make the tag a branch tag.  @xref{Branches}.
+
+<DT><code> -d </code>
+<DD> Delete the tag instead of creating it. <P>
+
+	In general, tags (often the symbolic names of software
+     distributions) should not be removed, but the <samp>-d</samp>
+     option is available as a means to remove completely obsolete
+     symbolic names if necessary (as might be the case for an Alpha
+     release, or if you mis-tagged a module).
+</DL>
+
+
+<H3><A NAME="rtag_exs"> cvs rtag examples </A></H3>
+
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="status"> cvs status </A></H2>
+<UL>
+<LI> Function: Status info on the revisions
+<LI> Synopsis: status [-lR] [-v] [-Q] [files...]
+<LI> Requires: working directory, repository.
+<LI> Changes: nothing.
+</UL>
+
+	Display a brief report on the current status of files with
+respect to the source repository, including any sticky tags, dates, or
+<samp>-k</samp> options.  <P>
+
+	You can also use this command to anticipate the potential
+impact of a <samp>cvs update</samp> on your working source
+directory---but remember that things might change in the repository
+before you run <code>update</code>. <P>
+
+
+<H3><A NAME="status_opts"> cvs status options </A></H3>
+
+These standard options are supported by <code>status</code>
+(@pxref{Common options}, for a complete description of them): <P>
+
+<DL>
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.
+
+<DT><code> -R </code>
+<DD> Commit directories recursively.  This is on by default.
+
+<DT><code> -Q </code>
+<DD> Really quiet.  Do not print empty sticky parts.
+</DL>
+
+There is one additional option: <P>
+
+<DL>
+<DT><code> -v </code>
+<DD> Verbose.  In addition to the information normally
+displayed, print all symbolic tags, together with the
+numerical value of the revision or branch they refer
+to.
+</DL>
+
+
+<H3><A NAME="status_exs"> cvs status examples </A></H3>
+
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="tag"> cvs tag </A></H2>
+<UL>
+<LI> Function: Add a symbolic tag to checked out version of RCS file
+<LI> Synopsis: tag [-lQqR] [-b] [-d] symbolic_tag [files...]
+<LI> Requires: working directory, repository.
+<LI> Changes: repository.
+<LI> Synonym: freeze
+</UL>
+
+	Use this command to assign symbolic tags to the nearest
+repository versions to your working sources.  The tags are applied
+immediately to the repository, as with <code>rtag</code>, but the
+versions are supplied implicitly by the CVS records of your working
+files' history rather than applied explicitly. <P>
+
+	One use for tags is to record a snapshot of the current
+sources when the software freeze date of a project arrives.  As bugs
+are fixed after the freeze date, only those changed sources that are
+to be part of the release need be re-tagged. <P>
+
+	The symbolic tags are meant to permanently record which
+revisions of which files were used in creating a software
+distribution.  The <code>checkout</code> and <code>update</code>
+commands allow you to extract an exact copy of a tagged release at any
+time in the future, regardless of whether files have been changed,
+added, or removed since the release was tagged. <P>
+
+	This command can also be used to delete a symbolic tag,
+or to create a branch.  See the options section below. <P>
+
+
+<H3><A NAME="tag_opts"> cvs tag options </A></H3>
+
+	These standard options are supported by <code>tag</code>
+(@pxref{Common options}, for a complete description of them): <P>
+
+<DL>
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.
+
+<DT><code> -R </code>
+<DD> Commit directories recursively.  This is on by default.
+
+<DT><code> -Q </code>
+<DD> Really quiet.
+
+<DT><code> -q </code>
+<DD> Somewhat quiet.
+</DL>
+
+Two special options are available: <P>
+
+<DL>
+<DT><code> -b </code>
+<DD> The -b option makes the tag a branch tag (@pxref{Branches}),
+  allowing concurrent, isolated development.  This is most useful for
+  creating a patch to a previously released software distribution. 
+
+<DT><code> -d </code>
+<DD> Delete a tag. <P>
+
+	If you use <samp>cvs tag -d symbolic_tag</samp>, the symbolic 
+  tag you specify is deleted instead of being added.  Warning: Be very
+  certain of your ground before you delete a tag; doing this
+  effectively discards some historical information, which may later
+  turn out to have been valuable.
+</DL>
+
+<H3><A NAME="tag_exs"> cvs tag examples </A></H3>
+
+
+
+<hr><!---------------------------------------------------------------->
+<H2><A NAME="update"> cvs update </A></H2>
+<UL>
+<LI> Function: Brings work tree in sync with repository
+<LI> Synopsis: update [-AdflPpQqR] [-d] [-r tag|-D date] files...
+<LI> Requires: repository, working directory.
+<LI> Changes: working directory.
+</UL>
+
+	After you've run checkout to create your private copy of
+source from the common repository, other developers will continue
+changing the central source.  From time to time, when it is convenient
+in your development process, you can use the <code>update</code>
+command from within your working directory to reconcile your work 
+with any revisions applied to the source repository
+since your last checkout or update. <P>
+
+
+<H3><A NAME="update_opts"> cvs update options </A></H3>
+
+These standard options are available with <code>update</code>
+(@pxref{Common options}, for a complete description of them): <P>
+
+<DL>
+<DT><code> -D date </code>
+<DD> Use the most recent revision no later than <var>date</var>.
+     This option is sticky, and implies <samp>-P</samp>.
+
+<DT><code> -f </code>
+<DD> Only useful with the <samp>-D <var>date</var></samp> or <samp>-r
+     <var>tag</var></samp> flags.  If no matching revision is found,
+     retrieve the most recent revision (instead of ignoring
+     the file).
+
+<DT><code> -k <var>kflag</var> </code>
+<DD> Process RCS keywords according to <var>kflag</var>.  See
+     co(1).  This option is sticky; future updates of
+     this file in this working directory will use the same
+     <var>kflag</var>.  The <code>status</code> command can be viewed
+     to see the sticky options.  cf. <a href="#status">status</a>.
+
+<DT><code> -l </code>
+<DD> Local; run only in current working directory.
+
+<DT><code> -P </code>
+<DD> Prune empty directories.
+
+<DT><code> -p </code>
+<DD> Pipe files to the standard output.
+
+<DT><code> -Q </code>
+<DD> Really quiet.
+
+<DT><code> -q </code>
+<DD> Somewhat quiet.
+
+<DT><code> -R </code>
+<DD> Commit directories recursively.  This is on by default.
+
+<DT><code> -r tag </code>
+<DD> Retrieve revision <var>tag</var>.  This option is sticky,
+     and implies <samp>-P</samp>.
+</DL>
+
+These special options are also available with <code>update</code>. <P>
+
+<DL>
+<DT><code> -A </code>
+<DD> Reset any sticky tags, dates, or <samp>-k</samp> options.
+     (If you get a working copy of a file by using one of the 
+     <samp>-r</samp>, <samp>-D</samp>, or <samp>-k</samp> options, CVS
+     remembers the corresponding tag, date, or <var>kflag</var> and
+     continues using it on future updates; use the <samp>-A</samp>
+     option to make CVS forget these specifications, and
+     retrieve the head revision of the file).
+
+<DT><code> -d </code>
+<DD> Create any directories that exist in the repository if they're
+     missing from the working directory.  Normally, <code>update</code>
+     acts only on directories and files that were already enrolled in
+     your working directory. <P>
+
+     This is useful for updating directories that were created in
+     the repository since the initial checkout; but it has an unfortunate
+     side effect.  If you deliberately avoided certain directories in the
+     repository when you created your working directory (either through
+     use of a module name or by listing explicitly the files and
+     directories you wanted on the command line), then updating with
+     <samp>-d</samp> will create those directories, which may not be what
+     you want. 
+
+<DT><code> -I <var>name</var> </code>
+<DD> Ignore files whose names match <var>name</var> (in your working
+     directory) during the update.  You can specify <samp>-I</samp> more
+     than once on the command line to specify several files to ignore.
+     By default, <code>update</code> ignores files whose names match any
+     of the following:  <P>
+
+<PRE>
+        RCSLOG  RCS     SCCS
+        CVS*    cvslog.*
+        tags    TAGS
+        .make.state     .nse_depinfo
+        *~      #*      .#*     ,*
+        *.old   *.bak   *.BAK   *.orig  *.rej   .del-*
+        *.a     *.o     *.so    *.Z     *.elc   *.ln  
+        core
+</PRE>
+
+	Use <samp>-I !</samp> to avoid ignoring any files at all.
+@xref{cvsignore}, for other ways to make CVS ignore some files. <P>
+
+<DT><code> -j<var>branch</var> </code>
+<DD> Merge the changes made between the resulting revision and the
+  revision that it is based on (e.g., if the tag refers to a branch,
+  CVS will merge all changes made in that branch into your working
+  file). <P> 
+
+	With two <samp>-j</samp> options, CVS will merge in the
+  changes between the two respective revisions.  This can be used to
+  remove a certain delta from your working file;  if the file
+  @file{foo.c} is based on revision 1.6 and you want to remove the
+  changes made between 1.3 and 1.5, you might do: <P>
+
+<PRE>
+$ cvs update -j1.5 -j1.3 foo.c   # note the order...
+</PRE>
+
+     In addition, each -j option can contain on optional date
+     specification which, when used with branches, can limit the chosen 
+     revision to one within a specific date.  An optional date is specified
+     by adding a colon (:) to the tag:
+     <samp>-j<var>Symbolic_Tag</var>:<var>Date_Specifier</var></samp>. <P>
+</DL>
+
+
+<H3><A NAME="update_out"> cvs update output </A></H3>
+
+<code>update</code> keeps you informed of its progress by
+printing a line for each file, prefaced with one character that
+indicate the status of the file: <P>
+
+<DL> 
+<DT><code> U <var>file</var> </code>
+<DD> The file was brought up to date with respect to the repository.
+  This is done for any file that exists in the repository but not in
+  your source, and for files that you haven't changed but are not the
+  most recent versions available in the repository.
+
+<DT><code> A <var>file</var> </code>
+<DD> The file has been added to your private copy of the sources, and
+  will be added to the source repository when you run
+  <code>commit</code> on the file.  This is a reminder to you that the 
+  file needs to be committed. 
+
+<DT><code> R <var>file</var> </code>
+<DD> The file has been removed from your private copy of the sources,
+  and will be removed from the source repository when you run
+  <code>commit</code> on the file.  This is a reminder to you that the
+  file needs to be committed. 
+
+<DT><code> M <var>file</var> </code>
+<DD> The file is modified in  your  working  directory. <P>
+
+	<samp>M</samp> can indicate one of two states for a file
+  you're working on: either there were no modifications to the same
+  file in the repository, so that your file remains as you last saw
+  it; or there were modifications in the repository as well as in your
+  copy, but they were merged successfully, without conflict, in your
+  working directory. <P>
+
+	CVS will print some messages if it merges your work, and a
+  backup copy of your working file (as it looked before you ran
+  <code>update</code>) will be made.  The exact name of that file is
+  printed while <code>update</code> runs. <P> 
+
+<DT><code> C <var>file</var> </code>
+<DD> A conflict was detected while trying to merge your changes to
+  <var>file</var> with changes from the source repository.
+  <var>file</var> (the copy in your working directory) is now the
+  output of the rcsmerge(1) command on the two revisions; an
+  unmodified copy of your file is also in your working directory, with
+  the name @file{.#<var>file</var>.<var>revision</var>} where
+  <var>revision</var> is the RCS revision that your modified file
+  started from.  (Note that some systems automatically purge files
+  that begin with @file{.#} if they have not been accessed for a few
+  days.  If you intend to keep a copy of your original file, it is a
+  very good idea to rename it.)
+
+<DT><code> ? <var>file</var> </code>
+<DD> <var>file</var> is in your working directory, but does not
+  correspond to anything in the source repository, and is not in the
+  list of files for CVS to ignore (see the description of the
+  <samp>-I</samp> option, and @pxref{cvsignore}). <P>
+
+	Note that no warning message like this is printed for spurious
+  directories that CVS encounters.  The directory, and all its
+  contents, are silently ignored. 
+</DL>
+
+
+<H3><A NAME="update_exs"> cvs update examples </A></H3>
+
+	The following line will display all files are not up-to-date
+without actually change anything in yourworking directory.  It can be
+used to check what has been going on with the project. <P>
+
+<PRE>
+$ cvs -n -q update
+</PRE>
+
