@@ -86,6 +86,13 @@ Standalone perl scripts for searching GenBank files by pattern,  translating nuc
 
 <p>
 
+<B>Rob Edwards' Perl Pages</B><BR>
+<B>Author:</B> <A HREF="mailto:rob@ux1.cso.uiuc.edu">Rob Edwards</A><BR>
+<B>URL:</B> <A HREF="http://www.salmonella.org/researchers/edwards/">http://www.salmonella.org/researchers/edwards/</A><br>
+<B>Description:</B> Rob's Perl scripts are used for processing and analyzing DNA sequence information from the <i>S. enteritidis</i> genome.  You'll find scriupts for phred/phrap post-processing, BLAST processing, etc.
+
+<p>
+
 <b>Roland Walker's SEALS system</b><br>
 <b>Author:</b> <a href="mailto:walker@ncbi.nlm.nih.gov?subject=SEALS">Roland Walker</a><br>
 <b>URL:</b> <a href="http://www.ncbi.nlm.nih.gov/Walker/SEALS/">http://www.ncbi.nlm.nih.gov/Walker/SEALS/</a><br>
@@ -182,11 +189,11 @@ Stein's GD module.</A> GD module requires Tom Boutell's graphic <A HREF="http://
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-05 00:16:16 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-14 15:06:49 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.3 2000-05-05 00:16:16 amatern Exp $ -->
+    <!-- $Id: index.shtml,v 1.4 2000-05-14 15:06:49 amatern Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
