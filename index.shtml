@@ -91,6 +91,13 @@ otherwise make freely available standalone scripts & code.
           <TD>
 	  <p><font size=-1>[Jan - March 2002]</font></p>
 	 <ul>
+<li>The <a href="http://www.gmod.org">Generic Model Organism Database</a>
+project releases 
+<a href="http://sourceforge.net/project/showfiles.php?group_id=27707">
+GBrowse</a>, a Bioperl-based genome web browser that runs off the
+Bio::DB::GFF, DAS and Gadfly schemas.
+
+<p>
 <li>An alpha version of Bioperl 1.0 <a href="http://bioperl.org/pipermail/bioperl-l/2002-February/007269.html">is available</a>. Lots of eyeballs needed to ensure a clean 1.0 release.
 <p>
 <li>The 1st half of the 2002 <a href="http://prometheus.frii.com/">Hackathon</a> was a success. Pictures <a href="http://prometheus.frii.com/gallery/">are online</a>.
@@ -320,11 +327,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2002-02-19 23:21:28 $</p>
+<p><p align=right>Last Modified: $Date: 2002-02-20 16:40:39 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.43 2002-02-19 23:21:28 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.44 2002-02-20 16:40:39 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
