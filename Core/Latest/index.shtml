@@ -112,10 +112,7 @@ documentation, followed by the <a
 href="/Core/POD/Seq.html">Bio::Seq.pm</a>
 documentation.
 
-                  <p> In addition to embedded POD-format documentation, there 
-                    is also an <a href="/Core/Examples/">examples/ 
-                    directory</a> . 
-                  <p>
+
 View the distribution files directly:
 <p>
                   <pre>
@@ -158,11 +155,11 @@ View the distribution files directly:
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-01 19:19:10 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-01 19:43:57 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.2 2000-04-01 19:19:10 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.3 2000-04-01 19:43:57 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
