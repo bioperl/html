@@ -101,6 +101,8 @@ The current bioperl-live CVS codebase and future releases of bioperl (after 0.6.
 <b>GD</b><br> - Used by the Bio::Graphics modules for drawing images only in bioperl 1.0 releases and later
 <p>
 
+<b>Storable</b><br> - Recommended for all releases after bioperl-0.7.2. This module used for persistant object storage and local file caching. 
+<p>
 </blockquote>
 
 <p>
@@ -163,11 +165,11 @@ BioPerl users have reported success in getting CPAN.pm to download and install t
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-12 23:34:02 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-17 20:02:47 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: external.shtml,v 1.11 2002-03-12 23:34:02 dag Exp $ -->
+    <!-- $Id: external.shtml,v 1.12 2002-03-17 20:02:47 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
