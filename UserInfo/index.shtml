@@ -1,74 +1,36 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <HTML>
-<HEAD>
-<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
 
-<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+    <!--#include virtual="/_header_start.html" -->
 
-<TITLE>bio.perl.org - User Info</TITLE>
+<STYLE TYPE="text/css">
+<!--
+#side-developers { font-weight: 800 }
+-->
+</STYLE>
 
-</HEAD>
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+<TITLE> bioperl.org - User Info </TITLE>
 
-<font face="Arial, Helvetica, sans-serif" color="#000080">
+    <!--#include virtual="/_header_end.html" -->
+    <!--#include virtual="/_body_start.html" -->
+    <!--#include virtual="/_main_heading.html" -->
 
-<center>
-<h2>
-<a href="http://bio.perl.org/">bio.perl.org</a>
-</h2>
-</center>
+    <!--#include virtual="/_main_table_start.html" -->
+    <!--#include virtual="/_sidebar.html" -->
+    <!--#include virtual="/_small_margin_col.html" -->
+    <!--#include virtual="/_main_content_start.html" -->
+    <!--#include virtual="/_main_content_table_start.html" -->
 
-<TABLE BORDER=0>
-<TR>
-<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
-<!########################## SIDEBAR CONTENTS>
-<font face="Arial, Helvetica, sans-serif">
-<a href="/">Home</a>
-<p>
-<a href="/Projects">Projects</a>
-<p>
-<a href="/Projects/modules.html">Docs</a>
-<p>
-<a href="http://bio.perl.org/Core/Latest/">Download</a>
-<p>
-<a href="/News/">News</a>
-<p>
-<a href="/MailList.html">Mail Lists</a>
-<p>
-<b>
-<a href="/UserInfo/">Developers</a>
-</b>
-<p>
-<a href="/Bugs/">Bugs</a>
-<p>
-<a href="/Participants/">Participants</a>
-<p>
-<a href="/Related.html">Related</a>
-<p>
-<a href="/Thanks.html">Sponsors</a>
-<p>
-</font>
-<!########################## SIDEBAR CONTENTS>
+<B><font face="Arial, Helvetica, sans-serif" color="#000080">
+Info for developers and users on bioperl.org
+</font></B><BR>
 </TD>
+</TR>
+<TD> 
+<!-- INSERT YOUR  CONTENT HERE -->
 
-<! margin >
-<TD ROWSPAN=20><IMG SRC="../images/transparent.gif" WIDTH=5 ALT=" ">
-</TD>
-
-
-<TD ALIGN=LEFT VALIGN=TOP>
-<DIV ALIGN=RIGHT></DIV>
-
-
-<! main column #1>
-      <TABLE BORDER=0 CELLPADDING=3>
-        <TR> 
-          <TD ALIGN=LEFT BGCOLOR="#dadada"> <B> <font face="Arial, Helvetica, sans-serif" color="#000080">bio.perl.org 
-            user info</font></B> <BR>
-          </TD>
-        </TR>
-        <TR> 
-          <TD> <font size=+1><b>User accounts</b></font><br>
+<font size=+1><b>User accounts</b></font>
+<br>
             We have no clear policy right now on issuing user accounts to people. 
             Users will probably fall into the following categories: 
             <ul>
@@ -98,11 +60,11 @@
             </ul>
             <p> Useful links 
             <ul>
-              <li><a href="CVShelp.html">Bioperl CVS getting started</a> 
+              <li><a href="CVShelp.shtml">Bioperl CVS getting started</a> 
               <li><a href="CVSdoc/cvs.html">Local CVS documentation</a> 
               <li><a href="http://www.tac.nyc.ny.us/~kim/ssh/">Getting started 
                 with SSH</a> 
-              <li><a href="http://www.ssh.fi/sshprotocols2/">Main SSH website</a> 
+              <li><a href="http://www.ssh.org/">Main SSH website</a> 
             </ul>
           </td>
         </tr>
@@ -142,7 +104,7 @@
         </tr>
         <tr> 
           <td> <font size=+1><b>Geeky server details</b></font><br>
-            We have a <a href="hardware.html">hardware page</a> describing current and past
+            We have a <a href="hardware.shtml">hardware page</a> describing current and past
             bioperl server setups.
             <p> 
           </td>
@@ -159,37 +121,21 @@
         <tr> 
           <td> <font face="Arial, Helvetica, sans-serif" size=+1> <a href="/">&lt;&lt;back</a> 
             </font> </td>
-        </tr>
-        <!spacer > 
-        <TR>
-          <TD><IMG SRC="../images/transparent.gif" WIDTH=230 HEIGHT=1></TD>
-        </TR>
-      </TABLE>
-</TD>
+
+<!-- END YOUR CONTENT BEFORE THIS LINE -->
 
 
-<! end first main column>
+    <!--#include virtual="/_main_content_table_end.html" -->
+    <!--#include virtual="/_main_content_end.html" -->
+    <!--#include virtual="/_main_table_end.html" -->
 
+    <! ### START CVS DATESTAMP >
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-03-31 19:04:30 $</P>
+    <! ### STOP CVS DATESTAMP >
 
-<! vertical spacer bar>
-<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="../images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+    <! ### START CVS REVISION >
+    <!-- $Id: index.shtml,v 1.1 2000-03-31 19:04:30 dag Exp $ -->
+    <! ### STOP CVS REVISION >
 
-</TR>
-
-</TABLE>
-
-
-
-</font>
-<! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date$</p>
-<! ### STOP CVS DATESTAMP >
-
-<! ### START CVS REVISION >
-<!-- $Id$ -->
-<! ### STOP CVS REVISION >
-
-</BODY></HTML>
-
-
-
+    <!--#include virtual="/_body_end.html" -->
+</HTML>
