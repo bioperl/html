@@ -31,7 +31,7 @@ Current Bioperl Release
 <font face="Arial, Helvetica, sans-serif">
 
 <b>
-<font size=+2>Latest Distribution: <i>bioperl-0.06.0</i>
+<font size=+2>Latest Distribution: <i>bioperl-06.0</i>
 </font>
 <br>
 2 April 2000
@@ -43,10 +43,10 @@ Current Bioperl Release
 <li>
 <!-- Make sure you update top level Index "Download Stable" section when you update these lines!!! -->
 
-<a href="bioperl-0.06.0.tar.gz">http://bio.perl.org/Core/Latest/bioperl-0.06.0.tar.gz</a>
+<a href="bioperl-06.0.tar.gz">http://bio.perl.org/Core/Latest/bioperl-06.0.tar.gz</a>
 
 <li>
-<a href="bioperl-0.06.0.zip">http://bio.perl.org/Core/Latest/bioperl-0.06.0.zip</a>
+<a href="bioperl-06.0.zip">http://bio.perl.org/Core/Latest/bioperl-06.0.zip</a>
 </ul>
 
 <p>
@@ -54,10 +54,10 @@ Current Bioperl Release
 <b>FTP:</b>
 <ul>
 <li>
-<a href="ftp://bio.perl.org/pub/DIST/bioperl-0.06.0.tar.gz">ftp://bio.perl.org/pub/DIST/bioperl-0.06.0.tar.gz</a>
+<a href="ftp://bio.perl.org/pub/DIST/bioperl-06.0.tar.gz">ftp://bio.perl.org/pub/DIST/bioperl-06.0.tar.gz</a>
 
 <li><a
-href="ftp://bio.perl.org/pub/DIST/bioperl-0.06.0.zip">ftp://bio.perl.org/pub/DIST/bioperl-0.06.0.zip</a> 
+href="ftp://bio.perl.org/pub/DIST/bioperl-06.0.zip">ftp://bio.perl.org/pub/DIST/bioperl-06.0.zip</a> 
 </ul>
 
 <p>
@@ -76,11 +76,11 @@ href="ftp://bio.perl.org/pub/DIST/bioperl-0.06.0.zip">ftp://bio.perl.org/pub/DIS
 
 Bioperl is a collection of "standard" CPAN type modules so 
 installation should be fairly easy and straightforward. 
-Grab <b>either</b> the bioperl-0.06.0.tar.gz file <b>or</b>
-the bioperl-0.06.0.zip file from this site via the HTTP or FTP links above. 
+Grab <b>either</b> the bioperl-06.0.tar.gz file <b>or</b>
+the bioperl-06.0.zip file from this site via the HTTP or FTP links above. 
 
 <p>
-The latest distribution, bioperl-0.06.0 should still be considered a
+The latest distribution, bioperl-06.0 should still be considered a
 for-unix-only alpha release. We use the package for real work at our sites,
 but if you are considering using bioperl in production work, we would
 recommend both heavily testing the package on your site and posting a
@@ -158,11 +158,11 @@ View the distribution files directly:
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-01 19:14:55 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-01 19:19:10 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.1 2000-04-01 19:14:55 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.2 2000-04-01 19:19:10 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
