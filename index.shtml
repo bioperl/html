@@ -83,7 +83,7 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[April 2000]</font></p>
 	  <p>
 	  <ul>
-	  <li>Bioperl 06.0 Released!<p>
+	  <li>Bioperl 0.6 Released!<p>
 	  <li>Expect to hear an official announcement sometime soon
  regarding the Bioinformatics Open Source Conference (BOSC-2000). This
 is our followup meeting to the bioperl-99 event. BOSC-2000 will expand
@@ -235,7 +235,6 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 <ul>
 <li><a href="/Core/Latest/modules.html">Registered module list & documentation</a>
 <li><a href="/Projects/overview.html">Bioperl design philosophy and project(s) overview</a>
-<li><a href="/Core/status.html">Current Coding/Development Status</a>
 <li>All of our source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
 </ul>
 <p>
@@ -247,13 +246,13 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (06.0)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (0.6)</a></B></font> 
           </TD>
 </TR>
 
 <tr>
           <td> Each official release passes our internal tests. We are committed 
-            to promptly fixing any bugs in the 06.0 release and making patched 
+            to promptly fixing any bugs in the 0.6 release and making patched 
             releases available. Bioperl releases are also mirrored by the Comprehensive 
             Perl Archive Network (CPAN). CPAN links and info can be found at <a href="http://www.perl.com"> 
             www.perl.com</a>. 
@@ -353,11 +352,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-04-02 15:47:04 $</p>
+<p><p align=right>Last Modified: $Date: 2000-04-02 22:49:32 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.5 2000-04-02 15:47:04 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.6 2000-04-02 22:49:32 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
