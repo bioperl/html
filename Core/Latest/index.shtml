@@ -46,7 +46,7 @@ Current Bioperl Release
 <a href="bioperl-0.6.1.tar.gz">http://bio.perl.org/Core/Latest/bioperl-0.6.1.tar.gz</a>
 
 <li>
-<a href="bioperl-0.6.1.zip">http://bio.perl.org/Core/Latest/bioperl_0.6.1.zip</a>
+<a href="bioperl-0.6.1.zip">http://bio.perl.org/Core/Latest/bioperl-0.6.1.zip</a>
 </ul>
 
 <p>
@@ -154,11 +154,11 @@ View the distribution files directly:
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-19 16:56:08 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-19 16:57:36 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.9 2000-05-19 16:56:08 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.10 2000-05-19 16:57:36 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
