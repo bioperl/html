@@ -69,7 +69,7 @@
 <br>
 <b><center>Where we are. What we have. Where we are going.</center></b>
 
-<p>The bioperl sequence object has been integrated into a general framework developed by Steve Chervitz. The current framework is organized as follows:
+<p>The bioperl sequence object has been integrated into a general framework developed by Steve Chervitz. The current framework has since expanded and is organized as follows:
 
 <table border=0>
 <tr>
@@ -94,6 +94,8 @@
  <a href="POD/Tools/Fasta.html">Fasta.pm</a>
  <a href="POD/Tools/SeqAnal.html">SeqAnal.pm</a>
  <a href="POD/Tools/WWW.html">WWW.pm</a>
+ <a href="POD/Tools/pSW.html">pSW.pm</a>
+ <a href="POD/Tools/AlignFactory.html">AlignFactory.pm</a>
 <b>Bio::Tools::Blast/</b>
  <a href="POD/Tools/Blast/HSP.html">HSP.pm</a>
  <a href="POD/Tools/Blast/HTML.html">HTML.pm</a>
@@ -102,6 +104,9 @@
  <a href="POD/Tools/Blast/Run/LocalBlast.html">LocalBlast.pm</a>   
  <a href="POD/Tools/Blast/Run/Webblast.html">Webblast.pm</a>
  postclient.pl
+<b>Bio::Compile/</b>
+<b>Bio::Compile::SW/</b>
+  (<em>C code for various XS extensions</em>)
 </pre>
 <p>
 </td>
@@ -121,7 +126,7 @@ General housekeeping efforts related to moving our code to a common source repos
 <ul>
 <li>SimpleAlign.pm testing
 <li> Histogram package from Sean Eddy as an XS extension
-<li> SmithWaterman as an XS extension
+<li> SmithWaterman as an XS extension (<a href="POD/Tools/pSW.html">Bio::Tools::pSW</a>)
 <li> ReadSeq format interconverter as an XS extension
 </ul>
 <p>
