@@ -85,6 +85,8 @@ Bioperl is now running smoothly from a central source code
 repository. The 0.04* release is out and is only being bug-fixed
 while people add features and work on code for the eventual 0.05 release.
 <p>
+We are busy preparing for the first <a href="/bioperl-99">Bioperl Workshop</a> which will be held right before ISMB-99 in Heidelberg Germany.
+<p>
 <b>Code status & Committments</b><br> 
 <b>PreSeq.pm</b> has been
 replaced by <b>Seq.pm</b> and will become our general flexible and
@@ -99,8 +101,8 @@ If you are <b>really</b> curious about how these projects are going, join the <a
 <ul>
 <li><b>Bio::Tools::Fasta</b> - Similar to our robust support for launching and manipulating BLAST search results, we hope to do the same with Fasta.
 <li><b>Bio::DB::Genbank</b> - Given an accession number, fetches sequence from NCBI website and returns a bioperl sequence object. Genbank is the first of many databases we hope to make our objects 'aware' of in this way. Aaron Mackey is working on this.
-<li><b>Bio::SeqIO</b> - new stream based methods for reading and writing to/from sequence database files
-<li><b>Bio::Tools::Sigcleave</b> - perl emulator of the EGCG Sigcleave utility. Maintained by Chris Dagdigian.
+<li><b>Bio::SeqIO</b> - new stream based methods for reading and writing to/from sequence database files. Lots of code coming in-- so far we have <b>SeqIO::Genbank</b>, <b>SeqIO::EMBL</b>, <b>SeqIO::Fasta</b>, <b>SeqIO::Raw</b>, <b>SeqIO::GCG</b> and more on the way.
+<li><b>Bio::Tools::Sigcleave</b> - perl emulator of the EGCG Sigcleave utility. Chris Dagdigian is working on this.
 <li><b>Bio::SeqFeature</b> and <b>Bio::Entry</b> - The Bio::Entry is
 the 'heavy weight' sequence object which is more like a representation
 of a Genbank or EMBL flat file complete with feature table. Ian Korf
@@ -111,8 +113,7 @@ heirarchy). More info in the <a href="/Projects/">/Projects/ section</a>.
  <li><b>Bio::SearchDist</b> - A perl wrapper for Sean
 Eddy's Extreme Value and Gaussian fitting code (already provided in
 the bp_sw XS extension). Ewan Birney is working on this.
-<li><b>Bio::Tools::dAlign</b> - DNA alignments like pSW provided in a
-perl wrapper. Ewan Birney is working on this.
+
 </ul>
 Steve Chervits, the bioperl coordinator is maintaining and improving
 the <b>Bio::Tools::Blast</b> and <b>Bio::Root</b> code.
