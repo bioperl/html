@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+
+    <!--#include virtual="/_header_start.html" -->
+
+
+<TITLE> bioperl.org - Latest Distribution </TITLE>
+
+    <!--#include virtual="/_header_end.html" -->
+    <!--#include virtual="/_body_start.html" -->
+    <!--#include virtual="/_main_heading.html" -->
+
+    <!--#include virtual="/_main_table_start.html" -->
+    <!--#include virtual="/_sidebar.html" -->
+    <!--#include virtual="/_small_margin_col.html" -->
+    <!--#include virtual="/_main_content_start.html" -->
+    <!--#include virtual="/_main_content_table_start.html" -->
+
+<B><font face="Arial, Helvetica, sans-serif" color="#000080">
+Current Bioperl Release
+</font></B><BR>
+</TD>
+</TR>
+<TD> 
+<!-- INSERT YOUR  CONTENT HERE -->
+
+<TR>
+<TD>
+<p>
+<br>
+<font face="Arial, Helvetica, sans-serif">
+
+<b>
+<font size=+2>Latest Distribution: <i>bioperl-0.06.0</i>
+</font>
+<br>
+2 April 2000
+</b>
+
+<p>
+<b>HTTP:</b>
+<ul>
+<li>
+<!-- Make sure you update top level Index "Download Stable" section when you update these lines!!! -->
+
+<a href="bioperl-0.06.0.tar.gz">http://bio.perl.org/Core/Latest/bioperl-0.06.0.tar.gz</a>
+
+<li>
+<a href="bioperl-0.06.0.zip">http://bio.perl.org/Core/Latest/bioperl-0.06.0.zip</a>
+</ul>
+
+<p>
+
+<b>FTP:</b>
+<ul>
+<li>
+<a href="ftp://bio.perl.org/pub/DIST/bioperl-0.06.0.tar.gz">ftp://bio.perl.org/pub/DIST/bioperl-0.06.0.tar.gz</a>
+
+<li><a
+href="ftp://bio.perl.org/pub/DIST/bioperl-0.06.0.zip">ftp://bio.perl.org/pub/DIST/bioperl-0.06.0.zip</a> 
+</ul>
+
+<p>
+
+<b>MIRRORS: </b>
+<ul>
+<li><a href="http://genome-www.stanford.edu/perlOOP/bioperl/dist/">Stanford</a>
+<li><a href="http://iubio.bio.indiana.edu/soft/molbio/perl/bioperl/">iubio.bio.indiana.edu</a> - Updates on a 20 day cycle so may not always be current.
+</ul>
+<p>
+
+<table border=0>
+<tr>
+<td>
+<font face="Arial, Helvetica, sans-serif">
+
+Bioperl is a collection of "standard" CPAN type modules so 
+installation should be fairly easy and straightforward. 
+Grab <b>either</b> the bioperl-0.06.0.tar.gz file <b>or</b>
+the bioperl-0.06.0.zip file from this site via the HTTP or FTP links above. 
+
+<p>
+The latest distribution, bioperl-0.06.0 should still be considered a
+for-unix-only alpha release. We use the package for real work at our sites,
+but if you are considering using bioperl in production work, we would
+recommend both heavily testing the package on your site and posting a
+mail to discussion list to hear whether anyone else has had problems 
+with the functionality you want to use.<p>
+We are particularly interested in hearing
+about how the installation process works on different platforms and
+operating systems. General comments, suggestions and installation war
+stories should be sent to the developers email-list 
+<a href="mailto:vsns-bcd-perl-guts@lists.uni-bielefeld.de">
+vsns-bcd-perl-guts@lists.uni-bielefeld.de</a>. Bug reports should be
+submitted via our web-based reporting system at 
+<a href="http://bio.perl.org/bioperl-bugs/">
+http://bio.perl.org/bioperl-bugs/</a>
+or by sending email to
+<a href="mailto:bioperl-bugs@bio.perl.org">bioperl-bugs@bio.perl.org</a>.
+
+
+<p>
+After obtaining the distribution file, unpack it and read 
+the installation instructions in <a href="README">README</a> file.
+
+<p>
+The distribution comes with its own internal documentation in the perl
+documentation format (pod). This documentation is has been translated
+into HTML links available below. The best starting point for people
+learning about bioperl is the <a href="bioperl.html">bioperl.pod</a>
+documentation, followed by the <a
+href="/Core/POD/Seq.html">Bio::Seq.pm</a>
+documentation.
+
+                  <p> In addition to embedded POD-format documentation, there 
+                    is also an <a href="/Core/Examples/">examples/ 
+                    directory</a> . 
+                  <p>
+View the distribution files directly:
+<p>
+                  <pre>
+<a href="bioperl.html">bioperl.pod</a>
+<a href="bioback.html">bioback.pod</a>
+<a href="MANIFEST">MANIFEST</a>
+<a href="Makefile.PL">Makefile.PL</a>
+<a href="README">README</a>
+<a href="Changes">Changes</a>
+<a href="/Core/POD/Tools/Blast/CHANGES">Changes (Blast module)</a>
+<a href="PLATFORMS">PLATFORMS</a>
+<p>
+</pre>
+<p>
+
+<a href="/Core/modules.html">View Module Documentation</a>
+
+<p>
+</font></td>
+<td align=middle valign=middle>
+</td>
+</tr>
+</table>
+
+
+<p>
+<font face="Arial, Helvetica, sans-serif" size=+1>
+<a href="/">&lt;&lt;back</a>
+</font>
+
+</font></TD>
+</TR>
+
+
+<!-- END YOUR CONTENT BEFORE THIS LINE -->
+
+
+    <!--#include virtual="/_main_content_table_end.html" -->
+    <!--#include virtual="/_main_content_end.html" -->
+    <!--#include virtual="/_main_table_end.html" -->
+
+    <! ### START CVS DATESTAMP >
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-01 19:14:55 $</P>
+    <! ### STOP CVS DATESTAMP >
+
+    <! ### START CVS REVISION >
+    <!-- $Id: index.shtml,v 1.1 2000-04-01 19:14:55 dag Exp $ -->
+    <! ### STOP CVS REVISION >
+
+    <!--#include virtual="/_body_end.html" -->
+</HTML>
