@@ -22,7 +22,7 @@
 
 <center>
 <h2>
-<a href="http://bio.perl.org/">bio.perl.org</a>
+<a href="http://bioperl.org/">bioperl.org</a>
 </h2>
 </center>
 
@@ -111,8 +111,11 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
 <TD ALIGN=LEFT VALIGN=TOP>
-Meet the people using perl for real world applications and learn about their research interests and
-current projects.
+Meet the people using perl for real world applications and learn about their research interests and current projects.
+<p>
+<em>Seriously out of date! Volunteers interested in 'adopting' this section of our website should contact the bioperl-guts mailing list</em>
+<p>
+We have a new <a href="http://bioperl.org/wiki/html/BioPerl/BioperlPeople.html">BioPerl People</a> Wiki page. Feel free to add your own entry.
 <p>
 <font face="Arial, Helvetica, sans-serif" >
 <a href="/Participants/"><b>More...</b></a>
@@ -359,11 +362,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-12-03 22:43:18 $</p>
+<p><p align=right>Last Modified: $Date: 2000-12-03 22:50:26 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.16 2000-12-03 22:43:18 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.17 2000-12-03 22:50:26 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
