@@ -698,7 +698,7 @@ similarity and data visualization among others
 <! ##### BEGIN PERSON #### >
 <tr>
 <td valign="top" ><font face="Arial, Helvetica, sans-serif" size=-1><b>Name</b></td>
-<td>Jason Stajich, <a href="mailto:jason@@bioperl.org">jason at bioperl.org</a><br>
+<td><a name="jasons">Jason Stajich</a>, <a href="mailto:jason@@bioperl.org">jason at bioperl.org</a><br>
 </tr>
 
 <tr>
@@ -719,7 +719,7 @@ similarity and data visualization among others
 
 <tr>
 <td valign="top"><font face="Arial, Helvetica, sans-serif"
-size=-1><b>Research/work interests</b></td> Comparative genomics and
+size=-1><b>Research/work interests</b></td><td> Comparative genomics and
 evolutionary genetics.
 <td>
 </td>
@@ -803,11 +803,11 @@ biologists
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-10 15:43:08 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-10 15:51:28 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.5 2002-03-10 15:43:08 jason Exp $ -->
+    <!-- $Id: index.shtml,v 1.6 2002-03-10 15:51:28 jason Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
