@@ -31,7 +31,7 @@ Current Bioperl Release
 <font face="Arial, Helvetica, sans-serif">
 
 <b>
-<font size=+2>Latest Distribution: <i>bioperl-0.6</i>
+<font size=+2>Latest Distribution: <i>bioperl-0.6.1</i>
 </font>
 <br>
 2 April 2000
@@ -43,10 +43,10 @@ Current Bioperl Release
 <li>
 <!-- Make sure you update top level Index "Download Stable" section when you update these lines!!! -->
 
-<a href="bioperl-0.6.tar.gz">http://bio.perl.org/Core/Latest/bioperl-0.6.tar.gz</a>
+<a href="bioperl-0.6.1.tar.gz">http://bio.perl.org/Core/Latest/bioperl-0.6.1.tar.gz</a>
 
 <li>
-<a href="bioperl_06.zip">http://bio.perl.org/Core/Latest/bioperl_06.zip</a>
+<a href="bioperl-0.6.1.zip">http://bio.perl.org/Core/Latest/bioperl_0.6.1.zip</a>
 </ul>
 
 <p>
@@ -54,10 +54,10 @@ Current Bioperl Release
 <b>FTP:</b>
 <ul>
 <li>
-<a href="ftp://bio.perl.org/pub/DIST/bioperl-0.6.tar.gz">ftp://bio.perl.org/pub/DIST/bioperl-0.6.tar.gz</a>
+<a href="ftp://bio.perl.org/pub/DIST/bioperl-0.6.1.tar.gz">ftp://bio.perl.org/pub/DIST/bioperl-0.6.1.tar.gz</a>
 
 <li><a
-href="ftp://bio.perl.org/pub/DIST/bioperl_06.zip">ftp://bio.perl.org/pub/DIST/bioperl_06.zip</a> 
+href="ftp://bio.perl.org/pub/DIST/bioperl-0.6.1.zip">ftp://bio.perl.org/pub/DIST/bioperl-06.1.zip</a> 
 </ul>
 
 <p>
@@ -154,11 +154,11 @@ View the distribution files directly:
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-04-02 22:35:00 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-19 16:55:15 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.7 2000-04-02 22:35:00 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.8 2000-05-19 16:55:15 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
