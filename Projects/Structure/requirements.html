@@ -52,7 +52,9 @@ The requirements seem to fit into 6 main categories:
 <li>Atomic Coordinates
 </a>
 </h3>
+
 <ol type="1">
+
 <li>Parse and output different structure file formats, at a
   minimum PDB but could include mmCIF, CML/XML, and other formats.
 <li>Be able to obtain different representations the structural coordinates.
@@ -75,14 +77,13 @@ the structure and region of the structure the model is based on.
 
 <!--     Structural Feature Requirements     -->
 
-<ol type="I">
 <h3>
 <a name="features">
 <li>Structural Features
 </a>
 </h3>
+
 <ol type="1">
-<li>
 
 <li>Provide methods for querying structure for statistics regarding
   atoms, hetatoms, connectivity, secondary structural elements,
@@ -93,20 +94,23 @@ the structure and region of the structure the model is based on.
   number, atom name, chain name, residue name, residue number, occupancy, B-factor).
   For example, given an atom, determine what residue and what molecule
   (chain) it is in.
-<li> Obtain information regarding what domains a given structure
-  contains.
+<li> Obtain information regarding what domains and other structurally
+  or biologically relevant information such as the locations of active sites,
+  metal binding site, covalently modified residues, etc.
+<li>Need a flexible mechanism for specifying locations of features.
 
 </ol>
 
 <!--     Analyzing Structures -->
 
-<ol type="I">
 <h3>
 <a name="anal">
 <li>Analyzing Structures
 </a>
 </h3>
+
 <ol type="1">
+
 <li>Display/select acidic, basic, polar and non-polar amino acids,
 hydrogen  bonds
 <li>Charge molecule and compute energy, hydrogen bonds, salt bridges.
@@ -119,28 +123,30 @@ alignment between structures or structural sub-regions.
 
 <!--     Editing Structures -->
 
-<ol type="I">
 <h3>
 <a name="edit">
 <li>Editing Structures
 </a>
 </h3>
+
 <ol type="1">
+
 <li>Add/remove/change residues, hydrogens, and water molecules.
 <li>Energy minimize an altered structure.
+
 </ol>
 
 
 <!--     Sequence Information Requirements     -->
 
-<ol type="I">
 <h3>
 <a name="seq">
 <li>Sequence Information
 </a>
 </h3>
+
 <ol type="1">
-<li>
+
 <li> Obtain a representation of the structure as sequence or
   a set of sequences (strings as well as specialized objects).
 <li> Get sequence from the actual set of residues in the atomic
@@ -157,19 +163,22 @@ representation).
 
 <!--     Database Information Requirements     -->
 
-<ol type="I">
 <h3>
 <a name="db">
 <li>Database Information
 </a>
 </h3>
+
 <ol type="1">
-<li>
+
 <li> Build a structure object given a valid structural database identifier.
 <li> Obtain information about the structure given a valid structural
-  database identifier. 
+  database identifier (molecule name, source organism, deposition
+  date, etc.). 
 <li> Get URLs for web-based information about the structure.
 
+
+</ol>
 
 </ol>
 
