@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+
+    <!--#include virtual="/_header_start.html" -->
+
+
+<TITLE> bioperl.org - Contributors </TITLE>
+
+    <!--#include virtual="/_header_end.html" -->
+    <!--#include virtual="/_body_start.html" -->
+    <!--#include virtual="/_main_heading.html" -->
+
+    <!--#include virtual="/_main_table_start.html" -->
+    <!--#include virtual="/_sidebar.html" -->
+    <!--#include virtual="/_small_margin_col.html" -->
+    <!--#include virtual="/_main_content_start.html" -->
+    <!--#include virtual="/_main_content_table_start.html" -->
+
+<B><font face="Arial, Helvetica, sans-serif" color="#000080">
+Contributors & Sponsors
+</font></B><BR>
+</TD>
+</TR>
+<TD> 
+<!-- INSERT YOUR  CONTENT HERE -->
+
+<TR>
+<TD>
+<p>
+Our group owes its early organizational support to its association with the <a href="http://www.techfak.uni-bielefeld.de/bcd/Transfer97/award.html">award-winning</a> VSNS-BCD <a href="http://www.techfak.uni-bielefeld.de/bcd/welcome.html">BioComputing
+Courses</a>; some students of the 1996 course (Chris Dagdigian, Richard Resnick, Lew Gramer, Alessandro Guffanti, and others) have contributed code and commentary. Georg Fuellen, the VSNS-BCD chief organizer is one of the driving forces behind bioperl.
+<p>
+Uni-bielefeld provides us with our <a href="MailList.html">Mailing lists</a>
+<p>
+Jon Orwant at <a href="http://www.tpj.com">The Perl Journal</a> gave us permission to reprint
+<a href="GetStarted/tpj_ls_bio.html">Lincoln Stein's article</a>. He also worked with the <a href="http://www.perl.org">Perl Institute</a> to arrange our perl.org DNS entry. 
+<p>
+The initial server hardware for bio.perl.org was donated by <a href="http://www.genetics.com">Genetics Institute</a> with hosting and internet connectivity (ISDN) provided by <a href="http://www.sonsorol.org">Chris Dagdigian</a>.
+<p>
+In July of 1999, bio.perl.org was migrated onto a 600Mhz Alpha system donated
+by <a href="http://www.compaq.com">Compaq Computer Corporation</a>. Server hosting facilities and internet connectivity are now provided by <a href="http://www.genetics.com">Genetics Institute</a>.
+
+<p>
+We would like to thank Nat Goodman, the Compaq High Performance Technical Computing group and the Compaq Bioinformatics Solutions Center for making the hardware donation possible. 
+<p>
+<font face="Arial, Helvetica, sans-serif" size=+1>
+<a href="/">&lt;&lt;back</a>
+</font>
+<p>
+</font>
+</TD>
+</TR>
+
+
+<!-- END YOUR CONTENT BEFORE THIS LINE -->
+
+
+    <!--#include virtual="/_main_content_table_end.html" -->
+    <!--#include virtual="/_main_content_end.html" -->
+    <!--#include virtual="/_main_table_end.html" -->
+
+    <! ### START CVS DATESTAMP >
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-03-31 19:22:18 $</P>
+    <! ### STOP CVS DATESTAMP >
+
+    <! ### START CVS REVISION >
+    <!-- $Id: Thanks.shtml,v 1.1 2000-03-31 19:22:18 dag Exp $ -->
+    <! ### STOP CVS REVISION >
+
+    <!--#include virtual="/_body_end.html" -->
+</HTML>
