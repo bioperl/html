@@ -21,10 +21,8 @@
 <TR>
 <TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
 <!########################## SIDEBAR CONTENTS>
-<font face="Arial, Helvetica, sans-serif">
+<font face="Arial, Helvetica, sans-serif" size=-1>
 <a href="/">Home</a>
-<p>
-<a href="/Projects/">Projects</a>
 <p>
 <a href="ftp://bio.perl.org/pub/">FTP Site</a>
 <p>
@@ -54,102 +52,118 @@
 
 
 <! main column #1>
-<TABLE BORDER=0 CELLPADDING=3>
-
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
-<B>
-<font face="Arial, Helvetica, sans-serif" color="#000080">bio.perl.org user info</font></B>
-<BR>
-</TD>
-</TR>
-
-<TR>
-<TD>
-<font size=+1><b>User accounts</b></font><br>
-We have no clear policy right now on issuing user accounts to people. I would
-guess that users would fall into the following categories:
-<ul>
-<li>Active bioperl core module developers
-<li>Bioperl members who expect to be adding bug
-fixes or new code to the source tree via the CVS repository
-<li>Bioperl or "unofficial" members who have standalone bio-related
-perl code that they wish to place under CVS or on our anon-FTP server
-</ul>
-<p>
-I will be attempting to create an "anonymous" way for people to checkout the
-source code via CVS. This system will allow anyone to access our code but
-will not allow checkin, merge or commit actions.
-<p>
-People requesting accounts should email <a href="mailto:dag@sonsorol.org">dag@sonsorol.org</a>
-<p>
-</TD>
-</TR>
-
-<tr>
-<td>
-<font size=+1><b>Working with CVS</b></font>
-<p>
-To use the CVS system remotely you must have
-<ul>
-<li> An account on bio.perl.org
-<li> secure shell (ssh) on your local machine
-<li> cvs on your local machine
-<li> a local environment variable 'CVS_RSH' set to ssh
-</ul>
-<p>
-Useful links
-<ul>
-<li><a href="CVShelp.html">Bioperl CVS getting started</a>
-<li><a href="CVSdoc/cvs.html">Local CVS documentation</a>
-<li><a href="http://www.tac.nyc.ny.us/~kim/ssh/">Getting started with SSH</a>
-<li><a href="http://www.cs.hut.fi/ssh/">SSH Homepage</a>
-</ul>
-
-</td>
-</tr>
-
-<tr>
-<td>
-<font size=+1><b>System integrity disclaimer :)</b></font><br>
-Our system is running Linux on a donated i486 system. Methods for
-mirroring and backup of data will be haphazzard at best for a while.
-Please do not leave critical or unique data on this machine...keep copies
-of all your code locally. <b>You have been warned</b>. 
-<p>
-There is a chance early next year that we can move onto some new pentium or SGI
-hardware. This will have mirrored disks and a dedicated backup device.
-<p>
-<font size=+1><b>Network integrity disclaimer :)</b></font><br>
-<b>bio.perl.org</b> is sitting on my home network which is connected
-to the net via ISDN. Bandwith is dynamic from 56-112k according
-to demand. Electrical problems and the whims of the telephone
-company both contribute to my network dropping off the
-internet every once in a while. Sometimes these problems fix themselves
-and sometimes things have to wait until I get home from work :)
-<p>
-I am slowly working through the process of getting approval to host
-this machine at my company. Sticking a machine on the corporate network
-yet having it isolated outside the firewall is proving a hard concept
-to explain to management types. More info when I have it.
-<p>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<font face="Arial, Helvetica, sans-serif" size=+1>
-<a href="/">&lt;&lt;back</a>
-</font>
-</td>
-</tr>
-
-
-<!spacer >
-<TR><TD><IMG SRC="../images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
-
-</TABLE>
+      <TABLE BORDER=0 CELLPADDING=3>
+        <TR> 
+          <TD ALIGN=LEFT BGCOLOR="#dadada"> <B> <font face="Arial, Helvetica, sans-serif" color="#000080">bio.perl.org 
+            user info</font></B> <BR>
+          </TD>
+        </TR>
+        <TR> 
+          <TD> <font size=+1><b>User accounts</b></font><br>
+            We have no clear policy right now on issuing user accounts to people. 
+            I would guess that users would fall into the following categories: 
+            <ul>
+              <li>Active bioperl core module developers 
+              <li>Bioperl members who expect to be adding bug fixes or new code 
+                to the source tree via the CVS repository 
+              <li>Bioperl or "unofficial" members who have standalone bio-related 
+                perl code that they wish to place under CVS or on our anon-FTP 
+                server 
+            </ul>
+            <p> I will be attempting to create an "anonymous" way for people to 
+              checkout the source code via CVS. This system will allow anyone 
+              to access our code but will not allow checkin, merge or commit actions. 
+            <p> People requesting accounts should email <a href="mailto:dag@sonsorol.org">dag@sonsorol.org</a> 
+            <p> 
+          </TD>
+        </TR>
+        <tr> 
+          <td> <font size=+1><b>Working with CVS</b></font> 
+            <p> To use the CVS system remotely you must have 
+            <ul>
+              <li> An account on bio.perl.org 
+              <li> secure shell (ssh) on your local machine 
+              <li> cvs on your local machine 
+              <li> a local environment variable 'CVS_RSH' set to ssh 
+            </ul>
+            <p> Useful links 
+            <ul>
+              <li><a href="CVShelp.html">Bioperl CVS getting started</a> 
+              <li><a href="CVSdoc/cvs.html">Local CVS documentation</a> 
+              <li><a href="http://www.tac.nyc.ny.us/~kim/ssh/">Getting started 
+                with SSH</a> 
+              <li><a href="http://www.cs.hut.fi/ssh/">SSH Homepage</a> 
+            </ul>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <p><font size=+1><b>Working on the bioperl website</b></font></p>
+            <p>We have a development version of our website running on port 81 
+              of the bioperl machine. The URL for the development site is simply 
+              <a href="http://bio.perl.org:81">http://bio.perl.org:81/ </a></p>
+            <p>The root html directory for the development website is <b>/home/dev_http/html/ 
+              </b>this directory should be writable by any user who is part of 
+              the bioperl system group. These HTML files and directories are under 
+              CVS version control. The format for making changes to the project 
+              website should be as follows:</p>
+            <ul>
+              <li>Create/add your changes in the development area</li>
+              <li>View and 'proof' them via a web browser (don't forget the different 
+                port number!)</li>
+              <li>Use CVS commands to commit your changes to the html CVS repository</li>
+              <li>Manually copy the changed/new html files over to the production 
+                website area </li>
+            </ul>
+				
+            <p> The main production website is NOT under CVS control and has its 
+              document root located at<b> /home/httpd/html/ . </b>This is the 
+              area where newly 'committed' web pages should be copied. 
+            <p>
+            <p>Be aware that only portions of the overall website are under version 
+              control, notable exceptions are the image/ directories and any area 
+              on the website where the contents are updated by perl or cron jobs 
+              (the POD/ areas etc. etc.) What this means is that a '<font face="Courier New, Courier, mono">cvs 
+              export -D now html</font>' or a '<font face="Courier New, Courier, mono">cvs 
+              checkout html</font>' command will not retrieve the entire bioperl 
+              website.</p>
+            <p>&nbsp; </p>
+          </td>
+        </tr>
+        <tr> 
+          <td> <font size=+1><b>System integrity disclaimer :)</b></font><br>
+            <a href="/UserInfo/hardware.html">Our system</a> is running Linux 
+            on a donated i486 system. Methods for mirroring and backup of data 
+            will be haphazzard at best for a while. Please do not leave critical 
+            or unique data on this machine...keep copies of all your code locally. 
+            <b>You have been warned</b>. 
+            <p> There is a chance early next year that we can move onto some new 
+              pentium or SGI hardware. This will have mirrored disks and a dedicated 
+              backup device. 
+            <p> <font size=+1><b>Network integrity disclaimer :)</b></font><br>
+              <b>bio.perl.org</b> is sitting on my home network which is connected 
+              to the net via ISDN. Bandwith is dynamic from 56-112k according 
+              to demand. Electrical problems and the whims of the telephone company 
+              both contribute to my network dropping off the internet every once 
+              in a while. Sometimes these problems fix themselves and sometimes 
+              things have to wait until I get home from work :) 
+            <p> I am slowly working through the process of getting approval to 
+              host this machine at my company. Sticking a machine on the corporate 
+              network yet having it isolated outside the firewall is proving a 
+              hard concept to explain to management types. More info when I have 
+              it. 
+            <p> 
+          </td>
+        </tr>
+        <tr> 
+          <td> <font face="Arial, Helvetica, sans-serif" size=+1> <a href="/">&lt;&lt;back</a> 
+            </font> </td>
+        </tr>
+        <!spacer > 
+        <TR>
+          <TD><IMG SRC="../images/transparent.gif" WIDTH=230 HEIGHT=1></TD>
+        </TR>
+      </TABLE>
 </TD>
 
 
@@ -158,14 +172,23 @@ to explain to management types. More info when I have it.
 
 <! vertical spacer bar>
 <TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="../images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
-</TD>
+
 </TR>
 
 </TABLE>
 
 
-</BODY>
-</HTML>
+
+</font>
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date$</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
+
+</BODY></HTML>
 
 
 
