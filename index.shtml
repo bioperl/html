@@ -83,13 +83,13 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[April 2000]</font></p>
 	  <p>
 	  <ul>
-	  <li>More info on optional <a href="/Core/external.shtml">bioperl extentions and dependencies</a> added to the website<p>
-	  <li>Bioperl 0.6 Released!<p>
-	  <li>Expect to hear an official announcement sometime soon
- regarding the Bioinformatics Open Source Conference (BOSC-2000). This
+	  <li><a href="http://ismb00.sdsc.edu/bosc2000/">Bioinformatics Open Source Conference (BOSC-2000)</a> has been <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/0004/0022.html">officially announced</a>. This
 is our followup meeting to the bioperl-99 event. BOSC-2000 will expand
 in scope to cover all of the various bioperl, biopython, biojava
 and bioxml efforts.
+<p>
+	  <li>More info on optional <a href="/Core/external.shtml">bioperl extentions and dependencies</a> added to the website<p>
+	  <li>Bioperl 0.6 Released!<p>
 	  </ul>
 	  <p>
 <font face="Arial, Helvetica, sans-serif" >
@@ -303,6 +303,9 @@ Getting Together</B></font>
 held in Heidelberg Germany on August 5th 1999 conjunction with
 ISMB'99. Check out some <a href="/bioperl-99/pictures.html">pictures</a>.
 <p>
+The success of the bioperl-99 gathering has lead to our involvement
+with <a href="http://ismb00.sdsc.edu/bosc2000/">BOSC'2000</a> which will be held right before <a href="http://ismb00.sdsc.edu/">ISMB'2000</a> in August.
+<p>
 Bioperl people have been traditionally spotted at the following meetings:
 <ul>
 <li><a href="http://ismb00.sdsc.edu/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
@@ -353,11 +356,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-04-17 18:53:41 $</p>
+<p><p align=right>Last Modified: $Date: 2000-04-24 17:04:46 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.7 2000-04-17 18:53:41 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.8 2000-04-24 17:04:46 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
