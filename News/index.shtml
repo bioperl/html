@@ -23,6 +23,31 @@ Project News
 </TR>
 <TD> 
 <!-- INSERT YOUR  CONTENT HERE -->
+ <p><font size=-1>[December / November 2001]</font></p>
+
+<li>Jason adds <b><a href="http://bioperl.org/pipermail/bioperl-l/2001-December/006835.html">Bio::AlignIO::emboss</a></b> to bioperl-live
+<p>
+<li>Pasteur Institute publishes an online <a href="http://www.pasteur.fr/recherche/unites/sis/formation/bioperl/">bioperl course</a>
+<p>
+<li><a href="http://bioperl.org/pipermail/bioperl-announce-l/2001-November/000184.html">bioperl-0.7.2 released</a>.
+<p>
+<li><a href="http://bioperl.org/pipermail/bioperl-announce-l/2001-November/000184.html">bioperl-db released</a>. <em>bioperl-db</em> provides code and modules for storing and retrieving biological sequence information from relational databases (current version only supports mysql).
+<p>
+<li>"Genquire" - A graphical genomic editor/browser built on top of the bioperl and bioperl-gui codebases has been released by Mark Wilkinson and David Block. The Genquire project is hosted at <a href="http://bioinformatics.org">Bioinformatics.org</a>.
+<p>
+<li>Kris Boulez commits inital <a href="http://bioperl.org/pipermail/bioperl-l/2001-November/006628.html">Bio::Structure objects</a> into bioperl-live
+<p>
+<li>Bristol-Myers Squibb <a href="http://bioperl.org/pipermail/bioperl-l/2001-November/006617.html">contributes code</a> for converting bioseq objects to and from the <a href="http://www.labbook.com/products/xmlbsml.asp">BSML</a> XML format.
+<p>
+	 <li>Have you read the latest Open Bioinformatics Foundation <a href="http://open-bio.org/pipermail/open-bioinformatics-foundation/2001-October/000001.html">newsletter</a>?
+<p>
+	  <li>Bioperl <a href="http://bioperl.org/pipermail/bioperl-l/2001-October/006379.html">class diagrams are available</a> in PDF form.
+	  <p>
+	  <li>(experimental feature) - New PDoc-style documentation for all of the bioperl codebases is online at <a href="http://doc.bioperl.org/">http://doc.bioperl.org/</a>. It looks to be far more useful than our traditional pod2html translated documentation pages. Please evaluate and send comments to the bioperl-guts-l list.
+
+</ul>
+<p>
+
 	  <p><font size=-1>[July / August / September 2001]</font></p>
 	  <p>
 	  <ul>
@@ -322,11 +347,11 @@ ANNOUNCE: PubMed Monitor (alpha)</a><br>
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2001-10-19 15:33:23 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-02-19 23:22:00 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.9 2001-10-19 15:33:23 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.10 2002-02-19 23:22:00 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
