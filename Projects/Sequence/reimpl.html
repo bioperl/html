@@ -126,12 +126,12 @@ sequence object" as an inherited type of this, which will test out our ease of i
 <li>$obj->getseq() - looks at wantarray, returns a string or an array
 <p>
 <li>$obj->length() - returns the length of the sequence.
-<li>copy() - provides a copy of this sequence, using the underlying implementation if it is allowed to
-<li>trunc($start,$end) - provides a truncation of the sequence, using the underlying implementation if it is allowed to
-<li>revcom - provides a reverse complemented version of the sequence, using the underlying implementation if
+<li>$obj->copy() - provides a copy of this sequence, using the underlying implementation if it is allowed to
+<li>$obj->trunc($start,$end) - provides a truncation of the sequence, using the underlying implementation if it is allowed to
+<li>$obj->revcom - provides a reverse complemented version of the sequence, using the underlying implementation if
 it is allowed to
 <p>
-<li>translate - will throw a fatal error, explaining carefully how to write something which uses the
+<li>$obj->translate - will throw a fatal error, explaining carefully how to write something which uses the
 new translate functions in Bio::Tools::CodonTable->universal. 
 </ul>
 <i>Notes</i>. Translate is out but with a careful warning to get
@@ -146,8 +146,7 @@ it to wrong types.
 
 <hr>
 <b>Accession number semantics</b>
-<a name="accession></a>
-
+<a name="accession"></a>
 If accession matches ([\w\d]+)\.(\d+) it is a primary key to a database, (the database being undefinied by
 the sequene object, but presumably however the user got the accession number would fill in this slot somehow).
 The information before the . is the biologically stable version. The number after is the precise version. The
@@ -172,6 +171,8 @@ the number of the byte offset of the sequence in that stream.
 
 
 <hr>
+<font color=red>Discussion before the above proposal</font>
+
 
 This page is about the possible reimplementation of Seq.pm. I (Ewan) strongly feel
 this should happen because:
