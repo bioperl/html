@@ -38,6 +38,7 @@ them during the bioperl 'make test' installation step. Don't worry about them if
 <ul>
 <li>NCBI Blast - <a href="http://www.ncbi.nlm.nih.gov/blast">http://www.ncbi.nlm.nih.gov/blast</a>
 <li>Clustalw - <a href="http://www.ebi.ac.uk/clustalw/">http://www.ebi.ac.uk/clustalw/</a>
+<li>EMBOSS - <a href="http://www.emboss.org">http://www.emboss.org</a>
 <li>tcoffee - <a href="http://igs-server.cnrs-mrs.fr/~cnotred/Projects_home_page/t_coffee_home_page.html">http://igs-server.cnrs-mrs.fr/~cnotred/Projects_home_page/t_coffee_home_page.html</a>
 </ul>
 </blockquote>
@@ -165,11 +166,11 @@ BioPerl users have reported success in getting CPAN.pm to download and install t
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-17 20:02:47 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-18 17:28:02 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: external.shtml,v 1.12 2002-03-17 20:02:47 dag Exp $ -->
+    <!-- $Id: external.shtml,v 1.13 2002-03-18 17:28:02 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
