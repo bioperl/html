@@ -7,6 +7,12 @@
 
 <TITLE>bio.perl.org - Latest Distribution</TITLE>
 
+<!--
+<LINK REL=STYLESHEET TYPE="text/css" 
+ HREF="http://bio.perl.org/bioperl-doc.css"
+ TITLE="Bioperl Documentation Style">
+-->
+
 </HEAD>
 <BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
 
@@ -21,8 +27,12 @@
 <TR>
 <TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
 <!########################## SIDEBAR CONTENTS>
-<font face="Arial, Helvetica, sans-serif" size=-1>
+<font face="Arial, Helvetica, sans-serif">
 <a href="/">Home</a>
+<p>
+<a href="/Projects">Projects</a>
+<p>
+<a href="/Projects/modules.html">Docs</a>
 <p>
 <a href="ftp://bio.perl.org/pub/">FTP Site</a>
 <p>
@@ -36,6 +46,8 @@
 <p>
 <a href="/Participants/">Participants</a>
 <p>
+<a href="/Related.html">Related</a>
+<p>
 <a href="/Thanks.html">Sponsors</a>
 <p>
 </font>
@@ -44,7 +56,7 @@
 
 
 <! margin >
-<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=20 ALT=" ">
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
 </TD>
 
 
@@ -67,82 +79,86 @@
 <TD>
 <p>
 <br>
-<b><center><font size=+2>Latest (alpha) Distribution</font><br><font size=+1>bioperl-0.03.tar.gz</font> |<a href="ftp://bio.perl.org/pub/DIST/">FTP</a>| |<a href="bioperl-0.03.tar.gz">HTTP</a>|</center></b>
+<font face="Arial, Helvetica, sans-serif">
+
+<b>
+<font size=+2>Latest Distribution: <i>bioperl-0.04</i>
+</font>
+<br>
+10 December 1998
+</b>
 
 <p>
+<b>HTTP:</b>
+<ul>
+<li><a href="bioperl-0.04.tar.gz">http://bio.perl.org/Core/Latest/bioperl-0.04.tar.gz</a>
+<li><a href="bioperl-0.04.zip">http://bio.perl.org/Core/Latest/bioperl-0.04.zip</a>
+</ul>
+<p>
+<b>FTP:</b>
+<ul>
+<li><a href="ftp://bio.perl.org/pub/DIST/bioperl-0.04.tar.gz">ftp://bio.perl.org/pub/DIST/bioperl-0.04.tar.gz</a>
+<li><a href="ftp://bio.perl.org/pub/DIST/bioperl-0.04.zip">ftp://bio.perl.org/pub/DIST/bioperl-0.04.zip</a>
+</ul>
+
 <p>
 
 <table border=0>
 <tr>
 <td>
-Bioperl is a "standard" CPAN type module so installation should be
-fairly easy and straightforward. Grab the bioperl-0.03.tar.gz file
-from this site via the HTTP or FTP links above. 
+<font face="Arial, Helvetica, sans-serif">
+
+Bioperl is a collection of "standard" CPAN type modules so 
+installation should be fairly easy and straightforward. 
+Grab <b>either</b> the bioperl-0.04.tar.gz file <b>or</b>
+the bioperl-0.04.zip file from this site via the HTTP or FTP links above. 
+
 <p>
-The latest distribution, bioperl-0.03 should still be considered a
-for-unix-only alpha release. We are particularly interested in hearing about how the
-installation process works on different platforms and operating 
-systems. General comments, suggestions and installation war stories
-should be sent to the developers email-list <a href="mailto:vsns-bcd-perl-guts@lists.uni-bielefeld.de">
-vsns-bcd-perl-guts@lists.uni-bielefeld.de</a>. Bug reports should be submitted
-via our web-based reporting system at <a href="http://bio.perl.org/bioperl-bugs/">
+The latest distribution, bioperl-0.04 should still be considered a
+for-unix-only alpha release. We are particularly interested in hearing
+about how the installation process works on different platforms and
+operating systems. General comments, suggestions and installation war
+stories should be sent to the developers email-list 
+<a href="mailto:vsns-bcd-perl-guts@lists.uni-bielefeld.de">
+vsns-bcd-perl-guts@lists.uni-bielefeld.de</a>. Bug reports should be
+submitted via our web-based reporting system at 
+<a href="http://bio.perl.org/bioperl-bugs/">
 http://bio.perl.org/bioperl-bugs/</a>.
+
 <p>
-After obtaining the distribution file,  unzip and untar it and read 
-the installation instructions in <a href="src/bioperl-0.03/README">README</a> file.
+After obtaining the distribution file, unpack it and read 
+the installation instructions in <a href="README">README</a> file.
+
 <p>
 The distribution comes with its own internal documentation in the perl
-documentation format (pod). This documentation is has been translated into HTML
-links available below. The best starting point for people learning about bioperl is
-the <a href="POD/bioperl-0.03/bioperl.html">bioperl.pod</a> documentation, followed by 
-the <a href="POD/bioperl-0.03/Bio/Seq.html">Bio::Seq.pm</a> documentation.
+documentation format (pod). This documentation is has been translated
+into HTML links available below. The best starting point for people
+learning about bioperl is the <a href="bioperl.html">bioperl.pod</a>
+documentation, followed by the <a
+href="http://bio.perl.org/Core/POD/Seq.html">Bio::Seq.pm</a>
+documentation.
+
 <p>
 In addition to embedded POD-format documentation, there is also an 
-<a href="src/bioperl-0.03/examples/">examples/ directory</a> containing sample code.
+<a href="http://bio.perl.org/Core/Examples/">examples/ directory</a> containing sample code.
 <p>
-It is also possible to <a href="/Core/Latest/src/bioperl-0.03/">view the source distribution 
-directly</a>.<br>
+View the distribution files directly:
+<p>
 <pre>
-MANIFEST
-Makefile.PL
-README
-PLATFORMS
-<a href="POD/bioperl-0.03/bioperl.html">bioperl.pod</a>
-<a href="POD/bioperl-0.03/Bio/Seq.html">Bio/Seq.pm</a>
-<a href="POD/bioperl-0.03/Bio/SimpleAlign.html">Bio/SimpleAlign.pm</a>
-<a href="POD/bioperl-0.03/Bio/Parse.html">Bio/Parse.pm</a>
-<a href="POD/bioperl-0.03/Bio/Root/Err.html">Bio/Root/Err.pm</a>
-<a href="POD/bioperl-0.03/Bio/Root/Global.html">Bio/Root/Global.pm</a>
-<a href="POD/bioperl-0.03/Bio/Root/IOManager.html">Bio/Root/IOManager.pm</a>
-<a href="POD/bioperl-0.03/Bio/Root/Object.html">Bio/Root/Object.pm</a>
-<a href="POD/bioperl-0.03/Bio/Root/Utilities.html">Bio/Root/Utilities.pm</a>
-<a href="POD/bioperl-0.03/Bio/Root/Vector.html">Bio/Root/Vector.pm</a>
-<a href="POD/bioperl-0.03/Bio/Root/Xref.html">Bio/Root/Xref.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/AlignFactory.html">Bio/Tools/AlignFactory.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/Blast.html">Bio/Tools/Blast.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/Blast/HSP.html">Bio/Tools/Blast/HSP.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/Blast/HTML.html">Bio/Tools/Blast/HTML.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/Blast/Run/LocalBlast.html">Bio/Tools/Blast/Run/LocalBlast.pm</a>
-<a href="POD/bioperl-0.03/Bio/Parse.html">Bio/Parse.pm</a>
-Bio/Tools/Blast/Run/Makefile.PL
-<a href="POD/bioperl-0.03/Bio/Tools/Blast/Run/Webblast.html">Bio/Tools/Blast/Run/Webblast.pm</a>
-Bio/Tools/Blast/Run/postclient.pl
-<a href="POD/bioperl-0.03/Bio/Tools/Blast/Sbjct.html">Bio/Tools/Blast/Sbjct.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/Fasta.html">Bio/Tools/Fasta.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/SeqAnal.html">Bio/Tools/SeqAnal.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/WWW.html">Bio/Tools/WWW.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/pSW.html">Bio/Tools/pSW.pm</a>
-<a href="POD/bioperl-0.03/Bio/Tools/RestrictionEnzyme.html">Bio/Tools/RestrictionEnzyme.pm</a>
-examples/
-Compile/
-t/
+<a href="bioperl.html">bioperl.pod</a>
+<a href="MANIFEST">MANIFEST</a>
+<a href="Makefile.PL">Makefile.PL</a>
+<a href="README">README</a>
+<a href="Changes">Changes</a>
+<a href="PLATFORMS">PLATFORMS</a>
 </pre>
+<p>
+
+<a href="http://bio.perl.org/Projects/modules.html">View Module Documentation</a>
+
 <p>
 </td>
 <td align=middle valign=middle>
-<b><em>
-Linked files have associated <br>pod2html translations
-</b></em>
 </td>
 </tr>
 </table>
