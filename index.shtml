@@ -68,6 +68,7 @@ otherwise make freely available standalone scripts & code.
 <p>
 <ul>
 <li><a href="/Core/POD/bptutorial.html">BioPerl 07 Tutorial</a>
+<li><a href="http://www.pasteur.fr/recherche/unites/sis/formation/bioperl/">Pasteur Institute Bioperl Course</a>
 <li><a href="/Core/Latest/modules.html">Registered module list & documentation</a>
 <li>Anonymous CVS (<a href="http://cvs.bioperl.org">cvs.bioperl.org</a>)
 <li>All source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
@@ -88,8 +89,12 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[November 2001]</font></p>
+	  <p><font size=-1>[December / November 2001]</font></p>
 	 <ul>
+<li>Jason adds <b><a href="http://bioperl.org/pipermail/bioperl-l/2001-December/006835.html">Bio::AlignIO::emboss</a></b> to bioperl-live
+<p>
+<li>Pasteur Institute publishes an online <a href="http://www.pasteur.fr/recherche/unites/sis/formation/bioperl/">bioperl course</a>
+<p>
 <li><a href="http://bioperl.org/pipermail/bioperl-announce-l/2001-November/000184.html">bioperl-0.7.2 released</a>.
 <p>
 <li><a href="http://bioperl.org/pipermail/bioperl-announce-l/2001-November/000184.html">bioperl-db released</a>. <em>bioperl-db</em> provides code and modules for storing and retrieving biological sequence information from relational databases (current version only supports mysql).
@@ -319,11 +324,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-11-18 15:33:52 $</p>
+<p><p align=right>Last Modified: $Date: 2001-12-21 17:38:50 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.40 2001-11-18 15:33:52 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.41 2001-12-21 17:38:50 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
