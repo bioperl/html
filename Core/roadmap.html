@@ -77,6 +77,7 @@
 <pre>
 
 <b>Bio::</b>
+ <a href="POD/bioperl.html">bioperl.pod</a>
  <a href="POD/Parse.html">Parse.pm</a>
  <a href="POD/Seq.html">Seq.pm</a>
  <a href="POD/SimpleAlign.html">SimpleAlign.pm</a>
@@ -125,16 +126,17 @@ We expect to release a preliminary central distribution very shorty as we now ha
 a central Makefile.PL
 <p>
 <b>Code status & Committments</b><br>
-<b>PreSeq.pm</b> has been replaced by <b>Seq.pm</b> and will become our general flexible and lightweight sequence object. <b>Parse.pm</b> is no longer being used by core bioperl code. Ian Korf is integrating the functionality of his <b>GSC::SeqFeature</b> and <b>GSC::Entry</b> into the bioperl framwork. Ewan Birney is working on the following:
+<b>PreSeq.pm</b> has been replaced by <b>Seq.pm</b> and will become our general flexible and lightweight sequence object. <b>Parse.pm</b> is no longer being used by core bioperl code. <br>
+<p>
+<b>To-do list</b><br>
 <ul>
-<li> SimpleAlign.pm implementation & testing
-<li> Histogram package from Sean Eddy as an XS extension
-<li> SmithWaterman as an XS extension (<a href="POD/Tools/pSW.html">Bio::Tools::pSW</a>)
+<li><b>Bio::SeqFeature</b> and <b>Bio::Entry</b> - The Bio::Entry is the 'heavy weight' sequence object which is more like a representation of a Genbank or EMBL flat file complete with feature table. Ian Korf is working on these objects.
+<li><b>Bio::Structure</b> - A number of people have been talking about a Structure object (probably an object heirarchy). 
+<li><b>Bio::SearchDist</b> - A perl wrapper for Sean Eddy's Extreme Value and Gaussian fitting code (already provided in the bp_sw XS extension). Ewan Birney is working on this.
+<li><b>Bio::Tools::dAlign</b> - DNA alignments like pSW provided in a perl wrapper. Ewan Birney is working on this.  
 </ul>
 Steve Chervits, the bioperl coordinator is maintaining and improving the <b>Bio::Tools::Blast</b> and <b>Bio::Root</b> code.
 <p>
-<b>Possible new projects</b><br>
-Several people are interested creating a <b>protein structure object</b>. Discussions on the basic design are underway on our mailing lists. We always need new sequence parsing and formatting code. Comments, proposals and participation are welcome.
 
 <p>
 <font face="Arial, Helvetica, sans-serif" size=+1>
