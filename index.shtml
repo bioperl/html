@@ -83,6 +83,7 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[April 2000]</font></p>
 	  <p>
 	  <ul>
+	  <li>More info on optional <a href="/Core/external.shtml">bioperl extentions and dependencies</a> added to the website<p>
 	  <li>Bioperl 0.6 Released!<p>
 	  <li>Expect to hear an official announcement sometime soon
  regarding the Bioinformatics Open Source Conference (BOSC-2000). This
@@ -352,11 +353,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-04-02 22:49:32 $</p>
+<p><p align=right>Last Modified: $Date: 2000-04-17 18:53:41 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.6 2000-04-02 22:49:32 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.7 2000-04-17 18:53:41 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
