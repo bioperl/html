@@ -88,13 +88,23 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[October / November 2001]</font></p>
-	  	  <ul>
+	  <p><font size=-1>[November 2001]</font></p>
+	 <ul>
+<li><a href="http://bioperl.org/pipermail/bioperl-announce-l/2001-November/000184.html">bioperl-0.7.2 released</a>.
+<p>
+<li><a href="http://bioperl.org/pipermail/bioperl-announce-l/2001-November/000184.html">bioperl-db released</a>. <em>bioperl-db</em> provides code and modules for storing and retrieving biological sequence information from relational databases (current version only supports mysql).
+<p>
+<li>"Genquire" - A graphical genomic editor/browser built on top of the bioperl and bioperl-gui codebases has been released by Mark Wilkinson and David Block. The Genquire project is hosted at <a href="http://bioinformatics.org">Bioinformatics.org</a>.
+<p>
+<li>Kris Boulez commits inital <a href="http://bioperl.org/pipermail/bioperl-l/2001-November/006628.html">Bio::Structure objects</a> into bioperl-live
+<p>
+<li>Bristol-Myers Squibb <a href="http://bioperl.org/pipermail/bioperl-l/2001-November/006617.html">contributes code</a> for converting bioseq objects to and from the <a href="http://www.labbook.com/products/xmlbsml.asp">BSML</a> XML format.
+<p>
 	 <li>Have you read the latest Open Bioinformatics Foundation <a href="http://open-bio.org/pipermail/open-bioinformatics-foundation/2001-October/000001.html">newsletter</a>?
 <p>
 	  <li>Bioperl <a href="http://bioperl.org/pipermail/bioperl-l/2001-October/006379.html">class diagrams are available</a> in PDF form.
 	  <p>
-	  <li>(experimental feature) - New PDoc-style documentation for <em>bioperl-live</em> is online at <a href="http://doc.bioperl.org/bioperl-live/">http://doc.bioperl.org/bioperl-live/</a>. It looks to be far more useful than our traditional pod2html translated documentation pages. Please evaluate and send comments to the bioperl-guts-l list. <br>Note: All active Bioperl CVS modules are now linked at <a href="http://doc.bioperl.org">http://doc.bioperl.org</a>
+	  <li>(experimental feature) - New PDoc-style documentation for all of the bioperl codebases is online at <a href="http://doc.bioperl.org/">http://doc.bioperl.org/</a>. It looks to be far more useful than our traditional pod2html translated documentation pages. Please evaluate and send comments to the bioperl-guts-l list.
 	  </ul>
 
  </ul>
@@ -151,7 +161,7 @@ Project"</a></b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (0.7.1)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (0.7.2)</a></B></font> 
           </TD>
 </TR>
 
@@ -309,11 +319,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-10-25 13:05:04 $</p>
+<p><p align=right>Last Modified: $Date: 2001-11-18 15:33:52 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.39 2001-10-25 13:05:04 jason Exp $ -->
+<!-- $Id: index.shtml,v 1.40 2001-11-18 15:33:52 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
