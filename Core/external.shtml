@@ -50,6 +50,9 @@ installation. Lincoln Stein's website is
 The AcePerl package is only required if AceDB
 connectivity is desired.
 <p>
+<b>File::Temp</b><br>
+File::Temp is used by network accessing modules such as Bio::DB::WebDBSeqI. This is a feature that will appear in Bioperl release 07, it is not needed for bioperl-0.06.2
+<p>
 <b>IO::Scalar & IO::String</b><br>
 IO::Scalar (contained in the "IO-stringy" CPAN perl module) is used only in Bio::Tools::Blast::Run::Webblast.pm<br>
 IO::String (contained in the "IO-String" CPAN perl module) is used in Bio::DB::Genbank and Bio::DB::Swissprot<br> 
@@ -95,11 +98,11 @@ just want to download directly from CPAN and other source sites to insure the mo
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-12-05 17:56:03 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-12-12 21:04:55 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: external.shtml,v 1.3 2000-12-05 17:56:03 dag Exp $ -->
+    <!-- $Id: external.shtml,v 1.4 2000-12-12 21:04:55 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->

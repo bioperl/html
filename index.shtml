@@ -83,6 +83,7 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[December 2000]</font></p>
 	  <p>
 	  <ul>
+	  <li><a href="http://www.ebi.ac.uk/mutations/toolkit/">Computational Mutation Expression Toolkit</a> modules have been checked into our CVS repository by Heikki & Joshua.
 	  <li>Bioperl CVS now <a href="http://cvs.bioperl.org/cgi-bin/viewcvs/viewcvs.cgi/?cvsroot=bioperl">web browsable</a>
 	  <li>Waiting for Release 0.7? Check the <a href="http://www.bioperl.org/wiki/html/BioPerl/BioperlRelease0.7.html">status page</a> or <a href="http://bioperl.org/wiki/html/BioPerl/TaskList.html">task list</a>
 	  <li>New BioXML GAME parser <a href="http://bioperl.org/pipermail/bioperl-l/2000-November/001739.html">committed</a>
@@ -362,11 +363,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-12-03 22:50:26 $</p>
+<p><p align=right>Last Modified: $Date: 2000-12-12 21:04:51 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.17 2000-12-03 22:50:26 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.18 2000-12-12 21:04:51 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
