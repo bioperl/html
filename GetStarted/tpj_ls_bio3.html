@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project">
+<META name="keywords" content="perl, biology, bioinformatics, bioperl">
+<TITLE>bio dot perl dot org</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>bio.perl.org
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<font face="Arial, Helvetica, sans-serif" size=-1>
+<a href="/">Home</a>
+<p>
+<a href="ftp://bio.perl.org/pub/">FTP Site</a>
+<p>
+</font>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="../images/transparent.gif" WIDTH=20 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<B>
+<font face="Arial, Helvetica, sans-serif" color="#000080">How Perl Saved the Human Genome Project, continued...</font></B>
+<BR>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<font face="Arial, Helvetica, sans-serif" size=-1>
+
+<! NAVIGATION TABLE>
+<table border=0 width=95%>
+<tr>
+  <td align=left>
+  <font size=+1><a href="tpj_ls_bio2.html">&lt;&lt;previous</a></font>
+  </td>
+  <td align=right>&nbsp;
+  </td>
+</tr>
+</table>
+<! END NAV TABLE>
+
+<p>
+Here is where Perl again came to the rescue.  The Cambridge summit meeting that introduced this article was called in part to deal with the data interchange problem.  Despite the fact that the two groups involved were close collaborators and superficially seemed to be using the same tools to solve the same problems, on closer inspection nothing they were doing was exactly the same.  
+<p>
+The main software components in a DNA sequencing projects are:  
+<ul>
+<li>a trace editor to analyze, display and the short DNA read chromatograms from DNA sequencing machines.  
+<li>a read assembler, to find overlaps between the reads and 	  assemble them together into long contiguous sections.  
+<li>an assembly editor, to view the assemblies and make changes 	  in places where the assembler went wrong.  
+<li>a database to keep track of it all.  
+</ul>
+<p>
+Over the course of a few years, the two groups had developed suites of software that worked well in their hands.  Following the familiar genome center model, some of the components were developed in-house while others were imported from outside.  As shown in Figure 2, Perl was used for the glue to make these pieces of software fit together. Between each pair of interacting modules were one or more Perl scripts responsible for massaging the output of one module into the expected input for another.  
+<p>
+When the time came to interchange data, however, the two groups hit a snag.  Between them they were now using two trace editors, three assemblers, two assembly editors and (thankfully) one database.  If two Perl scripts were required for each pair of components (one for each direction), one would need as many as 62 different scripts to handle all the possible interconversion tasks.  Every time the input or ouput format of one of these modules changed, 14 scripts might need to be examined and fixed.  
+<p>
+The solution that was worked out during this meeting is the obvious one shown in Figure 3.  The two groups decided to adopt a common data exchange format known as CAF (an acronym whose exact meaning was forgotten during the course of the meeting).  CAF would contain a superset of the data that each of the analysis and editing tools needed.  For each module, two Perl scripts would be responsible for converting from CAF into whatever format Module A expects ("CAF2ModuleA") and converting Module A's output back into CAF ("ModuleA2CAF").  This simplified the programming and maintenance task considerably.  Now there were only 16 Perl scripts to write; when one module changed, only two scripts would need to be examined.  
+<p>
+This episode is not unique.  Perl has been the solution of choice for genome centers whenever they need to exchange data, or to retrofit one center's software module to work with another center's system.  
+<p>
+So Perl has become the software mainstay for computation within genome centers as well as the glue that binds them together.  Although genome informatics groups are constantly tinkering with other "high level" languages such as Python, Tcl and recently Java, nothing comes close to Perl's popularity.  How has Perl achieved this remarkable position?  
+<p>
+I think several factors are responsible:  
+<p>
+1. Perl is remarkably good for slicing, dicing, twisting, wringing, smoothing, summarizing and otherwise mangling text.  Although the biological sciences do involve a good deal of numeric analysis now, most of the primary data is still text: clone names, annotations, comments, bibliographic references.  Even DNA sequences are textlike. Interconverting incompatible data formats is a matter of text mangling combined with some creative guesswork.  Perl's powerful regular expression matching and string manipulation operators simplify this job in a way that isn't equalled by any other modern language.  
+
+<p>
+2. Perl is forgiving.  Biological data is often incomplete, fields can be missing, or a field that is expected to be present once occurs several times (because, for example, an experiment was run in duplicate), or the data was entered by hand and doesn't quite fit the expected format.  Perl doesn't particularly mind if a value is empty or contains odd characters.  Regular expressions can be written to pick up and correct a variety of common errors in data entry.  Of course this flexibility can be also be a curse.  I talk more about the problems with Perl below.  
+
+<p>
+3.  Perl is component-oriented.  Perl encourages people to write their software in small modules, either using Perl library modules or with the classic Unix tool-oriented approach.  External programs can easily be incorporated into a Perl script using a pipe, system call or socket.  The dynamic loader introduced with Perl5 allows people to extend the Perl language with C routines or to make entire compiled libraries available for the Perl interpreter.  An effort is currently under way to gather all the world's collected wisdom about biological data into a set of modules called "bioPerl" (discussed at length in an article to be published later in the Perl Journal).  
+
+<p>
+4.  Perl is easy to write and fast to develop in.  The interpreter doesn't require you to declare all your function prototypes and data types in advance, new variables spring into existence as needed, calls to undefined functions only cause an error when the function is needed.  The debugger works well with Emacs and allows a comfortable interactive style of development.  
+
+<p>
+5.  Perl is a good prototyping language.  Because Perl is quick and dirty, it often makes sense to prototype new algorithms in Perl before moving them to a fast compiled language.  Sometimes it turns out that Perl is fast enough so that of the algorithm doesn't have to be ported; more frequently one can write a small core of the algorithm in C, compile it as a dynamically loaded module or external executable, and leave the rest of the application in Perl (for an example of a complex genome mapping application implemented in this way, see http://www.genome.wi.mit.edu/ftp/pub/software/RHMAPPER/).  
+
+<p>
+6.  Perl is a good language for Web CGI scripting, and is growing in importance as more labs turn to the Web for publishing their data.  
+
+<p>
+My experience in using Perl in a genome center environment has been extremely favorable overall.  However I find that Perl has its problems too.  Its relaxed programming style leads to many errors that more uptight languages would catch.  For example, Perl lets you use a variable before its been assigned to, a useful feature when that's what you intend but a disaster when you've simply mistyped a variable name.  Similarly, it's easy to forget to declare make a variable used in a subroutine local, inadvertently modifying a global variable.  
+
+<p>
+If one uses the <b>-w</b> switch religiously and turn on the <b>"use strict vars"</b> pragma, these Perl will catch these problems and others. However there are more subtle gotchas in the language that are not so easy to fix.  A major one is Perl's lack of type checking.  Strings, floats and integers all interchange easily.  While this greatly speeds up development, it can cause major headaches.  Consider a typical genome center Perl script that's responsible for recording the information of short named subsequences within a larger DNA sequence. When the script was written, the data format was expected to consist of tab-delimited fields: a string followed by two integers representing the name, starting position and length of a DNA subsequence within a larger sequence.  An easy way to parse this would to split() into an list like this:  
+
+<p>
+</font>
+<pre><b>($name,$start_position,$length) = split("\t");  
+</pre></b>
+<font face="Arial, Helvetica, sans-serif" size=-1>
+Later on in this script some arithmetic is performed with the two integer values and the result written to a database or to standard output for further processing.  
+<p>
+Then one day the input file's format changes without warning.  Someone bumps the field count up by one by sticking a comment field between the name and the first integer.  Now the unknowing script assigns a string to a variable that's expected to be numeric and silently discards the last field on the line.  Rather than crashing or returning an error code, the script merrily performs integer arithmetic on a string, assuming a value of zero for the string (unless it happens to start with a digit).  Although the calculation is meaningless, the output may look perfectly good, and the error may not be caught until some point well downstream in the processing.  
+<p>
+The final Perl deficiency has been a way to create graphical user interfaces.  Although Unix True Believers know that anything worth doing can be done on the command line, most end-users don't agree. Windows, menus and bouncing icons have become de rigueur for programs intended for use by mere mortals.  
+<p>
+Until recently, GUI development in Perl was awkward to impossible. However the work of Nick Ing-Simmons and associates on perlTK (pTK) has made Perl-driven GUIs possible on X-windows systems.  My associates and I have written several pTK-based applications for internal use at the MIT genome center, and it's been a satisfying experience overall.  Other genome centers make much more extensive use of pTK, and in some places its become a mainstay of production.  
+<p>
+Unfortunately, I'm sad to confess that a few months ago when I needed to put a graphical front end on a C++ image analysis program I'd written, I turned to the standard Tcl/Tk library rather than to pTK. I made this choice because I intended the application for widespread distribution.  I find pTK still too unstable for export: new releases of pTK discover lurking bugs in Perl, and vice-versa.  Further, I find that even seasoned system administrators run into glitches when compiling and installing Perl modules, and I worried that users would hit some sort of road block while installing either pTK or the modules needed to support my application, and owuld give up.  In contrast, many systems have the Tcl/Tk libraries preinstalled; if they don't, installation is quick and painless.  
+<p>
+In short, when the genome project was foundering in a sea of incompatible data formats, rapidly-changing techniques, and monolithic data analysis programs that were already antiquated on the day of their release, Perl saved the day.  Although it's not perfect, Perl seems to fill the needs of the genome centers remarkably well, and is usually the first tool we turn to when we have a problem to solve.  
+<p>
+ 
+
+<em><b> When he's not rushing to meet a deadline, Lincoln sometimes goes out for a coffee.</b></em> 
+
+<p>
+<! NAVIGATION TABLE>
+<table border=0 width=95%>
+<tr>
+  <td align=left>
+  <font size=+1><a href="tpj_ls_bio2.html">&lt;&lt;previous</a></font>
+  </td>
+  <td align=right>&nbsp;
+  </td>
+</tr>
+</table>
+<! END NAV TABLE>
+
+<p>
+</font>
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="../images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="../images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+
+</BODY>
+</HTML>
+
+
+

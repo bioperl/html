@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project">
+<META name="keywords" content="perl, biology, bioinformatics, bioperl">
+<TITLE>bio dot perl dot org</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>bio.perl.org
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<font face="Arial, Helvetica, sans-serif" size=-1>
+<a href="/">Home</a>
+<br>
+<a href="ftp://bio.perl.org/pub/">FTP Site</a>
+<p>
+</font>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="../images/transparent.gif" WIDTH=20 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<B>
+<font face="Arial, Helvetica, sans-serif" color="#000080">How Perl Saved the Human Genome Project, continued..</font></B>
+<BR>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<font face="Arial, Helvetica, sans-serif" size=-1>
+<p>
+<! NAVIGATION TABLE>
+<table border=0 width=95%>
+<tr>
+  <td align=left>
+  <font size=+1><a href="tpj_ls_bio.html">&lt;&lt;previous</a></font>
+  </td>
+  <td align=right><a href="tpj_ls_bio3.html"><font size=+1>next&gt;&gt;</a></font>
+  </td>
+</tr>
+</table>
+<! END NAV TABLE>
+<p>
+The process of passing a DNA sequence through these independent analytic steps looks kind of like a pipeline, and it 
+didn't take us long to realize that a Unix pipe could handle the job.  We developed a simple Perl-based data 
+exchange format called "boulderio" that allowed loosely coupled programs to add information to a pipe-based I/O stream.
+Boulderio is based on tag/value pairs.  A Perl module makes it easy for programs to reach into the input stream, 
+pull out only the tags they're interested in, do something with them, and drop new tags into output the stream.  
+Any tags that the program isn't interested in are just passed through to standard output so that other programs 
+in the pipeline can get to them.  
+<p>
+Using this type of scheme, the process of analyzing a new DNA sequence looks something like this (this is not exactly the set of scripts that we use, but it's close enough):  
+</font>
+<pre><b>
+name_sequence.pl < new.dna |
+quality_check.pl |
+vector_check.pl |         
+find_repeats.pl |
+search_big_database.pl |
+load_lab_database.pl  
+</b></pre>
+
+<font face="Arial, Helvetica, sans-serif" size=-1>
+<p>
+A file containing the new DNA sequence is processed by a perl script named "name_sequence.pl", whose only job is to give the sequence a new unique name and to put it into boulder format.  Its output looks like this:  
+</font>
+
+<pre>
+<b>NAME=L26P93.2    
+SEQUENCE=GATTTCAGAGTCCCAGATTTCCCCCAGGGGGTTTCCAGAGAGCCC......</b>  
+</pre>
+
+<font face="Arial, Helvetica, sans-serif" size=-1>
+<p>
+The output from name_sequence.pl is next passed to the quality checking program, which looks for the SEQUENCE tag, runs the quality checking algorithm, and writes its conclusion to the data stream.  The data stream now looks like this:  
+</font>
+<pre><b>NAME=L26P93.2    
+SEQUENCE=GATTTCAGAGTCCCAGATTTCCCCCAGGGGGTTTCCAGAGAGCCC......    
+QUALITY_CHECK=OK  
+</b></pre>
+
+<font face="Arial, Helvetica, sans-serif" size=-1>
+Now the data stream enters the vector checker.  It pulls the SEQUENCE tag out of the stream and runs the vector checking algorithm.  The data stream now looks like this:  
+</font>
+
+<pre><b>NAME=L26P93.2
+SEQUENCE=GATTTCAGAGTCCCAGATTTCCCCCAGGGGGTTTCCAGAGAGCCC......
+QUALITY_CHECK=OK
+VECTOR_CHECK=OK
+VECTOR_START=10
+VECTOR_LENGTH=300
+</b></pre>
+
+<font face="Arial, Helvetica, sans-serif" size=-1>
+This continues down the pipeline, until at last the "load_lab_database.pl" script collates all the data collected, makes some final conclusions about whether the sequence is suitable for further use, and enters all the results into the laboratory database.  
+<p>
+One of the nice features of the boulderio format is that multiple sequence records can be processed sequentially in the same Unix pipeline.  An "=" sign marks the end of one record and the beginning of the next:
+<p>
+</font>
+<pre><b>NAME=L26P93.2
+SEQUENCE=GATTTCAGAGTCCCAGATTTCCCCCAGGGGGTTTCCAGAGAGCCC......
+=
+NAME=L26P93.3
+SEQUENCE=CCCCTAGAGAGAGAGAGCCGAGTTCAAAGTCAAAACCCATTCTCTCTCCTC...
+=  
+</pre></b>
+
+<font face="Arial, Helvetica, sans-serif" size=-1>
+There's also a way to create subrecords within records, allowing for structured data types.  
+<p>
+Here's an example of a script that processes boulderio format.  It uses an object-oriented style, in which records are pulled out of the input stream, modified, and dropped back in:  
+<p>
+</font>
+<pre><b>
+use Boulder::Stream;
+$stream = new Boulder::Stream; 	
+while ($record = $stream->read_record('NAME','SEQUENCE')) {
+     $name = $record->get('NAME'); 
+     $sequence = $record->get('SEQUENCE');
+      <em>...[continue processing]...</em> 	  
+     $record->add(QUALITY_CHECK=>"OK");
+     $stream->write_record($record);
+         }  
+</pre></b>
+<font face="Arial, Helvetica, sans-serif" size=-1>
+(If you're interested, more information about the boulderio format and the perl libraries to manipulate it can be found at <a href="http://www.genome.wi.mit.edu/ftp/pub/software/boulderio/">http://www.genome.wi.mit.edu/ftp/pub/software/boulderio/</a>).   
+<p>
+The interesting thing is that multiple informatics groups independently converged on solutions that were similar to the boulderio idea.  For example, several groups involved in the worm sequencing project began using a data exchange format called ".ace". Although this format was initially designed as the data dump and reload format for the ACE database (a database specialized for biological data), it happens to use a tag/value format that's very similar to boulderio.  Soon .ace files were being processed by Perl script pipelines and loaded into the ACE database at the very last step.  
+<p>
+Perl found uses in other aspects of laboratory management.  For example, many centers, including my own, use Web based interfaces for displaying the status of projects and allowing researchers to take actions.  Perl scripts are the perfect engine for Web CGI scripts. Similarly, Perl scripts run e-mail database query servers, supervise cron jobs, prepare nightly reports summarizing laboratory activity, create instruction files to control robots, and handle almost every other information management task that a busy genome center needs.  
+<p>
+So as far as laboratory management went, the informatics cores were reasonably successful.  As far as development and distributing generally useful, however, things were not so rosy.  
+<p>
+The problem will be familiar to anyone who has worked in a large, loosely organized software project.  Despite best intentions, the project begins to drift.  Programmers go off to work on ideas that interest them, modules that need to interface with one another are designed independently, and the same problems get solved several times in different, mutually incompatible ways.  When the time comes to put all the parts together, nothing works.  
+<p>
+This is what happened in the genome project.  Despite the fact that everyone was working on the same problems, no two groups took exactly the same approach.  Programs to solve a given problem were written and rewritten multiple times.  While a given piece of software wasn't guaranteed to work better than its counterpart developed elsewhere, you could always count on it to sport its own idiosyncratic user interface and data format.  A typical example is the central algorithm that assembles thousands of short DNA reads into an ordered set of overlaps.  At last count there were at least six different programs in widespread use, and no two of them use the same data input or output formats.  
+<p>
+This lack of interchangeability presents terrible dilemma for the genome centers.  Without interchangeability, an informatics group is locked into using the software that it developed in-house.  If another genome center has come up with a better software tool to attack the same problem, a tremendous effort is required by the first center to retool their system in order to use that tool.  
+<p>
+The long range solution to this problem is to come up with uniform data interchange standards that genome software must adhere to.  This would allow common modules to be swapped in and out easily.  However, standards require time to agree on, and while the various groups are involved in discussion and negotiation, there is still an urgent need to adapt existing software to the immediate needs of the genome centers.  
+<p>
+&nbsp;
+<p>
+<! NAVIGATION TABLE>
+<table border=0 width=95%>
+<tr>
+  <td align=left>
+  <font size=+1><a href="tpj_ls_bio.html">&lt;&lt;previous</a></font>
+  </td>
+  <td align=right><a href="tpj_ls_bio3.html"><font size=+1>next&gt;&gt;</a></font>
+  </td>
+</tr>
+</table>
+<! END NAV TABLE>
+
+</font>
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="../images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="../images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+
+</BODY>
+</HTML>
+
+
+
