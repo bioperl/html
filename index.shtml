@@ -80,6 +80,17 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
+	  <p><font size=-1>[April 2001]</font></p>
+	  <p>
+	  <ul>
+	  <li>1st CSHL/Wellcome Trust joint Genome Informatics meeting has been <a href="/pipermail/bioperl-l/2001-April/005482.html">announced</a>.
+	  <p>
+	  <li>Debian user needed to adopt <a href="/pipermail/bioperl-l/2001-April/005410.html">orphaned</a> bio packages including bioperl.
+	  <p>
+	  <li>Support for SeqIO handling of the PIR data format is <a href="/pipermail/bioperl-l/2001-April/005402.html">getting removed</a> from bioperl due to lack of use & interest.
+	  <p>
+	  <li>Tired of flatfile databases? Have strange compulsions to store Genbank in a MySQL database? <a href="/pipermail/bioperl-l/2001-April/005399.html">bioperl-db</a> has been making <a href="/pipermail/bioperl-l/2001-April/005465.html">amazing progress</a>.
+	  </ul>
 	  <p><font size=-1>[March 2001]</font></p>
 	  <p>
 	  <ul>
@@ -368,11 +379,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-03-20 12:54:03 $</p>
+<p><p align=right>Last Modified: $Date: 2001-04-11 14:38:35 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.24 2001-03-20 12:54:03 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.25 2001-04-11 14:38:35 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
