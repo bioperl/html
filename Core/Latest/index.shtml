@@ -44,8 +44,8 @@ Current Bioperl Release
 <!-- Make sure you update top level Index "Download Stable" section when you update these lines!!! -->
 
 <a href="bioperl-0.6.2.tar.gz">http://bio.perl.org/Core/Latest/bioperl-0.6.2.tar.gz</a>
-<br>
-<a href="bioperl-0.6.2.zip">http://bio.perl.org/Core/Latest/bioperl-0.6.2.zip</a>
+
+<li><a href="bioperl-0.6.2.zip">http://bio.perl.org/Core/Latest/bioperl-0.6.2.zip</a>
 
 </ul>
 
@@ -55,8 +55,8 @@ Current Bioperl Release
 <ul>
 <li>
 <a href="ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.tar.gz">ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.tar.gz</a>
-<br>
-<a href="ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.zip">ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.zip</a>
+
+<li><a href="ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.zip">ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.zip</a>
 
 </ul>
 
@@ -155,11 +155,11 @@ View the distribution files directly:
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-10-12 13:09:14 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-10-12 13:12:54 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.13 2000-10-12 13:09:14 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.14 2000-10-12 13:12:54 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
