@@ -1,0 +1,107 @@
+Revision history for Bioperl core modules
+
+0.05.1 Tue Jun 29 05:30:44 1999
+        - Central distribution now requires Perl 5.004. This was
+          done to get around 5.003-based problems in Bio/Index/* 
+          and SimpleAlign.
+        - Various bug fixes in the Bio::Tools::Blast modules
+          including better exception handling and PSI-Blast 
+          support. See Bio/Tools/Blast/CHANGES for more.
+        - Fixed the Parse mechanism in Seq.pm to use readseq.
+	  Follow the instructions in README for how to install
+	  it (basically, you have to edit Parse.pm).
+        - Improved documentation of Seq.pm, indicating where 
+          objects are returned and where strings are returned.
+        - Fixed uninitialized warnings in Bio::Root::Object.pm
+          and Bio::Tools::SeqPattern.pm.
+        - Bug fixes for PR#s: 30,31,33-35,41,42,44,45,47-50,52.
+
+0.05  Sun Apr 25 01:14:11 1999
+        - Bio::Tools::Blast modules have less memory problems
+          and faster parsing. Webblast uses LWP and supports
+          more functionality. See Bio/Tools/Blast/CHANGES for more.
+        - The Bio::SeqIO system has been started, moving the
+          sequence reformatting code out of the sequence object
+        - The Bio::Index:: system has been started, providing
+          generic index capabilities and specifically works for
+          Fasta formatted databases and EMBL .dat formatted 
+	  databases
+        - The Bio::DB:: system started, providing access to 
+          databases, both via flat file + index (see above) and
+          via http to NCBI
+        - The scripts/ directory, where industrial strength scripts
+          are put has been started.
+        - Many changes - a better distribution all round.
+
+0.04.4  Wed Feb 17 02:20:13 1999
+	- Bug fixes in the Bio::Tools::Blast modules and postclient.pl
+	  (see Bio::Tools::Blast::CHANGES).
+        - Fixed a bug in Bio::Tools::Fasta::num_seqs().
+        - Beefed up the t/Fasta.t test script.
+        - Small fix in Bio::Seq::type() (now always returns a string).
+        - Changed Bio::Root::Utilities::get_newline_char() to 
+          get_newline() since it could return more than one char.
+        - Added $NEWLINE and $TIMEOUT_SECS to Bio::Root::Global.
+        - Changed default timeout to 20 seconds (was 3).
+        - Moved lengthy modification notes to the bottom of some files.
+	- Fixed SimpleAlign write_fasta bug.
+	- Beefed up SimpleAlign.t test
+
+0.04.3  Thu Feb  4 07:48:53 1999
+        - Bio::Root::Object.pm and Global.pm now detect when
+          script is run as a CGI and suppress output that is only
+          appropriate when running interactively.
+        - Bio::Root::Err::_set_context() adds name of script ($0).
+        - Added comments in Bio::Tools::WWW.pm and Bio::Root::Utilities.pm
+          regarding the use of the static objects via the qw(:obj) tag.
+        - Fixed the ambiguous reverse calls in Seq.pm and UnivAln.pm to 
+          CORE::reverse, avoiding Perl warnings.
+        - Bug fixes in Bio::Tools::Blast modules (version 0.074) and 
+          example scripts (see Bio::Tools::Blast::CHANGES).
+        - examples/seq/seqtools.pl no longer always warns about using 
+          -prot or -nucl command-line arguments; only when using the 
+          -debug argument.
+        - Methods added to Bio::Root::Utilities: create_filehandle(), 
+          get_newline_char(), and taste_file() to generalize filehandle 
+          creation and autodetect newline characters in files/streams
+          (see bug report #19).
+        - Bio::Root::IOManager::read() now handles timeouts and uses
+          Utilities::create_filehandle().
+        - Bio::Tools::Fasta.pm uses Utilities::get_newline_char() instead
+          of hardwiring in "\n".
+        - Bug fixes in the Bio::SimpleAlign and Bio::Tools::pSW
+
+0.04.2  Wed Dec 30 02:27:36 1998
+        - Bug fixes in Bio::Tools::Blast modules, version 0.073
+          (see Bio::Tools::Blast::CHANGES).
+        - Changed reverse calls in Bio/Seq.pm and Bio/UnivAln.pm
+          to CORE::reverse (prevents ambiguous warnings with 5.005).
+        - Appending '.tmp.bioperl' to temporary files created by
+          Bio::Root::Utilities::compress() or uncompress() to
+          make it easy to identify & cleanup these files as needed.
+        - Developers: Created CVS branch release-0-04-bug from
+          release-0-04-1. Before making bug fixes to the 0.04.1 release,
+          be sure to cvs checkout this branch into a clean area.
+
+0.04.1  Wed Dec 16 05:39:15 1998
+        - Bug fixes in Bio::Tools::Blast modules, version 0.072
+          (see Bio::Tools::Blast::CHANGES).
+        - Compile/SW/Makefile.PL now removes *.o and *.a files 
+          with make clean.
+
+0.04  Tue Dec  8 07:49:19 1998
+        - Lots of new modules added including:
+           * Ewan Birney's Bio::SimpleAlign.pm, Bio::Tools::AlignFactory.pm,
+             and Bio/Compile directory containing XS-linked C code for
+             creating Smith-Waterman sequence alignments from within Perl.
+           * Steve Chervitz's Blast distribution has been incorporated.
+           * Georg Fuellen's Bio::UnivAln.pm for multiple alignment objects.
+        - Bio/examples directory for demo scripts for all included modules.
+        - Bio/t directory containing test suit for all included modules.
+        - For changes specific to the Blast-related modules prior to
+          incorporation in this central distribution, see the CHANGES
+          file in the Bio/Tools/Blast directory.
+     
+0.01  Tue Sep  8 14:23:22 1998
+        - original version from central CVS tree; created by h2xs 1.18
+

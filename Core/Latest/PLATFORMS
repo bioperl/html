@@ -1,0 +1,37 @@
+# $Id: PLATFORMS,v 1.1 2000-04-02 15:14:12 dag Exp $
+
+Tested systems & OS Specific Comments or Warnings
+==================================================
+
+Machine : i686 PentiumIII - RedHat Linux 6.1 / kernel 2.2.12-20
+Perl    : 5.005_03
+Comments: none. all tests pass.
+
+Machine : Compaq Alpha EV5 workstation
+        : RedHat alpha-linux / kernel 2.2.13-0.9
+Perl    : 5.005_03
+Comments: none. all tests pass.
+
+Machine : Compaq AlphaServer ES40 / Tru64 Unix version 4.0F
+Perl    : 5.005_03
+Comments: none. all tests pass.
+
+Machine : SGI Origin 2000 / IRIX64 version 6.5
+Perl    : 5.004_04
+Comments: none. all tests pass.
+
+Machine : Power Machintosh G3 / linux-ppc / kernel 2.2.6-15apmac
+Perl    : 5.005_03
+Comments: none. all tests pass.
+
+
+
+
+
+
+
+
+
+
+
+
