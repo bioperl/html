@@ -80,13 +80,12 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[February 2001]</font></p>
+	  <p><font size=-1>[March 2001]</font></p>
 	  <p>
 	  <ul>
-	  <li>Alan Robinson has written a <a href="http://bioperl.org/pipermail/bioperl-l/2001-February/002325.html">tutorial</a> on writing CORBA clients in Java and Perl
+	  <li>The "<b>branch-07</b>" branch was created in the CVS repository and final preparations are underway for releasing the official bioperl-07 suite on Monday March 5th!
 	  <p>
-	  <li>Bioperl Release 07 is <a href="http://bioperl.org/pipermail/bioperl-l/2001-February/002350.html">shaping up</a>. A code freeze and all out bug fix effort will begin soon.
-
+	  <li>Alan Robinson has written a <a href="http://bioperl.org/pipermail/bioperl-l/2001-February/002325.html">tutorial</a> on writing CORBA clients in Java and Perl 
 	  </ul>
 	  
 
@@ -359,11 +358,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-02-16 17:05:50 $</p>
+<p><p align=right>Last Modified: $Date: 2001-03-04 00:12:07 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.19 2001-02-16 17:05:50 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.20 2001-03-04 00:12:07 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
