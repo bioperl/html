@@ -26,8 +26,8 @@ About the bioperl project
 <font face="Arial, Helvetica, sans-serif">
 <p>
 The Bioperl project is a coordinated effort to collect computational 
-methods routinely used in bioinformatics into a set of
-standard CPAN-style, well-documented, and freely available Perl modules. Perl 
+methods routinely used in bioinformatics and life science research into a 
+set of standard CPAN-style, well-documented, and freely available Perl modules. Perl 
 provides unparalleled support for many tasks common in
 bioinformatics and life science research yet there are no standard 
 Perl modules for biology. We hope to help fill this void.
@@ -40,14 +40,17 @@ is especially criticial for researchers and labs who lack the resources to
 hire dedicated teams of software engineers.
 <p>
 Bioperl modules and source code will always be freely available under 
-the same terms as Perl itself. 
+the <a href="http://www.perl.com/pub/language/misc/Artistic.html">same 
+terms</a> as Perl itself. 
 <p>
 The Bioperl project is open to all and we invite suggestions and
 participation from the larger bioinformatics community. 
 <p>
-<em>The following information comes (loosely) from <a href="/cgi-bin/fom">our online FAQ-O-MATIC</a> (written in perl of course :)</em>
-<p>
 <blockquote>
+<p>
+<b>Working code versus hot air</b>
+<p>
+Bioperl developers tend not to waste much time arguing endlessly over the finer points of "life science standards" and design minutae and instead concentrate on writing software tools that are free and functional. We are happy to leave the posturing and sideline criticism  to others -- in the bioperl world the general rule amongst ourselves is "whomever writes the best code wins the argument."  
 <p>
 <b>We are not scary computer scientists -</b>
 <p>
@@ -76,11 +79,12 @@ of bioperl simply by contributing.
 <p>
 <b>We don't have some pseudo-legal heirarchy</b>
 <p>
-We are a very open source, anarchistic group. The only person who is
-different from anyone else is Ewan Birney who does the official
-announcing of the Bioperl releases. Otherwise we just let people 
-actually do whatever they like (it is better to discuss 
-things first of course), and make decisions by informal consensus.
+We are a very open & informal group. The only person who is
+different from anyone else is Hilmar Lapp who currently takes care of
+coordination and announcement of the official Bioperl releases. 
+Otherwise we just let people  actually do whatever they like 
+(it is better to discuss things first of course), and make 
+decisions by informal consensus.
 <p>
 <b>Bioperl is easy to join...</b>
 <p>
@@ -97,10 +101,6 @@ them.
 <li> Get an account on bio.perl.org by emailing <a href="mailto:dag@sonsorol.org">dag@sonsorol.org</a>. Learn how to use the cvs repository to work on the website, module documentation, scripts or code.
 </ul>
 <p>
-To learn me about who we actually are, visit:
-<p>
-<a href="http://bio.perl.org/Participants/">http://bio.perl.org/Participants/</a>
-<p>
 There are lots of things to do in bioinformatics, and re-coding some
 arcane format parsing or data structure layout should not be one of the
 main things we do. Ask yourself what you spend most of your time doing...
@@ -110,9 +110,7 @@ ability to get through the tedium of bioinformatics.
 <p>
 </blockquote>
 
-<p>
-<b>bio.perl.org</b>, the central site for our efforts became live
-in August 1998. Our previous home was located at <a href="http://www.techfak.uni-bielefeld.de/bcd/Perl/Bio/">www.uni-bielefeld.de/bcd/Perl/Bio/</a>.
+
 <p>
 <font color="#000080" size+1><a href="/index.shtml"><b>&lt;&lt;back</b></a></font>
 <p>
@@ -127,12 +125,22 @@ in August 1998. Our previous home was located at <a href="http://www.techfak.uni
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-03-31 15:57:23 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2001-03-04 01:35:19 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.1 2000-03-31 15:57:23 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.2 2001-03-04 01:35:19 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
 </HTML>
+
+
+
+
+
+
+
+
+
+
