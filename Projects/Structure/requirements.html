@@ -23,8 +23,8 @@ Preliminary requirements list for a Structure object
 
 <hr>
 
-This is an initial listing. It is not necessarily complete. Also, not
-all of the things listed here need to go into the Structure object
+This is an initial listing. It is not necessarily complete. Not all of
+the things listed here are expected to go into the Structure object
 itself. Think of this is a rough set of use-cases for biomolecular
 structure information, which should be considered when designing a
 structure object.
@@ -33,12 +33,11 @@ structure object.
 <b>Send suggestions to <a href="mailto:sac@neomorphic.com">sac@neomorphic.com</a>
 
 <p>
-The requirements seem to fit into 6 main categories:
+The requirements seem to fit into 5 main categories:
 <ol type="I">
 <li><a href="#atoms">Atomic coordinates</a>
 <li><a href="#features">Structural features</a>
-<li><a href="#anal">Analyzing structures</a>
-<li><a href="#edit">Editing structures</a>
+<li><a href="#anal">Analyzing & editing structures</a>
 <li><a href="#seq">Sequence information</a>
 <li><a href="#db">Database information</a>
 </ol>
@@ -59,8 +58,9 @@ The requirements seem to fit into 6 main categories:
   minimum PDB but could include mmCIF, CML/XML, and other formats.
 <li>Be able to obtain different representations the structural coordinates.
   For example, some applications require a hierarchical representation (complex, 
-  molecule, residue, atom) while other require a non-hierarchically representation  
-  (an array of atoms). Some applications may utilize minimal representations of the 
+  molecule, domain, residue, atom) while other might require a
+  non-hierarchically representation (a simple array of atoms or a
+  graph of atoms and bonds). Some applications may utilize minimal representations of the 
    structure, such as only backbone atoms (C-alpha or mainchain form
 proteins; phosphodiester backbone for nucleic acids) or heavy-atom
 only (no hydrogens, no waters).
@@ -89,7 +89,13 @@ the structure and region of the structure the model is based on.
   atoms, hetatoms, connectivity, secondary structural elements,
   disulfide bonds, presence of alternate conformations, structure
   quality factors (resolution, R factor), crystal packing group,
-  and other data obtainable directly from a PDB file.
+  and other data obtainable directly from a PDB file. 
+  Specific  examples:
+   <ul>
+   <li>get the  start  and end residue numbers for each chain in a
+      structure.
+   <li>get the chain association for a given hetero group.
+   </ul>
 <li> Obtain all atomic details for a given atom (xyz, atom serial
   number, atom name, chain name, residue name, residue number, occupancy, B-factor).
   For example, given an atom, determine what residue and what molecule
@@ -97,43 +103,39 @@ the structure and region of the structure the model is based on.
 <li> Obtain information regarding what domains and other structurally
   or biologically relevant information such as the locations of active sites,
   metal binding site, covalently modified residues, etc.
+<li>Need a robust domain-definition mechanism:
+ <ul>
+<li> how defined (SCOP, CATH, etc.)
+<li> interchain, intra-chain, contiguous, discontiguous.
+<li> Many of the requirements of the structure object apply
+    at the level of the individual domain as well.
+</ul>
 <li>Need a flexible mechanism for specifying locations of features.
 
 </ol>
 
-<!--     Analyzing Structures -->
+<!--     Analyzing & Editing Structures -->
 
 <h3>
 <a name="anal">
-<li>Analyzing Structures
+<li>Analyzing & Editing Structures
 </a>
 </h3>
-
+Structural analyses can be rather compute intensive and so it makes
+sense to not burden the structure object with complex analytical
+methods. Such methods are best left for a structural utility module or
+application. Still, it's useful to consider these analysis from the
+point of view of what requirements they impose on a structure object.
 <ol type="1">
 
 <li>Display/select acidic, basic, polar and non-polar amino acids,
 hydrogen  bonds
 <li>Charge molecule and compute energy, hydrogen bonds, salt bridges.
-<li>Compute the RMSD between to structures. Specify which regions of
-each structure are to be superimposed.
-<li>Compute a rotation/translation matrix for creating a minimum RMSD
-alignment between structures or structural sub-regions.
-</ol>
-
-
-<!--     Editing Structures -->
-
-<h3>
-<a name="edit">
-<li>Editing Structures
-</a>
-</h3>
-
-<ol type="1">
-
+<li>Given sequence alignment, compute optimal structure superposition
+(produce a rotation/translation matrix and/or RMSD).
+<li>Given a matrix, compute the RMSD.
 <li>Add/remove/change residues, hydrogens, and water molecules.
 <li>Energy minimize an altered structure.
-
 </ol>
 
 
@@ -175,6 +177,8 @@ representation).
 <li> Obtain information about the structure given a valid structural
   database identifier (molecule name, source organism, deposition
   date, etc.). 
+<li> Support local and remote database access. Many groups store
+versions of the PDB locally or may have their own private structural database.
 <li> Get URLs for web-based information about the structure.
 
 
