@@ -94,7 +94,7 @@ otherwise make freely available standalone scripts & code.
 <p>
 	  <li>Bioperl <a href="http://bioperl.org/pipermail/bioperl-l/2001-October/006379.html">class diagrams are available</a> in PDF form.
 	  <p>
-	  <li>(experimental feature) - New PDoc-style documentation for <em>bioperl-live</em> is online at <a href="http:/doc.bioperl.org/bioperl-live/">http://doc.bioperl.org/bioperl-live/</a>. It looks to be far more useful than our traditional pod2html translated documentation pages. Please evaluate and send comments to the bioperl-guts-l list. 
+	  <li>(experimental feature) - New PDoc-style documentation for <em>bioperl-live</em> is online at <a href="http://doc.bioperl.org/bioperl-live/">http://doc.bioperl.org/bioperl-live/</a>. It looks to be far more useful than our traditional pod2html translated documentation pages. Please evaluate and send comments to the bioperl-guts-l list. 
 	  </ul>
 
  </ul>
@@ -309,11 +309,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-10-19 15:33:20 $</p>
+<p><p align=right>Last Modified: $Date: 2001-10-24 18:50:07 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.37 2001-10-19 15:33:20 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.38 2001-10-24 18:50:07 jason Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
