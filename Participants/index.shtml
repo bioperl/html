@@ -693,7 +693,7 @@ similarity and data visualization among others
 <! ##### BEGIN PERSON #### >
 <tr>
 <td valign="top" ><font face="Arial, Helvetica, sans-serif" size=-1><b>Name</b></td>
-<td>Jason Stajich, <a href="jason@chg.mc.duke.edu">jason@chg.mc.duke.edu</a><br>
+<td>Jason Stajich, <a href="mailto:jason@chg.mc.duke.edu">jason@chg.mc.duke.edu</a><br>
 </tr>
 
 <tr>
@@ -708,7 +708,7 @@ similarity and data visualization among others
 
 <tr>
 <td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Uses perl for</b></td>
-<td>duct taping legacy projects, solutions to lab informatic needs,
+<td>duct taping legacy projects, solutions to lab informatics needs,
 database needs
 </td>
 </tr>
@@ -716,7 +716,7 @@ database needs
 <tr>
 <td valign="top"><font face="Arial, Helvetica, sans-serif" size=-1><b>Research/work interests</b></td>
 <td>automation of lab processes, systems design, improving sequence
-analysis 
+analysis,bioinformatics data management 
 </td>
 
 <tr>
@@ -740,7 +740,7 @@ analysis
 <! ##### BEGIN PERSON #### >
 <tr>
 <td valign="top" ><font face="Arial, Helvetica, sans-serif" size=-1><b>Name</b></td>
-<td>David J. States, <a href="states@ibc.wustl.edu">states@ibc.wustl.edu</a><br>
+<td>David J. States, <a href="mailto:states@ibc.wustl.edu">states@ibc.wustl.edu</a><br>
 </tr>
 
 <tr>
@@ -796,11 +796,11 @@ biologists
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-04 20:03:59 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-05-04 20:09:53 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.2 2000-05-04 20:03:59 jason Exp $ -->
+    <!-- $Id: index.shtml,v 1.3 2000-05-04 20:09:53 jason Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
