@@ -98,7 +98,7 @@ The proposal is as follows
 <ul>
 <li> We specify a small heirarchy of interfaces to alignment objects, being something like
 <pre>
-   Bio::Align::AbstractBasic    # basic alignment functions - just storage, and other useful things
+   Bio::Align::AbstractBasic    # basic alignment functions 
    Bio::Align::AbstractComplex  # more involved functions, such as DNA to DNA alignments
 
    Bio::Align::AbstractComplex inheriets from Bio::Align::AbstractBasic
@@ -148,7 +148,9 @@ The AbstractInterfaces are normal subroutine definitions which throw an exceptio
 sub name{
    my ($self,@args) = @_;
 
-   $self->throw("Abstract method, Bio::Align::AbstractBasic - should be filled by subclass so this is an error in your implementation");
+   $self->throw("Abstract method, Bio::Align::AbstractBasic 
+		- should be filled by subclass so this is an 
+		error in your implementation");
 
 }
 </pre>
