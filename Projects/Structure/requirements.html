@@ -34,12 +34,18 @@ object.
 <p>
 A major issue is what goes into the structure object itself.
 Not all of the functionalities listed here are expected to go into the
-structure object but instead would be provided by external utilities
-that could interact with the structure object. The structure object
+structure object itself but instead would be provided by external utilities
+that could interact with this object. The structure object
 could provide an interface to such functionalities and delegate
-tasks to other objects to perform the actual work. It is one of the
+tasks to perrform the actual work as necessary. It is one of the
 purposes of this requirements listing to help define what should
 be part of the structure object and what should not.
+<p>
+Another meta issue is whether to have lightweight and heavyweight
+versions of a structure object, as is being done for 
+<a href="http://bio.perl.org/Projects/Sequence">sequence objects</a>
+<a href="http://bio.perl.org/Projects/SeqAlign">sequence alignment objects</a>.
+How would you distinguish light- and heavyweight versions of a structure object?
 
 <p>
 <b>Send suggestions to <a href="mailto:vsns-bcd-perl@lists.uni-bielefeld.de">vsns-bcd-perl@lists.uni-bielefeld.de</a>
@@ -74,22 +80,22 @@ The requirements seem to fit into 5 main categories:
 <li>Be able to obtain different representations the structural coordinates.
   For example, some applications require a hierarchical representation (complex, 
   molecule, domain, residue, atom) while other might require a
-  non-hierarchically representation (a simple array of atoms or a
+  non-hierarchical representation (a simple array of atoms or a
   graph of atoms and bonds). Some applications may utilize minimal representations of the 
-   structure, such as only backbone atoms (C-alpha or mainchain form
+   structure, such as only backbone atoms (C-alpha or mainchain for
 proteins; phosphodiester backbone for nucleic acids) or heavy-atom
 only (no hydrogens, no waters).
 <p>
 <li>Convert between alternate representations of the structure. 
 <p>
-<li>Molecular coverage: at a minimum, support protein and nucleic acid xtallograpic and NMR
+<li>Molecular coverage: at a minimum, support protein and nucleic acid crystallograpic and NMR
   structures and their heterogens. Multi-chain and multi-model (NMR) structures
  should also be supported.
 <p>
 <li>Theoretical structural models: Obtain quality factors and other
-relevant modeling statistics. this will depend on the modeling
+relevant modeling statistics. This will depend on the modeling
 method. For a homology-based model, methods should be available to get
-the structure and region of the structure the model is based on.
+the structure and region of the structure on which the model is based.
 
 </ol>
 
@@ -122,8 +128,8 @@ the structure and region of the structure the model is based on.
   (chain) it is in.
 <p>
 <li>Display/select atoms or residues based on physical-chemical
-properties: acidic, basic, polar, non-polar amino acids, residues/
-atoms of a certain type (e.g., oxygen, glycine),  hydrogen
+properties: acidic, basic, polar, non-polar amino acids, spcific types
+of residues or atoms (e.g., oxygen, glycine),  hydrogen
 bonds, disulfide bonds, etc.
 <p>
 <li> Obtain information regarding what domains and other structurally
@@ -153,7 +159,7 @@ bonds, disulfide bonds, etc.
 Structural analyses can be rather compute intensive and so it makes
 sense to not burden the structure object with complex analytical
 methods. Such methods are best left for a structural utility module or
-application. Still, it's useful to consider these analysis from the
+application. Still, it's useful to consider these analyses from the
 point of view of what requirements they impose on a structure object.
 <p>
 <ol type="1">
@@ -196,7 +202,7 @@ etc.
 <li> Get sequence from the actual set of residues in the atomic
 coordinate set.
 <p>
-<li> Map between residue numbers between the atomic coordinate set
+<li> Map between residue numbers in the atomic coordinate set
 and the numbers in the sequence string (say from a Fasta
 representation). 
 <p>
@@ -223,7 +229,7 @@ representation).
 <p>
 <li> Obtain information about the structure given a valid structural
   database identifier (molecule name, source organism, deposition
-  date, etc.). 
+  date, dbxref etc.). 
 <p>
 <li>Get related structures and domains based on criteria such as
   sequence similarity, structural similarity, date deposited,
