@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Core Development Roadmap</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>bio.perl.org
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
+<font face="Arial, Helvetica, sans-serif" size=-1>
+<a href="/">Home</a>
+<p>
+<a href="ftp://bio.perl.org/pub/">FTP Site</a>
+<p>
+<a href="/News/">News</a>
+<p>
+<a href="/MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/bioperl-bugs/">Bug Tracking</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="/Thanks.html">Sponsors</a>
+<p>
+</font>
+<!########################## SIDEBAR CONTENTS>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=20 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<B>
+<font face="Arial, Helvetica, sans-serif" color="#000080">Bioperl Development Roadmap</font></B>
+<BR>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<p>
+<br>
+<b><center>Where we are. What we have. Where we are going.</center></b>
+
+<p>The bioperl sequence object has been integrated into a general framework developed by Steve Chervitz. The current framework is organized as follows:
+<pre>
+
+<b>Bio::</b>
+ Parse.pm
+ PreSeq.pm
+ Seq.pm
+ bioperl.lisp
+<b>Bio::Root/</b>
+ Err.pm
+ Global.pm
+ IOManager.pm
+ Object.pm
+ Utilities.pm
+ Vector.pm
+ Xref.pm
+<b>Bio::Tools/</b>
+ Blast.pm
+ Fasta.pm
+ SeqAnal.pm
+ WWW.pm
+<b>Bio::Tools::Blast/</b>
+ HSP.pm
+ HTML.pm
+ Sbjct.pm
+<b>Bio::Tools::Blast::Run/</b>
+ LocalBlast.pm   
+ Webblast.pm
+ postclient.pl
+</pre>
+<p>
+<b>Current Efforts</b><br>
+General housekeeping efforts related to moving our code to a common source repository are underway. This includes getting bioperl deveopers up to speed regarding version control via CVS, building test suites, documention repositories and perl module Makefiles. The goal is to be able to build "official" bioperl module distributions off of one common source tree.
+<p>
+<b>Code status & Committments</b><br>
+<b>PreSeq.pm</b> will be replaced by <b>Seq.pm</b> and will become our general flexible and lightweight sequence object. A more heavyweight object based upon Ian Korf's <b>GSC::Entry.pm</b> will be integrated the bioperl framework.
+<p>
+<b>Possible new projects</b><br>
+Several people are interested creating a <b>protein structure object</b>. Discussions on the basic design are underway on our mailing lists. Comments, proposals and participation are welcome.
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="/images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+
+</BODY>
+</HTML>
+
+
+
