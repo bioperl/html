@@ -23,6 +23,21 @@ Project News
 </TR>
 <TD> 
 <!-- INSERT YOUR  CONTENT HERE -->
+	  <p><font size=-1>[July 2000]</font></p>
+	  <p>
+	  <ul>
+          <li> The website is now <a href="/cgi-bin/search/search.pl">searchable</a>. 
+	  <p>
+          <li>Our <a href="http://ismb00.sdsc.edu/bosc2000/">Bioinformatics Open Source Conference (BOSC-2000)</a> has more than 100 registered attendees. Are you going?
+           <p>
+	   <li> Bioperl <a href="/MailList.shtml">lists</a> and mail archives are now on this server
+          </ul>
+	  <p><font size=-1>[May/June 2000]</font></p>
+	  <p>
+	  <ul>
+	  <li> Bug-fix release 0.6.1 available now
+	  </ul>
+
 	  <p><font size=-1>[April 2000]</font></p>
 	  <p>
 	  <ul>
@@ -183,11 +198,11 @@ ANNOUNCE: PubMed Monitor (alpha)</a><br>
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-07-06 13:40:05 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-08-26 18:48:24 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.1 2000-07-06 13:40:05 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.2 2000-08-26 18:48:24 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
