@@ -91,6 +91,8 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[May / June 2001]</font></p>
 	  <p>
 	  <ul>
+	  <li>Bioperl-0.7.1 has been released!
+	  <p>
 	  <li><font color="red">[ <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005853.html">tarball available</a> ] </font>We need people to help <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005796.html">test</a> the <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005853.html">0.7.1 release code</a> on as many operating systems as possible. Pending bugs holding up the 0.7.1 release are tracked in <a href="http://www.bioperl.org/wiki/html/BioPerl/071BugList.html">this Wiki page</a>.
 	  <p>
 	  <li> Jason suggests that <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005842.html">adding Grail functionality</a> would be a good project for new bioperl people who are interested in contributing to the project. Doug Hyatt, author of <a href="http://compbio.ornl.gov/grailexp/">GrailEXP</a> responds with an <a href="http://bioperl.org/pipermail/bioperl-l/2001-June/005849.html">offer to help out</a>.
@@ -167,13 +169,13 @@ Project"</a></b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (0.7.0)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (0.7.1)</a></B></font> 
           </TD>
 </TR>
 
 <tr>
           <td> Each official release passes our internal tests. We are committed 
-            to promptly fixing any bugs in the 0.7 release and making patched 
+            to promptly fixing any bugs in the 0.7 branch and making patched 
             releases available. Bioperl releases are also mirrored by the Comprehensive 
             Perl Archive Network (CPAN). CPAN links and info can be found at <a href="http://www.perl.com"> 
             www.perl.com</a>. 
@@ -321,11 +323,11 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-06-15 22:12:32 $</p>
+<p><p align=right>Last Modified: $Date: 2001-06-25 21:48:18 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.30 2001-06-15 22:12:32 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.31 2001-06-25 21:48:18 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
