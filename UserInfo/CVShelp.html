@@ -254,8 +254,17 @@ This make a branch in the repository at the 0-04 level called release-0-04-bug
 <pre>
 cvs -d /home/repository/bioperl checkout -r release-0-04-bug bioperl-live
 </pre>
-<li> Now fix the bug, and then behave as in the standard making a release in this directory
-(ie, cvs tagging, and then exporting etc).
+<li> Now fix the bug, and then behave as in the standard making a release in this directory... so 
+<ul>
+<li> Fix the bug, and check it works in this directory.
+<li> tag the release with a <code>cvs tag release-0-04-1</code> or
+suchlike tag
+<li> Export a clean copy of the relaese using 
+<pre>
+cvs -d /home/repository/bioperl export -r release-0-04-1 -d bioperl-0.04.1 bioperl-live
+</pre>
+<li>Check this works, tar it up and check it works somewhere else.
+</ul>
 </ul>
 
 <p>
