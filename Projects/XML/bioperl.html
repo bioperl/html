@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Projects</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>
+<a href="http://bio.perl.org/">bio.perl.org</a>
+</h2>
+</center>
+
+</font><TABLE BORDER=0><TR>
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
+<font face="Arial, Helvetica, sans-serif">
+<a href="/">Home</a>
+<p>
+<b>
+<a href="/Projects">Projects</a>
+</b>
+<p>
+<a href="/Projects/modules.html">Docs</a>
+<p>
+<a href="http://bio.perl.org/Core/Latest/">Download</a>
+<p>
+<a href="/News/">News</a>
+<p>
+<a href="/MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/Bugs/">Bugs</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="/Related.html">Related</a>
+<p>
+<a href="/Thanks.html">Sponsors</a>
+<p>
+</font>
+<!########################## SIDEBAR CONTENTS>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
+</TD>
+
+
+</font><TD ALIGN=LEFT VALIGN=TOP><font face="Arial, Helvetica, sans-serif" color="#000080">
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<h2>Bioperl XML proposal</h2>
+
+How should bioperl interact with XML? Here is my (Ewan's) view on this. It will
+be good to get other people's views.
+<p>
+XML is a <b>data format</b> whereas bioperl is a set of <b>Perl Objects</b>. The
+clearest way of thinking about this that XML is a natural <b>externalisation</b>
+of bioperl objects.
+<p>
+Some bioperl objects already have good systems for externalising or internalising
+themselves from datastreams, namely the Seq Object using the SeqIO system and the
+AnnSeq object using the AnnSeqIO system. XML could be considered "just another format"
+for these cases, and everthing would work ok. The problem about this is that
+<ul>
+  <li>Ideally XML should not just be another format, but a natural externalisation
+of the bioperl objects
+  <li>Treating it as "just another format" does not provide good, expected behaviour
+for additional tags (the 'X' of XML) which would allow people to extend bioperl objects
+in a data orientated manner. As there are alot of data orientated programmers out there
+this would definitely be a good thing
+<p>
+<li>I'd like to say that I am <b>not</b> a data orientated programmer, and I think that
+in many cases extending in data-orientated ways is a poor excuse for extending by object
+based ways (eg, inheritance or composition/delegation). But... I know there are alot of
+people who find data orientated programming natural and that we should support both styles
+sensibly.
+</ul>
+
+As an additional problem, the externalisation has not to rely too much
+on Perl implementations, as that would prevent people from providing
+implementations based on other languages/programming methods (eg,
+Python via a CORBA bridge or a DBI based wrapper over a RDB). This
+means we have to be quite careful about what we assumme the objects
+have and how we get data out of them
+
+<hr>
+Here is a proposal:
+<p>
+For externalisation
+<ul>
+<p>
+<li>Each object which can be externalised has a method $obj->toXML(FILE) which dumps
+the object as XML. The methods which the XML externalisation use should be defined as
+an interface class and then for pure-perl implementations, provide a base class below
+the root object that provides a pure perl implementation. The toXML method is a method 
+defined in the interface class and calls the following methods.
+
+<ul>
+<li>$obj->base_XML. The internal state of the object is dumped as a specific XML type which is different
+from object to object (as we can't know what data a particular object wants to save - 
+some parts of the data can be dumped and some can't be)
+<li>The objects contains a number of methods which represent data-orientated extensions
+to this object, which I believe are something like:
+    <ul>
+     <li>$obj->has_extensions_XML. A method to say whether there is any extensions
+     <li>$obj->keys_XML (returns an array of strings) A method for retrieving all the keys of the extensions 
+     <li>$obj->data_XML($key) A method for each key which retrieves the data associated with this key (probably an array of values).
+</ul>
+<p>
+
+<li>
+The base class should contain ways of setting the following
+attributes. We can provide a standard for doing this, probably
+<ul>
+<li>$obj->add_XML('key',$data)
+</ul>
+but implementations should not be forced to be carrying around general
+arbitary hashes all the time, so an implementation must be able to say
+'I don't do extensions'.
+
+</ul>
+
+These methods make this very similar to ACeDB and BoulderIO. I'll be talking to ACeDB and
+BoulderIO gurus to see if this definition might also allow automatic ->toAce and ->toBoulder
+methods. At the moment the above mechanism implies single tag extensions onto the object (no
+deeper nestings), but the $obj->data_XML could return a hash if need be. Indeed we might be
+able to use the actual BoulderIO classes as some sort of mix-in with the bioperl root object
+stuff to do this - but don't hold your breath on that one.
+
+
+</ul>
+<hr>
+For internalisation
+<p>
+
+There should be a SAX (event driven parser) system which is intialised
+with Objects names that will be used when certain tags are hit. Then the
+parser will load up a fromXML constructor specific for that family,
+probably dragging in the actual class at run-time (like SeqIO does). It would be
+up to the class to implement the precise fromXML function and for it to handle
+tags that it was not interested in, placing them into the extension areas
+sensibly
+
+<hr>
+Interaction between the internalisation and interface definitions.
+<p>
+We need to think about how internalisation works with interface defintions, and whether 
+the base_XML definitions can or should happen in the interface definitions to the
+bioperl classes. This would make the interface definitions in bioperl the key "object
+modelling" definition area, which is quite an interesting idea.
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="/images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+
+</TR>
+</TABLE>
+
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date$</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
+
+</BODY>
