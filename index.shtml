@@ -80,6 +80,12 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
+	  <p><font size=-1>[May 2000]</font></p>
+	  <p>
+	  <ul>
+	  <li> Bug-fix release 0.6.1 available now
+	  </ul>
+	  
 	  <p><font size=-1>[April 2000]</font></p>
 	  <p>
 	  <ul>
@@ -237,6 +243,7 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 <li><a href="/Core/Latest/modules.html">Registered module list & documentation</a>
 <li><a href="/Projects/overview.html">Bioperl design philosophy and project(s) overview</a>
 <li>All of our source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
+<li>Anonymous CVS access available at <a href="http://cvs.bioperl.org">cvs.bioperl.org</a>
 </ul>
 <p>
 <font face="Arial, Helvetica, sans-serif" color="#000080">
@@ -247,7 +254,7 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (0.6)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (0.6.1)</a></B></font> 
           </TD>
 </TR>
 
@@ -356,11 +363,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-04-24 17:04:46 $</p>
+<p><p align=right>Last Modified: $Date: 2000-05-19 17:03:36 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.8 2000-04-24 17:04:46 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.9 2000-05-19 17:03:36 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
