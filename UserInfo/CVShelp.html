@@ -82,6 +82,8 @@ Index
 <li><a href="#ex">An example session</a>
 <li><a href="#conf">Conflict resolution</a>
 <li><a href="#comm">Common cvs commands</a>
+<li><a href="#rel"> Making a release</a>
+<li><a href="#bug"> Making a bug fix branch and a release</a>
 </ul>
 <a name=reqs><h2>Requirements</h2></a>
 To use the CVS system you must have
@@ -199,6 +201,70 @@ cvs ACTION
 Do these commands from the Bio directory (inside it). cvs knows where to find the repository due
 to the CVS directories scattered around the place.
 <p>
+<h2><a name=rel>Making a Release</a></h2>
+
+To make a release you need to do a number of things
+<ul>
+<li> Check it passes make test etc in your bioperl-live directory 
+<li> Double check everything
+<li> tag the version you have in the bioperl-live directory by going
+<pre>
+cvs tag release-0-04-0
+</pre>
+Tags must be non whitespace characters and start with a letter
+<li> cd outside of the bioperl directory
+<li> Make a new export of the release using the tag
+<pre>
+cvs -d /home/repository/bioperl export -r release-0-04-0 -d bioperl-0.04 bioperl-live
+</pre>
+Notice here that
+<ul>
+<li> I used precisely the same tag in the release-0-04-0 as the tag. There is <i>no</i> semantics
+to the tag line. It just a ascii string that signifies something.
+<li> I used the -d option after export to make sure I exported into the bioperl-0.04 directory,
+not the bioperl-live directory, otherwise I will overwrite the bioperl-live directory...
+</ul>
+<p>
+<li> Now cd into bioperl-0.04 and type perl Makefile.PL, make, make test, (should pass!) and then
+make dist (make the distribution). Then - take the distribution somewhere else, untar it, go
+perl Makefile.PL, make, make test 
+<li> Post to guts/bioperl about the release. 
+</ul>
+
+<h2><a name=bug>Making a bug fix branch and a release</a></h2>
+
+You <i>Must</i> have tagged the release you want to make a bug fix to.
+<p>
+Say we want to make a bug fix to 0.04. Here is what we do:
+<ul>
+<li> We make a branch in the repository by going 
+<pre>
+cvs -d /home/repository/bioperl -r release-0-04-0 -b release-0-04-bug bioperl-live
+</pre>
+This make a branch in the repository at the 0-04 level called release-0-04-bug
+<li> move to a clean area and checkout the release-0-04-bug branch by going
+<pre>
+cvs -d /home/repository/bioperl checkout -r release-0-04-bug bioperl-live
+</pre>
+<li> Now fix the bug, and then behave as in the standard making a release in this directory
+(ie, cvs tagging, and then exporting etc).
+<li> Make sure each release has only one bug branch off it. Don't branch inside a bug branch.
+</ul>
+
+<p>
+To see what tags a file already as in it go
+
+<pre>
+cvs log README | more
+</pre>
+
+To see what branch you are on, go
+
+<pre>
+cvs log README | more
+</pre>
+
+The sticky tag will be set to something if you are in a branch.
 
 <p>
 <b>This page is still under construction. In the meantime Ewan Birney 
