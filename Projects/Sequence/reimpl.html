@@ -113,6 +113,10 @@ not favour this.
 <hr>
 The real redesign: 
 <p>
+<font color=red>Additions by other people are in red. Please post comments to the
+guts list and I will integrate them on this page</font>
+
+<p>
 As a introduction to some of the bioperl concepts, Bioperl has started to make
 "interface" files, which provide an abstract interface (like interfaces in Java)
 about how particular objects should behave, regardless of their implementation.
@@ -120,8 +124,9 @@ This has proved very successful in the DB and SeqIO areas. Generally the interfa
 files are nearly always pure documentation: the methods just throw exceptions
 indicating that the implementing object did not provide this method. An exception
 to this are methods which rely *solely* on the interface, and effective operate
-on top of the abstract interface. We are currently (at least Matt and I are at the
-Sanger Centre) calling these methods <b>decorating</b> methods.
+on top of the abstract interface. <font color=red>We are not sure what design pattern
+this is, but it might be the bridge. Many thanks to Jeffrey Chang for pulling us up
+on design points</font>
  For example, an interface could provide methods for
 <pre>
      $obj->start()   # the start point
@@ -141,7 +146,8 @@ The proposal is to have the following two Perl Modules
 <li> Bio::SeqI - Sequence Interface and Decorating methods
 <li> Bio::Seq  - a pure perl implementation of the Seq object
 </ul>
-
+<font color=red>Andrew Dalke spotted some typos/omissions that I have cleared up</font>
+<p>
 The Bio::SeqI interface would be something on these lines:
 <ul>
 <li>seq() - access to the sequence as a string
@@ -149,10 +155,15 @@ The Bio::SeqI interface would be something on these lines:
 <li>accession() - access to the unique key for this sequence as determined by the
 implementation. A suggestion is to use accession numbers
 <li>start() - start point of the sequence, assummed to be meaningful somehow
+<p>
+<font color=red>Ian Korf is not keen on names/accessions or descriptions. Sequence should just be a
+sequence</font>
+<p>
 <li>desc()  - a single string description with no other proscribed semantics
 <li>length() - length of the sequence
 <li>strand() - 1,-1 of the strandness 
-<li>type() - returns a string of one of 'Dna', 'Rna', 'Amino'
+<li>type() - returns a string of one of 'Dna', 'Rna', 'Amino' <font color=red>SteveB suggests
+dna, rna, amino, although this might break some old scripts</font>
 <li>can_call_new() - if returns 1, means can use the new constructor attached to the
 sequence object for the copy and trunc functions
 <li>new(hash) - returns a new object, which is intialised using the following hash values
@@ -162,7 +173,9 @@ sequence object for the copy and trunc functions
          <li>-accession - a string of the accession (if not provided, assumme name)
          <li>-start - start position (if not provided, assumme 1)
          <li>-strand - strandness (if not provided, assumme 1)
-</ul>
+	 <li>-desc   - description string (optional)
+         <li>-type   - forces a particular type definition
+       </ul>
 <p>
 The Bio::SeqI decorating methods would be
 <p>
@@ -182,7 +195,7 @@ as in copy and trunc.
 </ul>
 The following methods I am not sure if they should be in or not
 <ul>
-<li>translate() - 
+<li>translate() - <font color=red>Ian Korf thinks this should be out. So do I...</font>
 </ul>
 
 <p>
