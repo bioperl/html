@@ -70,7 +70,7 @@ otherwise make freely available standalone scripts & code.
 <ul>
 <li><a href="/Core/bptutorial.html">BioPerl 1.0 Tutorial</a>
 <li><a href="http://www.pasteur.fr/recherche/unites/sis/formation/bioperl/">Pasteur Institute Bioperl Course</a>
-<li><a href="http://doc.bioperl.org/releases/bioperl-1.0.1/">BioPerl 1.0.1 Documentation</a>
+<li><a href="http://doc.bioperl.org/releases/bioperl-1.0.2/">BioPerl 1.0.2 Documentation</a>
 <li>Anonymous CVS (<a href="http://cvs.bioperl.org">cvs.bioperl.org</a>)
 <li>All source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
 </ul>
@@ -90,9 +90,9 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-<p><font size=-1>[April - June 2002]</font></p>
+<p><font size=-1>[April - July 2002]</font></p>
 <ul>
-<li>Bugfix release 1.0.1 is available for download. See <a href="/Core/Latest/">distribution page</a> for more information.</li>
+<li>Bugfix release 1.0.2 is available for download. See <a href="/Core/Latest/">distribution page</a> for more information.</li>
 <p>
 <li><a href="http://www.open-bio.org/bosc2002/">BOSC 2002</a> speaker schedule has been set.  Keynotes include Ewan Birney, Michael Eisen, and Winston Hide.  Registration closes June 28.</li>
 </ul>
@@ -207,7 +207,7 @@ Project"</a></b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (1.0.1)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (1.0.2)</a></B></font> 
           </TD>
 </TR>
 
@@ -330,11 +330,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2002-06-17 21:17:02 $</p>
+<p><p align=right>Last Modified: $Date: 2002-07-15 22:41:09 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.49 2002-06-17 21:17:02 jason Exp $ -->
+<!-- $Id: index.shtml,v 1.50 2002-07-15 22:41:09 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
