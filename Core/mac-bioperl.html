@@ -1,0 +1,1143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<!--
+This document was converted from RTF source: 
+By rtftohtml 4.20
+See http://www.sunpack.com/RTF
+Filename:Disk2:bioperl:bioperl.rtf
+OutFileName:Disk2:bioperl:bioperl.html
+Application Directory:Cellwall:Applications (Mac OS 9):RTF2HTML
+Subject:
+Author:Todd Richmond
+Operator:Todd Richmond
+Document Comments:
+Version Comments:
+Comments:
+Keywords:
+Translation Date:03/01/2001
+Translation Time:17:02:58
+Translation Platform:MacOS
+Number of Output files:1
+This File:Disk2:bioperl:bioperl.html
+SplitDepth=0
+SkipNavPanel=1
+SkipLeadingToc=1
+SkipTrailingToc=1
+GenContents=0
+GenFrames=0
+GenIndex=0
+-->
+<head lang="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Installing Bioperl 0.7 on MacOS 9 running MacPerl 5.004</title> 
+</head>
+<body>
+<a name="Heading1"></a><h1> Installing Bioperl 0.7 on MacOS 9 running MacPerl 5.004</h1> 
+<div>
+	Contact: Todd Richmond (<a href="mailto:todd@andrew2.stanford.edu">todd@andrew2.stanford.edu</a>)
+	<br>
+</div>
+<div>
+	<br>
+</div>
+<a name="Heading4"></a><h2> Before getting started</h2> 
+<div>
+	Before you start, needless to say, you should have MacPerl installed on your machine. You should also grab Chris Nandor&#8217;s CPAN-mac scripts for unpacking and installing perl modules. Go to Pudge&#8217;s Pad (<a href="http://pudge.net/macperl/">http://pudge.net/macperl/</a> ) and follow the cpan-mac link at the bottom of the page. This will take you to SourceForge, where you can download the cpan-mac package (v 0.50). Follow the directions to install and configure this package.
+	<br>
+</div>
+<div>
+	<br>
+</div>
+<div>
+	Most perl modules are distributed as tarred and gzipped files. Stuffit Expander can deal with both of these file formats, but sometimes has problems. I recommend using MacGzip and Suntar instead. You can find both by using Versiontracker (<a href="http://versiontracker.com">http://www.versiontracker.com</a> ). Do a search for both. You should find MacGzip 1.13. and Suntar 2.2.1. Both are small, freeware programs and definitely worth having. One of the issues you&#8217;ll have working with perl modules is line-endings. Make sure that Suntar or whatever program you&#8217;re using automatically converts Unix line-endings to Mac line-endings. Otherwise use Versiontracker to find a utility to help you do the conversions.
+	<br>
+</div>
+<div>
+	<br>
+</div>
+<div>
+	One change I recommend is changing the location of your MacPerl temporary directory. The current default is the invisible &#8216;Temporary Items&#8217; folder. Being invisible, it&#8217;s hard to manually clean up leftover temporary files that sometimes get left behind.
+	<br>
+</div>
+<ol>
+	<li>
+		Make a folder called &#8216;tmp&#8217; some place on your hard disk (i.e. in your Documents folder)
+	</li>
+	<li>
+		Go to MacPerl-&gt;Edit-&gt;Preferences
+	</li>
+	<li>
+		Click on Environment
+	</li>
+	<li>
+		Delete the existing TMPDIR variable
+	</li>
+	<li>
+		Respecify the TMPDIR location
+	</li>
+	<li>
+		Add Variable
+	</li>
+	<li>
+		Specify TMPDIR for Name
+	</li>
+	<li>
+		Click on folder and choose the &#8216;tmp&#8217; folder above
+	</li>
+</ol>
+<a name="Heading18"></a><h2> External dependencies</h2> 
+<div>
+	The bioperl package requires a number of other modules. Before you install bioperl, you&#8217;ll have to install them. The list of packages is given below. Some will not work on Macs, but they are listed for reference below. Consult the list if bioperl complains that they are not installed.
+	<br>
+</div>
+<a name="Heading20"></a><h2> XML::Parser</h2> 
+<ol>
+	<li>
+		Go to the MacPerl Module Porters: Module List (<a href="http://pudge.net/cgi-bin/mmp.plx">http://pudge.net/cgi-bin/mmp.plx</a> ). At the bottom of the page is a link to the XML::Parser binary (<a href="http://www.perl.com/CPAN/authors/id/A/AS/ASANDSTRM/XML-Parser-2.27-bin-1-MacOS.tgz">http://www.perl.com/CPAN/authors/id/A/AS/ASANDSTRM/XML-Parser-2.27-bin-1-MacOS.tgz</a>). 
+	</li>
+	<li>
+		Download, unzip and untar the file. A folder called &#8220;XML-Parser-2.27-bin-1-MacOS&#8221; will be created. Drop this unto the installme.plx script and the files should be copied to the correct place. 
+	</li>
+	<li>
+		To check the installation, go into the &#8216;t&#8217; folder of the XML-Parser folder and run each of the test scripts using MacPerl. On a Unix machine, it&#8217;s possible to do a very simple &#8220;make&#8221;, &#8220;make test&#8221;, &#8220;make install&#8221; sequence that preps an installation, tests it first, and then installs it. On Macs we have to install first, test later. There are 13 test in total for XML::Parser. To run the tests, open each &#8220;.t&#8221; file in MacPerl and choose the run command under the Script menu. If you're going to be running a lot of tests, it's conventient to use command-R, to open and run the script with a single command. The result of the test will be output to the MacPerl standard output window. The first line will show the number of tests that will be run (i.e. 1..13). Then, if everything is installed correctly, you'll see a series of &#8220;ok 1&#8221;,&#8220;ok 2&#8221;, etc. If the test fails, the output will say &#8220;not ok 1&#8221;, sometimes followed by some sort of explanation. For XML::Parser, some of the test scripts have already had the path separators changed from the Unix &#8216;/&#8217; to Mac &#8216;:&#8217;, and the originals have been renamed .t.orig. You can ignore those original files. For other tests scripts you may have to make manual changes to help the test script find the example files. See the bioperl installation below for an example. For XML::Parser, to make sure the test scripts work properly, you&#8217;ll have to move the &#8220;samples&#8221; folder into the &#8220;t&#8221; folder so that the test scripts can find the files. &#8220;parament.t&#8221; will fail &#8211; it&#8217;s trying to find &#8220;foo.dtd&#8221; but the filepath is hard-coded in. To get this to work, hand-edit the &#8220;parament.t &#8221;; look for foo.dtd and remove the &#8216;:t:&#8217; from in front of the filename.
+	</li>
+</ol>
+<a name="Heading24"></a><h2> XML::Writer</h2> 
+<ol>
+	<li>
+		Go to CPAN (<a href="http://search.cpan.org">http://search.cpan.org</a>) and search for XML::Writer.
+	</li>
+	<li>
+		Download <b>XML-Writer-0.4.tar.gz</b>&#160;and install as described above.
+	</li>
+	<li>
+		The tests for XML::Writer require IO::File. It should already be installed as part of the standard Mac distribution.
+	</li>
+</ol>
+<a name="Heading28"></a><h2> XML::Node</h2> 
+<ol>
+	<li>
+		Download <b>XML-Node-0.10.tar.gz</b>&#160;from CPAN
+	</li>
+	<li>
+		Install
+	</li>
+	<li>
+		Passes all three tests
+	</li>
+</ol>
+<a name="Heading32"></a><h2> XML::Parser::PerlSAX</h2> 
+<ol>
+	<li>
+		Download&#160;<b>libxml-perl-0.07.tar.gz</b> from CPAN
+	</li>
+	<li>
+		Install
+	</li>
+	<li>
+		Only 2 of the tests from the 6 test scripts fail. Not sure if this will affect Bioperl usage.
+	</li>
+</ol>
+<a name="Heading36"></a><h2> IO::Scalar</h2> 
+<ol>
+	<li>
+		Download <b>IO-stringy-1.219.tar.gz</b>&#160;from CPAN
+	</li>
+	<li>
+		Install
+	</li>
+	<li>
+		Five out of the 27 tests for IO::Scalar fail. Since it is needed by Bio::Tools::Blast::Run::Webblast, and it&#8217;s not clear that will work with MacPerl, it&#8217;s best not to worry about it for now.
+	</li>
+</ol>
+<a name="Heading40"></a><h2> IO::String</h2> 
+<ol>
+	<li>
+		Not going to work on Macs becauses IO-String requires perl 5.005_03 (requires the self-tie patch?)
+	</li>
+</ol>
+<a name="Heading42"></a><h2> File::Temp</h2> 
+<ol>
+	<li>
+		Not going to work on Macs, requires 5.005 (and a few other dependencies)
+	</li>
+</ol>
+<a name="Heading44"></a><h2> File::Spec</h2> 
+<ol>
+	<li>
+		Not listed as a dependency but still necessary
+	</li>
+	<li>
+		Download <b>File-Spec-0.82.tar.gz</b>&#160; from CPAN
+	</li>
+	<li>
+		Some of the VMS tests fail, but this doesn&#8217;t matter for us.
+	</li>
+</ol>
+<a name="Heading48"></a><h2> Carp</h2> 
+<ol>
+	<li>
+		Some of the modules use Carp to give some error messages. Unfortunately the version of Carp distributed with MacPerl is too old to support &#8220;cluck&#8221;.
+	</li>
+	<li>
+		Download perl source (perl-5.6.1-TRIAL2 or whatever is current) from CPAN. Yes, you have to download the whole thing &#8211; I haven&#8217;t been able to find Carp distributed outside of the standard source distribution.
+	</li>
+	<li>
+		Find the lib folder in the perl source, and copy Carp.pm and the Carp folder to your MacPerl lib folder.
+	</li>
+</ol>
+<a name="Heading52"></a><h2> AcePerl</h2> 
+<ol>
+	<li>
+		Can ignore unless you&#8217;re going to do something with AceDB.
+	</li>
+</ol>
+<div>
+	<br>
+</div>
+<a name="Heading55"></a><h2> Installing Bioperl 0.7</h2> 
+<div>
+	Download the bioperl package, either from CPAN (<a href="http://search.cpan.org">http://search.cpan.org</a>) or directly from the bioperl.org site (<a href="http://bioperl.org">http://bioperl.org</a>). (If you want the most up-to-date package, you can install one of the Mac CVS programs and get the latest source directly from <a href="http://cvs.bioperl.org">http://cvs.bioperl.org</a> ) Unzip and untar the file, which should give a bioperl folder. Drop this folder on cpan-mac&#8217;s installme.plx script, and it will go to work copying files to the correct location. You will see a bunch of warnings if you have not installed all the packages above. You will still see some even if you did &#8211; you can probably ignore them.
+	<br>
+</div>
+<a name="Heading57"></a><h2> Checking the installation</h2> 
+<div>
+	Now check the BioPerl tests. Go through and do a global search-and-replace on all of the &#8216;.t&#8217; files and replace the string &#8220;t&#8221; with &#8220;:t&#8221;. Then make a copy of the entire &#8216;t&#8217; folder and place it in the &#8216;t&#8217; folder. This is necessary because normally test scripts are run one level up and without this change, the test scripts will not be able to find the example data files in the &#8216;t&#8217; folder.
+	<br>
+</div>
+<div>
+<table rules="all" border="1" frame="box">
+	<colgroup>
+		<col width="109">
+		<col width="541">
+	</colgroup>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				AAChange.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				AAReverseMutate.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				AlignIO.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Allele.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Annotation.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Blast.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				1..24 pass, skips the remainder
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				BPbl2seq.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				BPlite.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				BPpsilite.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				1..8 pass, then halts with
+				<br>
+			</div>
+			<div>
+				# Can't use an undefined value as an ARRAY reference.
+				<br>
+			</div>
+			<div>
+				File 'Disk2:bioperl:bioperl-live:t:BPpsilite.t'; Line 56
+				<br>
+			</div>
+			<div>
+				<br>
+			</div>
+			<div>
+				ok $last_iteration2-&gt;newhits-&gt;[1] =~ /ARATH/;# " Hit not found in phiblast report";
+				<br>
+			</div>
+			<div>
+				Sorry &#8211; no fix for this...
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Chain.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Test 5 fails.
+				<br>
+			</div>
+			<div>
+				not ok 5
+				<br>
+			</div>
+			<div>
+				# Test 5 got: '' (Disk2:bioperl:bioperl-live:t:Chain.t at line 45)
+				<br>
+			</div>
+			<div>
+				# Expected: '1'
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Clustalw.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Skips tests &#8211; command line clustalw isn&#8217;t available on Macs
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				CodonTable.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				DB.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Requires IO::String. Should gracefully exit, but sometimes doesn&#8217;t
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				DNAMutation.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				exception.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				game.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				GDB.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Fails. Fetching sequences from remote databases doesn&#8217;t work for Mac users. Appears to be a problem with HTML parser
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Genpred.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				GFF.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				hmmer.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				HSP.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				HTML.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Index.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Fails. Uses DB_File which is not current on MacOS
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				largefasta.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Requires MacOS patch for LargePrimarySeq.pm. Download the Mac version of LargePrimarySeq.pm from 
+				<a href="ftp://cellwall.stanford.edu/public/bioperl">
+					ftp://cellwall.stanford.edu/public/bioperl
+				</a>
+				and place in the Bio:Seq folder in your MacPerl lib folder.
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				largepseq.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Requires same MacOS patch as largefasta.t
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				LiveSeq.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Location.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				multiple_fasta.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Mutation.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Mutator.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				OddCodes.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				PrimarySeq.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Range.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				RangeI.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				RestrictionEnzyme.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				RNAChange.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				RootI.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Sbjct.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SearchDist.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Skips tests gracefully because external dependency not found
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Seq.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SeqAnal.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SeqAnalysisParser.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Need to patch sub loader() in Bio::Factory::FactoryDriver.pm
+				<br>
+			</div>
+			<div>
+				Find:
+				<br>
+			</div>
+			<div>
+				my $io = new Bio::Root::IO();
+				<br>
+			</div>
+			<div>
+				# catfile comes from IO
+				<br>
+			</div>
+			<div>
+				$load = $io-&gt;catfile((split(/::/,$load)));
+				<br>
+			</div>
+			<div>
+				<br>
+			</div>
+			<div>
+				change last line of code to:
+				<br>
+			</div>
+			<div>
+				$load = $io-&gt;catfile(':',(split(/::/,$load)));
+				<br>
+			</div>
+			<div>
+				<br>
+			</div>
+			<div>
+				All tests pass with this patch
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SeqDiff.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SeqFeature.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SeqIO.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SeqPattern.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SeqStats.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SeqUtils.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Sigcleave.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Sim4.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SimilarityPair.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				SimpleAlign.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Species.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				StandAloneBlast.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Skips tests &#8211; no standalone Blast
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				TCoffee.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Requires change as specified in SeqAnalysisParser.t
+				<br>
+			</div>
+			<div>
+				Skips tests 5..9 &#8211; Tcoffee not installed
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Tempfile.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass (assuming tmp directory cleared out of all old temporary files from failed attempts of other tests)
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Tools.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				UnivAln.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Variation_IO.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				Only the first 16 tests pass. Remainder require IO::String???
+				<br>
+			</div>
+		</td>
+	</tr>
+	<tr valign="TOP">
+		<td width="109" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				WWW.t
+				<br>
+			</div>
+		</td>
+		<td width="541" colspan="1" rowspan="1" valign="TOP">
+			<div>
+				All tests pass
+				<br>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+<div>
+	<br>
+</div>
+
+<HR>
+<TABLE CELLSPACING="0" CELLPADDING="1">
+	<TR>
+		<TD>Email: <A HREF="mailto:todd@andrew2.stanford.edu">todd@andrew2.stanford.edu<BR></A></TD>
+		<TD WIDTH="70" ALIGN=CENTER>&nbsp;</TD>
+		<TD ALIGN=RIGHT>Last updated on: March 2, 2001</TD>
+	</TR>
+</TABLE>
+
+</body>
+</html>
