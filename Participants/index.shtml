@@ -1,97 +1,56 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <HTML>
-<HEAD>
 
-<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+    <!--#include virtual="/_header_start.html" -->
 
-<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+<STYLE TYPE="text/css">
+<!--
+#side-participants { font-weight: 800 }
+-->
+</STYLE>
 
-<TITLE>bio.perl.org - participants</TITLE>
 
-</HEAD>
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+<TITLE> bioperl.org - Participants </TITLE>
 
-<font face="Arial, Helvetica, sans-serif" color="#000080">
+    <!--#include virtual="/_header_end.html" -->
+    <!--#include virtual="/_body_start.html" -->
+    <!--#include virtual="/_main_heading.html" -->
 
-<center>
-<h2>
-<a href="http://bio.perl.org/">bio.perl.org</a>
-</h2>
-</center>
+    <!--#include virtual="/_main_table_start.html" -->
+    <!--#include virtual="/_sidebar.html" -->
+    <!--#include virtual="/_small_margin_col.html" -->
+    <!--#include virtual="/_main_content_start.html" -->
+    <!--#include virtual="/_main_content_table_start.html" -->
 
-<TABLE BORDER=0>
-<TR>
-<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
-<!########################## SIDEBAR CONTENTS>
-<font face="Arial, Helvetica, sans-serif">
-<a href="/">Home</a>
-<p>
-<a href="/Projects/">Projects</a>
-<p>
-<a href="/Projects/modules.html">Docs</a>
-<p>
-<a href="http://bio.perl.org/Core/Latest/">Download</a>
-<p>
-<a href="/News/">News</a>
-<p>
-<a href="/MailList.html">Mail Lists</a>
-<p>
-<a href="/UserInfo/">Developers</a>
-<p>
-<a href="/Bugs/">Bugs</a>
-<p>
-<b>
-<a href="/Participants/">Participants</a>
-</b>
-<p>
-<a href="/Related.html">Related</a>
-<p>
-<a href="/Thanks.html">Sponsors</a>
-<p>
-</font>
-<!########################## SIDEBAR CONTENTS>
-</font>
+<B><font face="Arial, Helvetica, sans-serif" color="#000080">
+Users, Contributors and Participants
+</font></B><BR>
 </TD>
+</TR>
+<TD> 
+<!-- INSERT YOUR  CONTENT HERE -->
 
-
-<! margin >
-<TD ROWSPAN=20><IMG SRC="../images/transparent.gif" WIDTH=5 ALT=" ">
-</TD>
-
-
-<TD ALIGN=LEFT VALIGN=TOP>
-<DIV ALIGN=RIGHT></DIV>
-
-
-<! main column #1>
-<TABLE BORDER=0 CELLPADDING=3>
-
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
-<B>
-<font face="Arial, Helvetica, sans-serif" color="#000080">Core group</font></B>
+<B><font face="Arial, Helvetica, sans-serif" color="#000080">Core group</font></B>
 <p>
 
 Bioperl is run by a core group of people from around the world.  The
-core group is very open (half of us joined after the start of the
+core group is very open (most of us joined after the start of the
 project), and people who contribute naturally become part of the core
 group.  You can follow developer discussions on the
 <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/index.html">guts list</a> 
 which is where decisions about bioperl get thrashed out. Decisions are made by informal consensus. Your input is very welcome in any discussion.
 The only person different from any others is <a
-href="#stevec">Steve Chervitz</a> who officially releases the core
-code. The core group are
+href="#ewanb">Ewan Birney</a> who officially releases the core
+code. The core group are (currently)
 
 <ul>
-<li><a href="#stevec">Steve Chervitz</a>. Coordinator, Design and Bio::Tools::Blast, Bio::Root::*
+<li><a href="#ewanb">Ewan Birney</a> Current coordinator, Design, XS compiled code, Bio::SeqIO::*
+<li><a href="#stevec">Steve Chervitz</a>. Initial coordinator, early design and Bio::Tools::Blast, Bio::Root::*
 <li><a href="#chrisd">Chris Dagdigian</a> System administrator, Webmaster, 
 lightweight analysis
-<li><a href="#ewanb">Ewan Birney</a> Design, XS compiled code, Bio::SeqIO::*
-<li><a href="#aaronm">Aaron Mackey</a> Bio::DB::Genbank, Fasta package
 </ul>
 Previous people involved heavily in bioperl are <a href="#steveb">Steve
-Brenner</a> and <a href="#georgf">Georg Fuellen</a> who are still active
-in discussions.
+Brenner</a>, <A href="#aaronm">Aaron Mackey</a> and <a href="#georgf">Georg Fuellen</a> who are still active in discussions.
 <p>
 Many other people, most of them on this list have contributed invaluable
 code, comments, design advice and support. 
@@ -773,36 +732,30 @@ biologists
 
 
 </table>
-
 <p>
+<p>
+<font face="Arial, Helvetica, sans-serif" size=+1>
+<a href="/">&lt;&lt;back</a>
+</font>
 </TD>
 </TR>
 
 
 
-<!spacer >
-<TR><TD><IMG SRC="../images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
-</TABLE>
-</TD>
-
-<! end first main column>
+<!-- END YOUR CONTENT BEFORE THIS LINE -->
 
 
-<! vertical spacer bar>
-<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="../images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+    <!--#include virtual="/_main_content_table_end.html" -->
+    <!--#include virtual="/_main_content_end.html" -->
+    <!--#include virtual="/_main_table_end.html" -->
 
+    <! ### START CVS DATESTAMP >
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-03-31 16:44:06 $</P>
+    <! ### STOP CVS DATESTAMP >
 
-</TD>
-</TR>
-</TABLE>
+    <! ### START CVS REVISION >
+    <!-- $Id: index.shtml,v 1.1 2000-03-31 16:44:06 dag Exp $ -->
+    <! ### STOP CVS REVISION >
 
-<! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date$</p>
-<! ### STOP CVS DATESTAMP >
-
-<! ### START CVS REVISION >
-<!-- $Id$ -->
-<! ### STOP CVS REVISION >
-
-</BODY>
+    <!--#include virtual="/_body_end.html" -->
 </HTML>
