@@ -1,8 +1,7 @@
 This is the README file for the Bioperl central distribution,
-version 0.06.2
+version 0.7.0
 
 # $Id$
-
 
 
 o About Bioperl
@@ -18,20 +17,10 @@ o About Bioperl
  developers of Perl-based software for life 
  science research. 
 
- This is the main distribution. The following external modules
- are needed for some aspects of bioperl
-
- bioperl-ext - available from ftp://bio.perl.org/pub/DIST
- LWP::       - available from CPAN
- AcePerl     - available from http://stein.cshl.org/AcePerl
-
- For more information on third party extentions and
- dependencies please see http://bio.perl.org/Core/external.shtml
-
 
 o Contact info
 
- Bioperl developers: bioperl-guts-l@bioperl.org
+ Bioperl developers: bioperl-l@bioperl.org
 
  Project website   : http://bioperl.org
  Project FTP server: bioperl.org (anonymous FTP ok)
@@ -51,8 +40,11 @@ o System requirements
   - LWP (libwww-perl) modules for running network BLAST analyses
     (available from CPAN http://www.perl.com/CPAN/).
 
-  - Some external perl modules that are listed at
+  - Additional perl module and application dependencies listed at
     http://bioperl.org/Core/external.shtml
+
+  - Additional information using Bioperl with MacOS can be 
+    found at http://bioperl.org/Core/mac-bioperl.html
 
   * Note that most modules will work with earlier versions of perl. 
     The only ones that will not are Bio::SimpleAlign.pm and 
@@ -67,6 +59,9 @@ o Documentation
   bioperl is, how to use it and who wrote it. (The rest of this
   file will tell you how to install bioperl)
 
+  The bptutorial.pl file is a POD formatted tutorial document 
+  that contains useful information for new and existing Bioperl users.
+
   Use your favorite pod2* translator turn it into the format of
   choice or view it directly via perldoc.
 
@@ -76,7 +71,9 @@ o Documentation
  
   or in this directory go
  
-  pod2text bioperl.pod | more 
+  pod2text bioperl.pod | more
+ 
+  pod2text bptutorial.pl | more 
 
   pod2html, which comes with Perl, can be used to create web-browser
   navigable documentation files.
@@ -130,14 +127,12 @@ have the necessary access.
 It is possible to install the package outside of the standard Perl5 
 location. See below for details.
 
+To install the Compiled extension for pSW you will need to read the
+next section of the manual.
+
+
 
 INSTALLING THE COMPILED EXTENSIONS
-
-You need the bioperl-ext package for the compiled extensions.
-
- bioperl-ext - available from ftp://bio.perl.org/pub/DIST
-
-
 
 This Installation works out-of-the box for all platforms except *BSD
 and Solaris boxes. For notes on this, read on. For other platforms,
@@ -146,7 +141,7 @@ skip ahead to the next section, BUILDING THE COMPILED EXTENSIONS.
 INSTALLING for *BSD and Solaris boxes.
 
 You should add the line -fPIC to the CFLAGS line in
-libs/makefile.  This makes the compile generate position
+Compile/SW/libs/makefile.  This makes the compile generate position
 independent code, which is required for these architectures. In
 addition, on some solaris boxes, the generated Makefile does not make
 the correct -fPIC/-fpic flags for the c compiler that is used. This
@@ -167,35 +162,6 @@ extension for the bp_sw module is held and execute these commands:
 
 This should install the compiled extension. The Bio::Tools::pSW module
 will work cleanly now.
-
-INSTALLING TO USE Readseq 
-
-Edit the top of Bio::Parse.pm to show the path to readseq, ie
-edit
-
-
-## Uncomment the $OK stuff (it is mentioned twice to
-## shut strict up. Set $READSEQ_PATH to the full path
-## to the readseq executable.
- 
-## $OK = "Y"; 
-## $OK = "Y"; 
-my $READSEQ_PATH=undef;
-
-to something like
-
-## Uncomment the $OK stuff (it is mentioned twice to
-## shut strict up. Set $READSEQ_PATH to the full path
-## to the readseq executable.
- 
-$OK = "Y"; 
-$OK = "Y"; 
-my $READSEQ_PATH='/usr/local/bin/readseq';
-
-
-The use of readseq like this has been officially 'deprecated', waiting
-for a better system in 0.06 which will be much more transparent as
-to what is going on. 
 
 
 INSTALLING BIOPERL IN A PERSONAL OR PRIVATE MODULE AREA
@@ -278,6 +244,8 @@ Example:
    use Bio::Seq;
 
    <...insert whizzy perl code here...>
+
+
 
 
 

@@ -31,10 +31,10 @@ Current Bioperl Release
 <font face="Arial, Helvetica, sans-serif">
 
 <b>
-<font size=+2>Latest Distribution: <i>bioperl-0.6.2</i>
+<font size=+2>Latest Distribution: <i>bioperl-0.7</i>
 </font>
 <br>
-08 October 2000 - 0.6.2 (final bugfix release prior to the full 0.7 release)
+05 March 2001
 </b>
 
 <p>
@@ -43,9 +43,9 @@ Current Bioperl Release
 <li>
 <!-- Make sure you update top level Index "Download Stable" section when you update these lines!!! -->
 
-<a href="bioperl-0.6.2.tar.gz">http://bio.perl.org/Core/Latest/bioperl-0.6.2.tar.gz</a>
+<a href="bioperl-0.7.0.tar.gz">http://bioperl.org/Core/Latest/bioperl-0.7.0.tar.gz</a>
 
-<li><a href="bioperl-0.6.2.zip">http://bio.perl.org/Core/Latest/bioperl-0.6.2.zip</a>
+<li><a href="bioperl-0.7.zip">http://bioperl.org/Core/Latest/bioperl-0.7.zip</a>
 
 </ul>
 
@@ -54,18 +54,20 @@ Current Bioperl Release
 <b>FTP:</b>
 <ul>
 <li>
-<a href="ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.tar.gz">ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.tar.gz</a>
-
-<li><a href="ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.zip">ftp://bio.perl.org/pub/DIST/bioperl-0.6.2.zip</a>
-
+<a href="ftp://bioperl.org/pub/DIST/bioperl-0.7.0.tar.gz">ftp://bioperl.org/pub/DIST/bioperl-0.7.0.tar.gz</a>
+<li><a href="ftp://bioperl.org/pub/DIST/bioperl-0.7.zip">ftp://bioperl.org/pub/DIST/bioperl-0.7.zip</a>
 </ul>
 
 <p>
-
 <b>MIRRORS: </b>
 <ul>
-<li><a href="http://genome-www.stanford.edu/perlOOP/bioperl/dist/">Stanford</a>
 <li><a href="http://iubio.bio.indiana.edu/soft/molbio/perl/bioperl/">iubio.bio.indiana.edu</a> - Updates on a 20 day cycle so may not always be current.
+</ul>
+
+<p>
+<b>Perl CPAN:</b>
+<ul>
+<li><a href="http://search.cpan.org/search?dist=bioperl">http://search.cpan.org/search?dist=bioperl</a> <br>(07 release may take several days to propagate fully through CPAN archive network)
 </ul>
 <p>
 
@@ -78,21 +80,20 @@ Bioperl is a collection of "standard" CPAN type modules so
 installation should be fairly easy and straightforward. 
 
 <p>
-The latest distribution, bioperl-06 should still be considered a
-for-unix-only alpha release. We use the package for real work at our sites,
+The latest distribution, bioperl-07 should still be considered a
+work in progress. We use the package for real work at our sites,
 but if you are considering using bioperl in production work, we would
 recommend both heavily testing the package on your site and posting a
 mail to discussion list to hear whether anyone else has had problems 
-with the functionality you want to use.<p>
-Bioperl-0.6.2 is essentially a bugfix release to our 0.6 distribution. A significant amount of new functionality has been witheld and will appear in the bioperl-0.7 release which we expect will be available before the end of the year.
+with the functionality you want to use.
 <p>
 
 We are particularly interested in hearing
 about how the installation process works on different platforms and
 operating systems. General comments, suggestions and installation war
-stories should be sent to the developers email-list 
-<a href="mailt:bioperl-guts-l@bioperl.org">
-bioperl-guts-l</a>. Bug reports should be
+stories should be sent to the project mail-list 
+<a href="mailto:bioperl-l@bioperl.org">
+bioperl-l</a>. Bug reports should be
 submitted via our web-based reporting system at 
 <a href="http://bioperl.org/bioperl-bugs/">
 http://bioperl.org/bioperl-bugs/</a>
@@ -110,25 +111,26 @@ documentation format (pod). This documentation is has been translated
 into HTML links available below. The best starting point for people
 learning about bioperl is the <a href="/Core/POD/bioperl.html">bioperl.pod</a>
 documentation, followed by the <a
-href="/Core/POD/Bio/Seq.html">Bio::Seq.pm</a>
+href="/Core/POD/bptutorial.html">tutorial</a>
 documentation.
 
 
 View the distribution files directly:
 <p>
                   <pre>
+<a href="Changes">Changes</a>
+<a href="README">README</a>
+<a href="PLATFORMS">PLATFORMS</a>
 <a href="/Core/POD/bioperl.html">bioperl.pod</a>
 <a href="/Core/POD/bioback.html">bioback.pod</a>
 <a href="MANIFEST">MANIFEST</a>
 <a href="Makefile.PL">Makefile.PL</a>
-<a href="README">README</a>
-<a href="Changes">Changes</a>
-<a href="PLATFORMS">PLATFORMS</a>
 <p>
 </pre>
 <p>
-
-<a href="/Core/Latest/modules.html">View Module Documentation</a>
+<a href="/Core/POD/bptutorial.html">View BioPerl Tutorial</a>
+<p>
+<a href="/Core/Latest/modules.html">View Full Module List & Documentation</a>
 
 <p>
 </font></td>
@@ -155,11 +157,11 @@ View the distribution files directly:
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-10-12 13:12:54 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2001-03-05 19:16:17 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.14 2000-10-12 13:12:54 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.15 2001-03-05 19:16:17 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->

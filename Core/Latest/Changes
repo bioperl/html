@@ -1,4 +1,60 @@
+$Id$
 Revision history for Bioperl core modules
+
+0.7  Large number of changes, including refactoring of the
+     Object system, new parsers, new functionality and
+     all round better system. Highlights are:
+
+
+     o Refactored root of inheritance: moved to a lightweight Bio::Root::RootI;
+       Bio::Root::IO for I/O and file/handle capabilities.
+
+     o Imported BPlite modules from Ian Korf for BLAST
+       parsing. This is considered the supported BLAST parser;
+       Bio::Tools::Blast.pm will eventually phase out due to lack of support.
+
+     o Improved Sequence Feature model. Added complete location
+       modelling (with fuzzy and compound locations).  See
+       Bio::LocationI and the modules under Bio/Location.  Added
+       support in Genbank/EMBL format parsing to completely parse
+       feature tables for complex locations.
+
+     o Moved special support for databanks etc to specialized modules under
+       Bio/Seq/. One of these supports very large sequences through 
+       a temporary file as a backend.
+
+     o Explicit Gene, Transcript and Exon SeqFeature objects, supporting
+       CDS retrieval and exon shuffling.
+
+     o More parsers: Sim4, Genscan, MZEF, ESTScan, BPbl2seq, GFF
+
+     o Refactored Bio/DB/GenBank+GenPept. There is now also DB/SwissProt and
+       DB/GDB (the latter has platform-specific limitations).
+
+     o New analysis parser framework for HT sequence annotation (see
+       Bio::SeqAnalysisParserI and Bio::Factory::SeqAnalysisParserFactory)
+
+     o New Alignment IO framework
+
+     o New Index modules (Swissprot)
+
+     o New modules for running Blast within perl
+       (Bio::Tools::Run::StandAloneBlast). Added modules for running
+       Multiple Sequence Alignment tools ClustalW and TCoffee
+       (Bio::Tools::Run::Alignment).
+
+     o New Cookbook-style tutorial (see bptutorial.pl). Improved
+       documentation across the package.
+
+     o Much improved cross platform support. Many known incompatibilities
+       have been fixed; however, NT and Mac do not work across the entire
+       setup (see PLATFORMS).
+
+     o Many bug fixes, code restructuring, etc. Overall stability and
+       maintainability benefit a lot.
+
+     o A total of 957 automatic tests
+    
 
 0.6.2  
 

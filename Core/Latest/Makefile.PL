@@ -1,6 +1,7 @@
 ## --Makefile.PL for Bioperl core module distribution--##
 ## ----------------------------------------------------##
-
+## $Id$
+##----------------------------------------------------
 
 #
 # Basically this is a standard Makefile with a hash of
@@ -8,14 +9,20 @@
 #
 # If you want help with this Makefile get in touch with
 # the developers by sending a message to bioperl-l@bioperl.org.
-#
 
 
 %packages = (
-	     'HTTP::Request::Common'    => '0.0/Part of the LWP package/remote http Blast jobs/Bio::Tools::Blast',
-	     'LWP::UserAgent'           => '0.0/Part of the LWP package/remote http Blast jobs/Bio::Tools::Blast',
+	     'HTTP::Request::Common'    => '0.0/Part of the LWP package/GenBank+GenPept sequence retrieval, remote http Blast jobs/Bio::DB::*,Bio::Tools::Blast',
+	     'LWP::UserAgent'           => '0.0/Part of the LWP package/GenBank+GenPept sequence retrieval, remote http Blast jobs/Bio::DB::*,Bio::Tools::Blast',
 	     'Ace'                      => '0.0/Aceperl/access of ACeDB database/Bio::DB::Ace',
-	     'IO::Scalar'               => '0.0/IO handle to read or write to a string/remote http Blast jobs/Bio::Tools::Blast::Run::Webblast',
+	     'IO::Scalar'               => '0.0/IO handle to read or write to a scalar/remote http Blast jobs/Bio::Tools::Blast::Run::Webblast',
+	     'IO::String'               => '0.0/IO handle to read or write to a string/GenBank+GenPept sequence retrieval, Variation code/Bio::DB::*,Bio::Variation::*,Bio::Tools::Blast::Run::Webblast',
+	     'XML::Parser'              => '0.0/Parsing of XML documents/Bio::Variation code, GAME parser/Bio::SeqIO::game,Bio::Variation::*',
+	     'XML::Writer'              => '0.0/Parsing + writing of XML documents/Bio::Variation code, GAME parser/Bio::SeqIO::game,Bio::Variation::*',
+	     'XML::Parser::PerlSAX'              => '0.0/Parsing of XML documents/Bio::Variation code, GAME parser/Bio::SeqIO::game,Bio::Variation::*',
+	     'XML::Node'         	=> '0.0/Available on CPAN/parsing of XML documents/Module Bio::Variation::IO::xml.pm',
+	     'File::Temp'               => '0.0/Temporary File creation/Bio::DB::WebDBSeqI, Bio::Seq::LargePrimarySeq',
+	     'HTML::Parser'             => '0.0/HTML parsing of GDB page/Bio::DB::GDB',
 	     );
 
 sub check_package {
@@ -75,11 +82,12 @@ use ExtUtils::MakeMaker;
 $do_autoload_finesse = 0;
 $NAME     = 'Bio';
 $DISTNAME = "bioperl";
-$VERSION  = "0.06.2";
+$VERSION  = "0.07.0";
 
 if( $do_autoload_finesse == 1 ) {
     fatal("Autoload finessing does not work at the moment!");
 }
+
 
 
 @BACKUP_FILES = qw(./Seq.pm.bak);
@@ -107,20 +115,14 @@ if( $error == 1 ) {
 
 Warning:
 
-   There are some external packages, listed above, which bioperl 
-   uses. This only effects the functionality which is listed above:
+   There are some external packages and perl modules, listed above, which 
+   bioperl uses. This only effects the functionality which is listed above:
    the rest of bioperl will work fine.
 
    The installation of these external packages is very simple. You
-   can read more about the external packages at
+   can read more about bioperl external dependencies at
 
    http://bioperl.org/Core/external.shtml
-
-   The ftp site
-
-   ftp://bioperl.org/pub/external/
-
-   has all the external packages for easy retrieval, or you can use CPAN
 
    Enjoy the rest of bioperl, which you can use after going 'make install'
 

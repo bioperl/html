@@ -1,37 +1,68 @@
-# $Id: PLATFORMS,v 1.2 2000-10-12 00:13:13 dag Exp $
+# $Id: PLATFORMS,v 1.3 2001-03-05 19:16:17 dag Exp $
+
+Perl general comments:
+
+	o Perl 5.00404 and lower often have problems with GDB.t
+
+	o Perl on Digital Unix, WindowsNT, and MacOS has been reported
+          to have problems with the Bio::DB::GDB on module (and
+          consequently the test GDB.t). This is due to different
+          versions of HTML::Parser.
+
+	o DB.t has intermittent time-out failures (which will most
+	  likely cause tests 3 and/or 27 to fail)
+
+	o Index.t will fail if you have an out-of-date DBM file
+	  installation
+
 
 Tested systems & OS Specific Comments or Warnings
 ==================================================
 
-Machine : i686 PentiumIII - RedHat Linux 6.1 / kernel 2.2.12-20
-Perl    : 5.005_03
-Comments: none. all tests pass.
+Machine : Linux i386
+Compiler: cc
+Perl    : 5.004-5.6.0
+Comments: none
 
-Machine : Compaq Alpha EV5 workstation
-        : RedHat alpha-linux / kernel 2.2.13-0.9
-Perl    : 5.005_03
-Comments: none. all tests pass.
+Machine : Digital Unix
+Compiler: cc
+Perl    : 5.004
+Comments: Failure on GDB.t, possibly due to LWP issues
 
-Machine : Compaq AlphaServer ES40 / Tru64 Unix version 4.0F
-Perl    : 5.005_03
-Comments: none. all tests pass.
+Machine : OpenBSD 2.8 i386
+Compiler: cc
+Perl    : 5.6.0
+Comments: none
 
-Machine : SGI Origin 2000 / IRIX64 version 6.5
+Machine : Solaris 2.8 UltraSparc
+Compiler: gcc
+Perl    : 5.6.0
+Comments: none
+
+Machine : FreeBSD 4.2 i386
+Compiler: gcc
+Perl    : 5.005_03
+Comments: none
+
+Machine : IRIX64 6.5 SGI
+Compiler: cc
 Perl    : 5.004_04
-Comments: none. all tests pass.
+Comments: Some warnings about <HANDLE> which can be safely
+	  ignored. Bio::DB::GenBank/GenPept cannot be used because
+	  IO::String cannot be installed on 5.004.  Bio::DB::GDB will
+	  not work on pre 5.005 versions of perl.
 
-Machine : Power Machintosh G3 / linux-ppc / kernel 2.2.6-15apmac
-Perl    : 5.005_03
-Comments: none. all tests pass.
+Machine : Win32, WinNT i386
+Compiler: --
+Perl    : ActiveState Perl 5.6
+Comments: Likely failure of Index.t (i.e., the modules in Bio/Index/),
+          File::Temp potentially broken (causing at least BPpsilite to fail)
 
-
-
-
-
-
-
-
-
+Machine : MacOS
+Compiler: --
+Perl    : MacPerl 5.004
+Comments: Issues and possible ways to fix them summarized by Todd Richmond
+          at http://bioperl.org/Core/mac-bioperl.html
 
 
 
