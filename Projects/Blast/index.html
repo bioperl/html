@@ -76,41 +76,64 @@
 <td>
 <font face="Arial, Helvetica, sans-serif">
 
-The Bioperl Blast module  provides an API to the 
-<a href="http://www.ncbi.nlm.nih.gov/BLAST">BLAST</a> 
-program, permitting such things as parsing, running, HTML-formatting and 
-manipulations of Blast data. 
-<p>
-The Blast package incorporates a modularized version of the 
-<a href="http://www.genet.sickkids.on.ca/bioinfo_resources/software.html#webblast">webblast
-script</a> for running Blasts remotely. Support for running Blasts
-locally via this module is planned but not yet fully implemented.
+The Bioperl Blast module provides an API to the <a
+href="http://www.ncbi.nlm.nih.gov/BLAST">BLAST</a> program, and
+thereby provides for the parsing, running, HTML-formatting, and
+general manipulation of Blast data by simple methods calls on Perl
+objects. It does not implement the Blast
+algorithm itself, relying on external applications for this
+compute-intensive operation.
 <p>
 <b>
-The Blast package is now included with the 
+The Bioperl Blast distribution is now included with the 
 <a href="http://bio.perl.org/Core/Latest">central Bioperl
 distribution</a>. Please follow this link for installation instructions.
 </b>
 <p>
-<table cellpadding=1>
-<tr><th align=right>8 Dec 1998</th>
-    <td>0.071</td>
-    <td>Current version. </td>
-<tr><th align=right>5 Jun 1998</th>
-    <td>v0.05</td>
-    <td>The official first public distribution is available!</td>
+<table border>
+<tr><th>Date</th>
+   <th colspan=2>Blast Module Version</th>
 </tr>
+<tr><td align=center>8 Dec 1998</td>
+    <td align=center width=10%>0.071</td>
+    <td>Current version. </td>
+</tr>
+<tr><td align=center>5 Jun 1998</td>
+    <td align=center width=10%>0.05</td>
+    <td>The first official public distribution</td>
+</tr>
+<tr>
+<th colspan=3>
+See <a href="http://bio.perl.org/Core/POD/Tools/Blast/CHANGES">CHANGES</a>
+for a version history.
 </table>
 
 <p>
+
 <DL>
-<DT>DOCUMENTATION
+<DT><b>DOCUMENTATION: </b>
 <p>
-<DD><a href="http://bio.perl.org/Core/POD/Tools/Blast.html">Blast.pm</a> 
-<DT>
-<DD><a href="http://bio.perl.org/Core/POD/Tools/Blast/CHANGES">CHANGES</a>
-</DL>
+In addition to 
+<a href="http://bio.perl.org/Core/POD/Tools/Blast.html">Blast.pm</a>,
+the Bioperl Blast package contains several separate but integrated Perl
+modules: 
+<ul>
+<li><a href="http://bio.perl.org/Core/POD/Tools/Blast/Sbjct.html">Sbjct.pm</a> 
+<li><a href="http://bio.perl.org/Core/POD/Tools/Blast/HSP.html">HSP.pm</a> 
+<li><a href="http://bio.perl.org/Core/POD/Tools/Blast/HTML.html">HTML.pm</a> 
+<li><a href="http://bio.perl.org/Core/POD/Tools/Blast/Run/Webblast.html">Webblast.pm</a> 
+<li><a href="http://bio.perl.org/Core/POD/Tools/Blast/Run/LocalBlast.html">LocalBlast.pm</a> 
+</ul>
+
 <p>
+<a href="http://bio.perl.org/Core/POD/Tools/Blast/Run/Webblast.html">Webblast.pm</a> 
+is a modularized version of the 
+<a href="http://www.genet.sickkids.on.ca/bioinfo_resources/software.html#webblast">webblast
+script</a> for running Blasts remotely. Support for running Blasts
+locally is provided by the 
+<a href="http://bio.perl.org/Core/POD/Tools/Blast/Run/LocalBlast.html">LocalBlast.pm</a>  module, which is at present
+just a skeleton. The design of this module will certainly require
+customization according to different local installations of the Blast package.
 
 
 </td>
