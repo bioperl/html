@@ -91,6 +91,12 @@ otherwise make freely available standalone scripts & code.
 	  <p><font size=-1>[July / August 2001]</font></p>
 	  <p>
 	  <ul>
+	  <li>The Bioperl 0.9.0 <b>developer</b> release <a href="http://bioperl.org/pipermail/bioperl-l/2001-August/006126.html">is available</a>. Developer releases are not suitable for production use and are intended primarily for people interested in seeing new modules and functionality before they appear in official releases.
+	  <p>
+	  <li>Jason Stajich has <a href="http://bioperl.org/pipermail/bioperl-l/2001-August/006067.html">created a scripts repository</a> and is seeking submissions. The goal is to have more utility and example scripts in our upcoming releases.
+<p>
+	  <li>Nathan Siemers has released a perl-based gene expression package called <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006037.html">Xobjects</a>. 
+<p>
 	  <li>The Open Bioinformatics Foundation <a href="http://bioperl.org/pipermail/bioperl-l/2001-July/006028.html">has been awarded</a> a significant hardware grant by Sun Microsystems.
 	  <p>
 	  <li>Ewan Birney is delivering a keynote address and several open-bio people are considering tutorials and presentation proposals for the <a href="http://conferences.ora.com/biocon/cfp.html">O'Reilly Bioinformatics Technology Conference</a> in Feb. 2002.
@@ -166,7 +172,7 @@ Project"</a></b>
             Perl Archive Network (CPAN). CPAN links and info can be found at <a href="http://www.perl.com"> 
             www.perl.com</a>. 
             <p>
-
+The latest <b>developer</b> release is <a href="http://bioperl.org/pipermail/bioperl-l/2001-August/006126.html">bioperl 0.9.0</a>.
 <p>
 <font face="Arial, Helvetica, sans-serif" >
 <a href="/Core/Latest/"><b>More...</b></a>
@@ -313,11 +319,11 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-07-24 19:46:58 $</p>
+<p><p align=right>Last Modified: $Date: 2001-08-16 14:18:15 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.35 2001-07-24 19:46:58 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.36 2001-08-16 14:18:15 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
