@@ -76,7 +76,7 @@
  Parse.pm
  PreSeq.pm
  Seq.pm
- bioperl.lisp
+ SimpleAlign.pm
 <b>Bio::Root/</b>
  Err.pm
  Global.pm
@@ -104,7 +104,13 @@
 General housekeeping efforts related to moving our code to a common source repository are underway. This includes getting bioperl deveopers up to speed regarding version control via CVS, building test suites, documention repositories and perl module Makefiles. The goal is to be able to build "official" bioperl module distributions off of one common source tree.
 <p>
 <b>Code status & Committments</b><br>
-<b>PreSeq.pm</b> will be replaced by <b>Seq.pm</b> and will become our general flexible and lightweight sequence object. A more heavyweight object based upon Ian Korf's <b>GSC::Entry.pm</b> will be integrated the bioperl framework.
+<b>PreSeq.pm</b> will be replaced by <b>Seq.pm</b> and will become our general flexible and lightweight sequence object. Ian Korf is integrating the functionality of his <b>GSC::SeqFeature</b> and <b>GSC::Entry</b> into the bioperl framwork. Ewan Birney is working on the following:
+<ul>
+<li>SimpleAlign.pm testing
+<li> Histogram package from Sean Eddy as an XS extension
+<li> SmithWaterman as an XS extension
+<li> ReadSeq format interconverter as an XS extension
+</ul>
 <p>
 <b>Possible new projects</b><br>
 Several people are interested creating a <b>protein structure object</b>. Discussions on the basic design are underway on our mailing lists. Comments, proposals and participation are welcome.
