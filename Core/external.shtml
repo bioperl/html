@@ -30,6 +30,7 @@ and code in order to add functionality and provide additional
 features.
 <p>
 <b>Third party applications</b><br>
+<blockquote>
 Bioperl contains wrappers, parsers and modules that can make use of several third party applications. Parts of our pre-install test suite may try to check for
 the presense and behaviour of these applications so you may see mention of 
 them during the bioperl 'make test' installation step. Don't worry about them if you don't need or or use them.
@@ -39,19 +40,13 @@ them during the bioperl 'make test' installation step. Don't worry about them if
 <li>Clustalw - <a href="http://www.ebi.ac.uk/clustalw/">http://www.ebi.ac.uk/clustalw/</a>
 <li>tcoffee - <a href="http://igs-server.cnrs-mrs.fr/~cnotred/Projects_home_page/t_coffee_home_page.html">http://igs-server.cnrs-mrs.fr/~cnotred/Projects_home_page/t_coffee_home_page.html</a>
 </ul>
+</blockquote>
 
+<b>Perl Modules</b><br>
+<blockquote>
 <p>
-<b>Bioperl XS extentions</b><br>
-The <em>bioperl-ext</em> package contains modules that
-include C code that is compiled and made available
-to perl via the XS mechanism. The current bioperl-ext-06
-package contains the <b>Bio::Tools::pSW</b> 
-and <b>Bio::SearchDist</b> modules. The pSW module adds
-protein Smith-Waterman comparison functionality to
-bioperl. SearchDist deals with EVD fitting of
-extreme value distributions.  Users who do not need pSW 
-or SearchDist functionality do
-not need the bioperl-ext package.
+<b>MySQL database driver and interface modules</b><br>
+<b>DBD::mysql</b> and  <b>DBI::mysql</b>, OR <b>DBI::mysqlopt</b>. Some parts of the core bioperl package (and the related <em>bioperl-db</em> codebase) can make use of MySQL relational databases. For example, the Bio::DB:GFF modules can load and query MySQL based <a href="http://www.sanger.ac.uk/Software/formats/GFF/">GFF feature</a> databases. Given the choice the optimized <b>DBI::mysqlopt</b> driver module is recommended. 
 <p>
 <b>AcePerl Modules</b><br>
 In order for bioperl objects to talk to local and
@@ -62,12 +57,15 @@ installation. Lincoln Stein's website is
 The AcePerl package is only required if AceDB
 connectivity is desired.
 <p>
-<b>File::Temp Module</b><br>
-File::Temp is used by network accessing modules such as Bio::DB::WebDBSeqI. This is a feature that will appear in Bioperl release 07, it is not needed for bioperl-0.06.2. This module seems to be part of the default install of perl so it may already be on your system depending on the version of perl you are using.
+<b>File::Temp and File::Spec Modules</b><br>
+These modules will be already present if you are using a recent version of perl.
 <p>
-<b>IO::Scalar & IO::String Modules</b><br>
-IO::Scalar (contained in the "IO-Stringy" CPAN perl module) is used only in Bio::Tools::Blast::Run::Webblast.pm<br>
-IO::String (contained in the "IO-String" CPAN perl module) is used in Bio::DB::Genbank and Bio::DB::Swissprot<br> 
+<b>IO::Scalar</b><br> 
+IO::Scalar (contained in the "IO-Stringy" CPAN perl module) is used only in the depreciated Bio::Tools::Blast::Run::Webblast.pm module<br>
+<p>
+<b>IO::String Modules</b><br>
+
+IO::String (contained in the "IO-String" CPAN perl module) is used in Bio::DB::WebDBSeqI<br> 
 <p>
 <b>LWP:: Modules</b><br>
 In order to perform remote blast searches via
@@ -89,18 +87,37 @@ dependencies which must be present prior to installation:
 The current bioperl-live CVS codebase and future releases of bioperl (after 0.6.2) will include significant XML related functionality. The following external CPAN modules are recommended and may be required for the use of some bioperl modules:<br>
 <ul>
 <li>XML::Parser (<b>note:</b> Requires prior installation of 'xpat' from <a href="http://sourceforge.net/projects/expat/">http://sourceforge.net/projects/expat/</a> )
-<li>libxml-perl
+<li>XML::Parser::PerlSax   
+<li>XML::Twig
 <li>XML::Writer
 <li>XML::Node
 </ul>
 
+</blockquote>
+
+<p>
+<b>Bioperl XS extentions</b><br>
+<blockquote>
+The <em>bioperl-ext</em> package contains modules that
+include C code that is compiled and made available
+to perl via the XS mechanism. The current bioperl-ext-06
+package contains the <b>Bio::Tools::pSW</b> 
+and <b>Bio::SearchDist</b> modules. The pSW module adds
+protein Smith-Waterman comparison functionality to
+bioperl. SearchDist deals with EVD fitting of
+extreme value distributions.  Users who do not need pSW 
+or SearchDist functionality do
+not need the bioperl-ext package.
+</blockquote>
 <p>
 <b>For your convenience</b><br>
+<blockquote>
 All of the various external packages mentioned here are available
 via FTP from our server. The URL is <a href="ftp://bioperl.org/pub/external/">ftp://bioperl.org/pub/external/</a>
-<br> <b>BEWARE</b> that the versions we have available
+<p> <b>BEWARE</b> that the versions we have available
 for FTP may not be the most recent versions available. Users may
 just want to download directly from CPAN and other source sites to insure the most up to date code is used. You have been warned.
+</blockquote>
 
 <p>&nbsp;
 
@@ -125,7 +142,7 @@ Installation of the XML related modules listed in the bundle will fail if the 'e
 <p>
 BioPerl users have reported success in getting CPAN.pm to download and install the actual Bioperl package by issuing the following command:
 <pre>
-<b>cpan> install "B/BI/BIRNEY/bioperl-0.7.0.tar.gz"</b>
+<b>cpan> install "B/BI/BIRNEY/bioperl-0.7.2.tar.gz"</b>
 </pre>
 </td>
 </tr>
@@ -138,11 +155,11 @@ BioPerl users have reported success in getting CPAN.pm to download and install t
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2002-02-14 19:06:01 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-02-14 20:32:22 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: external.shtml,v 1.7 2002-02-14 19:06:01 dag Exp $ -->
+    <!-- $Id: external.shtml,v 1.8 2002-02-14 20:32:22 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
