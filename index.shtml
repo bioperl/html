@@ -67,9 +67,9 @@ otherwise make freely available standalone scripts & code.
 
 <p>
 <ul>
-<li><a href="/Core/POD/bptutorial.html">BioPerl 07 Tutorial</a>
+<li><a href="/Core/bptutorial.html">BioPerl 1.0 Tutorial</a>
 <li><a href="http://www.pasteur.fr/recherche/unites/sis/formation/bioperl/">Pasteur Institute Bioperl Course</a>
-<li><a href="/Core/Latest/modules.html">Registered module list & documentation</a>
+<li><a href="http://doc.bioperl.org/bioperl-1.0/">BioPerl 1.0 Documentation</a>
 <li>Anonymous CVS (<a href="http://cvs.bioperl.org">cvs.bioperl.org</a>)
 <li>All source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
 </ul>
@@ -91,6 +91,12 @@ otherwise make freely available standalone scripts & code.
           <TD>
 	  <p><font size=-1>[Jan - March 2002]</font></p>
 	 <ul>
+<li>
+<b>Almost 7 years in the making and a huge milestone for BioPerl and the Open Bioinformatics Foundation we proudly <a href="/Core/Latest/Release-1.0.txt">announce the 1.0 release</a> of the BioPerl distribution! </b>
+<p>
+According to the manifest, Bioperl-1.0 contains 832 files. The test suite contains 93 scripts which collectively perform 3042 functionality tests. This may or may not be the largest single distribution in the perl <a href="http:/www.cpan.org">CPAN<a>.
+
+<p>
 <li>The <a href="http://www.gmod.org">Generic Model Organism Database</a>
 project releases 
 <a href="http://sourceforge.net/project/showfiles.php?group_id=27707">
@@ -191,18 +197,18 @@ Project"</a></b>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
-            <B><a href="/Core/Latest/">Download Latest Stable release (0.7.2)</a></B></font> 
+            <B><a href="/Core/Latest/">Download Latest Stable release (1.0)</a></B></font> 
           </TD>
 </TR>
 
 <tr>
           <td> Each official release passes our internal tests. We are committed 
-            to promptly fixing any bugs in the 0.7 branch and making patched 
+            to promptly fixing any bugs in the curent 1.0 branch and making patched 
             releases available. Bioperl releases are also mirrored by the Comprehensive 
             Perl Archive Network (CPAN). CPAN links and info can be found at <a href="http://www.perl.com"> 
             www.perl.com</a>. 
             <p>
-The latest <b>developer</b> release is <a href="ftp://bioperl.org/pub/DIST/bioperl-1.0alpha.tar.gz">bioperl-1.0.alpha</a>.
+Given our efforts to get the 1.0 release out the door there is no current developer snapshot. The bleeding edge code can be grabbed directly from our anonymous CVS server.
 <p>
 <font face="Arial, Helvetica, sans-serif" >
 <a href="/Core/Latest/"><b>More...</b></a>
@@ -314,11 +320,11 @@ Documentation and information for people with accounts on <b>bioperl.org<b>
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2002-03-17 19:40:23 $</p>
+<p><p align=right>Last Modified: $Date: 2002-03-18 17:14:19 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.45 2002-03-17 19:40:23 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.46 2002-03-18 17:14:19 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>

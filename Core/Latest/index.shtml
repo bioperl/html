@@ -31,10 +31,10 @@ Current Bioperl Release
 <font face="Arial, Helvetica, sans-serif">
 
 <b>
-<font size=+2>Latest Distribution: <i>bioperl-0.7.2</i>
+<font size=+2>Latest Distribution: <i>bioperl-1.0</i>
 </font>
 <br>
-17 November 2001
+18 March 2002
 </b>
 
 <p>
@@ -43,9 +43,9 @@ Current Bioperl Release
 <li>
 <!-- Make sure you update top level Index "Download Stable" section when you update these lines!!! -->
 
-<a href="bioperl-0.7.2.tar.gz">http://bioperl.org/Core/Latest/bioperl-0.7.2.tar.gz</a>
+<a href="/DIST/bioperl-1.0.tar.gz">http://bioperl.org/DIST/bioperl-1.0.tar.gz</a>
 
-<li><a href="bioperl-0.7.2.zip">http://bioperl.org/Core/Latest/bioperl-0.7.2.zip</a>
+<li><a href="/DIST/bioperl-1.0.zip">http://bioperl.org/DIST/bioperl-1.0.zip</a>
 
 </ul>
 
@@ -54,8 +54,8 @@ Current Bioperl Release
 <b>FTP:</b>
 <ul>
 <li>
-<a href="ftp://bioperl.org/pub/DIST/bioperl-0.7.2.tar.gz">ftp://bioperl.org/pub/DIST/bioperl-0.7.2.tar.gz</a>
-<li><a href="ftp://bioperl.org/pub/DIST/bioperl-0.7.2.zip">ftp://bioperl.org/pub/DIST/bioperl-0.7.2.zip</a>
+<a href="ftp://bioperl.org/pub/DIST/bioperl-1.0.tar.gz">ftp://bioperl.org/pub/DIST/bioperl-1.0.tar.gz</a>
+<li><a href="ftp://bioperl.org/pub/DIST/bioperl-1.0.zip">ftp://bioperl.org/pub/DIST/bioperl-1.0.zip</a>
 </ul>
 
 <p>
@@ -82,7 +82,7 @@ Bioperl is a collection of "standard" CPAN type modules so
 installation should be fairly easy and straightforward. 
 
 <p>
-The latest distribution, bioperl-0.7.2 should still be considered a
+The latest distribution, bioperl-1.0 should still be considered a
 work in progress. We use the package for real work at our sites,
 but if you are considering using bioperl in production work, we would
 recommend both heavily testing the package on your site and posting a
@@ -122,12 +122,14 @@ View the distribution files directly:
                   <pre>
 <a href="Changes">Changes</a>
 <a href="README">README</a>
+<a href="INSTALL">INSTALL</a>
 <a href="PLATFORMS">PLATFORMS</a>
 <a href="BUGS">BUGS</a>
 <a href="AUTHORS">AUTHORS</a>
 <a href="LICENSE">LICENSE</a>
-<a href="/Core/POD/bioperl.html">bioperl.pod</a>
-<a href="/Core/POD/bioback.html">bioback.pod</a>
+<a href="/Core/Latest/bioperl.html">bioperl.pod</a>
+<a href="/Core/Latest/biodesign.html">biodesign.pod</a>
+<a href="/Core/Latest/biodatabases.html">biodatabases.pod</a>
 <a href="MANIFEST">MANIFEST</a>
 <a href="Makefile.PL">Makefile.PL</a>
 <p>
@@ -161,11 +163,11 @@ View the distribution files directly:
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2001-11-18 15:00:33 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-18 17:14:21 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.19 2001-11-18 15:00:33 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.20 2002-03-18 17:14:21 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
