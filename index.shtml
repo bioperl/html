@@ -66,6 +66,14 @@ space for individuals and organizations wishing to distribute or
 otherwise make freely available standalone scripts & code.
 
 <p>
+<ul>
+<li><a href="/Core/POD/bptutorial.html">BioPerl 07 Tutorial</a>
+<li><a href="/Core/Latest/modules.html">Registered module list & documentation</a>
+<li>Anonymous CVS (<a href="http://cvs.bioperl.org">cvs.bioperl.org</a>)
+<li>All source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
+</ul>
+<p>
+
 <font face="Arial, Helvetica, sans-serif" color="#000080">
 <a href="/About/"><b>More...</b></a></font>
 <p>
@@ -80,58 +88,28 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[April 2001]</font></p>
+	  <p><font size=-1>[May / June 2001]</font></p>
 	  <p>
 	  <ul>
-	  <li>1st CSHL/Wellcome Trust joint Genome Informatics meeting has been <a href="/pipermail/bioperl-l/2001-April/005482.html">announced</a>.
+	  <li>Heikki Lehvaslaiho has <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005739.html">joined the core group</a>.
 	  <p>
-	  <li>Debian user needed to adopt <a href="/pipermail/bioperl-l/2001-April/005410.html">orphaned</a> bio packages including bioperl.
+	  <li>Ewan Birney <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005733.html">got bored on a train ride</a> and used Lincoln Stein's universal DB idea to implement <a href="http://cvs.bioperl.org/cgi-bin/viewcvs/viewcvs.cgi/bioperl-live/Bio/DB/?cvsroot=bioperl">Bio::DB::Universal</a>. The module is an artifical datbase that attempts to delegate to the proper database (web or local) based on the id.
 	  <p>
-	  <li>Support for SeqIO handling of the PIR data format is <a href="/pipermail/bioperl-l/2001-April/005402.html">getting removed</a> from bioperl due to lack of use & interest.
+	  <li>Jason Stajich <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005698.html">announces roadmap and todo list</a> for BioPerl 0.7.1 and beyond
 	  <p>
-	  <li>Tired of flatfile databases? Have strange compulsions to store Genbank in a MySQL database? <a href="/pipermail/bioperl-l/2001-April/005399.html">bioperl-db</a> has been making <a href="/pipermail/bioperl-l/2001-April/005465.html">amazing progress</a>.
-	  </ul>
-	  <p><font size=-1>[March 2001]</font></p>
+	  <li>Lincoln Stein <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005693.html">cooks up Bio::DB::Fasta</a>  allowing fast indexed access to a directory of Fasta formatted files.
 	  <p>
-	  <ul>
-	  <li>The <a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a> meeting has been announced. Official announcements regarding the joint <a href="http://open-bio.org/bosc2001/">BOSC</a>  and BioPathways meeting will be out soon.
+	  <li>Mark Wilkinson <a href="http://bioperl.org/pipermail/bioperl-l/2001-May/005677.html">has checked</a> the SeqCanvas v2 viewer into <a href="http://cvs.bioperl.org/cgi-bin/viewcvs/viewcvs.cgi/bioperl-gui/Bio/Tk/?cvsroot=bioperl">bioperl-gui</a>
 	  <p>
-	  <li>Todd Richmond has written about his experiences <a href="/Core/mac-bioperl.html">installing Bioperl 07 on MacOS9</a>. Jurgen Pletinckx has done the same for <a href="/Core/windows-bioperl.html">Bioperl 07 on Windows NT 4.0</a>.
-<p>
-	  <li>Now that the 07 release is out the door, Jason Stajich is already thinking about <a href="http://bioperl.org/pipermail/bioperl-l/2001-March/005246.html">new directions</a> for bioperl. Read <a href="http://bioperl.org/pipermail/bioperl-l/2001-March/thread.html">the thread</a> and <a href="http://bioperl.org/MailList.shtml">join</a> the fray.
-	  <p>
-	  <li><a href="http://bioperl.org/pipermail/bioperl-l/2001-March/002613.html">Release 07</a> is official. Thanks to all who helped create, document and test!
-	  <p>
-	  <li>Alan Robinson has written a <a href="http://bioperl.org/pipermail/bioperl-l/2001-February/002325.html">tutorial</a> on writing CORBA clients in Java and Perl 
+	  <li>Jason Stajich has committed an initial Dia UML diagram of Bioperl objects & Heikki Lehvaslaiho has added diagrams for Bio::Variation. Look for them in the bioperl-live repository under <a href="http://cvs.bioperl.org/cgi-bin/viewcvs/viewcvs.cgi/bioperl-live/models/?cvsroot=bioperl">models/</a>.
+<p> 
+	  <li>Ewan Birney uses bioperl-db to implement a <a href="/pipermail/bioperl-l/2001-May/005589.html">caching BioCorba server</a>
+
 	  </ul>
 	  
 
 <font face="Arial, Helvetica, sans-serif" >
 <a href="/News/"><b>More...</b></a>
-</font>
-<p>
-</TD>
-</TR>
-
-
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
-<font face="Arial, Helvetica, sans-serif" color="#000080">
-<B><a href="/Participants/">Participants</a></B></font>
-</TD>
-</TR>
-
-
-<TR>
-<TD ALIGN=LEFT VALIGN=TOP>
-Meet the people using perl for real world applications and learn about their research interests and current projects.
-<p>
-<em>Seriously out of date! Volunteers interested in 'adopting' this section of our website should contact the bioperl-guts mailing list</em>
-<p>
-We have a new <a href="http://bioperl.org/wiki/html/BioPerl/BioperlPeople.html">BioPerl People</a> Wiki page. Feel free to add your own entry.
-<p>
-<font face="Arial, Helvetica, sans-serif" >
-<a href="/Participants/"><b>More...</b></a>
 </font>
 <p>
 </TD>
@@ -150,78 +128,17 @@ We have a new <a href="http://bioperl.org/wiki/html/BioPerl/BioperlPeople.html">
 Just learning about <a href="http://www.perl.com">perl</a> and/or
 computational biology? <p>
 <ul>
-<li>Visit <a href="http://bioinformatics.org">bioinformatics.org</a>
-<li>Read Lincoln Stein's article, <b>
+<li>Read Lincoln Stein's classic article, <b>
 <a href="/GetStarted/tpj_ls_bio.html">"How Perl Saved the Human Genome 
 Project"</a></b>
 <li>Join a 
 <a href="/MailList.shtml">Bioperl mailing list</a>
 <li>Read the <a href="http://www.tpj.com">The Perl Journal</a>
-<li>Visit <a href="http://www.perl.com">perl.com</a> or 
-<a href="http://www.perl.org">The Perl Institute</a>
+<li>Visit <a href="http://www.perl.com">perl.com</a>
 <li>Find a local <a href="http://www.pm.org">users group</a>
-<li>The <a href="http://www.bitsjournal.com">BITS Online Journal</a> tackles bioinformatics from
-    an information technology (IT) perspective.
 <li>The International Society for Computational Biology (<a href="http://iscb.org">iscb.org</a>)
 </ul>
 
-
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
-<font face="Arial, Helvetica, sans-serif" color="#000080"><B>
-<a href="/MailList.shtml">Mailing Lists</a></B></font>
-<BR>
-</TD>
-</TR>
-
-
-<TR>
-<TD>
-There are several mailing lists aimed at developers
-and interested parties.
-<p>
-<font face="Arial, Helvetica, sans-serif" >
-<a href="MailList.shtml"><b>More...</b></a>
-</font>
- 
-          </TD></TR></font>
-
-
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
-<font face="Arial, Helvetica, sans-serif" color="#000080">
-<B><a href="/UserInfo/">Developers only</a></B></font>
-<BR>
-</TD>
-</TR>
-
-<tr>
-<td>
-Documentation and information for people with accounts on <b>bio.perl.org<b>
-            <p> <font face="Arial, Helvetica, sans-serif" > <a href="UserInfo/"><b>More...</b></a> 
-              </font>
-            <p>&nbsp; 
-            </b></b></td>
-</tr>
-
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
-<font face="Arial, Helvetica, sans-serif" color="#000080">
-<B><a href="/Thanks.shtml">Contributors & sponsors</a></B></font>
-<BR>
-</TD>
-</TR>
-
-
-<TR>
-<TD>
-<P>People and organizations we need to thank
-<p>
-<font face="Arial, Helvetica, sans-serif" >
-<a href="Thanks.html"><b>More...</b></a>
-</font>
-</TD>
-</TR>
 
 <!spacer >
 <TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
@@ -239,30 +156,6 @@ Documentation and information for people with accounts on <b>bio.perl.org<b>
 <! 2nd column >
 <TD VALIGN=TOP><TABLE BORDER=0 CELLPADDING=3>
 <font face="Arial, Helvetica, sans-serif" color="#000080">
-<TR>
-<TD ALIGN=LEFT BGCOLOR="#dadada">
-<font face="Arial, Helvetica, sans-serif" color="#000080">
-<B>
-<a href="Projects/">Projects</a>
-</B></font>
-</TD>
-</TR>
-
-<TR>
-<TD>
- <P>We are now working from a central version-controlled code repository and have a <a href="http://bio.perl.org/bioperl-bugs/">web-based bug-tracking system</a> on this machine. There are a number of ongoing bioperl projects.
-<ul>
-<li><a href="/Core/POD/bptutorial.html">BioPerl 07 Tutorial</a>
-<li><a href="/Core/Latest/modules.html">Registered module list & documentation</a>
-<li>All of our source code is <a href="ftp://bio.perl.org/pub/SRC/">mirrored for public FTP</a>
-<li>Anonymous CVS access available at <a href="http://cvs.bioperl.org">cvs.bioperl.org</a>
-</ul>
-<p>
-<font face="Arial, Helvetica, sans-serif" color="#000080">
-<a href="/Projects/"><b>More...</b></a></font>
-<p>
-</TD>
-</TR>
 
 <TR>
           <TD ALIGN=LEFT BGCOLOR="#dadada" height="29"> <font face="Arial, Helvetica, sans-serif" color="#000080"> 
@@ -328,12 +221,16 @@ with other events including the very successful Bioinformatics Open Source Confe
 <p>
 
 <p>
-Bioperl people have been traditionally spotted at the following meetings:
+<b>Upcoming events of interest</b>
 <ul>
-<li><a href="http://ismb01.cbs.dtu.dk/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
 <li>
-Objects in Bio- & Chem-Informatics (<a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a>). 
+[July 2001 - Boston] Objects in Bio- & Chem-Informatics (<a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a>). 
 Previous OiB meetings: <a href="http://cbcg.lbl.gov/OiB99/">OiB99</a>,   <a href="http://www.ebi.ac.uk/oib98">OiB98</a>, <a href="http://industry.ebi.ac.uk/~alan/Meeting/OiB.html">OiB97</a>
+<p>
+<li>[July 2001 - Copenhagen] <a href="http://ismb01.cbs.dtu.dk/">International Conference on Intelligent Systems for Molecular Biology (ISMB)</a>
+<p>
+<li>[August 2001 - Hinxton UK] Joint CSHL/Wellcome Trust <a href="http://nucleus.cshl.org/meetings/hinxtonmeetings.htm">Genome Informatics meeting</a>
+
 </ul>
 <p>
 </TD>
@@ -368,6 +265,43 @@ people looking to contribute to bioperl.
 
 
 
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<B><a href="/UserInfo/">For Developers</a></B></font>
+<BR>
+</TD>
+</TR>
+
+<tr>
+<td>
+Documentation and information for people with accounts on <b>bio.perl.org<b>
+            <p> <font face="Arial, Helvetica, sans-serif" > <a href="UserInfo/"><b>More...</b></a> 
+              </font>
+            <p>&nbsp; 
+            </b></b></td>
+</tr>
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+<B><a href="/Thanks.shtml">Contributors & sponsors</a></B></font>
+<BR>
+</TD>
+</TR>
+
+
+<TR>
+<TD>
+<P>People and organizations we need to thank
+<p>
+<font face="Arial, Helvetica, sans-serif" >
+<a href="Thanks.html"><b>More...</b></a>
+</font>
+</TD>
+</TR>
+
+
+
 <! bottom spacer, col 2 >
 <TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
 
@@ -379,11 +313,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2001-04-11 14:38:35 $</p>
+<p><p align=right>Last Modified: $Date: 2001-05-28 14:34:15 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.25 2001-04-11 14:38:35 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.26 2001-05-28 14:34:15 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>

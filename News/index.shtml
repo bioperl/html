@@ -24,6 +24,31 @@ Project News
 <TD> 
 <!-- INSERT YOUR  CONTENT HERE -->
 
+	  <p><font size=-1>[April 2001]</font></p>
+	  <p>
+	  <ul>
+	  <li>1st CSHL/Wellcome Trust joint Genome Informatics meeting has been <a href="/pipermail/bioperl-l/2001-April/005482.html">announced</a>.
+	  <p>
+	  <li>Debian user needed to adopt <a href="/pipermail/bioperl-l/2001-April/005410.html">orphaned</a> bio packages including bioperl.
+	  <p>
+	  <li>Support for SeqIO handling of the PIR data format is <a href="/pipermail/bioperl-l/2001-April/005402.html">getting removed</a> from bioperl due to lack of use & interest.
+	  <p>
+	  <li>Tired of flatfile databases? Have strange compulsions to store Genbank in a MySQL database? <a href="/pipermail/bioperl-l/2001-April/005399.html">bioperl-db</a> has been making <a href="/pipermail/bioperl-l/2001-April/005465.html">amazing progress</a>.
+	  </ul>
+	  <p><font size=-1>[March 2001]</font></p>
+	  <p>
+	  <ul>
+	  <li>The <a href="http://www.omg.org/lsr/oibc/">OiBC-2001</a> meeting has been announced. Official announcements regarding the joint <a href="http://open-bio.org/bosc2001/">BOSC</a>  and BioPathways meeting will be out soon.
+	  <p>
+	  <li>Todd Richmond has written about his experiences <a href="/Core/mac-bioperl.html">installing Bioperl 07 on MacOS9</a>. Jurgen Pletinckx has done the same for <a href="/Core/windows-bioperl.html">Bioperl 07 on Windows NT 4.0</a>.
+<p>
+	  <li>Now that the 07 release is out the door, Jason Stajich is already thinking about <a href="http://bioperl.org/pipermail/bioperl-l/2001-March/005246.html">new directions</a> for bioperl. Read <a href="http://bioperl.org/pipermail/bioperl-l/2001-March/thread.html">the thread</a> and <a href="http://bioperl.org/MailList.shtml">join</a> the fray.
+	  <p>
+	  <li><a href="http://bioperl.org/pipermail/bioperl-l/2001-March/002613.html">Release 07</a> is official. Thanks to all who helped create, document and test!
+	  <p>
+	  <li>Alan Robinson has written a <a href="http://bioperl.org/pipermail/bioperl-l/2001-February/002325.html">tutorial</a> on writing CORBA clients in Java and Perl 
+	  </ul>
+
 	  <p><font size=-1>[February 2001]</font></p>
 	  <p>
 	  <ul>
@@ -250,11 +275,11 @@ ANNOUNCE: PubMed Monitor (alpha)</a><br>
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2001-03-04 00:12:10 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2001-05-28 14:34:20 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.6 2001-03-04 00:12:10 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.7 2001-05-28 14:34:20 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->

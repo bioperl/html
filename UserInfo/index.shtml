@@ -42,9 +42,7 @@ Info for developers and users on bioperl.org
                 server
               <li>People maintaining special sections on the website
             </ul>
-            <p> We will be attempting to create an "anonymous" way for people 
-              to checkout the source code via CVS. This system will allow anyone 
-              to access our code but will not allow checkin, merge or commit actions. 
+
             <p> People requesting accounts should email <a href="mailto:dag@sonsorol.org">dag@sonsorol.org</a> 
             <p> 
           </TD>
@@ -65,6 +63,7 @@ Info for developers and users on bioperl.org
               <li><a href="http://www.tac.nyc.ny.us/~kim/ssh/">Getting started 
                 with SSH</a> 
               <li><a href="http://www.ssh.org/">Main SSH website</a> 
+	      <li><a href="http://Openssh.org">openssh.org</a>
             </ul>
           </td>
         </tr>
@@ -130,11 +129,11 @@ Info for developers and users on bioperl.org
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2000-03-31 19:04:30 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2001-05-28 14:34:24 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.1 2000-03-31 19:04:30 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.2 2001-05-28 14:34:24 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
