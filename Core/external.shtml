@@ -97,6 +97,12 @@ The current bioperl-live CVS codebase and future releases of bioperl (after 0.6.
 <li>XML::Node
 </ul>
 
+<p>
+<b>SOAP::Lite</b><br> - Used for bibliographic queries and XEMBL network services
+<p>
+<b>GD</b><br> - Used by the Bio::Graphics modules for drawing images
+<p>
+
 </blockquote>
 
 <p>
@@ -159,11 +165,11 @@ BioPerl users have reported success in getting CPAN.pm to download and install t
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2002-02-27 09:22:10 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2002-03-12 23:32:19 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: external.shtml,v 1.9 2002-02-27 09:22:10 dag Exp $ -->
+    <!-- $Id: external.shtml,v 1.10 2002-03-12 23:32:19 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
