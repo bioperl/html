@@ -80,24 +80,20 @@ otherwise make freely available standalone scripts & code.
 
 <TR>
           <TD>
-	  <p><font size=-1>[May 2000]</font></p>
+	  <p><font size=-1>[July 2000]</font></p>
+	  <p>
+	  <ul>
+          <li> The website is now <a href="/cgi-bin/search/search.pl">searchable</a>. 
+	  <p>
+          <li>Our <a href="http://ismb00.sdsc.edu/bosc2000/">Bioinformatics Open Source Conference (BOSC-2000)</a> has more than 100 registered attendees. Are you going?
+          </ul>
+	  <p><font size=-1>[May/June 2000]</font></p>
 	  <p>
 	  <ul>
 	  <li> Bug-fix release 0.6.1 available now
 	  </ul>
 	  
-	  <p><font size=-1>[April 2000]</font></p>
-	  <p>
-	  <ul>
-	  <li><a href="http://ismb00.sdsc.edu/bosc2000/">Bioinformatics Open Source Conference (BOSC-2000)</a> has been <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/0004/0022.html">officially announced</a>. This
-is our followup meeting to the bioperl-99 event. BOSC-2000 will expand
-in scope to cover all of the various bioperl, biopython, biojava
-and bioxml efforts.
-<p>
-	  <li>More info on optional <a href="/Core/external.shtml">bioperl extentions and dependencies</a> added to the website<p>
-	  <li>Bioperl 0.6 Released!<p>
-	  </ul>
-	  <p>
+
 <font face="Arial, Helvetica, sans-serif" >
 <a href="/News/"><b>More...</b></a>
 </font>
@@ -363,11 +359,11 @@ people looking to contribute to bioperl.
 </TABLE>
 
 <! ### START CVS DATESTAMP >
-<p><p align=right>Last Modified: $Date: 2000-05-19 17:03:36 $</p>
+<p><p align=right>Last Modified: $Date: 2000-07-06 13:39:26 $</p>
 <! ### STOP CVS DATESTAMP >
 
 <! ### START CVS REVISION >
-<!-- $Id: index.shtml,v 1.9 2000-05-19 17:03:36 dag Exp $ -->
+<!-- $Id: index.shtml,v 1.10 2000-07-06 13:39:26 dag Exp $ -->
 <! ### STOP CVS REVISION >
 
 </BODY>
