@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Core Development Status</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>
+<a href="http://bio.perl.org/">bio.perl.org</a>
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
+<font face="Arial, Helvetica, sans-serif">
+<a href="/">Home</a>
+<p>
+<a href="/Projects/">Projects</a>
+<p>
+<a href="/Projects/modules.html">Docs</a>
+<p>
+<a href="http://bio.perl.org/Core/Latest/">Download</a>
+<p>
+<a href="/News/">News</a>
+<p>
+<a href="/MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/Bugs/">Bugs</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="/Related.html">Related</a>
+<p>
+<a href="/Thanks.html">Sponsors</a>
+<p>
+</font>
+<!########################## SIDEBAR CONTENTS>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD ALIGN=LEFT BGCOLOR="#dadada">
+<B>
+<font face="Arial, Helvetica, sans-serif" color="#000080">Bioperl Development Roadmap</font></B>
+<BR>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<p>
+<br>
+<b><center>Where we are. What we have. Where we are going.</center></b>
+
+<p>The bioperl sequence object has been integrated into a general
+framework developed by Steve Chervitz. The current framework has since
+expanded and is comprised of <a href="http://bio.perl.org/Projects/modules.html">a set of integrated modules</a> The <a href="/Core/Latest/">core distribution</a> is now available worldwide via <a href="http://www.perl.com/CPAN/README.html">CPAN</a>. Our modules can be found in the <a href="http://www.perl.com/CPAN/modules/by-module/Bio/">Bio/ directory</a>. 
+<p>
+<b>Design</b><br>
+The overall design of the core modules is (roughly) coordinated from the <a href="/Projects/overview.html">
+Projects overview</a> page. This page focuses on the Perl module code which is already in the CVS system or
+expected to be eventually.
+<p>
+
+<b>Current Efforts</b><br>
+Bioperl is now running smoothly from a central source code
+repository. The 0.04* release is out and is only being bug-fixed
+while people add features and work on code for the eventual 0.05 release.
+<p>
+We are busy preparing for the first <a href="/bioperl-99">Bioperl Workshop</a> which will be held right before ISMB-99 in Heidelberg Germany.
+<p>
+<b>Code status & Committments</b><br> 
+<b>PreSeq.pm</b> has been
+replaced by <b>Seq.pm</b> and will become our general flexible and
+lightweight sequence object. <b>Parse.pm</b> is no longer being used
+by core bioperl code. We will also be moving all sequence formatting and parsing code out of the sequence object and transitioning over to the <b>SeqIO/*</b> modules<br>
+<p>
+
+<b><font size=+1>In Progress / Things that may end up in the next release</b></font><br>
+<blockquote>
+If you are <b>really</b> curious about how these projects are going, join the <a href="/MailList.html">guts-list</a> or check the most <a href="ftp://bio.perl.org/pub/SRC/bioperl/">recent source code</a> dump. 
+</blockquote>
+<ul>
+<li><b>Bio::Tools::Fasta</b> - Similar to our robust support for launching and manipulating BLAST search results, we hope to do the same with Fasta.
+<li><b>Bio::DB::Genbank</b> - Given an accession number, fetches sequence from NCBI website and returns a bioperl sequence object. Genbank is the first of many databases we hope to make our objects 'aware' of in this way. Aaron Mackey is working on this.
+<li><b>Bio::SeqIO</b> - new stream based methods for reading and writing to/from sequence database files. Lots of code coming in-- so far we have <b>SeqIO::Genbank</b>, <b>SeqIO::EMBL</b>, <b>SeqIO::Fasta</b>, <b>SeqIO::Raw</b>, <b>SeqIO::GCG</b> and more on the way.
+<li><b>Bio::Tools::Sigcleave</b> - perl emulator of the EGCG Sigcleave utility. Chris Dagdigian is working on this.
+<li><b>Bio::SeqFeature</b> and <b>Bio::Entry</b> - The Bio::Entry is
+the 'heavy weight' sequence object which is more like a representation
+of a Genbank or EMBL flat file complete with feature table. Ian Korf
+is working on these objects.  <li><b>Bio::Structure</b> - A number of
+people have been talking about a Structure object (probably an object
+heirarchy). More info in the <a href="/Projects/">/Projects/ section</a>.
+
+ <li><b>Bio::SearchDist</b> - A perl wrapper for Sean
+Eddy's Extreme Value and Gaussian fitting code (already provided in
+the bp_sw XS extension). Ewan Birney is working on this.
+
+</ul>
+Steve Chervits, the bioperl coordinator is maintaining and improving
+the <b>Bio::Tools::Blast</b> and <b>Bio::Root</b> code.
+<p>
+
+<p>
+<font face="Arial, Helvetica, sans-serif" size=+1>
+<a href="/">&lt;&lt;back</a>
+</font>
+
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="/images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date$</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
+
+</BODY>
+</HTML>
+
+
+
+
