@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META name="bioperl project - developers & advocates of public domain tools for computational biolog, bioinformatics and life science research.">
+
+<META name="keywords" content="perl, biology, bioinformatics, bioperl, computational biology, perl modules, object-oriented programming, genome, sequence analysis">
+
+<TITLE>bio.perl.org - Sequence Objects</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#000080" VLINK="#000080" ALINK="#000080">
+
+<font face="Arial, Helvetica, sans-serif" color="#000080">
+
+<center>
+<h2>
+<a href="http://bio.perl.org/">bio.perl.org</a>
+</h2>
+</center>
+
+<TABLE BORDER=0>
+<TR>
+<TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
+<font face="Arial, Helvetica, sans-serif">
+<a href="/">Home</a>
+<p>
+<b>
+<a href="/Projects">Projects</a>
+</b>
+<p>
+<a href="/Projects/modules.html">Docs</a>
+<p>
+<a href="http://bio.perl.org/Core/Latest/">Download</a>
+<p>
+<a href="/News/">News</a>
+<p>
+<a href="/MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/Bugs/">Bugs</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="/Related.html">Related</a>
+<p>
+<a href="/Thanks.html">Sponsors</a>
+<p>
+</font>
+<!########################## SIDEBAR CONTENTS>
+</TD>
+
+
+<! margin >
+<TD ROWSPAN=20><IMG SRC="/images/transparent.gif" WIDTH=5 ALT=" ">
+</TD>
+
+
+<TD ALIGN=LEFT VALIGN=TOP>
+<DIV ALIGN=RIGHT></DIV>
+
+
+<! main column #1>
+<TABLE BORDER=0 CELLPADDING=3>
+
+<TR>
+<TD BGCOLOR="#dadada">
+<b>
+<font face="Arial, Helvetica, sans-serif" color="#000080">Project: Sequence Databases</font>
+</b>
+</TD>
+</TR>
+
+<tr>
+<td>
+<font face="Arial, Helvetica, sans-serif">
+
+Bioinformatics interacts with databases considerably. Most of this interaction is
+<b>read only</b>, that is people viewing or copying locally and then manipulating
+data. There is a need for <b>read/write</b> but mainly in commerical ventures and
+part of a larger system where bioperl will probably not be the central component.
+It makes sense therefore to concentrate on read only aspects of it.
+<p>
+At the moment the main need is for access to sequence databases. The access should
+have the following requirements
+<ul>
+<li> It should provide sensible bioperl objects (eg Bio::Seq, or the AnnotatedSeq
+suggested in the <a href="../SeqAnnot">SeqAnnot</a> pages)
+<li> The implementation should be transparent to the client script/object, ie all
+implementations work the same
+<li> It should be easy to add a new implementation (eg, for an in house RDB).
+</ul>
+Notice that following things are probably not needed
+<ul>
+<li> A complex query ability. There is not enough schema agreement (let alone query
+language) amongst sequence databases to let this happen
+<li> write ability
+</ul>
+
+This suggests a pretty straight forward design of
+<ul>
+<li>An abstract interface defining the methods that can be used 
+<li>Implementations that inheriet from that interface
+</ul>
+This strategy is what is in place for the 0.05 release (due out in March 1999).
+<hr>
+Although the sequence database issue is relatively straightforward, a more complex
+issue is to deal with a meta database system of which the sequence database would be
+one such type.
+<p>
+The meta db is to provide a way of specifying some biological information without
+indicating a precise object or indeed the precise database to use (for example,
+either EMBL or GenBank can provide DNA sequence from an accession number). 
+In addition, it is probably limiting to restrict every type of biological information
+to have one and one only object representation, but allow the precise object representation
+to be determined by a client.
+<p>
+This meta database system <b>is not</b> something that we need in place now, but it is
+important to think about it so that what we do does not clash with something in
+the future.
+<p>
+The meta db system might have the following sort of design
+<ul>
+<li>A Cross Reference object, which uniquely indicates some sort of biological data
+without actually storing it, or knowing where it should found, or the object representation
+of it. It could be something as simiple as "Database = DNA, Primary_id = X46070".
+<li>A Resolver object, which can take a Cross Reference object and return the biological
+information indicated, potentially with a indication of the object type returned
+</ul>
+
+For the moment, it is clear that the DB system developed for Sequence databases 
+should not restrict the development of a meta database system
+
+
+<TR>
+<TD>
+<p>
+<font face="Arial, Helvetica, sans-serif" size=+1>
+<a href="../">&lt;&lt;back</a>
+</font>
+<p>
+</font>
+</TD>
+</TR>
+
+
+
+<!spacer >
+<TR><TD><IMG SRC="/images/transparent.gif" WIDTH=230 HEIGHT=1></TD></TR>
+</TABLE>
+</TD>
+
+<! end first main column>
+
+
+<! vertical spacer bar>
+<TD WIDTH=3 BGCOLOR="#000080"><IMG SRC="/images/transparent.gif" WIDTH=1 HEIGHT=1></TD>
+
+
+</TD>
+</TR>
+</TABLE>
+
+<! ### START CVS DATESTAMP >
+<p><p align=right>Last Modified: $Date$</p>
+<! ### STOP CVS DATESTAMP >
+
+<! ### START CVS REVISION >
+<!-- $Id$ -->
+<! ### STOP CVS REVISION >
+
+</BODY>
+</HTML>
