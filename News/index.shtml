@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+
+    <!--#include virtual="/_header_start.html" -->
+
+
+<TITLE> bioperl.org - News </TITLE>
+
+    <!--#include virtual="/_header_end.html" -->
+    <!--#include virtual="/_body_start.html" -->
+    <!--#include virtual="/_main_heading.html" -->
+
+    <!--#include virtual="/_main_table_start.html" -->
+    <!--#include virtual="/_sidebar.html" -->
+    <!--#include virtual="/_small_margin_col.html" -->
+    <!--#include virtual="/_main_content_start.html" -->
+    <!--#include virtual="/_main_content_table_start.html" -->
+
+<B><font face="Arial, Helvetica, sans-serif" color="#000080">
+Project News
+</font></B><BR>
+</TD>
+</TR>
+<TD> 
+<!-- INSERT YOUR  CONTENT HERE -->
+	  <p><font size=-1>[April 2000]</font></p>
+	  <p>
+	  <ul>
+	  <li><a href="http://ismb00.sdsc.edu/bosc2000/">Bioinformatics Open Source Conference (BOSC-2000)</a> has been <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/0004/0022.html">officially announced</a>. This
+is our followup meeting to the bioperl-99 event. BOSC-2000 will expand
+in scope to cover all of the various bioperl, biopython, biojava
+and bioxml efforts.
+	  <li>More info on optional <a href="/Core/external.shtml">bioperl extentions and dependencies</a> added to the website
+	  <li>Bioperl 0.6 Released!<p>
+	  </ul>
+	  <p>
+            <p><font size=-1>[Jan - Mar 2000]</font></p>
+            <p><ul>
+	    <li>SteveC <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-announce/0001/0001.html">steps down</a> as BioPerl chief coordinator. Ewan Birney will be taking over.
+	    <li>Ewan talks about the <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/0001/0019.html">current state</a> of BioPerl.
+	    <li><a href="http://biojava.org">biojava.org</a> is starting to take off, real code is available via anonymous CVS at <a href="http://cvs.biojava.org">cvs.biojava.org</a> and the <a href="http://biojava.org/pipermail/biojava-l/">mailing list</a> is generating good discussions.
+	    <li>BioPerl code via anonymous CVS available at <a href="http://cvs.bioperl.org">cvs.bioperl.org</a>
+            </ul>
+            <p>
+
+            <p><font size=-1>[June - December 1999]</font></p>
+            <p><ul>
+             <li>There is now a bioperl server for anonymous cvs access: <a href="http://cvs.bioperl.org">cvs.bioperl.org</a>
+             <li>The <a href="http://ensembl.ebi.ac.uk">ensEMBL</a> genome annotation project will be making use of the bioperl codebase
+              <li> Bioperl <a href="/Core/status.html">Status page</a> updated with rough roadmap for the next (0.6) release.
+              <li>Several bioperlers and mailist members were at the <a href="http://cbcg.lbl.gov/OiB99/">Objects In Bioinformatics meeting (OiB'99)</a>. Plans for hosting & supporting <b>bioxml.org</b> and <b>biopython.org</b> were discussed.              <li><a href="/bioperl-99/pictures.html">Pictures</a> from the Bioperl'99 workshop are available
+              <li> Ewan Birney has posted the <a href="/Projects/Sequence/reimpl.html"><b>Bio::Seq.pm</b> reimplementation proposal</a>. Send comments to the bioperl-guts list.
+              <li> The <a href="/bioperl-99/">workshop</a> was success and the project has attracted several new developers. More info to follow.
+              <li> <b>bio.perl.org</b> is now <a href="UserInfo/hardware.html">a 600mhz Alpha</a> dontated by Compaq with hosting and bandwith provided by Genetics Institute.
+              <li><a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-announce/9906/0001.html">Bioperl 0.05.1 has been released</a>
+              <li><a href="http://www.debian.org/Packages/unstable/misc/bioperl.html">Bioperl 
+                Debian package available</a></li>
+</ul>
+            <p><font size=-1>[April / May 1999]</font><br>
+            <ul>
+              <li>Bioperl release 0.05 is available. <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-announce/9904/0001.html">Read 
+                the annoucement</a>. 
+              <li>We have a <a href="http://iubio.bio.indiana.edu/soft/molbio/perl/bioperl/">new 
+                http/ftp mirror site</a> for bioperl core distributions. Thanks 
+                to Don Gilbert at Indiana University. 
+              <li><b><a href="/bioperl-99/">Bioperl-99 Workshop Officially Announced</a>.</b> 
+                Aug 5th in Heidelberg Germany. 
+              <li>Chervitz et al. <a href="http://www.bitsjournal.com/bioperl.html">have 
+                a paper up</a> on the <a href="http://www.bitsjournal.com">BITS 
+                Journal website</a>. 
+            </ul>
+            <p><font size=-1>[March 1999]</font><br>
+            <ul>
+	    <li>Chervitz et al. <a href="http://www.bitsjournal.com/bioperl.html">have a paper up</a> on the <a href="http://www.bitsjournal.com">BITS Journal website</a>.
+            <li>SteveC and Ewan have reorganized and expanded
+                the Bioperl Projects area. The <a href="/Projects/overview.html">
+                overview is here</a>. Please send your comments to one of the mailing lists.
+	    <li><a href="http://bio.perl.org/Core/Latest/">Bioperl
+	    0.04.4 maintenance release now available</a>
+	    <li><a href="/bioperl-99/">Bioperl-99 Workshop Announced</a>. Aug 5th in Heidelberg Germany.
+           <li>The bioperl core distribution is now available worldwide via <a href="http://www.perl.com/CPAN/README.html">CPAN</a>. Our modules can be found in the <a href="http://www.perl.com/CPAN/modules/by-module/Bio/">Bio/ directory</a>.
+           </ul>
+
+<p>
+          <font size=-1>[January / February 1999]</font><br>
+            <ul>
+              <li>New: <b><a href="/cgi-bin/fom">Bioperl Frequently Asked Questions 
+                (FAQ)</a></b> system! 
+              <li>Ewan <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9901/index.html">kickstarts 
+                discussion</a> on bioperl core support for <a href="/Projects/SeqAlign/overview.html">Sequence 
+                Alignments</a>. 
+              <li> Good <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9901/index.html">XML 
+                thread</a> (Dec. &amp; Jan. archives) on the bioperl list. David 
+                States is mirroring his <a href="/Projects/XML/">bioXML info</a> 
+                on this server. 
+            </ul>
+
+<p>
+<font size=-1>[December 1998]</font><br>
+<ul>
+              <li>Maintenance release <b><a href="http://bio.perl.org/Core/Latest/">bioperl-0.04.2</a></b> is available. 
+              <li>Ewan Birney &amp; Matthew Pocock have made their <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9812/0021.html">prEMBL 
+                modules available</a> from the Sanger Centre. prEMBL is a set 
+                of Perl modules designed for the easy parsing and manipulation 
+                of EMBL-format type databases.</li>
+              <li>Maintenance release 
+	      <b><a href="http://bio.perl.org/Core/Latest/">bioperl-0.04.1</a></b>
+	      is available.
+              <li>3D Biomolecular Structure Handling - Eser Ayanoglu and others 
+                at Stanford have <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9812/0013.html">issued a request for comments</a>.</li>
+              <li><b><a href="http://bio.perl.org/Core/Latest/">bioperl-0.04</a>
+              lives!</b> Officially updated with new code, new
+              documentation and test suit. Follow the threads on the <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9812/index.html">bioperl</a> and <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/9812/index.html">bioperl-guts</a> lists. 
+   <li>Hardware heads may be interested in <a href="/UserInfo/hardware.html">pictures
+     of our server setup</a>.
+</ul>
+<p>
+         <font size=-1>[November 1998]</font><br>
+            <ul>
+              <li>Lincoln Stein has released version 1.10 of <a href="http://stein.cshl.org/software/boulder/">BoulderIO</a>. 
+                Read his annoucement <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9811/0005.html">here</a>.<br>
+                <br>
+              <li> The first 'official' bioperl release will be announced shortly. 
+                We are extremely interested in feedback regarding installation/compilation 
+                experiences.
+            </ul>
+<p>
+
+<font size=-1>[October 1998]</font><br>
+<ul>
+<li>Ewan has released a <a href="http://www.sanger.ac.uk/Software/Wise2/">Wise2 beta that is useable via Perl and XS</a>. Info on the Perl port is <a href="http://www.sanger.ac.uk/Software/Wise2/Programming">(here)</a>.
+<li>Bioperl <a href= "ftp://bio.perl.org/pub/SRC/Bio/examples/">examples/</a> directory started. First step towards some "cookbook" style documentation.
+<li>SteveC has updated <a href="/Core/POD/Tools/RestrictionEnzyme.html">RestrictionEnzyme.pm</a>
+<li><b>Milestone:</b> - bioperl now builds from a central
+Makefile.PL (including the C XS extensions). We
+are getting closer and closer to our goal of
+being able to build public distributions directly
+from our central source tree. Check the 
+<a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/index.html">
+the guts-list</a> for the details.
+</ul>
+<p>
+<font size=-1>[September 1998]</font><br>
+<ul>
+<li>Ewan announces 1st version of Protein Smith-Waterman interface in <a href="/News/071.html">Bio::Tools::pSW</a> (uses XS)
+<li>Ian announces 1st versions of <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl-guts/9809/0056.html">Bio::SeqFeature and Bio::SeqFeatureParser</a>
+<li>SteveC has updated <a href="http://genome-www.stanford.edu/perlOOP/bioperl/blast/">Bio::Tools::Blast</a>
+<li>Andewq Dalke has a <a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9809/0001.html">Python/Perl package for parsing PDB files</a>
+<li><a href="http://biz.yahoo.com/bw/980901/omg_1.html">CORBA LSR/DSIG press release</a>
+</ul>
+<p>
+<p>
+<font size=-1>[August 1998]</font><br>
+<ul>
+<li>Announce: <a href="http://hercules.tigem.it/Biomodules.html">PaintBlast.pm</a> -  parsing and graphical representation of a Blast search output
+<li>Announce: <a href="http://hercules.tigem.it/Biomodules.html">CheckSeq.pm</a> - checking coherency between a given sequence and a selected Blast program
+<li>Steve Chervitz has updated his <a href="http://genome-www.stanford.edu/perlOOP/bioperl/blast/">Bioperl Blast.pm module</a>
+<li>bio.perl.org is born!
+<li>A <a href="http://genome-www.stanford.edu/perlOOP/bioperl/ismb98/poster/">
+bioperl poster</a> was presented at <a href="http://www-lbit.iro.umontreal.ca/ISMB98/index.html">
+ISMB'98</a> and <a href="http://www.ebi.ac.uk/oib98/">OiB'98</a>.
+</ul>
+<p>
+<font size=-1>[July 1998]</font><br>
+<ul>
+<li><a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9807/0002.html">
+SteveC's ISMB'98 Meeting minutes & summary</a><br>
+<li><a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9807/0007.html">
+ANNOUNCE: NHGRI::Blastall.pm (alpha)</a><br>
+<li><a href="http://www.uni-bielefeld.de/mailinglists/BCD/vsns-bcd-perl/9807/0010.html">
+ANNOUNCE: PubMed Monitor (alpha)</a><br>
+</ul>
+<p>
+<font face="Arial, Helvetica, sans-serif" color="#000080" size+1><a href="/index.shtml"><b>&lt;&lt;back</b></a></font>
+<p>
+</font>
+
+<!-- END YOUR CONTENT BEFORE THIS LINE -->
+
+
+    <!--#include virtual="/_main_content_table_end.html" -->
+    <!--#include virtual="/_main_content_end.html" -->
+    <!--#include virtual="/_main_table_end.html" -->
+
+    <! ### START CVS DATESTAMP >
+    <P ALIGN=RIGHT>Last Modified: $Date: 2000-07-06 13:40:05 $</P>
+    <! ### STOP CVS DATESTAMP >
+
+    <! ### START CVS REVISION >
+    <!-- $Id: index.shtml,v 1.1 2000-07-06 13:40:05 dag Exp $ -->
+    <! ### STOP CVS REVISION >
+
+    <!--#include virtual="/_body_end.html" -->
+</HTML>
