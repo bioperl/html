@@ -17,12 +17,26 @@
 <TABLE BORDER=0>
 <TR>
 <TD BGCOLOR="#dadada" VALIGN=TOP WIDTH=100 ROWSPAN=20>
+<!########################## SIDEBAR CONTENTS>
 <font face="Arial, Helvetica, sans-serif" size=-1>
 <a href="/">Home</a>
-<br>
+<p>
 <a href="ftp://bio.perl.org/pub/">FTP Site</a>
 <p>
+<a href="/News/">News</a>
+<p>
+<a href="MailList.html">Mail Lists</a>
+<p>
+<a href="/UserInfo/">Developers</a>
+<p>
+<a href="/bioperl-bugs/">Bug Tracking</a>
+<p>
+<a href="/Participants/">Participants</a>
+<p>
+<a href="Thanks.html">Sponsors</a>
+<p>
 </font>
+<!########################## SIDEBAR CONTENTS>
 </TD>
 
 
@@ -144,7 +158,7 @@ while ($record = $stream->read_record('NAME','SEQUENCE')) {
          }  
 </pre></b>
 <font face="Arial, Helvetica, sans-serif" size=-1>
-(If you're interested, more information about the boulderio format and the perl libraries to manipulate it can be found at <a href="http://www.genome.wi.mit.edu/ftp/pub/software/boulderio/">http://www.genome.wi.mit.edu/ftp/pub/software/boulderio/</a>).   
+(If you're interested, more information about the boulderio format and the perl libraries to manipulate it can be found at <a href="http://stein.cshl.org/software/boulder/">http://stein.cshl.org/software/boulder/</a>).   
 <p>
 The interesting thing is that multiple informatics groups independently converged on solutions that were similar to the boulderio idea.  For example, several groups involved in the worm sequencing project began using a data exchange format called ".ace". Although this format was initially designed as the data dump and reload format for the ACE database (a database specialized for biological data), it happens to use a tag/value format that's very similar to boulderio.  Soon .ace files were being processed by Perl script pipelines and loaded into the ACE database at the very last step.  
 <p>
