@@ -129,11 +129,11 @@ Info for developers and users on bioperl.org
     <!--#include virtual="/_main_table_end.html" -->
 
     <! ### START CVS DATESTAMP >
-    <P ALIGN=RIGHT>Last Modified: $Date: 2001-05-28 14:34:24 $</P>
+    <P ALIGN=RIGHT>Last Modified: $Date: 2001-05-28 14:34:28 $</P>
     <! ### STOP CVS DATESTAMP >
 
     <! ### START CVS REVISION >
-    <!-- $Id: index.shtml,v 1.2 2001-05-28 14:34:24 dag Exp $ -->
+    <!-- $Id: index.shtml,v 1.3 2001-05-28 14:34:28 dag Exp $ -->
     <! ### STOP CVS REVISION >
 
     <!--#include virtual="/_body_end.html" -->
